@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfsaw8v2tabgy"]
+[gd_scene load_steps=8 format=3 uid="uid://bfsaw8v2tabgy"]
 
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_pjnts"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="2_31sm2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_egsed"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,7 +31,7 @@ use_collision = true
 size = Vector3(15.5317, 0.35194, 15.9929)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030159, 1.42359, -0.0412287)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030159, -0.141058, -0.0412287)
 script = ExtResource("1_pjnts")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
@@ -45,3 +46,15 @@ shape = SubResource("ConvexPolygonShape3D_xndca")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.104641, 1.75035, 0.202219)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head"]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -4.0
+offset_top = 351.0
+offset_right = 36.0
+offset_bottom = 391.0
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("2_31sm2")]
+offset_left = -4.0
+offset_top = -297.0
+offset_right = 296.0
+offset_bottom = 3.0
