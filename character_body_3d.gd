@@ -1,8 +1,18 @@
 extends CharacterBody3D
 
+@onready var HEAD = $Head
+@onready var JUMP_BTN = $"../JumpBtn"
+
+const SENSITIVITY = 0.25
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const GRAVITY = 9.8  # Gravity should be positive
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		rotate_y(deg_to_rad(event.relative.x * SENSITIVITY ))
+		HEAD.rotate_x(deg_to_rad(-event.relative.y * SENSITIVITY))
+		
 
 func _physics_process(delta):
 	# Apply gravity
@@ -10,7 +20,7 @@ func _physics_process(delta):
 		velocity.y -= GRAVITY * delta  # Use defined GRAVITY instead of get_gravity()
 
 	# Handle jump
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") or JUMP_BTN.is_pressed() and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle movement
