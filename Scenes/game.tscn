@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfsaw8v2tabgy"]
+[gd_scene load_steps=15 format=3 uid="uid://bfsaw8v2tabgy"]
 
+[ext_resource type="Shader" path="res://Scenes/test.gdshader" id="1_imcf8"]
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_pjnts"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="2_31sm2"]
+[ext_resource type="PackedScene" uid="uid://df74ph78k6221" path="res://Interact/interact_ray.tscn" id="2_qi3oa"]
 [ext_resource type="Texture2D" uid="uid://cn312ul1vonk0" path="res://Assets/noFilter.png" id="2_y0p1c"]
 [ext_resource type="Texture2D" uid="uid://daejyuuo0hs7p" path="res://Assets/E.png" id="3_r316v"]
+[ext_resource type="Texture2D" uid="uid://b4qpvxsp7y5au" path="res://Assets/Crosshair-PNG-Picture.png" id="6_ysc0h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_egsed"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -17,6 +20,16 @@ background_mode = 2
 sky = SubResource("Sky_e3tl3")
 tonemap_mode = 2
 
+[sub_resource type="PrismMesh" id="PrismMesh_65l3q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t0kbg"]
+shader = ExtResource("1_imcf8")
+shader_parameter/scale_r = Vector2(1, 1)
+shader_parameter/scale_g = Vector2(1, 1)
+shader_parameter/scale_b = Vector2(1, 1)
+shader_parameter/global_scale = Vector2(1, 1)
+shader_parameter/scale_multiplier = 10.0
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vlcf7"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xndca"]
@@ -26,6 +39,12 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a8r4r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99669, 0.0812949, 0, -0.0812949, 0.99669, 0, 0, 0, 1, 3.10586, 0.568932, 0.419995)
+mesh = SubResource("PrismMesh_65l3q")
+skeleton = NodePath("../CSGBox3D")
+surface_material_override/0 = SubResource("ShaderMaterial_t0kbg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.425847, -0.183537, -0.0875015)
@@ -49,41 +68,76 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.104641, 1.75035, 0.202219)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head"]
 
-[node name="InteractBtn" type="TextureButton" parent="CharacterBody3D"]
+[node name="InteractRay" parent="CharacterBody3D/Head" instance=ExtResource("2_qi3oa")]
+
+[node name="User Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InteractBtn" type="TextureButton" parent="User Control"]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -467.0
-offset_top = -467.0
-offset_right = -289.0
-offset_bottom = -289.0
+offset_left = 666.0
+offset_top = 10.0
+offset_right = 877.0
+offset_bottom = 221.0
 grow_horizontal = 0
 grow_vertical = 0
 texture_normal = ExtResource("3_r316v")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Virtual Joystick" parent="CharacterBody3D" instance=ExtResource("2_31sm2")]
-offset_left = 10.0
-offset_top = -608.0
-offset_right = 310.0
-offset_bottom = -308.0
+[node name="Virtual Joystick" parent="User Control" instance=ExtResource("2_31sm2")]
+layout_mode = 1
+offset_left = -932.0
+offset_top = -88.0
+offset_right = -632.0
+offset_bottom = 212.0
 scale = Vector2(2, 2)
 
-[node name="JumpBtn" type="TextureButton" parent="CharacterBody3D"]
+[node name="JumpBtn" type="TextureButton" parent="User Control"]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -262.0
-offset_top = -245.0
-offset_right = -105.0
-offset_bottom = -88.0
+offset_left = 422.0
+offset_top = 243.0
+offset_right = 642.0
+offset_bottom = 463.0
 grow_horizontal = 0
 grow_vertical = 0
 texture_normal = ExtResource("2_y0p1c")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="User Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -134.0
+offset_right = 137.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ysc0h")
+expand_mode = 1
