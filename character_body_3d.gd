@@ -1,12 +1,12 @@
 extends CharacterBody3D
 
 @onready var HEAD = $Head
-@onready var JUMP_BTN = $"../JumpBtn"
+@onready var JUMP_BTN = $JumpBtn
 
-const SENSITIVITY = 0.1
+const SENSITIVITY = 0.25
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const GRAVITY = 9.8  # Gravity should be positive
+const GRAVITY = 10.6  # Gravity should be positive
 
 func _input(event):
 	if event is InputEventMouseMotion:

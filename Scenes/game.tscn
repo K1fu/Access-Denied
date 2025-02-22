@@ -49,23 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.104641, 1.75035, 0.202219)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head"]
 
-[node name="JumpBtn" type="TextureButton" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -262.0
-offset_top = -245.0
-offset_right = -105.0
-offset_bottom = -88.0
-grow_horizontal = 0
-grow_vertical = 0
-texture_normal = ExtResource("2_y0p1c")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="InteractBtn" type="TextureButton" parent="."]
+[node name="InteractBtn" type="TextureButton" parent="CharacterBody3D"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -81,9 +65,25 @@ texture_normal = ExtResource("3_r316v")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Virtual Joystick" parent="." instance=ExtResource("2_31sm2")]
+[node name="Virtual Joystick" parent="CharacterBody3D" instance=ExtResource("2_31sm2")]
 offset_left = 10.0
 offset_top = -608.0
 offset_right = 310.0
 offset_bottom = -308.0
 scale = Vector2(2, 2)
+
+[node name="JumpBtn" type="TextureButton" parent="CharacterBody3D"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -262.0
+offset_top = -245.0
+offset_right = -105.0
+offset_bottom = -88.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("2_y0p1c")
+ignore_texture_size = true
+stretch_mode = 0
