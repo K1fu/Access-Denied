@@ -17,10 +17,10 @@ func _input(event):
 		HEAD.rotate_x(deg_to_rad(-event.relative.y * SENSITIVITY))
 
 		# Clamp vertical rotation properly
-		HEAD.rotation.x = clamp(HEAD.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+		HEAD.rotation.x = clamp(HEAD.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _physics_process(delta):
-	# Apply gravity
+	# Apply gravityq
 	if not is_on_floor():
 		velocity.y = move_toward(velocity.y, -GRAVITY, delta * GRAVITY)
 
