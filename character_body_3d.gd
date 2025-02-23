@@ -25,7 +25,7 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, -GRAVITY, delta * GRAVITY)
 
 	# Handle jump
-	if (Input.is_action_just_pressed("ui_accept") or JUMP_BTN.button_pressed) and is_on_floor():
+	if (Input.is_action_just_pressed("ui_accept")) and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Handle movement input

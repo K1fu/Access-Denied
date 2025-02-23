@@ -99,47 +99,12 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InteractBtn" type="TextureButton" parent="User Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 666.0
-offset_top = 10.0
-offset_right = 877.0
-offset_bottom = 221.0
-grow_horizontal = 0
-grow_vertical = 0
-texture_normal = ExtResource("3_r316v")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="Virtual Joystick" parent="User Control" instance=ExtResource("2_31sm2")]
 layout_mode = 1
-offset_left = -932.0
-offset_top = -88.0
-offset_right = -632.0
-offset_bottom = 212.0
-scale = Vector2(2, 2)
-
-[node name="JumpBtn" type="TextureButton" parent="User Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 422.0
-offset_top = 243.0
-offset_right = 642.0
-offset_bottom = 463.0
-grow_horizontal = 0
-grow_vertical = 0
-texture_normal = ExtResource("2_y0p1c")
-ignore_texture_size = true
-stretch_mode = 0
+offset_left = -455.0
+offset_top = 69.0
+offset_right = -284.0
+offset_bottom = 240.0
 
 [node name="TextureRect" type="TextureRect" parent="User Control"]
 layout_mode = 1
@@ -156,5 +121,17 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_ysc0h")
 expand_mode = 1
+
+[node name="Jump" type="TouchScreenButton" parent="User Control"]
+position = Vector2(242, 184)
+scale = Vector2(0.297619, 0.297619)
+texture_normal = ExtResource("2_y0p1c")
+action = "ui_accept"
+
+[node name="interact" type="TouchScreenButton" parent="User Control"]
+position = Vector2(401, 66)
+scale = Vector2(0.66, 0.66)
+texture_normal = ExtResource("3_r316v")
+action = "interact"
 
 [connection signal="interacted" from="Computer2" to="Computer2" method="_on_interacted"]
