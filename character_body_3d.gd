@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
 @onready var HEAD = $Head
-@onready var JUMP_BTN = $"../User Control/JumpBtn"
 
 const SENSITIVITY = 0.1
 const SPEED = 5.0
