@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Interact/interact_ray.gd" id="1_5p15t"]
 
 [node name="InteractRay" type="RayCast3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 target_position = Vector3(0, 0, -4)
 collision_mask = 65535
 script = ExtResource("1_5p15t")
