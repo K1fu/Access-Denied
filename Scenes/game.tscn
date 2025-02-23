@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bfsaw8v2tabgy"]
+[gd_scene load_steps=17 format=3 uid="uid://bfsaw8v2tabgy"]
 
+[ext_resource type="Script" path="res://interactable.gd" id="1_ben4w"]
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_pjnts"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="2_31sm2"]
 [ext_resource type="PackedScene" uid="uid://df74ph78k6221" path="res://Interact/interact_ray.tscn" id="2_qi3oa"]
@@ -19,15 +20,15 @@ background_mode = 2
 sky = SubResource("Sky_e3tl3")
 tonemap_mode = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_s3wcu"]
+size = Vector3(1.00452, 0.997741, 1)
+
 [sub_resource type="PrismMesh" id="PrismMesh_65l3q"]
 
 [sub_resource type="Skin" id="Skin_qfqxc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn73p"]
 albedo_texture = ExtResource("2_y0p1c")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_s3wcu"]
-size = Vector3(1.8418, 1.50891, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vlcf7"]
 
@@ -39,18 +40,20 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a8r4r")
 
-[node name="Computer" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.99669, 0.0812949, 0, -0.0812949, 0.99669, 0, 0, 0, 1, 3.10586, 0.568932, 0.419995)
+[node name="Computer2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.99669, 0.0812949, 0, -0.0812949, 0.99669, 0, 0, 0, 1, 3.11355, 1.35942, -0.101812)
+script = ExtResource("1_ben4w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Computer2"]
+transform = Transform3D(1, -6.70552e-07, 0, 6.70552e-07, 1, 0, 0, 0, 1, -0.0123892, -0.00112927, -0.205012)
+shape = SubResource("BoxShape3D_s3wcu")
+
+[node name="Computer" type="MeshInstance3D" parent="Computer2"]
+transform = Transform3D(1, -1.49012e-08, 0, 1.49012e-08, 1, 0, 0, 0, 1, 0, 0, -0.202965)
 mesh = SubResource("PrismMesh_65l3q")
 skin = SubResource("Skin_qfqxc")
-skeleton = NodePath("../CSGBox3D")
+skeleton = NodePath("../../CSGBox3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_rn73p")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Computer"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Computer/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014648, 0.254455, 0)
-shape = SubResource("BoxShape3D_s3wcu")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.425847, -0.183537, -0.0875015)
