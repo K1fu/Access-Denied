@@ -1,7 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://4yynjh87y44h"]
 
-[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_3gd8v"]
 [ext_resource type="Script" path="res://MainMenu.gd" id="2_c7xxw"]
+
+[sub_resource type="GDScript" id="GDScript_5172f"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+
+func _on_exit_button_button_down() -> void:
+	get_tree().change_scene_to_file(\"res://Scenes/game.tscn\")
+"
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -10,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3gd8v")
+script = SubResource("GDScript_5172f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_c7xxw")
@@ -63,3 +76,5 @@ theme_override_font_sizes/font_size = 75
 text = "Quit"
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/Play" to="CanvasLayer" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/Quit" to="CanvasLayer" method="_on_quit_pressed"]
