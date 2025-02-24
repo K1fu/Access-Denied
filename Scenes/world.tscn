@@ -25,33 +25,42 @@ position = Vector2(764, 587)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(198, -45)
 
-[node name="Quit" type="Button" parent="Player/Camera2D"]
+[node name="Control" type="Control" parent="Player/Camera2D"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 662.0
 offset_top = 76.0
-offset_right = 911.0
-offset_bottom = 160.0
+offset_right = 702.0
+offset_bottom = 116.0
+
+[node name="Quit" type="Button" parent="Player/Camera2D/Control"]
+visibility_layer = 512
+offset_right = 249.0
+offset_bottom = 84.0
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 script = ExtResource("2_lfttq")
 
-[node name="Sprint" type="TouchScreenButton" parent="Player/Camera2D"]
-position = Vector2(573, 212)
+[node name="Sprint" type="TouchScreenButton" parent="Player/Camera2D/Control"]
+visibility_layer = 512
+position = Vector2(-89, 136)
 rotation = 1.5708
 scale = Vector2(0.485714, 0.485714)
 texture_normal = ExtResource("3_7ce2o")
 action = "Sprint"
 
-[node name="Virtual Joystick" parent="Player/Camera2D" instance=ExtResource("4_4sxre")]
+[node name="Virtual Joystick" parent="Player/Camera2D/Control" instance=ExtResource("4_4sxre")]
+visibility_layer = 512
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
-offset_left = -656.0
-offset_top = 258.0
-offset_right = -656.0
-offset_bottom = 258.0
+offset_left = -1318.0
+offset_top = 182.0
+offset_right = -1318.0
+offset_bottom = 182.0
 grow_vertical = 1
 scale = Vector2(1.5, 1.5)
-joystick_mode = 2
+visibility_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(302, 259)
@@ -60,4 +69,4 @@ tile_set = SubResource("TileSet_ehr4b")
 format = 2
 layer_0/tile_data = PackedInt32Array(196610, 327680, 45, 196611, 327680, 45, 196612, 327680, 45, 131077, 327680, 45, 65542, 327680, 45, 6, 327680, 45, -65530, 327680, 45)
 
-[connection signal="pressed" from="Player/Camera2D/Quit" to="Player/Camera2D/Quit" method="_on_pressed"]
+[connection signal="pressed" from="Player/Camera2D/Control/Quit" to="Player/Camera2D/Control/Quit" method="_on_pressed"]
