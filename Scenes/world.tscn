@@ -32,9 +32,23 @@ offset_left = 662.0
 offset_top = 76.0
 offset_right = 702.0
 offset_bottom = 116.0
+size_flags_vertical = 4
+
+[node name="Virtual Joystick" parent="Player/Camera2D/Control" instance=ExtResource("4_4sxre")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -16.419
+anchor_top = -1.737
+anchor_right = -16.419
+anchor_bottom = -1.737
+offset_left = -907.24
+offset_top = 185.48
+offset_right = -607.24
+offset_bottom = 485.48
 
 [node name="Quit" type="Button" parent="Player/Camera2D/Control"]
 visibility_layer = 512
+layout_mode = 0
 offset_right = 249.0
 offset_bottom = 84.0
 theme_override_font_sizes/font_size = 30
@@ -48,19 +62,6 @@ rotation = 1.5708
 scale = Vector2(0.485714, 0.485714)
 texture_normal = ExtResource("3_7ce2o")
 action = "Sprint"
-
-[node name="Virtual Joystick" parent="Player/Camera2D/Control" instance=ExtResource("4_4sxre")]
-visibility_layer = 512
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_left = -1318.0
-offset_top = 182.0
-offset_right = -1318.0
-offset_bottom = 182.0
-grow_vertical = 1
-scale = Vector2(1.5, 1.5)
-visibility_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(302, 259)
