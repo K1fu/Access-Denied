@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv4vu1yt0c73i"]
+
+[ext_resource type="Script" path="res://Scenes/button.gd" id="1_53fru"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_p5xjg"]
+[ext_resource type="Texture2D" uid="uid://cn312ul1vonk0" path="res://Assets/noFilter.png" id="2_d2uge"]
+
+[node name="TouchControl" type="CanvasLayer"]
+
+[node name="Quit" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -338.0
+offset_top = -529.0
+offset_right = -81.0
+offset_bottom = -422.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+script = ExtResource("1_53fru")
+
+[node name="Sprint" type="TouchScreenButton" parent="."]
+position = Vector2(1593, 710)
+rotation = 1.5708
+scale = Vector2(0.666321, 0.666321)
+texture_normal = ExtResource("2_d2uge")
+action = "Sprint"
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("1_p5xjg")]
+offset_left = 7.0
+offset_top = -599.0
+offset_right = 307.0
+offset_bottom = -299.0
+scale = Vector2(2, 2)
+
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]

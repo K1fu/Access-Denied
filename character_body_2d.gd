@@ -36,11 +36,11 @@ func get_input():
 	elif input_direction.y < 0:
 		last_direction = "up"
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("ui_right"):
 		animated_sprite.play("R_walking")
 		animated_sprite.flip_h = false

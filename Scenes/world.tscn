@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cu7u2vp3vp6ln"]
+[gd_scene load_steps=6 format=3 uid="uid://cu7u2vp3vp6ln"]
 
 [ext_resource type="PackedScene" uid="uid://ceklaelifj1th" path="res://Scenes/player.tscn" id="2_fn8m8"]
-[ext_resource type="Script" path="res://Scenes/button.gd" id="2_lfttq"]
-[ext_resource type="Texture2D" uid="uid://cn312ul1vonk0" path="res://Assets/noFilter.png" id="3_7ce2o"]
+[ext_resource type="PackedScene" uid="uid://bv4vu1yt0c73i" path="res://Scenes/touch_control.tscn" id="3_n3a12"]
 [ext_resource type="Texture2D" uid="uid://hrvbdsmfth11" path="res://Assets/Interiors_free_16x16.png" id="3_xor80"]
-[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="4_4sxre"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alk3h"]
 texture = ExtResource("3_xor80")
@@ -25,44 +23,6 @@ position = Vector2(764, 587)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(198, -45)
 
-[node name="Control" type="Control" parent="Player/Camera2D"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 662.0
-offset_top = 76.0
-offset_right = 702.0
-offset_bottom = 116.0
-size_flags_vertical = 4
-
-[node name="Virtual Joystick" parent="Player/Camera2D/Control" instance=ExtResource("4_4sxre")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -16.419
-anchor_top = -1.737
-anchor_right = -16.419
-anchor_bottom = -1.737
-offset_left = -907.24
-offset_top = 185.48
-offset_right = -607.24
-offset_bottom = 485.48
-
-[node name="Quit" type="Button" parent="Player/Camera2D/Control"]
-visibility_layer = 512
-layout_mode = 0
-offset_right = 249.0
-offset_bottom = 84.0
-theme_override_font_sizes/font_size = 30
-text = "Quit"
-script = ExtResource("2_lfttq")
-
-[node name="Sprint" type="TouchScreenButton" parent="Player/Camera2D/Control"]
-visibility_layer = 512
-position = Vector2(-89, 136)
-rotation = 1.5708
-scale = Vector2(0.485714, 0.485714)
-texture_normal = ExtResource("3_7ce2o")
-action = "Sprint"
-
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(302, 259)
 scale = Vector2(10, 10)
@@ -70,4 +30,12 @@ tile_set = SubResource("TileSet_ehr4b")
 format = 2
 layer_0/tile_data = PackedInt32Array(196610, 327680, 45, 196611, 327680, 45, 196612, 327680, 45, 131077, 327680, 45, 65542, 327680, 45, 6, 327680, 45, -65530, 327680, 45)
 
-[connection signal="pressed" from="Player/Camera2D/Control/Quit" to="Player/Camera2D/Control/Quit" method="_on_pressed"]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 302.0
+offset_top = 259.0
+offset_right = 342.0
+offset_bottom = 299.0
+
+[node name="TouchControl" parent="Control" instance=ExtResource("3_n3a12")]
