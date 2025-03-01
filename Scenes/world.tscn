@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu7u2vp3vp6ln"]
+[gd_scene load_steps=7 format=3 uid="uid://cu7u2vp3vp6ln"]
 
 [ext_resource type="PackedScene" uid="uid://ceklaelifj1th" path="res://Scenes/player.tscn" id="2_fn8m8"]
 [ext_resource type="PackedScene" uid="uid://bv4vu1yt0c73i" path="res://Scenes/touch_control.tscn" id="3_n3a12"]
 [ext_resource type="Texture2D" uid="uid://hrvbdsmfth11" path="res://Assets/Interiors_free_16x16.png" id="3_xor80"]
+[ext_resource type="PackedScene" uid="uid://cqjf1hwsnj6y2" path="res://Interact/task_area.tscn" id="4_7lc58"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alk3h"]
 texture = ExtResource("3_xor80")
@@ -39,3 +40,6 @@ offset_right = 342.0
 offset_bottom = 299.0
 
 [node name="TouchControl" parent="Control" instance=ExtResource("3_n3a12")]
+
+[node name="TaskArea" parent="." instance=ExtResource("4_7lc58")]
+position = Vector2(513, 242)

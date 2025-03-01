@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Access-Denied"
 run/main_scene="res://Scenes/Splash screen.tscn"
-config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0.172549, 0.192157, 0.341176, 1)
 config/icon="res://icon.svg"
 
@@ -82,6 +82,11 @@ Sprint={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="interaction"
 
 [navigation]
 

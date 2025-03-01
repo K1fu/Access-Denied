@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://ceklaelifj1th"]
+[gd_scene load_steps=23 format=3 uid="uid://ceklaelifj1th"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_s6ifd"]
 [ext_resource type="Texture2D" uid="uid://dlx76sucbhwfh" path="res://Assets/Screenshot_2025-2-9_214139306.png" id="2_turdi"]
+[ext_resource type="PackedScene" uid="uid://cmie3ugfg7is4" path="res://Interact/interacting_component_2d.tscn" id="3_gh44g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xvmhl"]
 atlas = ExtResource("2_turdi")
@@ -162,11 +163,14 @@ size = Vector2(56, 182)
 script = ExtResource("1_s6ifd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(141, -141)
+position = Vector2(65, -142)
 scale = Vector2(6.875, 6.875)
 sprite_frames = SubResource("SpriteFrames_3i5ua")
 animation = &"Down_walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(140, -102)
+position = Vector2(65, -118)
 shape = SubResource("RectangleShape2D_ksjuq")
+
+[node name="InteractingComponent2D" parent="." instance=ExtResource("3_gh44g")]
+position = Vector2(64, -116)
