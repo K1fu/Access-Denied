@@ -1,13 +1,13 @@
 extends StaticBody2D
 
-@onready var interactable: Area2D = $interactable
+@onready var interactable: Area2D = $Interactable
 @onready var sprite_2d: Sprite2D = $Sprite2D
-
+@onready var Task: CanvasLayer = $CanvasLayer
+	
 func _ready() -> void:
 	interactable.interact = _on_interact
+	Task.visible = false
+	
 	
 func _on_interact():
-	if sprite_2d.frame == 0:
-		sprite_2d.frame = 1
-		interactable.is_interactable = false
-		print("The player interacted")
+	Task.visible = true
