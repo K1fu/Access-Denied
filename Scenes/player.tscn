@@ -178,9 +178,9 @@ shape = SubResource("RectangleShape2D_ksjuq")
 [node name="InteractingComponent2D" parent="." instance=ExtResource("3_gh44g")]
 position = Vector2(64, -116)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Player_name" type="Area2D" parent="."]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_name"]
 position = Vector2(64, -126)
 shape = SubResource("CircleShape2D_7l05s")
