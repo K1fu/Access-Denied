@@ -1,13 +1,20 @@
 extends StaticBody2D
 
+#This is the interactable object.
+
 @onready var interactable: Area2D = $Interactable
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var Task: CanvasLayer = $CanvasLayer
 	
 func _ready() -> void:
-	interactable.interact = _on_interact
-	Task.visible = false
-	
-	
+	interactable.interact = _on_interact  # Assign function to interaction
+	interactable.connect("area_entered", _on_area_entered)
+	interactable.connect("area_exited", _on_area_exited)
+
 func _on_interact():
-	Task.visible = true
+	print("Interacted")
+
+func _on_area_entered(area: Area2D):
+	print("Entered:", area.name)
+
+func _on_area_exited(area: Area2D):
+	print("Exited:", area.name)

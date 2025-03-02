@@ -1,5 +1,7 @@
 extends Node2D
 
+#This is what allows the player to interact with an object.
+
 @onready var interact_label: Label = $InteractLabel
 var current_interactions := []
 var can_interact := true
@@ -31,7 +33,6 @@ func _sort_by_nearest(area1, area2):
 
 func _on_interactrange_area_entered(area: Area2D) -> void:
 	current_interactions.push_back(area)
-
 
 func _on_interactrange_area_exited(area: Area2D) -> void:
 	current_interactions.erase(area)

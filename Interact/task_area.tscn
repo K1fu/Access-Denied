@@ -20,6 +20,7 @@ shape = SubResource("RectangleShape2D_hi0vu")
 texture = ExtResource("2_c45bw")
 
 [node name="Interactable" parent="." instance=ExtResource("3_0k78d")]
+collision_mask = 1
 interact_name = "Open Computer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
