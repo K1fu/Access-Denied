@@ -61,6 +61,6 @@ func _process(_delta):
 				animated_sprite.play("R_idle")
 				animated_sprite.flip_h = true
 			"down":
-				animated_sprite.play("Down_idle")
+				animated_sprite.play("idle")
 			"up":
 				animated_sprite.play("Top_idle")
