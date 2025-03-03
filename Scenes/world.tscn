@@ -1,22 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://cu7u2vp3vp6ln"]
+[gd_scene load_steps=11 format=3 uid="uid://cu7u2vp3vp6ln"]
 
 [ext_resource type="PackedScene" uid="uid://ceklaelifj1th" path="res://Scenes/player.tscn" id="2_fn8m8"]
 [ext_resource type="PackedScene" uid="uid://bv4vu1yt0c73i" path="res://Scenes/touch_control.tscn" id="3_n3a12"]
 [ext_resource type="Texture2D" uid="uid://hrvbdsmfth11" path="res://Assets/Interiors_free_16x16.png" id="3_xor80"]
+[ext_resource type="Script" path="res://Scenes/button.gd" id="4_4ua43"]
 [ext_resource type="PackedScene" uid="uid://cqjf1hwsnj6y2" path="res://Interact/task_area.tscn" id="4_7lc58"]
+[ext_resource type="Script" path="res://Scenes/progress_bar.gd" id="4_dwqko"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alk3h"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejoqd"]
 texture = ExtResource("3_xor80")
 5:45/0 = 0
 5:45/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:45/0 = 0
 6:45/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_ehr4b"]
+[sub_resource type="TileSet" id="TileSet_nj68m"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_alk3h")
+sources/0 = SubResource("TileSetAtlasSource_ejoqd")
 
-[node name="world" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3flj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5dea"]
+bg_color = Color(1.73271e-06, 0.721968, 0.293988, 1)
+
+[node name="World" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(302, 259)
+scale = Vector2(10, 10)
+tile_set = SubResource("TileSet_nj68m")
+format = 2
+layer_0/tile_data = PackedInt32Array(196610, 327680, 45, 196611, 327680, 45, 196612, 327680, 45, 131077, 327680, 45, 65542, 327680, 45, 6, 327680, 45, -65530, 327680, 45)
 
 [node name="Player" parent="." instance=ExtResource("2_fn8m8")]
 position = Vector2(764, 587)
@@ -24,22 +38,36 @@ position = Vector2(764, 587)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(198, -45)
 
-[node name="TileMap" type="TileMap" parent="."]
-position = Vector2(302, 259)
-scale = Vector2(10, 10)
-tile_set = SubResource("TileSet_ehr4b")
-format = 2
-layer_0/tile_data = PackedInt32Array(196610, 327680, 45, 196611, 327680, 45, 196612, 327680, 45, 131077, 327680, 45, 65542, 327680, 45, 6, 327680, 45, -65530, 327680, 45)
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 302.0
-offset_top = 259.0
-offset_right = 342.0
-offset_bottom = 299.0
-
-[node name="TouchControl" parent="Control" instance=ExtResource("3_n3a12")]
-
 [node name="TaskArea" parent="." instance=ExtResource("4_7lc58")]
 position = Vector2(513, 242)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="TaskArea"]
+
+[node name="Button1" type="Button" parent="TaskArea/CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.5
+offset_top = -38.5
+offset_right = 102.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Do Task"
+script = ExtResource("4_4ua43")
+
+[node name="HealthBar" type="ProgressBar" parent="TaskArea/CanvasLayer"]
+offset_left = 76.0
+offset_top = 48.0
+offset_right = 656.0
+offset_bottom = 137.0
+theme_override_styles/background = SubResource("StyleBoxFlat_y3flj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_s5dea")
+script = ExtResource("4_dwqko")
+
+[node name="TouchControl" parent="TaskArea/CanvasLayer" instance=ExtResource("3_n3a12")]
+
+[connection signal="pressed" from="TaskArea/CanvasLayer/Button1" to="TaskArea/CanvasLayer/Button1" method="_on_pressed"]
