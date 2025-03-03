@@ -41,6 +41,8 @@ position = Vector2(198, -45)
 [node name="TaskArea" parent="." instance=ExtResource("4_7lc58")]
 position = Vector2(513, 242)
 
+[node name="TouchControl" parent="TaskArea" instance=ExtResource("3_n3a12")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="TaskArea"]
 
 [node name="Button1" type="Button" parent="TaskArea/CanvasLayer"]
@@ -67,7 +69,5 @@ offset_bottom = 137.0
 theme_override_styles/background = SubResource("StyleBoxFlat_y3flj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_s5dea")
 script = ExtResource("4_dwqko")
-
-[node name="TouchControl" parent="TaskArea/CanvasLayer" instance=ExtResource("3_n3a12")]
 
 [connection signal="pressed" from="TaskArea/CanvasLayer/Button1" to="TaskArea/CanvasLayer/Button1" method="_on_pressed"]

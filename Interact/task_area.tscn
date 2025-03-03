@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://do64cyn72wflg" path="res://Interact/interactable2d.tscn" id="3_0k78d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi0vu"]
-size = Vector2(84, 78)
+size = Vector2(128, 128)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mi1m1"]
 radius = 198.0
