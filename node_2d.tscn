@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp7xmnf2lej18"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_8hl7f"]
+[ext_resource type="PackedScene" uid="uid://chyrq53nx87ao" path="res://canvas_layer.tscn" id="2_4p7vg"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8hl7f")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_4p7vg")]
+
+[node name="MainMenu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 701.0
+offset_top = 351.0
+offset_right = -784.0
+offset_bottom = -386.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.999184, 1.00373)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "MAIN MENU"
+horizontal_alignment = 1
+
+[node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "HOST"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "JOIN"
+
+[node name="Adress" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "ENTER ADRESS TO JOIN HERE"
+alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
