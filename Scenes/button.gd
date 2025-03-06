@@ -1,4 +1,6 @@
 extends Button
 
-func _on_pressed():
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+@onready var health_bar: ProgressBar = $"../HealthBar"
+
+func _on_pressed() -> void:
+	health_bar.repair_health(10)

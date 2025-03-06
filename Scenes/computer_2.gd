@@ -1,4 +1,7 @@
 extends Interactable
 
-func _on_interacted(body):
+@onready var sound: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
+func _on_interacted(_body):
+	sound.play()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfsaw8v2tabgy"]
+[gd_scene load_steps=19 format=3 uid="uid://bfsaw8v2tabgy"]
 
 [ext_resource type="Script" path="res://Scenes/computer_2.gd" id="1_ld0me"]
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_pjnts"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="2_31sm2"]
+[ext_resource type="Texture2D" uid="uid://bxvb1qbj7n2f4" path="res://icon.svg" id="2_aunsh"]
 [ext_resource type="PackedScene" uid="uid://df74ph78k6221" path="res://Interact/interact_ray.tscn" id="2_qi3oa"]
 [ext_resource type="Texture2D" uid="uid://cn312ul1vonk0" path="res://Assets/noFilter.png" id="2_y0p1c"]
 [ext_resource type="AudioStream" uid="uid://dtnav2p7vohfa" path="res://Sounds/anime-wow-sound-effect.mp3" id="3_nu4r2"]
@@ -29,7 +30,9 @@ size = Vector3(1.00452, 0.997741, 1)
 [sub_resource type="Skin" id="Skin_qfqxc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn73p"]
-albedo_texture = ExtResource("2_y0p1c")
+albedo_texture = ExtResource("2_aunsh")
+metallic = 1.0
+metallic_specular = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vlcf7"]
 
@@ -61,7 +64,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rn73p")
 stream = ExtResource("3_nu4r2")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.425847, -0.183537, -0.0875015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.409014, -0.188716, -0.0957808)
 use_collision = true
 collision_mask = 0
 size = Vector3(15.5317, 0.35194, 15.9929)
@@ -79,7 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26297, 0)
 shape = SubResource("ConvexPolygonShape3D_xndca")
 
 [node name="Head" type="Node3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.104641, 1.75035, 0.202219)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.104641, 2.0322, 0.202219)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head"]
 
@@ -99,15 +102,15 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Virtual Joystick" parent="User Control" instance=ExtResource("2_31sm2")]
-layout_mode = 1
-offset_left = -762.0
-offset_top = 169.0
-offset_right = -591.0
-offset_bottom = 340.0
+[node name="CanvasLayer" type="CanvasLayer" parent="User Control"]
 
-[node name="TextureRect" type="TextureRect" parent="User Control"]
-layout_mode = 1
+[node name="Virtual Joystick" parent="User Control/CanvasLayer" instance=ExtResource("2_31sm2")]
+offset_left = 178.0
+offset_top = -351.0
+offset_right = 349.0
+offset_bottom = -180.0
+
+[node name="TextureRect" type="TextureRect" parent="User Control/CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -122,14 +125,14 @@ grow_vertical = 2
 texture = ExtResource("6_ysc0h")
 expand_mode = 1
 
-[node name="Jump" type="TouchScreenButton" parent="User Control"]
-position = Vector2(507, 328)
+[node name="Jump" type="TouchScreenButton" parent="User Control/CanvasLayer"]
+position = Vector2(1447, 848)
 scale = Vector2(0.297619, 0.297619)
 texture_normal = ExtResource("2_y0p1c")
 action = "ui_accept"
 
-[node name="interact" type="TouchScreenButton" parent="User Control"]
-position = Vector2(749, 155)
+[node name="interact" type="TouchScreenButton" parent="User Control/CanvasLayer"]
+position = Vector2(1689, 675)
 scale = Vector2(0.66, 0.66)
 texture_normal = ExtResource("3_r316v")
 action = "interact"

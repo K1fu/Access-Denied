@@ -79,9 +79,10 @@ Sprint={
 ]
 }
 
-[input_devices]
+[layer_names]
 
-pointing/emulate_touch_from_mouse=true
+2d_physics/layer_1="world"
+2d_physics/layer_2="interaction"
 
 [navigation]
 
