@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://brqdqgbtvdsw4"]
 
 [ext_resource type="Texture2D" uid="uid://cvuq2visyektu" path="res://Assets/Splash Screen/draft.jpg" id="1_3gh1e"]
-[ext_resource type="PackedScene" uid="uid://bfsaw8v2tabgy" path="res://Scenes/game.tscn" id="1_gbi43"]
+[ext_resource type="PackedScene" uid="uid://cdbh0pdnfm0i1" path="res://Menus/main_menu.tscn" id="1_lymqm"]
 
 [sub_resource type="GDScript" id="GDScript_bxt4o"]
 script/source = "extends Control
@@ -24,9 +24,12 @@ func fade() -> void:
 	tween.tween_interval(out_time)
 	await tween.finished
 	get_tree().change_scene_to_packed(load_scene)
+	
 
 func _ready() -> void:
 	fade()
+	
+	
 "
 
 [node name="Control" type="Control" node_paths=PackedStringArray("splash_screen")]
@@ -37,7 +40,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_bxt4o")
-load_scene = ExtResource("1_gbi43")
+load_scene = ExtResource("1_lymqm")
 splash_screen = NodePath("CenterContainer/TextureRect")
 
 [node name="ColorRect" type="ColorRect" parent="."]
