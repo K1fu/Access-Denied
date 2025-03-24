@@ -170,3 +170,7 @@ func _input(event):
 	if event.is_action_pressed(cancel_action_name):
 		if _typing: get_viewport().set_input_as_handled()
 		stop_typing()
+
+func _gui_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		start_typing()
