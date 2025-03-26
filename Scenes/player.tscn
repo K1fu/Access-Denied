@@ -1,10 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://ceklaelifj1th"]
+[gd_scene load_steps=25 format=3 uid="uid://ceklaelifj1th"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_s6ifd"]
 [ext_resource type="Script" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="2_cilbb"]
 [ext_resource type="Texture2D" uid="uid://dlx76sucbhwfh" path="res://Assets/Screenshot_2025-2-9_214139306.png" id="2_turdi"]
 [ext_resource type="PackedScene" uid="uid://cmie3ugfg7is4" path="res://Interact/interacting_component_2d.tscn" id="3_gh44g"]
-[ext_resource type="PackedScene" uid="uid://dgbv7r0yrg4yk" path="res://GD-SyncTemplates/TextChat/text_chat.tscn" id="5_ac7ay"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xvmhl"]
 atlas = ExtResource("2_turdi")
@@ -204,13 +203,3 @@ shape = SubResource("CircleShape2D_7l05s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(959, 542)
-
-[node name="TextChat" parent="." instance=ExtResource("5_ac7ay")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
-size_flags_horizontal = 4
-size_flags_vertical = 0
-default_channel = 2
