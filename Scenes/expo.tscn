@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b20oy0mxxdw77"]
-
-[ext_resource type="PackedScene" uid="uid://co471wd33735i" path="res://GD-SyncTemplates/EXPO.fbx" id="1_7o4s7"]
-
-[node name="EXPO" instance=ExtResource("1_7o4s7")]
