@@ -50,5 +50,3 @@ func set_error_text(response_code : int, response : Dictionary) -> void:
 			else:
 				var ban_time_string : String = Time.get_datetime_string_from_unix_time(ban_time, true)
 				error_text.text = "Account is banned until "+ban_time_string+"."
-
-

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bby7gkpqt3ril"]
+
+[node name="Login" type="Node2D"]
+
+[node name="LOGINSCREEN" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="LOGINSCREEN"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 792.0
+offset_top = 236.0
+offset_right = 832.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(7.93229, 10.6313)
