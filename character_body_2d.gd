@@ -15,6 +15,8 @@ func _ready():
 	animated_sprite = $AnimatedSprite2D
 	set_multiplayer_data.call_deferred()
 
+#hi.
+
 func set_multiplayer_data():
 	var client_id : int = name.to_int()
 	
