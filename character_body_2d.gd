@@ -5,11 +5,24 @@ extends CharacterBody2D
 @export var normal_anim_speed: float = 1.0
 @export var sprint_anim_speed: float = 1.5
 
+@onready var _username: Label = $Username
+@onready var _position_synchronizer = $PropertySynchronizer
+
 var last_direction: String = "down"
 var animated_sprite: AnimatedSprite2D
 
 func _ready():
 	animated_sprite = $AnimatedSprite2D
+	set_multiplayer_data.call_deferred()
+
+func set_multiplayer_data():
+	var client_id : int = name.to_int()
+	
+#	Display the username of this client
+	_username.text = GDSync.get_player_data(client_id, "Username", "Unkown")
+	
+#	Make sure to only display the username of OTHER players, not yourself
+	_username.visible = !GDSync.is_gdsync_owner(self)
 
 func get_input():
 	var input_direction = Vector2.ZERO
@@ -37,10 +50,18 @@ func get_input():
 			last_direction = "up"
 
 func _physics_process(_delta):
-	get_input()
-	move_and_slide()
+	if !GDSync.is_gdsync_owner(self): return
 	
-#Hello
+	get_input()
+	
+	var position_before := global_position
+	move_and_slide()
+	var position_after := global_position
+	
+	var delta_position := position_after - position_before
+	var epsilon := 0.001
+	if delta_position.length() < epsilon and velocity.length() > epsilon:
+		global_position += get_wall_normal() * 0.1
 
 func _process(_delta):
 	if velocity != Vector2.ZERO:
