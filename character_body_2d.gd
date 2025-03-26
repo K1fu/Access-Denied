@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 @onready var _username: Label = $Username
 @onready var _position_synchronizer = $PropertySynchronizer
+@onready var _animation_synchronizer = $PropertySynchronizer2
 
 var last_direction: String = "down"
 var animated_sprite: AnimatedSprite2D
@@ -55,9 +56,8 @@ func _physics_process(_delta):
 	if !GDSync.is_gdsync_owner(self): return
 	
 	get_input()
-	
-	var position_before := global_position
 	move_and_slide()
+	var position_before := global_position
 	var position_after := global_position
 	
 	var delta_position := position_after - position_before

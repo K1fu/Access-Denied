@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://brqdqgbtvdsw4"]
 
 [ext_resource type="Texture2D" uid="uid://cvuq2visyektu" path="res://Assets/Splash Screen/draft.jpg" id="1_3gh1e"]
-[ext_resource type="PackedScene" uid="uid://cdbh0pdnfm0i1" path="res://Menus/main_menu.tscn" id="1_lymqm"]
+[ext_resource type="PackedScene" uid="uid://sl51on6lkrii" path="res://Menus/main_menu.tscn" id="1_tpb07"]
 
 [sub_resource type="GDScript" id="GDScript_bxt4o"]
 script/source = "extends Control
@@ -40,7 +40,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_bxt4o")
-load_scene = ExtResource("1_lymqm")
+load_scene = ExtResource("1_tpb07")
 splash_screen = NodePath("CenterContainer/TextureRect")
 
 [node name="ColorRect" type="ColorRect" parent="."]
