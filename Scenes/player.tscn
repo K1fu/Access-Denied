@@ -291,7 +291,7 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ekwwo"]
 states/Idle/node = SubResource("AnimationNodeBlendTree_sa4sr")
 states/Idle/position = Vector2(442, 100)
-states/Start/position = Vector2(230, 100)
+states/Start/position = Vector2(232, 91)
 states/Walk/node = SubResource("AnimationNodeBlendTree_msp2g")
 states/Walk/position = Vector2(442, 190)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_akh2s"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_mt72s"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_5061l")]

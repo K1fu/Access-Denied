@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var speed: int = 500
@@ -12,7 +13,6 @@ extends CharacterBody2D
 var last_direction: String = "down"
 
 func _ready():
-	# Ensure we have the correct reference to the CharacterSkin script.
 	char_skin = $Character/CharacterSkin
 	set_multiplayer_data.call_deferred()
 
@@ -34,7 +34,7 @@ func get_input():
 		
 	velocity = input_direction.normalized() * current_speed
 
-	# Determine last movement direction for any additional logic you might need.
+	# Determine last movement direction
 	if input_direction != Vector2.ZERO:
 		if input_direction.x > 0:
 			last_direction = "right"
@@ -45,10 +45,25 @@ func get_input():
 		elif input_direction.y < 0:
 			last_direction = "up"
 	
-	# Update the CharacterSkin with the current animation settings.
+	# Create a direction vector for the animation.
+	# Use the input if available; otherwise, fall back to the last direction.
+	var direction_vector = input_direction
+	if direction_vector == Vector2.ZERO:
+		match last_direction:
+			"up":
+				direction_vector = Vector2(0, -1)
+			"down":
+				direction_vector = Vector2(0, 1)
+			"left":
+				direction_vector = Vector2(-1, 0)
+			"right":
+				direction_vector = Vector2(1, 0)
+	
+	# Update CharacterSkin with animation settings and direction.
 	char_skin.set_animation_speed(sprint_anim_speed if sprinting else normal_anim_speed)
 	char_skin.set_moving(input_direction != Vector2.ZERO)
 	char_skin.set_moving_speed(1.0 if sprinting else 0.0)  # 0.0 for walk, 1.0 for run
+	char_skin.set_direction(direction_vector)
 
 func _physics_process(_delta):
 	if !GDSync.is_gdsync_owner(self): 

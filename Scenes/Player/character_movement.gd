@@ -17,19 +17,17 @@ var moving_blend_path := "parameters/StateMachine/move/blend_position"
 func _ready():
 	# Expose functions for multiplayer synchronization.
 	GDSync.expose_func(set_moving)
-	# Disable any direct input processing from here.
 	set_process(false)
 
-# Remove the _physics_process that was handling input directly to avoid conflicts.
-# func _physics_process(delta):
-#    [Removed: Animation is now controlled by Player.gd.]
+# New function to update blend positions based on a direction vector.
+func set_direction(direction: Vector2):
+	animation_tree.set("parameters/Idle//BlendSpace2D/blend_position", direction)
+	animation_tree.set("parameters/Walk//BlendSpace2D/blend_position", direction)
 
-# This function allows Player.gd to control the sprite's playback speed.
 func set_animation_speed(new_speed: float):
 	anim_sprite.speed_scale = new_speed
 
 func set_moving(value: bool):
-	# Synchronize the moving state across the network only if this is the local player.
 	if moving != value and GDSync.is_gdsync_owner(self):
 		GDSync.call_func(set_moving, [value])
 	moving = value
