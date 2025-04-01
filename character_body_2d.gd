@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var speed: int = 500
@@ -7,24 +8,18 @@ extends CharacterBody2D
 
 @onready var _username: Label = $Username
 @onready var _position_synchronizer = $PropertySynchronizer
-@onready var _animation_synchronizer = $PropertySynchronizer2
+@onready var char_skin = $Character/CharacterSkin
 
 var last_direction: String = "down"
-var animated_sprite: AnimatedSprite2D
 
 func _ready():
-	animated_sprite = $AnimatedSprite2D
+	# Ensure we have the correct reference to the CharacterSkin script.
+	char_skin = $Character/CharacterSkin
 	set_multiplayer_data.call_deferred()
 
-#hi.
-
 func set_multiplayer_data():
-	var client_id : int = name.to_int()
-	
-#	Display the username of this client
-	_username.text = GDSync.get_player_data(client_id, "Username", "Unkown")
-	
-#	Make sure to only display the username of OTHER players, not yourself
+	var client_id: int = name.to_int()
+	_username.text = GDSync.get_player_data(client_id, "Username", "Unknown")
 	_username.visible = !GDSync.is_gdsync_owner(self)
 
 func get_input():
@@ -33,15 +28,14 @@ func get_input():
 	input_direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
 	var current_speed = speed
+	var sprinting = false
 	if Input.is_action_pressed("Sprint"):
 		current_speed *= sprint_multiplier
-		animated_sprite.speed_scale = sprint_anim_speed
-	else:
-		animated_sprite.speed_scale = normal_anim_speed
-	
+		sprinting = true
+		
 	velocity = input_direction.normalized() * current_speed
 
-	# Store last movement direction
+	# Determine last movement direction for any additional logic you might need.
 	if input_direction != Vector2.ZERO:
 		if input_direction.x > 0:
 			last_direction = "right"
@@ -51,41 +45,22 @@ func get_input():
 			last_direction = "down"
 		elif input_direction.y < 0:
 			last_direction = "up"
+	
+	# Update the CharacterSkin with the current animation settings.
+	char_skin.set_animation_speed(sprint_anim_speed if sprinting else normal_anim_speed)
+	char_skin.set_moving(input_direction != Vector2.ZERO)
+	char_skin.set_moving_speed(1.0 if sprinting else 0.0)  # 0.0 for walk, 1.0 for run
 
 func _physics_process(_delta):
-	if !GDSync.is_gdsync_owner(self): return
+	if !GDSync.is_gdsync_owner(self): 
+		return
 	
 	get_input()
 	move_and_slide()
+	
 	var position_before := global_position
 	var position_after := global_position
-	
 	var delta_position := position_after - position_before
 	var epsilon := 0.001
 	if delta_position.length() < epsilon and velocity.length() > epsilon:
 		global_position += get_wall_normal() * 0.1
-
-func _process(_delta):
-	if velocity != Vector2.ZERO:
-		if velocity.x > 0:
-			animated_sprite.play("R_walking")
-			animated_sprite.flip_h = false
-		elif velocity.x < 0:
-			animated_sprite.play("R_walking")
-			animated_sprite.flip_h = true
-		elif velocity.y > 0:
-			animated_sprite.play("Down_walking")
-		elif velocity.y < 0:
-			animated_sprite.play("Top_walking")
-	else:
-		match last_direction:
-			"right":
-				animated_sprite.play("R_idle")
-				animated_sprite.flip_h = false
-			"left":
-				animated_sprite.play("R_idle")
-				animated_sprite.flip_h = true
-			"down":
-				animated_sprite.play("idle")
-			"up":
-				animated_sprite.play("Top_idle")

@@ -19,7 +19,7 @@ func _on_quit_pressed():
 func connected():
 #	Connected! Continue on to the customization screen
 	%Connect.disabled = true
-	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+	get_tree().change_scene_to_file("res://GD-SyncTemplates/Accounts/login.tscn")
 
 func connection_failed(error : int):
 #	Connection failed. Display the possible error messages
