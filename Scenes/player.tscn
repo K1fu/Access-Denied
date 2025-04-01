@@ -585,14 +585,6 @@ properties = PackedStringArray()
 interpolated = true
 interpolation_speed = 15.0
 
-[node name="PropertySynchronizer2" type="Node" parent="Character"]
-script = ExtResource("2_cilbb")
-refresh_rate = 20
-node_path = NodePath("..")
-properties = PackedStringArray()
-interpolated = true
-interpolation_speed = 15.0
-
 [node name="CharacterSkin" parent="Character" instance=ExtResource("5_35ssf")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character/CharacterSkin"]
