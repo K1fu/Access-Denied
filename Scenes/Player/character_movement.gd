@@ -17,12 +17,18 @@ var moving_blend_path := "parameters/StateMachine/move/blend_position"
 func _ready():
 	# Expose functions for multiplayer synchronization.
 	GDSync.expose_func(set_moving)
+	GDSync.expose_func(set_direction)
 	set_process(false)
 
 # New function to update blend positions based on a direction vector.
 func set_direction(direction: Vector2):
-	animation_tree.set("parameters/Idle//BlendSpace2D/blend_position", direction)
-	animation_tree.set("parameters/Walk//BlendSpace2D/blend_position", direction)
+	# Update the blend positions for both Idle and Walk states.
+	animation_tree.set("parameters/Idle/BlendSpace2D/blend_position", direction)
+	animation_tree.set("parameters/Walk/BlendSpace2D/blend_position", direction)
+	
+	# Only broadcast if this is the local (owner) instance.
+	if GDSync.is_gdsync_owner(self):
+		GDSync.call_func(set_direction, [direction])
 
 func set_animation_speed(new_speed: float):
 	anim_sprite.speed_scale = new_speed
