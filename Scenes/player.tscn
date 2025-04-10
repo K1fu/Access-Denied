@@ -555,6 +555,10 @@ radius = 87.0517
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_s6ifd")
 
+[node name="ImpostorAbilities" type="Node2D" parent="."]
+
+[node name="CrewmateAbilities" type="Node2D" parent="."]
+
 [node name="PropertySynchronizer" type="Node" parent="."]
 script = ExtResource("2_cilbb")
 broadcast = 2

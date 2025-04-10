@@ -13,4 +13,3 @@ func _physics_process(_delta):
 			
 			if Input.is_action_just_pressed(collider.prompt_input):
 				collider.interact(owner)
-		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cu7u2vp3vp6ln"]
+[gd_scene load_steps=11 format=3 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_lsbhn"]
 [ext_resource type="PackedScene" uid="uid://bv4vu1yt0c73i" path="res://Scenes/touch_control.tscn" id="3_n3a12"]
@@ -6,6 +6,11 @@
 [ext_resource type="Script" path="res://Scenes/button.gd" id="4_4ua43"]
 [ext_resource type="PackedScene" uid="uid://cqjf1hwsnj6y2" path="res://Interact/task_area.tscn" id="4_7lc58"]
 [ext_resource type="Script" path="res://Scenes/progress_bar.gd" id="4_dwqko"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3flj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5dea"]
+bg_color = Color(1.73271e-06, 0.721968, 0.293988, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejoqd"]
 texture = ExtResource("3_xor80")
@@ -18,13 +23,19 @@ texture = ExtResource("3_xor80")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ejoqd")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3flj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5dea"]
-bg_color = Color(1.73271e-06, 0.721968, 0.293988, 1)
-
 [node name="World" type="Node2D"]
 script = ExtResource("1_lsbhn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 76.0
+offset_top = 48.0
+offset_right = 656.0
+offset_bottom = 137.0
+theme_override_styles/background = SubResource("StyleBoxFlat_y3flj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_s5dea")
+script = ExtResource("4_dwqko")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(302, 259)
@@ -56,16 +67,7 @@ theme_override_font_sizes/font_size = 50
 text = "Do Task"
 script = ExtResource("4_4ua43")
 
-[node name="HealthBar" type="ProgressBar" parent="TaskArea/CanvasLayer"]
-offset_left = 76.0
-offset_top = 48.0
-offset_right = 656.0
-offset_bottom = 137.0
-theme_override_styles/background = SubResource("StyleBoxFlat_y3flj")
-theme_override_styles/fill = SubResource("StyleBoxFlat_s5dea")
-script = ExtResource("4_dwqko")
-
 [node name="StartLocation" type="Marker2D" parent="."]
-position = Vector2(969, 364)
+position = Vector2(897, 303)
 
 [connection signal="pressed" from="TaskArea/CanvasLayer/Button1" to="TaskArea/CanvasLayer/Button1" method="_on_pressed"]

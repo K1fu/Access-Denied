@@ -23,10 +23,10 @@ func _process(_delta):
 func lobbies_received(lobbies : Array):
 #	Display all lobbies using UI elements
 	var lobby_labels : Array = lobby_list.get_children()
-	
+
 #	Mark all currently displayed lobbies for deletion
 	for label in lobby_labels: label.set_meta("delete", true)
-	
+
 	for lobby_data in lobbies:
 		var lobby_name : String = lobby_data["Name"]
 		var lobby_label : Node = lobby_list.get_node_or_null(lobby_name)
@@ -35,11 +35,11 @@ func lobbies_received(lobbies : Array):
 			lobby_label = LABEL_SCENE.instantiate()
 			lobby_label.join_pressed.connect(lobby_join_pressed)
 			lobby_list.add_child(lobby_label)
-		
+
 #		Cancel deletion if the lobby still exists
 		lobby_label.set_meta("delete", false)
 		lobby_label.set_lobby_data(lobby_data)
-	
+
 #	Delete all old displayed lobbies
 	for label in lobby_labels:
 		if label.get_meta("delete"): label.queue_free()

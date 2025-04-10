@@ -7,6 +7,9 @@ extends StaticBody2D
 @onready var CrewScreen: Button = $CanvasLayer/Button1
 	
 func _ready() -> void:
+	_crewmate_interact()
+
+func _crewmate_interact():
 	interactable.interact = _on_interact  # Assign function to interaction
 	interactable.connect("area_entered", _on_area_entered)
 	interactable.connect("area_exited", _on_area_exited)
