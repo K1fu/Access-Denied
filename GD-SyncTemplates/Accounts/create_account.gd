@@ -8,6 +8,8 @@ signal account_creation_failed(email, username, password, response_code)
 @onready var password_input : LineEdit = %Password
 @onready var error_text : Label = %ErrorText
 
+@export var load_scene : PackedScene
+
 var busy : bool = false
 
 func create_account() -> void:
@@ -23,6 +25,7 @@ func create_account() -> void:
 	if response_code == ENUMS.ACCOUNT_CREATION_RESPONSE_CODE.SUCCESS:
 		error_text.text = ""
 		account_created.emit(email, username, password)
+		get_tree().change_scene_to_packed(load_scene)
 	else:
 		set_error_text(response_code)
 		account_creation_failed.emit(email, username, password, response_code)
