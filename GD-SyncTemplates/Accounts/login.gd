@@ -10,7 +10,7 @@ signal login_failed(email, response_code)
 var busy : bool = false
 
 func _ready():
-	input.mouse_mode()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func login() -> void:
 	if busy: return
