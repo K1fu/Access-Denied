@@ -9,6 +9,9 @@ signal login_failed(email, response_code)
 
 var busy : bool = false
 
+func _ready():
+	input.mouse_mode()
+
 func login() -> void:
 	if busy: return
 	busy = true

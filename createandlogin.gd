@@ -4,6 +4,7 @@ extends Control
 @onready var create_account_button = $Label2/Button
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	login_button.pressed.connect(on_login_pressed)
 	create_account_button.pressed.connect(on_create_account_pressed)
 
