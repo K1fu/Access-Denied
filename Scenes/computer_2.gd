@@ -4,4 +4,4 @@ extends Interactable
 
 func _on_interacted(_body):
 	sound.play()
-	get_tree().change_scene_to_file("res://Menus/lobby_browsing_menu.tscn")
+	get_tree().change_scene_to_file("res://createandlogin.tscn")
