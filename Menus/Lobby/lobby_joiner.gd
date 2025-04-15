@@ -7,7 +7,7 @@ func _ready():
 
 func lobby_joined(_lobby_name : String):
 #	Succesfully joined a lobby! Continue on to the lobby screen
-	get_tree().change_scene_to_file("res://Menus/lobby.tscn")
+	get_tree().change_scene_to_file("res://Menus/Lobby/lobby.tscn")
 
 func lobby_join_failed(lobby_name : String, error : int):
 #	Failed to join the lobby. Display error message
