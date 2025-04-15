@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqjf1hwsnj6y2"]
+
+[ext_resource type="Script" path="res://task_area.gd" id="1_xldxr"]
+[ext_resource type="Texture2D" uid="uid://bxvb1qbj7n2f4" path="res://icon.svg" id="2_c45bw"]
+[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/interactable2d.tscn" id="3_0k78d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi0vu"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mi1m1"]
+radius = 198.0
+
+[node name="TaskArea" type="StaticBody2D"]
+script = ExtResource("1_xldxr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hi0vu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_c45bw")
+
+[node name="Interactable" parent="." instance=ExtResource("3_0k78d")]
+collision_mask = 1
+interact_name = "Open Computer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_mi1m1")

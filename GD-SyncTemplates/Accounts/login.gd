@@ -25,7 +25,7 @@ func login() -> void:
 	if response_code == ENUMS.LOGIN_RESPONSE_CODE.SUCCESS:
 		error_text.text = ""
 		logged_in.emit(email)
-		get_tree().change_scene_to_file("res://Menus/lobby_browsing_menu.tscn")
+		get_tree().change_scene_to_file("res://Menus/Lobby/lobby_browsing_menu.tscn")
 
 	else:
 		set_error_text(response_code, response)

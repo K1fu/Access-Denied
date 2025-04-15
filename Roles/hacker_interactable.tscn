@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp6016w7ru4u6"]
-
-[ext_resource type="Script" path="res://Roles/hacker_interactable.gd" id="1_55fgs"]
-
-[node name="Hacker_interactable" type="Area2D"]
-script = ExtResource("1_55fgs")

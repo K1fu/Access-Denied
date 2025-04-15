@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmie3ugfg7is4"]
+
+[ext_resource type="Script" path="res://Modules/2D - Interact/Hacker Interact/Hacker_interact.gd" id="1_71y72"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4js6"]
+radius = 72.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5ndy"]
+font_size = 50
+
+[node name="Hacker" type="Node2D"]
+script = ExtResource("1_71y72")
+
+[node name="Interactrange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactrange"]
+z_index = 10
+shape = SubResource("CircleShape2D_u4js6")
+
+[node name="InteractLabel" type="Label" parent="."]
+z_index = 10
+offset_left = -141.0
+offset_top = -284.0
+offset_right = 154.0
+offset_bottom = -215.0
+theme_override_font_sizes/font_size = 15
+text = "E to Interact"
+label_settings = SubResource("LabelSettings_i5ndy")
+
+[connection signal="area_entered" from="Interactrange" to="." method="_on_interactrange_area_entered"]
+[connection signal="area_exited" from="Interactrange" to="." method="_on_interactrange_area_exited"]
