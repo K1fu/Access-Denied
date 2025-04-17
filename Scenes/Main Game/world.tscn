@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfbs8g62ughrk"]
+[gd_scene load_steps=13 format=3 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Main Game/world.gd" id="1_lsbhn"]
 [ext_resource type="Script" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="3_k2eld"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/Test environment/button.gd" id="4_4ua43"]
 [ext_resource type="PackedScene" uid="uid://cqjf1hwsnj6y2" path="res://Modules/Modules/task_area.tscn" id="4_7lc58"]
 [ext_resource type="Script" path="res://Scenes/Test environment/progress_bar.gd" id="4_dwqko"]
+[ext_resource type="PackedScene" uid="uid://ceklaelifj1th" path="res://Modules/Modules/2D - Player/player.tscn" id="8_spq64"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3flj"]
 
@@ -79,5 +80,7 @@ script = ExtResource("4_4ua43")
 
 [node name="StartLocation" type="Marker2D" parent="."]
 position = Vector2(897, 303)
+
+[node name="Player" parent="." instance=ExtResource("8_spq64")]
 
 [connection signal="pressed" from="TaskArea/CanvasLayer/Button1" to="TaskArea/CanvasLayer/Button1" method="_on_pressed"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=60 format=3 uid="uid://ceklaelifj1th"]
+[gd_scene load_steps=61 format=3 uid="uid://ceklaelifj1th"]
 
 [ext_resource type="Script" path="res://Modules/Modules/2D - Player/character_body_2d.gd" id="1_s6ifd"]
 [ext_resource type="Script" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="2_cilbb"]
 [ext_resource type="Texture2D" uid="uid://dlx76sucbhwfh" path="res://Assets/Player/Screenshot_2025-2-9_214139306.png" id="2_turdi"]
 [ext_resource type="PackedScene" uid="uid://cmie3ugfg7is4" path="res://Modules/Modules/2D - Interact/interacting_component_2d.tscn" id="3_gh44g"]
 [ext_resource type="PackedScene" uid="uid://0jp5ylptv7ac" path="res://Modules/Modules/2D - Player/character_skin.tscn" id="5_35ssf"]
+[ext_resource type="PackedScene" uid="uid://cmie3ugfg7is4" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interacting_component_2d.tscn" id="6_ffbco"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ksjuq"]
 size = Vector2(56, 182)
@@ -568,9 +569,6 @@ interpolation_speed = 15.0
 position = Vector2(976, 535)
 shape = SubResource("RectangleShape2D_ksjuq")
 
-[node name="InteractingComponent2D" parent="." instance=ExtResource("3_gh44g")]
-position = Vector2(975, 537)
-
 [node name="Username" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
@@ -617,3 +615,10 @@ shape = SubResource("CircleShape2D_7l05s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(959, 542)
+
+[node name="Developer" parent="." instance=ExtResource("3_gh44g")]
+visible = false
+position = Vector2(969, 518)
+
+[node name="Hacker" parent="." instance=ExtResource("6_ffbco")]
+position = Vector2(969, 531)
