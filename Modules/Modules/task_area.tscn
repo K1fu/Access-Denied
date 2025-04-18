@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://task_area.gd" id="1_xldxr"]
 [ext_resource type="Texture2D" uid="uid://bxvb1qbj7n2f4" path="res://icon.svg" id="2_c45bw"]
 [ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Developer Interact/Dev_interactable2d.tscn" id="3_0k78d"]
-[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn" id="4_woi37"]
+[ext_resource type="PackedScene" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn" id="4_woi37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi0vu"]
 size = Vector2(128, 128)
@@ -21,8 +21,6 @@ shape = SubResource("RectangleShape2D_hi0vu")
 texture = ExtResource("2_c45bw")
 
 [node name="dev_interactable" parent="." instance=ExtResource("3_0k78d")]
-visible = false
-collision_mask = 1
 interact_name = "Computer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dev_interactable"]
