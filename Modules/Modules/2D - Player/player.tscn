@@ -1,9 +1,10 @@
-[gd_scene load_steps=59 format=3 uid="uid://ceklaelifj1th"]
+[gd_scene load_steps=60 format=3 uid="uid://ceklaelifj1th"]
 
 [ext_resource type="Script" path="res://Modules/Modules/2D - Player/character_body_2d.gd" id="1_s6ifd"]
 [ext_resource type="Script" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="2_cilbb"]
 [ext_resource type="Texture2D" uid="uid://dlx76sucbhwfh" path="res://Assets/Player/Screenshot_2025-2-9_214139306.png" id="2_turdi"]
 [ext_resource type="PackedScene" uid="uid://0jp5ylptv7ac" path="res://Modules/Modules/2D - Player/character_skin.tscn" id="5_35ssf"]
+[ext_resource type="PackedScene" uid="uid://ddbw7mndjjl7e" path="res://Modules/Modules/2D - Interact/Developer Interact/dev_interacting_component_2d.tscn" id="5_54t2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ksjuq"]
 size = Vector2(56, 182)
@@ -613,3 +614,6 @@ shape = SubResource("CircleShape2D_7l05s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(959, 542)
+
+[node name="Developer" parent="." instance=ExtResource("5_54t2m")]
+position = Vector2(976, 529)

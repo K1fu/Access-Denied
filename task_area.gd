@@ -22,11 +22,11 @@ func Dev_on_interact():
 	CrewScreen.visible = true
 
 func Dev_on_area_entered(area: Area2D):
-	if area.is_in_group("damage_areas") :
+	if area.is_in_group("Developer") :
 		print("Entered:", area.name)
 
 func Dev_on_area_exited(area: Area2D):
-	if area.is_in_group("damage_areas") :
+	if area.is_in_group("Developer") :
 		print("Exited:", area.name)
 		CrewScreen.visible = false
 
@@ -41,10 +41,10 @@ func Hack_on_interact():
 	CrewScreen.visible = true
 
 func Hack_on_area_entered(area: Area2D):
-	if area.is_in_group("damage_areas") :
+	if area.is_in_group("Hacker") :
 		print("Entered:", area.name)
 
 func Hack_on_area_exited(area: Area2D):
-	if area.is_in_group("damage_areas") :
+	if area.is_in_group("Hacker") :
 		print("Exited:", area.name)
 		CrewScreen.visible = false
