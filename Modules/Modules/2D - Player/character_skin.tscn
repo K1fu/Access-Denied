@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://Modules/Modules/2D - Player/character_movement.gd" id="1_thjw3"]
 
 [node name="CharacterSkin" type="Node2D"]
+position = Vector2(960, 540)
 script = ExtResource("1_thjw3")

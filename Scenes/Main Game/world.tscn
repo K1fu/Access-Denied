@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfbs8g62ughrk"]
+[gd_scene load_steps=14 format=3 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Main Game/world.gd" id="1_lsbhn"]
 [ext_resource type="Script" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="3_k2eld"]
@@ -7,7 +7,12 @@
 [ext_resource type="Script" path="res://Scenes/Test environment/button.gd" id="4_4ua43"]
 [ext_resource type="PackedScene" uid="uid://cqjf1hwsnj6y2" path="res://Modules/Modules/task_area.tscn" id="4_7lc58"]
 [ext_resource type="Script" path="res://Scenes/Test environment/progress_bar.gd" id="4_dwqko"]
-[ext_resource type="PackedScene" uid="uid://ceklaelifj1th" path="res://Modules/Modules/2D - Player/player.tscn" id="8_spq64"]
+
+[sub_resource type="Gradient" id="Gradient_vpqf1"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mtbdj"]
+gradient = SubResource("Gradient_vpqf1")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3flj"]
 
@@ -27,6 +32,40 @@ sources/0 = SubResource("TileSetAtlasSource_ejoqd")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_lsbhn")
+
+[node name="StartLocation" type="Marker2D" parent="."]
+position = Vector2(1532, 695)
+
+[node name="RoleAssigning" type="CanvasLayer" parent="."]
+layer = 10
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="RoleAssigning"]
+z_index = 1
+z_as_relative = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("GradientTexture1D_mtbdj")
+
+[node name="Label" type="Label" parent="RoleAssigning"]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.5
+offset_top = -90.5
+offset_right = 148.5
+offset_bottom = 90.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "You are a
+{Role}"
+horizontal_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -77,10 +116,5 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Do Task"
 script = ExtResource("4_4ua43")
-
-[node name="StartLocation" type="Marker2D" parent="."]
-position = Vector2(897, 303)
-
-[node name="Player" parent="." instance=ExtResource("8_spq64")]
 
 [connection signal="pressed" from="TaskArea/CanvasLayer/Button1" to="TaskArea/CanvasLayer/Button1" method="_on_pressed"]

@@ -1,10 +1,9 @@
-[gd_scene load_steps=60 format=3 uid="uid://ceklaelifj1th"]
+[gd_scene load_steps=59 format=3 uid="uid://ceklaelifj1th"]
 
 [ext_resource type="Script" path="res://Modules/Modules/2D - Player/character_body_2d.gd" id="1_s6ifd"]
 [ext_resource type="Script" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="2_cilbb"]
 [ext_resource type="Texture2D" uid="uid://dlx76sucbhwfh" path="res://Assets/Player/Screenshot_2025-2-9_214139306.png" id="2_turdi"]
 [ext_resource type="PackedScene" uid="uid://0jp5ylptv7ac" path="res://Modules/Modules/2D - Player/character_skin.tscn" id="5_35ssf"]
-[ext_resource type="PackedScene" uid="uid://ddbw7mndjjl7e" path="res://Modules/Modules/2D - Interact/Developer Interact/dev_interacting_component_2d.tscn" id="5_54t2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ksjuq"]
 size = Vector2(56, 182)
@@ -565,14 +564,29 @@ interpolated = true
 interpolation_speed = 15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(976, 535)
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_ksjuq")
 
+[node name="InteractLabel" type="Label" parent="."]
+offset_left = -150.0
+offset_top = -187.0
+offset_right = 170.0
+offset_bottom = -118.0
+theme_override_font_sizes/font_size = 50
+text = "Interact Here"
+horizontal_alignment = 1
+
 [node name="Username" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -96.0
+offset_top = -244.0
+offset_right = 101.0
+offset_bottom = -175.0
+theme_override_font_sizes/font_size = 50
+text = "Kiha"
+horizontal_alignment = 1
 
 [node name="Character" type="Node2D" parent="."]
+position = Vector2(-976, -542)
 
 [node name="PropertySynchronizer" type="Node" parent="Character"]
 script = ExtResource("2_cilbb")
@@ -585,7 +599,7 @@ interpolation_speed = 15.0
 [node name="CharacterSkin" parent="Character" instance=ExtResource("5_35ssf")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character/CharacterSkin"]
-position = Vector2(976, 511)
+position = Vector2(16.0001, -36)
 scale = Vector2(6.875, 6.875)
 sprite_frames = SubResource("SpriteFrames_4mtwu")
 animation = &"idle"
@@ -605,7 +619,7 @@ libraries = {
 }
 
 [node name="Player_name" type="Area2D" parent="."]
-position = Vector2(911, 653)
+position = Vector2(-65, 123)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_name"]
@@ -613,7 +627,4 @@ position = Vector2(64, -126)
 shape = SubResource("CircleShape2D_7l05s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(959, 542)
-
-[node name="Developer" parent="." instance=ExtResource("5_54t2m")]
-position = Vector2(976, 529)
+position = Vector2(-2, -13)

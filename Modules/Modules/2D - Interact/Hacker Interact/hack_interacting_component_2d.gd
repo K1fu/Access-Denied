@@ -2,7 +2,7 @@ extends Node2D
 
 #This is what allows the player to interact with an object.
 
-@onready var interact_label: Label = $InteractLabel
+@onready var interact_label: Label = $"../InteractLabel"
 var current_interactions := []
 var can_interact := true
 
