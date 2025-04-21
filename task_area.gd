@@ -1,50 +1,29 @@
 extends StaticBody2D
 
-#This is the interactable object.
+# This is the interactable object.
 
-@onready var Dev_interactable: Area2D = $dev_interactable
+@onready var Dev_interactable: Area2D = $Dev_interactable
 @onready var Hack_interactable: Area2D = $hack_interactable
-@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var CrewScreen: Button = $CanvasLayer/Button1
-	
+
 func _ready() -> void:
 	_crewmate_interact()
 	_hacker_interact()
 
 func _crewmate_interact():
-	Dev_interactable.interact = Dev_on_interact  # Assign function to interaction
-	Dev_interactable.connect("area_entered", Dev_on_area_entered)
-	Dev_interactable.connect("area_exited", Dev_on_area_exited)
+	if Dev_interactable.has_method("set"):
+		Dev_interactable.interact = Dev_on_interact  # No parentheses!
 	CrewScreen.visible = false
 
 func Dev_on_interact():
-	print("Interacted")
+	print("Developer Interacted")
 	CrewScreen.visible = true
 
-func Dev_on_area_entered(area: Area2D):
-	if area.is_in_group("Developer") :
-		print("Entered:", area.name)
-
-func Dev_on_area_exited(area: Area2D):
-	if area.is_in_group("Developer") :
-		print("Exited:", area.name)
-		CrewScreen.visible = false
-
 func _hacker_interact():
-	Hack_interactable.interact = Hack_on_interact  # Assign function to interaction
-	Hack_interactable.connect("area_entered", Hack_on_area_entered)
-	Hack_interactable.connect("area_exited", Hack_on_area_exited)
+	if Hack_interactable.has_method("set"):
+		Hack_interactable.interact = Hack_on_interact  # No parentheses!
 	CrewScreen.visible = false
 
 func Hack_on_interact():
-	print("Interacted")
+	print("Hacker Interacted")
 	CrewScreen.visible = true
-
-func Hack_on_area_entered(area: Area2D):
-	if area.is_in_group("Hacker") :
-		print("Entered:", area.name)
-
-func Hack_on_area_exited(area: Area2D):
-	if area.is_in_group("Hacker") :
-		print("Exited:", area.name)
-		CrewScreen.visible = false
