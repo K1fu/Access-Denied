@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgmlv1bv0aaod"]
+
+[ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interacting_component_2d.gd" id="1_ne2nn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4js6"]
+radius = 72.0
+
+[node name="Hacker" type="Node2D" groups=["Hacker"]]
+script = ExtResource("1_ne2nn")
+
+[node name="Interactrange" type="Area2D" parent="." groups=["Hacker"]]
+collision_layer = 0
+collision_mask = 2
+collision_priority = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactrange"]
+z_index = 10
+shape = SubResource("CircleShape2D_u4js6")
+
+[connection signal="area_entered" from="Interactrange" to="." method="_on_interactrange_area_entered"]
+[connection signal="area_exited" from="Interactrange" to="." method="_on_interactrange_area_exited"]

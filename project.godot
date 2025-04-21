@@ -54,6 +54,11 @@ folder_colors={
 "res://addons/": "green"
 }
 
+[global_group]
+
+Developer=""
+Hacker=""
+
 [input]
 
 ui_accept={

@@ -1,27 +1,27 @@
 extends StaticBody2D
 
-#This is the interactable object.
+# This is the interactable object.
 
-@onready var interactable: Area2D = $Interactable
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var Dev_interactable: Area2D = $Dev_interactable
+@onready var Hack_interactable: Area2D = $hack_interactable
 @onready var CrewScreen: Button = $CanvasLayer/Button1
-	
+
 func _ready() -> void:
 	_crewmate_interact()
+	_hacker_interact()
 
 func _crewmate_interact():
-	interactable.interact = _on_interact  # Assign function to interaction
-	interactable.connect("area_entered", _on_area_entered)
-	interactable.connect("area_exited", _on_area_exited)
+	Dev_interactable.interact = Dev_on_interact  # No parentheses!
 	CrewScreen.visible = false
 
-func _on_interact():
-	print("Interacted")
+func Dev_on_interact():
+	print("Developer Interacted")
 	CrewScreen.visible = true
 
-func _on_area_entered(area: Area2D):
-	print("Entered:", area.name)
-
-func _on_area_exited(area: Area2D):
-	print("Exited:", area.name)
+func _hacker_interact():
+	Hack_interactable.interact = Hack_on_interact  # No parentheses!
 	CrewScreen.visible = false
+
+func Hack_on_interact():
+	print("Hacker Interacted")
+	CrewScreen.visible = true

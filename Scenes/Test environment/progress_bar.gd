@@ -1,5 +1,7 @@
 extends ProgressBar
 
+@onready var _progress_synchronizer = $PropertySynchronizer
+
 func _ready() -> void:
 	change_health(0)  # Initialize the health bar
 
