@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0jp5ylptv7ac" path="res://Modules/Modules/2D - Player/character_skin.tscn" id="5_35ssf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ksjuq"]
-size = Vector2(56, 182)
+size = Vector2(20, 26.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xvmhl"]
 atlas = ExtResource("2_turdi")
@@ -549,9 +549,10 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7l05s"]
-radius = 87.0517
+radius = 19.2354
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(20, 7)
 script = ExtResource("1_s6ifd")
 
 [node name="PropertySynchronizer" type="Node" parent="."]
@@ -564,7 +565,7 @@ interpolated = true
 interpolation_speed = 15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(6, -3)
 shape = SubResource("RectangleShape2D_ksjuq")
 
 [node name="InteractLabel" type="Label" parent="."]
@@ -597,10 +598,11 @@ interpolated = true
 interpolation_speed = 15.0
 
 [node name="CharacterSkin" parent="Character" instance=ExtResource("5_35ssf")]
+position = Vector2(982, 534)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character/CharacterSkin"]
-position = Vector2(16.0001, -36)
-scale = Vector2(6.875, 6.875)
+position = Vector2(0, -3)
+scale = Vector2(1.79167, 1.40625)
 sprite_frames = SubResource("SpriteFrames_4mtwu")
 animation = &"idle"
 frame = 1
@@ -619,11 +621,11 @@ libraries = {
 }
 
 [node name="Player_name" type="Area2D" parent="."]
-position = Vector2(-65, 123)
+position = Vector2(9, 3)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_name"]
-position = Vector2(64, -126)
+position = Vector2(-3, -6)
 shape = SubResource("CircleShape2D_7l05s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
