@@ -568,7 +568,6 @@ position = Vector2(513, 242)
 [node name="TouchControl" parent="TaskArea" instance=ExtResource("3_n3a12")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="TaskArea"]
-visible = false
 
 [node name="Button1" type="Button" parent="TaskArea/CanvasLayer"]
 anchors_preset = 8
