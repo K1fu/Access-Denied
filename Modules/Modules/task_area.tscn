@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://task_area.gd" id="1_xldxr"]
 [ext_resource type="Texture2D" uid="uid://dl6igrhg17tgg" path="res://Tile maps/Sprites/Server.png" id="2_taj1h"]
-[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn" id="3_ohy8v"]
-[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Developer Interact/Dev_interactable2d.tscn" id="4_r3m66"]
+[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn" id="4_k6bu1"]
+[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Developer Interact/Dev_interactable2d.tscn" id="4_mbc4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi0vu"]
 size = Vector2(128, 128)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_n53oo"]
-radius = 259.193
+[sub_resource type="CircleShape2D" id="CircleShape2D_8cna2"]
+radius = 398.723
 
 [node name="TaskArea" type="StaticBody2D"]
 script = ExtResource("1_xldxr")
@@ -22,12 +22,15 @@ position = Vector2(-1, -2)
 scale = Vector2(5, 5)
 texture = ExtResource("2_taj1h")
 
-[node name="hack_interactable" parent="." instance=ExtResource("3_ohy8v")]
+[node name="hack_interactable" parent="." instance=ExtResource("4_k6bu1")]
+interact_name = "Hacker"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hack_interactable"]
-shape = SubResource("CircleShape2D_n53oo")
+shape = SubResource("CircleShape2D_8cna2")
 
-[node name="Dev_interactable" parent="." instance=ExtResource("4_r3m66")]
+[node name="Dev_interactable" parent="." instance=ExtResource("4_mbc4g")]
+collision_mask = 0
+interact_name = "Developer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dev_interactable"]
-shape = SubResource("CircleShape2D_n53oo")
+shape = SubResource("CircleShape2D_8cna2")

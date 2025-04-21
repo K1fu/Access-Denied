@@ -11,8 +11,7 @@ func _ready() -> void:
 	_hacker_interact()
 
 func _crewmate_interact():
-	if Dev_interactable.has_method("set"):
-		Dev_interactable.interact = Dev_on_interact  # No parentheses!
+	Dev_interactable.interact = Dev_on_interact  # No parentheses!
 	CrewScreen.visible = false
 
 func Dev_on_interact():
@@ -20,8 +19,7 @@ func Dev_on_interact():
 	CrewScreen.visible = true
 
 func _hacker_interact():
-	if Hack_interactable.has_method("set"):
-		Hack_interactable.interact = Hack_on_interact  # No parentheses!
+	Hack_interactable.interact = Hack_on_interact  # No parentheses!
 	CrewScreen.visible = false
 
 func Hack_on_interact():
