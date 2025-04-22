@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://j6138fnasuli"]
-
-[ext_resource type="Script" path="res://Modules/Modules/2D - Interact/interactable_2d.gd" id="1_saexw"]
-
-[node name="interactable" type="Area2D"]
-collision_layer = 2
-collision_mask = 0
-script = ExtResource("1_saexw")
