@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://task_area.gd" id="1_xldxr"]
 [ext_resource type="Texture2D" uid="uid://dl6igrhg17tgg" path="res://Tile maps/Sprites/Server.png" id="2_taj1h"]
-[ext_resource type="PackedScene" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn" id="3_au4fv"]
-[ext_resource type="PackedScene" path="res://Modules/Modules/2D - Interact/Developer Interact/dev_interactable2d.tscn" id="4_82yb2"]
+[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn" id="3_au4fv"]
+[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Developer Interact/dev_interactable2d.tscn" id="4_82yb2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi0vu"]
 size = Vector2(128, 128)

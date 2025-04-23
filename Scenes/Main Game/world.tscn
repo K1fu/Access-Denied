@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=4 uid="uid://cfbs8g62ughrk"]
+[gd_scene load_steps=23 format=4 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Main Game/world.gd" id="1_lsbhn"]
+[ext_resource type="FontFile" path="res://Assets/fonts/Modenine-2OPd.ttf" id="2_4gx8b"]
 [ext_resource type="Script" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="3_k2eld"]
 [ext_resource type="PackedScene" uid="uid://bv4vu1yt0c73i" path="res://Scenes/Test environment/touch_control.tscn" id="3_n3a12"]
 [ext_resource type="Script" path="res://Scenes/Test environment/button.gd" id="4_4ua43"]
@@ -23,7 +24,7 @@ gradient = SubResource("Gradient_vpqf1")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5dea"]
 bg_color = Color(1.73271e-06, 0.721968, 0.293988, 1)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6vmdj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5g4un"]
 texture = ExtResource("7_vb6nm")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
@@ -86,7 +87,7 @@ texture_region_size = Vector2i(32, 32)
 7:9/0 = 0
 8:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mntps"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_frn6x"]
 texture = ExtResource("8_mjaac")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -296,13 +297,13 @@ texture_region_size = Vector2i(32, 32)
 12:10/0 = 0
 13:10/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fkrif"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enui8"]
 texture = ExtResource("9_nvgki")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_84pji"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_albyt"]
 texture = ExtResource("10_asm0b")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -378,7 +379,7 @@ texture_region_size = Vector2i(32, 32)
 8:7/0 = 0
 9:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gttxq"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbnpe"]
 texture = ExtResource("11_nnosh")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -498,11 +499,11 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_ou0dp"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_6vmdj")
-sources/1 = SubResource("TileSetAtlasSource_mntps")
-sources/2 = SubResource("TileSetAtlasSource_fkrif")
-sources/3 = SubResource("TileSetAtlasSource_84pji")
-sources/4 = SubResource("TileSetAtlasSource_gttxq")
+sources/0 = SubResource("TileSetAtlasSource_5g4un")
+sources/1 = SubResource("TileSetAtlasSource_frn6x")
+sources/2 = SubResource("TileSetAtlasSource_enui8")
+sources/3 = SubResource("TileSetAtlasSource_albyt")
+sources/4 = SubResource("TileSetAtlasSource_mbnpe")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_lsbhn")
@@ -512,7 +513,6 @@ position = Vector2(1532, 695)
 
 [node name="RoleAssigning" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
 [node name="TextureRect" type="TextureRect" parent="RoleAssigning"]
 z_index = 1
@@ -536,6 +536,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4gx8b")
 theme_override_font_sizes/font_size = 50
 text = "You are a
 {Role}"
@@ -610,7 +611,7 @@ tile_set = SubResource("TileSet_ou0dp")
 use_parent_material = true
 position = Vector2(-2617, -1130)
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAATAP7/AQAKAAIAAAAVAP7/AQAKAAIAAAAUAP7/AQALAAIAAAAWAP3/AQAGAAcAAAAWAP7/AQAGAAgAAAAXAP3/AQAHAAcAAAAXAP7/AQAHAAgAAAAYAP3/AQAIAAcAAAAYAP7/AQAIAAgAAAAbAP7/AQAKAAcAAAAdAP7/AQANAAAAAAAeAP7/AQAOAAAAAAAcAP7/AQATAAMAAAAcAP//AQAPAAIAAAAdAP//AQAQAAIAAAAeAP//AQARAAIAAAAOAP//AQAKAAcAAAANAP//AQAKAAcAAAARAAIAAwAJAAMAAAAOAAUAAwAJAAMAAGAaAAQAAwAJAAMAAFARAAMAAQAKAAUAAAAPAAUAAQALAAQAAAAZAAQAAQALAAMAAAAPAAMAAQAMAAcAAAAPAAQAAQAMAAgAAAAQAAMAAQANAAcAAAAQAAQAAQANAAgAAAAUAAIAAQAKAAcAAAAVAAIAAQAKAAcAAAAXAAIAAQAKAAAAAAAXAAMAAQATAAUAAAAaAAYAAQALAAEAAAAaAAIAAQAIAAEAAAAYAAIAAQASAAUAAFAWAAQAAwAHAAMAAGAWAAUAAwAHAAMAAGAPAAcAAQATAAUAAAAPAAgAAQATAAUAAAAOAAcAAQATAAMAAAANAAcAAQAKAAAAAAAUAAYAAQAHAAUAAAAUAAcAAQAHAAYAAAATAAYAAQAIAAUAAAATAAcAAQAIAAYAAAAVAAYAAQANAAIAAAAVAAcAAQANAAMAAAAWAAcAAQAKAAAAAAAXAAcAAQASAAAAAAAYAAcAAQATAAAAAAAZAAcAAQAUAAAAAAAXAAgAAQASAAEAAAAYAAgAAQATAAEAAAAZAAgAAQAUAAEAAAAQAAgAAQAKAAcAAGAQAAcAAQALAAcAAFAHAAkAAQAKAAMAAAAHAAsAAQAKAAMAAAAHAA0AAQAKAAMAAAAHAAwAAQALAAMAAAAHAAoAAQALAAMAAAAHAAgAAQALAAMAAAAHAAcAAQANAAIAAGAIAAcAAQANAAMAAGAHAA4AAQAOAAIAAGAIAA4AAQAOAAMAAGANAA8AAQAKAAcAAAAQAAwAAQAQAAMAAAARAAwAAQARAAMAAAAPAA0AAQAKAAcAAGAPAA4AAQAKAAcAAGARABAAAwAJAAMAAAASAA8AAQAHAAAAAAARAA8AAQALAAIAAAATAA4AAQASAAUAAGAPAA8AAwAGAAMAAFAPABAAAwAHAAMAAFAZAAwAAQAKAAIAAAAYAAwAAQALAAIAAAAaAAwAAQALAAIAAAAXAA4AAQAMAAIAAGAXAA8AAQAMAAIAAGAaABEAAQAKAAcAAGAaABIAAQAKAAcAAGAcAA0AAQASAAUAADAeAA0AAQAIAAUAAAAeAA4AAQAIAAYAAAAfAA0AAQAIAAAAAAAgAA0AAQAJAAAAAAAfAA8AAQALAAMAAAAdABIAAQAHAAoAAGAdABMAAQAGAAoAAGAcABIAAQAHAAkAAGAcABMAAQAGAAkAAGAcABQAAQAKAAcAAGAfABIAAQAKAAIAAAAeAAkAAQAKAAcAAFAeAAoAAQAKAAcAAFA=")
+tile_map_data = PackedByteArray("AAATAP7/AQAKAAIAAAAVAP7/AQAKAAIAAAAUAP7/AQALAAIAAAAWAP3/AQAGAAcAAAAWAP7/AQAGAAgAAAAXAP3/AQAHAAcAAAAXAP7/AQAHAAgAAAAYAP3/AQAIAAcAAAAYAP7/AQAIAAgAAAAbAP7/AQAKAAcAAAAdAP7/AQANAAAAAAAeAP7/AQAOAAAAAAAcAP7/AQATAAMAAAAcAP//AQAPAAIAAAAdAP//AQAQAAIAAAAeAP//AQARAAIAAAAOAP//AQAKAAcAAAANAP//AQAKAAcAAAARAAIAAwAJAAMAAAAOAAUAAwAJAAMAAGAaAAQAAwAJAAMAAFARAAMAAQAKAAIAADAPAAUAAQALAAQAAAAZAAQAAQALAAMAAAAPAAMAAQAMAAcAAAAPAAQAAQAMAAgAAAAQAAMAAQANAAcAAAAQAAQAAQANAAgAAAAUAAIAAQAKAAcAAAAVAAIAAQAKAAcAAAAXAAIAAQAKAAAAAAAXAAMAAQATAAUAAAAaAAYAAQALAAEAAAAaAAIAAQAIAAEAAAAYAAIAAQASAAUAAFAWAAQAAwAHAAMAAGAWAAUAAwAHAAMAAGAPAAcAAQATAAUAAAAPAAgAAQATAAUAAAAOAAcAAQATAAMAAAANAAcAAQAKAAAAAAAUAAYAAQAHAAUAAAAUAAcAAQAHAAYAAAATAAYAAQAIAAUAAAATAAcAAQAIAAYAAAAVAAYAAQANAAIAAAAVAAcAAQANAAMAAAAWAAcAAQAKAAAAAAAXAAcAAQASAAAAAAAYAAcAAQATAAAAAAAZAAcAAQAUAAAAAAAXAAgAAQASAAEAAAAYAAgAAQATAAEAAAAZAAgAAQAUAAEAAAAQAAgAAQAKAAcAAGAQAAcAAQALAAcAAFAHAAkAAQAKAAMAAAAHAAsAAQAKAAMAAAAHAA0AAQAKAAMAAAAHAAwAAQALAAMAAAAHAAoAAQALAAMAAAAHAAgAAQALAAMAAAAHAAcAAQANAAIAAGAIAAcAAQANAAMAAGAHAA4AAQAOAAIAAGAIAA4AAQAOAAMAAGANAA8AAQAKAAcAAAAQAAwAAQAQAAMAAAARAAwAAQARAAMAAAAPAA0AAQAKAAcAAGAPAA4AAQAKAAcAAGARABAAAwAJAAMAAAASAA8AAQAHAAAAAAARAA8AAQALAAIAAAATAA4AAQASAAUAAGAPAA8AAwAGAAMAAFAPABAAAwAHAAMAAFAZAAwAAQAKAAIAAAAYAAwAAQALAAIAAAAaAAwAAQALAAIAAAAXAA4AAQAMAAIAAGAXAA8AAQAMAAIAAGAaABEAAQAKAAcAAGAaABIAAQAKAAcAAGAcAA0AAQASAAUAADAeAA0AAQAIAAUAAAAeAA4AAQAIAAYAAAAfAA0AAQAIAAAAAAAgAA0AAQAJAAAAAAAfAA8AAQALAAMAAAAdABIAAQAHAAoAAGAdABMAAQAGAAoAAGAcABIAAQAHAAkAAGAcABMAAQAGAAkAAGAcABQAAQAKAAcAAGAfABIAAQAKAAIAAAAeAAkAAQAKAAcAAFAeAAoAAQAKAAcAAFA=")
 tile_set = SubResource("TileSet_ou0dp")
 
 [node name="things2" type="TileMapLayer" parent="."]
