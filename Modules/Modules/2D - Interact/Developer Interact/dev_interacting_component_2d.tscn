@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dca3aicj0dt18"]
+[gd_scene load_steps=3 format=3 uid="uid://ddbw7mndjjl7e"]
 
 [ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Developer Interact/dev_interacting_component_2d.gd" id="1_otqoo"]
 

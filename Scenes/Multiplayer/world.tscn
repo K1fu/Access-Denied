@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=4 uid="uid://cfbs8g62ughrk"]
 
-[ext_resource type="Script" path="res://Scenes/Main Game/world.gd" id="1_lsbhn"]
-[ext_resource type="FontFile" path="res://Assets/fonts/Modenine-2OPd.ttf" id="2_4gx8b"]
+[ext_resource type="Script" path="res://Scenes/Multiplayer/world.gd" id="1_lsbhn"]
+[ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/fonts/Modenine-2OPd.ttf" id="2_4gx8b"]
 [ext_resource type="Script" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="3_k2eld"]
 [ext_resource type="PackedScene" uid="uid://bv4vu1yt0c73i" path="res://Scenes/Test environment/touch_control.tscn" id="3_n3a12"]
 [ext_resource type="Script" path="res://Scenes/Test environment/button.gd" id="4_4ua43"]
