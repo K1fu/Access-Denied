@@ -553,7 +553,10 @@ radius = 19.2354
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(20, 7)
+<<<<<<< HEAD
 scale = Vector2(5, 5)
+=======
+>>>>>>> parent of 2e11465 (Revert "Update player.tscn")
 script = ExtResource("1_s6ifd")
 speed = 100
 
@@ -567,7 +570,11 @@ interpolated = true
 interpolation_speed = 15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+<<<<<<< HEAD
 position = Vector2(3.875, 10.5938)
+=======
+position = Vector2(6, -3)
+>>>>>>> parent of 2e11465 (Revert "Update player.tscn")
 shape = SubResource("RectangleShape2D_ksjuq")
 
 [node name="InteractLabel" type="Label" parent="."]
@@ -603,8 +610,13 @@ interpolation_speed = 15.0
 position = Vector2(982, 534)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character/CharacterSkin"]
+<<<<<<< HEAD
 position = Vector2(-1.00002, 3)
 scale = Vector2(4.4375, 3.77083)
+=======
+position = Vector2(0, -3)
+scale = Vector2(1.79167, 1.40625)
+>>>>>>> parent of 2e11465 (Revert "Update player.tscn")
 sprite_frames = SubResource("SpriteFrames_4mtwu")
 animation = &"idle"
 frame = 1
@@ -623,11 +635,19 @@ libraries = {
 }
 
 [node name="Player_name" type="Area2D" parent="."]
+<<<<<<< HEAD
 position = Vector2(8, 1)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_name"]
 position = Vector2(-2, 9)
+=======
+position = Vector2(9, 3)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_name"]
+position = Vector2(-3, -6)
+>>>>>>> parent of 2e11465 (Revert "Update player.tscn")
 shape = SubResource("CircleShape2D_7l05s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
