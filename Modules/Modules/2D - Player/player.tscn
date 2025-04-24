@@ -604,7 +604,7 @@ position = Vector2(982, 534)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character/CharacterSkin"]
 position = Vector2(-1.00002, 3)
-scale = Vector2(4.4375, 3.77083)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_4mtwu")
 animation = &"idle"
 frame = 1
@@ -628,6 +628,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_name"]
 position = Vector2(-2, 9)
+scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_7l05s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
