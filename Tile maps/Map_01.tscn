@@ -490,6 +490,8 @@ sources/4 = SubResource("TileSetAtlasSource_j5dgi")
 
 [node name="Map01" type="TileMapLayer"]
 z_index = -1
+position = Vector2(618, -300)
+scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAANAAYAAQACAAgAADAOAAYAAQACAAgAADAPAAwAAQADAAcAAAA=")
 tile_set = SubResource("TileSet_qpsja")
 
@@ -523,4 +525,4 @@ tile_map_data = PackedByteArray("AAAQAAIAAQAGAAIAAAARAAIAAQAHAAIAAAASAAIAAQAIAAI
 tile_set = SubResource("TileSet_qpsja")
 
 [node name="Player" parent="." instance=ExtResource("6_i2gqy")]
-position = Vector2(645, 307)
+position = Vector2(316.4, 317)
