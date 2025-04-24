@@ -554,6 +554,7 @@ radius = 54.9181
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(20, 7)
 script = ExtResource("1_s6ifd")
+speed = 100
 
 [node name="PropertySynchronizer" type="Node" parent="."]
 script = ExtResource("2_cilbb")
