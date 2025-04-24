@@ -19,10 +19,13 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if current_interactions and can_interact:
 		current_interactions.sort_custom(_sort_by_nearest)
+		# Only show label for appropriate interactable type
 		if current_interactions[0] is dev_interactable:
 			interact_label.text = current_interactions[0].interact_name
 			interact_label.show()
-	else: 
+		else:
+			interact_label.hide()
+	else:
 		interact_label.hide()
 				
 func _sort_by_nearest(area1, area2):

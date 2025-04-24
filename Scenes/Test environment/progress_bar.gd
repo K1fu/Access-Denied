@@ -8,9 +8,11 @@ func _ready() -> void:
 func change_health(amount: int):
 	var tween = create_tween()
 	tween.tween_property(self, "value", value + amount, 1)
+	_progress_synchronizer.synchronize(true)
 
 func take_damage(damage: int):
 	change_health(-damage)  # Subtract health
 
 func repair_health(repair: int):
 	change_health(repair)  # Add health
+	
