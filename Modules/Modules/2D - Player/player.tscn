@@ -549,13 +549,11 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7l05s"]
-radius = 54.9181
+radius = 15.4502
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(20, 7)
-scale = Vector2(5, 5)
+position = Vector2(22, 7)
 script = ExtResource("1_s6ifd")
-speed = 100
 
 [node name="PropertySynchronizer" type="Node" parent="."]
 script = ExtResource("2_cilbb")
@@ -567,7 +565,7 @@ interpolated = true
 interpolation_speed = 15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.875, 10.5938)
+position = Vector2(7.99998, 20.6)
 shape = SubResource("RectangleShape2D_ksjuq")
 
 [node name="InteractLabel" type="Label" parent="."]
@@ -627,7 +625,7 @@ position = Vector2(8, 1)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_name"]
-position = Vector2(-2, 9)
+position = Vector2(0.2, 15.8)
 scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_7l05s")
 
