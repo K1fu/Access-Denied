@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bxix2j8me7l76" path="res://Tile maps/Sprites/Tileset.png" id="5_hh286"]
 [ext_resource type="PackedScene" uid="uid://ceklaelifj1th" path="res://Modules/Modules/2D - Player/player.tscn" id="6_i2gqy"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuk6f"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjrom"]
 texture = ExtResource("1_pcoh3")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
@@ -70,7 +70,7 @@ texture_region_size = Vector2i(32, 32)
 7:9/0 = 0
 8:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hdeck"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6wut"]
 texture = ExtResource("2_giyjy")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -280,13 +280,13 @@ texture_region_size = Vector2i(32, 32)
 12:10/0 = 0
 13:10/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ckqp7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_65iub"]
 texture = ExtResource("3_8tnq1")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e0ab0"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k4ad8"]
 texture = ExtResource("4_r7nqh")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -362,7 +362,7 @@ texture_region_size = Vector2i(32, 32)
 8:7/0 = 0
 9:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7ppe"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5dgi"]
 texture = ExtResource("5_hh286")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -482,11 +482,11 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_qpsja"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_fuk6f")
-sources/1 = SubResource("TileSetAtlasSource_hdeck")
-sources/2 = SubResource("TileSetAtlasSource_ckqp7")
-sources/3 = SubResource("TileSetAtlasSource_e0ab0")
-sources/4 = SubResource("TileSetAtlasSource_o7ppe")
+sources/0 = SubResource("TileSetAtlasSource_mjrom")
+sources/1 = SubResource("TileSetAtlasSource_t6wut")
+sources/2 = SubResource("TileSetAtlasSource_65iub")
+sources/3 = SubResource("TileSetAtlasSource_k4ad8")
+sources/4 = SubResource("TileSetAtlasSource_j5dgi")
 
 [node name="Map01" type="TileMapLayer"]
 z_index = -1

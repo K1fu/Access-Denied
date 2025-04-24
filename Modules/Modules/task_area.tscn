@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqjf1hwsnj6y2"]
+[gd_scene load_steps=7 format=3 uid="uid://cqjf1hwsnj6y2"]
 
 [ext_resource type="Script" path="res://task_area.gd" id="1_xldxr"]
-[ext_resource type="Texture2D" uid="uid://bxvb1qbj7n2f4" path="res://icon.svg" id="2_c45bw"]
-[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/interactable2d.tscn" id="4_woi37"]
+[ext_resource type="Texture2D" uid="uid://dl6igrhg17tgg" path="res://Tile maps/Sprites/Server.png" id="2_taj1h"]
+[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn" id="4_82yb2"]
+[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Developer Interact/Dev_interactable2d.tscn" id="4_kenmw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi0vu"]
 size = Vector2(128, 128)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hklap"]
-radius = 371.194
+[sub_resource type="CircleShape2D" id="CircleShape2D_y3mrp"]
+radius = 370.022
 
 [node name="TaskArea" type="StaticBody2D"]
 script = ExtResource("1_xldxr")
@@ -17,19 +18,18 @@ script = ExtResource("1_xldxr")
 shape = SubResource("RectangleShape2D_hi0vu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_c45bw")
+position = Vector2(-1, -2)
+scale = Vector2(5, 5)
+texture = ExtResource("2_taj1h")
 
-[node name="dev_interactable" parent="." instance=ExtResource("4_woi37")]
-collision_layer = 4
-interact_name = "Computer"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dev_interactable"]
-shape = SubResource("CircleShape2D_hklap")
-
-[node name="hack_interactable" parent="." instance=ExtResource("4_woi37")]
-collision_mask = 1
-collision_priority = 2.0
+[node name="hack_interactable" parent="." instance=ExtResource("4_82yb2")]
 interact_name = "Hacker"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hack_interactable"]
-shape = SubResource("CircleShape2D_hklap")
+shape = SubResource("CircleShape2D_y3mrp")
+
+[node name="Dev_interactable" parent="." instance=ExtResource("4_kenmw")]
+interact_name = "Developer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dev_interactable"]
+shape = SubResource("CircleShape2D_y3mrp")
