@@ -553,6 +553,7 @@ radius = 54.9181
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(20, 7)
+scale = Vector2(5, 5)
 script = ExtResource("1_s6ifd")
 speed = 100
 
