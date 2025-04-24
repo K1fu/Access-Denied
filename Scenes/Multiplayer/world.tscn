@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cfbs8g62ughrk"]
+[gd_scene load_steps=23 format=4 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/world.gd" id="1_lsbhn"]
 [ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/fonts/Modenine-2OPd.ttf" id="2_4gx8b"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://c5yd5ingxf2oy" path="res://Tile maps/Sprites/playButton.png" id="9_nvgki"]
 [ext_resource type="Texture2D" uid="uid://bx5pgw0ypvfs2" path="res://Tile maps/Sprites/TileSet v1.0.png" id="10_asm0b"]
 [ext_resource type="Texture2D" uid="uid://bxix2j8me7l76" path="res://Tile maps/Sprites/Tileset.png" id="11_nnosh"]
-[ext_resource type="PackedScene" uid="uid://ceklaelifj1th" path="res://Modules/Modules/2D - Player/player.tscn" id="13_idv8f"]
 
 [sub_resource type="Gradient" id="Gradient_vpqf1"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -602,6 +601,7 @@ tile_map_data = PackedByteArray("AAAQAAIAAQAGAAIAAAARAAIAAQAHAAIAAAASAAIAAQAIAAI
 tile_set = SubResource("TileSet_ou0dp")
 
 [node name="TaskArea" parent="." instance=ExtResource("4_7lc58")]
+position = Vector2(-298, 323)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="TaskArea"]
 
@@ -621,7 +621,5 @@ theme_override_font_sizes/font_size = 50
 text = "Do Task"
 script = ExtResource("4_4ua43")
 metadata/_edit_use_anchors_ = true
-
-[node name="Player" parent="." instance=ExtResource("13_idv8f")]
 
 [connection signal="pressed" from="TaskArea/CanvasLayer/Button1" to="TaskArea/CanvasLayer/Button1" method="_on_pressed"]
