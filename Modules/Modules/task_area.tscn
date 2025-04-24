@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://task_area.gd" id="1_xldxr"]
 [ext_resource type="Texture2D" uid="uid://dl6igrhg17tgg" path="res://Tile maps/Sprites/Server.png" id="2_taj1h"]
-[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn" id="3_au4fv"]
-[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Developer Interact/dev_interactable2d.tscn" id="4_82yb2"]
+[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn" id="4_82yb2"]
+[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Developer Interact/Dev_interactable2d.tscn" id="4_kenmw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi0vu"]
 size = Vector2(128, 128)
@@ -22,13 +22,13 @@ position = Vector2(-1, -2)
 scale = Vector2(5, 5)
 texture = ExtResource("2_taj1h")
 
-[node name="hack_interactable" parent="." instance=ExtResource("3_au4fv")]
+[node name="hack_interactable" parent="." instance=ExtResource("4_82yb2")]
 interact_name = "Hacker"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hack_interactable"]
 shape = SubResource("CircleShape2D_y3mrp")
 
-[node name="Dev_interactable" parent="." instance=ExtResource("4_82yb2")]
+[node name="Dev_interactable" parent="." instance=ExtResource("4_kenmw")]
 interact_name = "Developer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dev_interactable"]

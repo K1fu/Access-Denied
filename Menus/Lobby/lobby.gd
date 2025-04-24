@@ -58,7 +58,7 @@ func _on_start_pressed():
 	GDSync.close_lobby()
 	
 #	Switch scenes using GD-Sync
-	GDSync.change_scene("res://Scenes/Main Game/world.tscn")
+	GDSync.change_scene("res://Scenes/Multiplayer/world.tscn")
 
 func _on_leave_pressed():
 #	Leave the current lobby and switch back to the lobby browser
