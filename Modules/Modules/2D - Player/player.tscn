@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0jp5ylptv7ac" path="res://Modules/Modules/2D - Player/character_skin.tscn" id="5_35ssf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ksjuq"]
-size = Vector2(60.25, 110.813)
+size = Vector2(20, 26.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xvmhl"]
 atlas = ExtResource("2_turdi")
@@ -549,7 +549,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7l05s"]
-radius = 54.9181
+radius = 19.2354
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(20, 7)
@@ -604,7 +604,7 @@ position = Vector2(982, 534)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character/CharacterSkin"]
 position = Vector2(-1.00002, 3)
-scale = Vector2(5, 5)
+scale = Vector2(4.4375, 3.77083)
 sprite_frames = SubResource("SpriteFrames_4mtwu")
 animation = &"idle"
 frame = 1
@@ -628,7 +628,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_name"]
 position = Vector2(-2, 9)
-scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_7l05s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
