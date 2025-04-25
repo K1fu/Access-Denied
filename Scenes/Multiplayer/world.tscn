@@ -600,6 +600,7 @@ tile_map_data = PackedByteArray("AAAQAAIAAQAGAAIAAAARAAIAAQAHAAIAAAASAAIAAQAIAAI
 tile_set = SubResource("TileSet_ou0dp")
 
 [node name="TaskArea" parent="." instance=ExtResource("4_7lc58")]
+position = Vector2(-298, 323)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="TaskArea"]
 
