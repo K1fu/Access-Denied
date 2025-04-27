@@ -90,7 +90,7 @@ func remote_assign_role_and_components(role : String) -> void:
 	var interactable
 	if role == "Hacker":
 		interact_comp = preload("res://Modules/Modules/2D - Interact/Hacker Interact/hack_interacting_component_2d.tscn").instantiate()
-		interactable  = preload("res://Modules/Modules/2D - Interact/Developer Interact/Dev_interactable2d.tscn").instantiate()
+		interactable  = preload("res://Modules/Modules/2D - Interact/Developer Interact/dev_interactable.tscn").instantiate()
 	else:
 		interact_comp = preload("res://Modules/Modules/2D - Interact/Developer Interact/dev_interacting_component_2d.tscn").instantiate()
 		interactable  = preload("res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn").instantiate()
