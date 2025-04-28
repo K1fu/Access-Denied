@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpp0rwn4xlpm5"]
+
+[ext_resource type="Script" path="res://Modules/Modules/Task_Bar/progress_bar.gd" id="1_uc55k"]
+[ext_resource type="Script" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="2_aev8a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3flj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5dea"]
+bg_color = Color(1.73271e-06, 0.721968, 0.293988, 1)
+
+[node name="HealthBar" type="ProgressBar"]
+offset_left = 76.0
+offset_top = 48.0
+offset_right = 656.0
+offset_bottom = 137.0
+theme_override_styles/background = SubResource("StyleBoxFlat_y3flj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_s5dea")
+script = ExtResource("1_uc55k")
+
+[node name="PropertySynchronizer" type="Node" parent="."]
+script = ExtResource("2_aev8a")
+broadcast = 2
+process = 1
+node_path = NodePath("..")
+properties = PackedStringArray("position")
+interpolated = true
+interpolation_speed = 15.0

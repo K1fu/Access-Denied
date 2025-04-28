@@ -1,3 +1,5 @@
+class_name world
+
 extends Node2D
 
 # Preload scenes for performance
@@ -76,7 +78,7 @@ func role_assign() -> void:
 		GDSync.call_func_on(client_id,
 			Callable(self, "Role_Show"),
 			[role]
-		)
+		) 
 
 func remote_assign_role_and_components(role : String) -> void:
 	# Called on each client to add only their role components
@@ -90,10 +92,10 @@ func remote_assign_role_and_components(role : String) -> void:
 	var interactable
 	if role == "Hacker":
 		interact_comp = preload("res://Modules/Modules/2D - Interact/Hacker Interact/hack_interacting_component_2d.tscn").instantiate()
-		interactable  = preload("res://Modules/Modules/2D - Interact/Developer Interact/Dev_interactable2d.tscn").instantiate()
+		interactable  = preload("res://Modules/Modules/2D - Interact/Developer Interact/dev_interactable.tscn").instantiate()
 	else:
 		interact_comp = preload("res://Modules/Modules/2D - Interact/Developer Interact/dev_interacting_component_2d.tscn").instantiate()
-		interactable  = preload("res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn").instantiate()
+		interactable  = preload("res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/hackable.tscn").instantiate()
 
 	player_node.add_child(interact_comp)
 	player_node.add_child(interactable)

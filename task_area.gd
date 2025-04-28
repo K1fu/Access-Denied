@@ -2,9 +2,10 @@ extends StaticBody2D
 
 # This is the interactable object.
 
-@onready var Dev_interactable: Area2D = $Dev_interactable
+@onready var Dev_interactable: Area2D = $dev_interactable
 @onready var Hack_interactable: Area2D = $hack_interactable
-@onready var CrewScreen: Button = $CanvasLayer/Button1
+@onready var CrewScreen: CanvasLayer = $Developer
+@onready var HackScreen: CanvasLayer = $Hacker
 
 func _ready() -> void:
 	_crewmate_interact()
@@ -20,8 +21,8 @@ func Dev_on_interact():
 
 func _hacker_interact():
 	Hack_interactable.interact = Hack_on_interact  # No parentheses!
-	CrewScreen.visible = false
+	HackScreen.visible = false
 
 func Hack_on_interact():
 	print("Hacker Interacted")
-	CrewScreen.visible = true
+	HackScreen.visible = true
