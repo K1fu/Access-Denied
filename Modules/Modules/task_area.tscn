@@ -29,8 +29,6 @@ interact_name = "Hacker"
 shape = SubResource("CircleShape2D_y3mrp")
 
 [node name="dev_interactable" parent="." instance=ExtResource("4_k5n6i")]
-collision_layer = 4
-collision_mask = 0
 interact_name = "Developer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dev_interactable"]

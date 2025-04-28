@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c86j5mvm3d60u"]
+
+[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn" id="1_aqdqg"]
+[ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/hackable.gd" id="1_e8as4"]
+[ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/hack.gd" id="3_t1j4j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdknt"]
+radius = 370.022
+
+[node name="Hackable" type="Node"]
+script = ExtResource("1_e8as4")
+
+[node name="hack_interactable" parent="." instance=ExtResource("1_aqdqg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hack_interactable"]
+shape = SubResource("CircleShape2D_tdknt")
+
+[node name="HackScreen" type="CanvasLayer" parent="."]
+
+[node name="Hack" type="Button" parent="HackScreen"]
+offset_left = -40.0
+offset_top = -24.0
+offset_right = 40.0
+offset_bottom = 26.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "Hack"
+script = ExtResource("3_t1j4j")

@@ -3,6 +3,10 @@
 
 extends ProgressBar
 
+class_name HealthBarUI
+
+static var instance: HealthBarUI
+
 func _ready() -> void:
 	# Expose the `value` property on *this* node so GD-Sync can replicate it
 	GDSync.expose_var(self, "value")      # ← two arguments required by the API :contentReference[oaicite:0]{index=0}

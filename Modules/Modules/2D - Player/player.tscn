@@ -571,14 +571,13 @@ offset_top = -152.0
 offset_right = 138.0
 offset_bottom = -83.0
 theme_override_font_sizes/font_size = 50
-text = "Interact Here"
 horizontal_alignment = 1
 
 [node name="Username" type="Label" parent="."]
-offset_left = -118.0
-offset_top = -210.0
-offset_right = 79.0
-offset_bottom = -141.0
+offset_left = -117.0
+offset_top = -151.0
+offset_right = 80.0
+offset_bottom = -82.0
 theme_override_font_sizes/font_size = 50
 text = "Kiha"
 horizontal_alignment = 1
