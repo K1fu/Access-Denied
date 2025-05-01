@@ -7,10 +7,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdknt"]
 radius = 370.022
 
-[node name="Hackable" type="Node"]
+[node name="Hackable" type="Node2D"]
 script = ExtResource("1_e8as4")
 
 [node name="hack_interactable" parent="." instance=ExtResource("1_aqdqg")]
+interact_name = "Hack me pls"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hack_interactable"]
 shape = SubResource("CircleShape2D_tdknt")
@@ -27,3 +28,6 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = "Hack"
 script = ExtResource("3_t1j4j")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="HackScreen/Hack" to="HackScreen/Hack" method="_on_pressed"]

@@ -1,13 +1,19 @@
 class_name Hack_Button
-
 extends Button
 
+@onready var world = get_tree().get_root().get_node("World")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+# ← Define this so _on_pressed() can find the Player node
+func find_target_node() -> CharacterBody2D:
+	# Button → HackScreen → Hackable → Player
+	var hackable_node = get_parent().get_parent()
+	var player_node   = hackable_node.get_parent()
+	return player_node
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_pressed() -> void:
+	var target = find_target_node()
+	if target:
+		# Sends the hack request to the host (via GD-Sync)
+		GDSync.call_func(Callable(world, "attempt_hack"), [target.client_id])
+	else:
+		print("No valid hack target in range.")

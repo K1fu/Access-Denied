@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://dr4lod3lhrt74"]
+
+[ext_resource type="Texture2D" uid="uid://dtkgkeop8puay" path="res://Assets/Single Player/Terminal/cube_Screenshot 2025-03-26 040139.png.png" id="1_h4hbq"]
+[ext_resource type="Script" path="res://Scenes/Singleplayer/SCENE 1/terminal.gd" id="1_h8n2j"]
+[ext_resource type="Texture2D" uid="uid://io7avj1amr64" path="res://Assets/Single Player/Terminal/MyMind OS.png" id="3_1vgmg"]
+[ext_resource type="Script" path="res://Scenes/Singleplayer/SCENE 1/Window.gd" id="4_oceav"]
+[ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/fonts/Modenine-2OPd.ttf" id="5_yyfqp"]
+
+[sub_resource type="Animation" id="Animation_1qmte"]
+resource_name = "Open_tab"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l11xx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u3gpi"]
+_data = {
+"Open_tab": SubResource("Animation_1qmte"),
+"RESET": SubResource("Animation_l11xx")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h8n2j")
+text_speed = 0.05
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 1080.0
+texture = ExtResource("1_h4hbq")
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -478.5
+offset_right = 640.0
+offset_bottom = 478.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_1vgmg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container"]
+libraries = {
+"": SubResource("AnimationLibrary_u3gpi")
+}
+script = ExtResource("4_oceav")
+
+[node name="MarginContainer" type="MarginContainer" parent="Container"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="Label" type="Label" parent="Container/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("5_yyfqp")
+theme_override_font_sizes/font_size = 20
