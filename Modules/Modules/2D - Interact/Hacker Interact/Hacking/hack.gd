@@ -17,3 +17,4 @@ func _on_pressed() -> void:
 		GDSync.call_func(Callable(world, "attempt_hack"), [target.client_id])
 	else:
 		print("No valid hack target in range.")
+	visible = false
