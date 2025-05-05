@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6v2t1l5wlcjk"]
 
 [ext_resource type="Script" path="res://GD-SyncTemplates/Accounts/login.gd" id="1_dw383"]
-[ext_resource type="Texture2D" uid="uid://p4xr6w3tygo3" path="res://Assets/UI/START .png" id="2_h86kc"]
+[ext_resource type="Texture2D" uid="uid://bgkhe6qshr4j8" path="res://Assets/Misc/LOGIN.png" id="2_2c371"]
 
 [node name="Login" type="Control"]
 layout_mode = 3
@@ -16,7 +16,7 @@ script = ExtResource("1_dw383")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_h86kc")
+texture = ExtResource("2_2c371")
 
 [node name="Email" type="LineEdit" parent="Background"]
 layout_mode = 0
@@ -34,10 +34,10 @@ offset_bottom = 663.0
 
 [node name="ErrorText" type="Label" parent="Background"]
 layout_mode = 0
-offset_left = 681.0
-offset_top = 228.0
-offset_right = 1181.0
-offset_bottom = 281.0
+offset_left = 669.0
+offset_top = 821.0
+offset_right = 1234.0
+offset_bottom = 898.0
 
 [node name="LoginButton" type="TextureButton" parent="Background"]
 layout_mode = 0
