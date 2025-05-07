@@ -9,21 +9,17 @@ var HACKABLE_SCENE: PackedScene = preload("res://Modules/Modules/2D - Interact/H
 @onready var RoleText: Label = $RoleAssigning/Label
 
 func _ready() -> void:
-	# Connect GD-Sync signals
 	GDSync.client_joined.connect(client_joined)
 	GDSync.client_left.connect(client_left)
 	GDSync.disconnected.connect(disconnected)
 
-	# Expose remote functions
 	GDSync.expose_func(Callable(self, "remote_assign_role_and_components"))
 	GDSync.expose_func(Callable(self, "Role_Show"))
 	GDSync.expose_func(Callable(self, "attempt_hack"))
 
-	# Spawn existing clients
 	for id in GDSync.get_all_clients():
 		client_joined(id)
 
-	# Host decides roles when ready
 	if GDSync.is_host():
 		await get_tree().create_timer(0.1).timeout
 		role_assign()
@@ -54,40 +50,33 @@ func role_assign() -> void:
 	var ids: Array = GDSync.get_all_clients()
 	ids.shuffle()
 
-	# Determine number of hackers
 	var hacker_count: int
 	if ids.size() > 4:
 		hacker_count = 2
 	else:
 		hacker_count = 1
 
-	print("Assigning roles for %d players, %d hackers" % [ids.size(), hacker_count])
-
 	for i in range(ids.size()):
-		var client_id = ids[i]
-		var player = get_node_or_null(str(client_id))
+		var cid = ids[i]
+		var player = get_node_or_null(str(cid))
 		if not player:
 			continue
 
-		# Assign role based on index
 		var role: String
 		if i < hacker_count:
 			role = "Hacker"
 		else:
 			role = "Developer"
 
-		# Sync role and hackable status
 		player.role = role
 		player.is_hackable = false
 		GDSync.sync_var(player, "role")
 		GDSync.sync_var(player, "is_hackable")
 
-		# Instruct each client to add their interact component
-		GDSync.call_func_on(client_id, Callable(self, "remote_assign_role_and_components"), [role])
-		GDSync.call_func_on(client_id, Callable(self, "Role_Show"), [role])
+		GDSync.call_func_on(cid, Callable(self, "remote_assign_role_and_components"), [role])
+		GDSync.call_func_on(cid, Callable(self, "Role_Show"), [role])
 
-		# Host-spawn & sync hackable for developers
-		if GDSync.is_host() and role == "Developer":
+		if role == "Developer":
 			GDSync.multiplayer_instantiate(HACKABLE_SCENE, player, true, [], true)
 
 	print_all_player_roles()
