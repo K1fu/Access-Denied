@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dcuhgr8g30qbt"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_top = 489.0
+offset_right = 1920.0
+offset_bottom = 591.0
+
+[node name="UsernameBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Username" type="Label" parent="UsernameBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Lobby Name"
+clip_text = true
+
+[node name="HackChance" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="HackChance" type="Button" parent="HackChance"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "JOIN"
+
+[node name="HackGuarantee" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="HackGuarantee" type="Button" parent="HackGuarantee"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "JOIN"

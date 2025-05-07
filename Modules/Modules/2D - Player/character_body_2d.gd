@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var sprint_multiplier: float = 1.5
 @export var normal_anim_speed: float = 1.0
 @export var sprint_anim_speed: float = 1.5
+@export var client_id: int = 0
+@export var is_hackable: bool = false
+@export var role: String = "" 
 
 @onready var _username: Label = $Username
 @onready var _position_synchronizer = $PropertySynchronizer
@@ -13,8 +16,12 @@ extends CharacterBody2D
 var last_direction: String = "down"
 
 func _ready():
+	GDSync.expose_node(self) 
 	char_skin = $Character/CharacterSkin
+	GDSync.sync_var(self, "client_id")
 	set_multiplayer_data.call_deferred()
+	GDSync.sync_var(self, "is_hackable")
+	GDSync.sync_var(self, "role")  
 
 func set_multiplayer_data():
 	var client_id: int = name.to_int()
@@ -78,3 +85,6 @@ func _physics_process(_delta):
 	var epsilon := 0.001
 	if delta_position.length() < epsilon and velocity.length() > epsilon:
 		global_position += get_wall_normal() * 0.1
+
+func is_local_player() -> bool:
+	return client_id == GDSync.get_client_id()

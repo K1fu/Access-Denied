@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://bx6qos23qbtf5"]
+[gd_scene load_steps=12 format=4 uid="uid://bx6qos23qbtf5"]
 
 [ext_resource type="Texture2D" uid="uid://br0ilewtnhay2" path="res://Tile maps/Sprites/neo_zero_tiles_and_buildings_01.png" id="1_pcoh3"]
 [ext_resource type="Texture2D" uid="uid://cs1uqkv6kijl6" path="res://Tile maps/Sprites/pixel-cyberpunk-interior.png" id="2_giyjy"]
 [ext_resource type="Texture2D" uid="uid://c5yd5ingxf2oy" path="res://Tile maps/Sprites/playButton.png" id="3_8tnq1"]
 [ext_resource type="Texture2D" uid="uid://bx5pgw0ypvfs2" path="res://Tile maps/Sprites/TileSet v1.0.png" id="4_r7nqh"]
 [ext_resource type="Texture2D" uid="uid://bxix2j8me7l76" path="res://Tile maps/Sprites/Tileset.png" id="5_hh286"]
-[ext_resource type="PackedScene" uid="uid://ceklaelifj1th" path="res://Modules/Modules/2D - Player/player.tscn" id="6_i2gqy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjrom"]
 texture = ExtResource("1_pcoh3")
@@ -521,6 +520,3 @@ tile_set = SubResource("TileSet_qpsja")
 use_parent_material = true
 tile_map_data = PackedByteArray("AAASABAAAQAGAAIAADARABAAAQAHAAIAADAQABAAAQAIAAIAADAgAA4AAQAGAAMAAFAgAA8AAQAHAAMAAFAgABAAAQAIAAMAAFAeABMAAQAIAAIAADAfABMAAQAHAAIAADAgABMAAQAGAAIAADAQAAMAAQAGAAIAAAARAAMAAQAHAAIAAAASAAMAAQAIAAIAAAARAAQAAQAKAAIAADATAAMAAQAMAAcAAAATAAQAAQAMAAgAAAAUAAMAAQANAAcAAAAUAAQAAQANAAgAAAAVAAQAAQAKAAcAAGAVAAUAAQAKAAcAAGANAAYAAQAIAAMAADAOAAYAAQAHAAMAADAPAAYAAQAGAAMAADAOAAUAAQALAAIAAAAXAAYAAQAIAAIAADAYAAYAAQAHAAIAADAZAAYAAQAGAAIAADA=")
 tile_set = SubResource("TileSet_qpsja")
-
-[node name="Player" parent="." instance=ExtResource("6_i2gqy")]
-position = Vector2(316.4, 317)
