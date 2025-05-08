@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cfbs8g62ughrk"]
+[gd_scene load_steps=26 format=4 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/world.gd" id="1_lsbhn"]
 [ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/fonts/Modenine-2OPd.ttf" id="2_4gx8b"]
@@ -12,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://bx5pgw0ypvfs2" path="res://Tile maps/Sprites/TileSet v1.0.png" id="10_asm0b"]
 [ext_resource type="Texture2D" uid="uid://bxix2j8me7l76" path="res://Tile maps/Sprites/Tileset.png" id="11_nnosh"]
 [ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/sabotage.gd" id="12_lj6o1"]
+[ext_resource type="PackedScene" uid="uid://bds8y8x4sw5ss" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Control_Panel_interactable.tscn" id="13_f8lve"]
+[ext_resource type="PackedScene" uid="uid://676ljy6hfjma" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Control_Panel_Screen.tscn" id="14_2vki4"]
+[ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="15_43hms"]
+[ext_resource type="PackedScene" uid="uid://dv3momcp3eocp" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Control Panel.tscn" id="16_kxfh8"]
 
 [sub_resource type="Gradient" id="Gradient_vpqf1"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -511,6 +515,7 @@ position = Vector2(1532, 695)
 
 [node name="RoleAssigning" type="CanvasLayer" parent="."]
 layer = 10
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="RoleAssigning"]
 z_index = 1
@@ -536,8 +541,6 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_4gx8b")
 theme_override_font_sizes/font_size = 50
-text = "You are a
-{Role}"
 horizontal_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -670,6 +673,38 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Phishing"
 
+[node name="ControlPanel" parent="." instance=ExtResource("13_f8lve")]
+position = Vector2(1295, 324)
+
+[node name="ControlPanel2" type="CanvasLayer" parent="ControlPanel"]
+
+[node name="LobbyBrowsingMenu" parent="ControlPanel/ControlPanel2" instance=ExtResource("14_2vki4")]
+
+[node name="LobbyBrowser" type="PanelContainer" parent="ControlPanel/ControlPanel2/LobbyBrowsingMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("15_43hms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlPanel/ControlPanel2/LobbyBrowsingMenu/LobbyBrowser"]
+layout_mode = 2
+
+[node name="ControlPanel" parent="ControlPanel/ControlPanel2/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer" instance=ExtResource("16_kxfh8")]
+layout_mode = 2
+size_flags_vertical = 3
+script = null
+
+[node name="Button" type="Button" parent="ControlPanel/ControlPanel2/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Close"
+
 [connection signal="pressed" from="TaskArea/Developer/Dev_Button" to="TaskArea/Developer/Dev_Button" method="_on_pressed"]
 [connection signal="timeout" from="TaskArea/Developer/Dev_Button/CooldownTimer" to="TaskArea/Developer/Dev_Button" method="_on_cooldown_timer_timeout"]
 [connection signal="pressed" from="TaskArea/Hacker/Sabotage" to="TaskArea/Hacker/Sabotage" method="_on_pressed"]
+[connection signal="pressed" from="ControlPanel/ControlPanel2/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/Button" to="ControlPanel" method="_on_button_pressed"]
+
+[editable path="ControlPanel/ControlPanel2/LobbyBrowsingMenu"]

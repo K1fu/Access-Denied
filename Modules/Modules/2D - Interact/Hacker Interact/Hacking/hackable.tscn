@@ -36,4 +36,4 @@ interact_name = "Hack me pls"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hack_interactable"]
 shape = SubResource("CircleShape2D_2egjy")
 
-[connection signal="pressed" from="HackScreen/Hack" to="HackScreen/Hack" method="_on_pressed"]
+[connection signal="pressed" from="HackScreen/Hack" to="." method="_on_hack_pressed"]

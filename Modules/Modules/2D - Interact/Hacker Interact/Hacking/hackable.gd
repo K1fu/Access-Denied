@@ -13,6 +13,10 @@ func _hacker_interact():
 	HackScreen.visible = false
 
 func Hack_on_interact():
-	print("Hacker Requested Hack")
 	HackScreen.visible = true
 	HackButton.visible = true
+	print("── Hack attempt ──")
+	print(">>Hacker interacted")
+
+func _on_hack_pressed() -> void:
+	HackButton.call("Hack")

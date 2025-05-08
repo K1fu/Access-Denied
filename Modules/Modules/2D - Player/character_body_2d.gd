@@ -16,11 +16,11 @@ extends CharacterBody2D
 var last_direction: String = "down"
 
 func _ready():
-	GDSync.expose_node(self) 
+	GDSync.expose_node(self)
+	GDSync.sync_var(self, "is_hackable")
 	char_skin = $Character/CharacterSkin
 	GDSync.sync_var(self, "client_id")
 	set_multiplayer_data.call_deferred()
-	GDSync.sync_var(self, "is_hackable")
 	GDSync.sync_var(self, "role")  
 
 func set_multiplayer_data():
