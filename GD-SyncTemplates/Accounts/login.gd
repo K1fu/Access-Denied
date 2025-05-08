@@ -7,14 +7,18 @@ signal login_failed(email, response_code)
 @onready var password_input : LineEdit = $Background/Password
 @onready var error_text : Label = $Background/ErrorText
 
+@onready var loading : Control = $Spinner
+
 var busy : bool = false
 
 func _ready():
+	loading.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$Background/LoginButton.pressed.connect(login) # Connect the login button
 
 func login() -> void:
 	if busy:
+		loading.visible = true
 		return
 	busy = true
 
@@ -23,7 +27,9 @@ func login() -> void:
 
 	var response : Dictionary = await GDSync.login(email, password)
 	var response_code : int = response["Code"]
-
+	
+	
+	
 	if response_code == ENUMS.LOGIN_RESPONSE_CODE.SUCCESS:
 		error_text.text = ""
 		logged_in.emit(email)
@@ -38,16 +44,22 @@ func set_error_text(response_code : int, response : Dictionary) -> void:
 	match(response_code):
 		ENUMS.LOGIN_RESPONSE_CODE.NO_RESPONSE_FROM_SERVER:
 			error_text.text = "No response from server."
+			loading.visible = false
 		ENUMS.LOGIN_RESPONSE_CODE.DATA_CAP_REACHED:
 			error_text.text = "Data transfer cap has been reached."
+			loading.visible = false
 		ENUMS.LOGIN_RESPONSE_CODE.RATE_LIMIT_EXCEEDED:
 			error_text.text = "Rate limit exceeded, please wait and try again."
+			loading.visible = false
 		ENUMS.LOGIN_RESPONSE_CODE.NO_DATABASE:
 			error_text.text = "API key has no linked database."
+			loading.visible = false
 		ENUMS.LOGIN_RESPONSE_CODE.EMAIL_OR_PASSWORD_INCORRECT:
 			error_text.text = "Email or password incorrect."
+			loading.visible = false
 		ENUMS.LOGIN_RESPONSE_CODE.NOT_VERIFIED:
 			error_text.text = "The email address has not yet been verified."
+			loading.visible = false
 		ENUMS.LOGIN_RESPONSE_CODE.BANNED:
 			var ban_time : int = response["BanTime"]
 			if ban_time == -1:

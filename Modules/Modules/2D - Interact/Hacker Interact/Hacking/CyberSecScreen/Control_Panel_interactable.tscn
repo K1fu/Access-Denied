@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://bds8y8x4sw5ss"]
+
+[ext_resource type="Texture2D" uid="uid://dl6igrhg17tgg" path="res://Tile maps/Sprites/Server.png" id="1_0meap"]
+[ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/control_panel_interactable.gd" id="1_ffkbb"]
+[ext_resource type="PackedScene" uid="uid://j6138fnasuli" path="res://Modules/Modules/2D - Interact/Hacker Interact/hack_interactable2d.tscn" id="3_0boqe"]
+[ext_resource type="PackedScene" uid="uid://ck0w16gi4r5go" path="res://Modules/Modules/2D - Interact/Developer Interact/dev_interactable.tscn" id="4_g2yo0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixpsy"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nv3ty"]
+radius = 370.022
+
+[node name="ControlPanel" type="StaticBody2D"]
+script = ExtResource("1_ffkbb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+scale = Vector2(5, 5)
+texture = ExtResource("1_0meap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ixpsy")
+
+[node name="hack_interactable" parent="." instance=ExtResource("3_0boqe")]
+interact_name = "Hacker"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hack_interactable"]
+shape = SubResource("CircleShape2D_nv3ty")
+
+[node name="dev_interactable" parent="." instance=ExtResource("4_g2yo0")]
+interact_name = "Developer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dev_interactable"]
+shape = SubResource("CircleShape2D_nv3ty")
