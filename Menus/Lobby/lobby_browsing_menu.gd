@@ -10,7 +10,7 @@ func disconnected():
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
 
 func _on_back_pressed():
-	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+	get_tree().change_scene_to_file("res://Scenes/gametscn")
 
 func _on_create_lobby_pressed():
 	%LobbyCreator.visible = true

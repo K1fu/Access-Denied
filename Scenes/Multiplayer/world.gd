@@ -1,25 +1,40 @@
 class_name world
 extends Node2D
 
-# Preload scenes for performance
 var PLAYER_SCENE: PackedScene = preload("res://Modules/Modules/2D - Player/player.tscn")
 var HACKABLE_SCENE: PackedScene = preload("res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/hackable.tscn")
 
 @onready var Role_Assignment: CanvasLayer = $RoleAssigning
 @onready var RoleText: Label = $RoleAssigning/Label
 
+#---------------------CyberSecScreen vars---------------------#
+@onready var control_panel: Control = $ControlPanel/ControlPanel2/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/ControlPanel
+
+var LABEL_SCENE: PackedScene = preload(
+	"res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Hackables.tscn"
+)
+#-------------------------------------------------------------#
+
+signal players_received(players: Array)
+
+#--------------------------------Code--------------------------------#
+
 func _ready() -> void:
 	GDSync.client_joined.connect(client_joined)
 	GDSync.client_left.connect(client_left)
 	GDSync.disconnected.connect(disconnected)
-
+	
+	send_hackables()
+	
 	GDSync.expose_func(Callable(self, "remote_assign_role_and_components"))
 	GDSync.expose_func(Callable(self, "Role_Show"))
 	GDSync.expose_func(Callable(self, "attempt_hack"))
-
+	GDSync.expose_func(Callable(self, "send_hackables"))
+	GDSync.expose_func(Callable(self, "ddos_attack"))
+	GDSync.expose_func(Callable(self, "phishing"))
 	for id in GDSync.get_all_clients():
 		client_joined(id)
-
+	
 	if GDSync.is_host():
 		await get_tree().create_timer(0.1).timeout
 		role_assign()
@@ -106,16 +121,6 @@ func Role_Show(role: String) -> void:
 	Role_Assignment.visible = false
 	print("%d sees role %s" % [GDSync.get_client_id(), role])
 
-func attempt_hack(target_id: int) -> void:
-	if not GDSync.is_host():
-		return
-	var player = get_node_or_null(str(target_id))
-	if player:
-		player.is_hackable = true
-		GDSync.sync_var(player, "is_hackable")
-		var username = GDSync.get_player_data(target_id, "Username", "Unknown")
-		print("%s [%s] is now hackable" % [username, player.role])
-
 func print_all_player_roles() -> void:
 	print("── Players & Roles ──")
 	for client_id in GDSync.get_all_clients():
@@ -127,3 +132,66 @@ func print_all_player_roles() -> void:
 		var role = player_node.role
 		print(" • %s — %s" % [username, role])
 	print("──────────────────────")
+
+#---------------------Hacking functions---------------------#
+
+func attempt_hack(target_id: int) -> void:
+	print(">>attempt_hack called!")
+	var player = get_node_or_null(str(target_id))
+	if player:
+		player.is_hackable = true
+		GDSync.sync_var(player, "is_hackable")
+		var username = GDSync.get_player_data(target_id, "Username", "Unknown")
+		print(">>%s [%s] is now hackable" % [username, player.role])
+		print("──────────────────────")
+
+func send_hackables() -> void:
+	print(">>> send_hackables() fired")
+	# 1. gather hackable info
+	var list: Array = []
+	for id in GDSync.get_all_clients():
+		var player_node = get_node_or_null(str(id))
+		var username = GDSync.get_player_data(id, "Username", "Unknown")
+		var is_hackable = player_node and player_node.is_hackable
+		list.append({
+			"client_id": id,
+			"username": username,
+			"is_hackable": is_hackable
+		})
+	emit_signal("players_received", list)
+
+	# 2. update the UI
+	_populate_hackable_list(list)
+
+func _populate_hackable_list(players: Array) -> void:
+	# Properly clear out old entries:
+	for child in control_panel.get_children():
+		child.queue_free()
+
+	for data in players:
+		if not data.is_hackable:
+			continue
+
+		var entry = LABEL_SCENE.instantiate()
+		print("Bogos binted")  # now this will actually run
+		entry.name = str(data.client_id)
+		entry.get_node("UsernameBox/Label").text = data.username
+
+		# wire up your buttons here…
+
+		control_panel.add_child(entry)
+	
+
+#func ddos_attack():
+	#100% chance to eliminate the player
+	#You may use the following:
+	#var player_string : String = str(client_id)
+	#if has_node(player_string):
+		#get_node(player_string).queue_free()
+	
+#func phishing():
+	#20% chance to eliminate the player
+	#You may use the following:
+	#var player_string : String = str(client_id)
+	#if has_node(player_string):
+		#get_node(player_string).queue_free()
