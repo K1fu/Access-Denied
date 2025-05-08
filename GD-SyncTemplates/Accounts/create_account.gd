@@ -3,14 +3,18 @@ extends Control
 signal account_created(email, username, password)
 signal account_creation_failed(email, username, password, response_code)
 
-@onready var email_input : LineEdit = %Email
-@onready var username_input : LineEdit = %Username
-@onready var password_input : LineEdit = %Password
-@onready var error_text : Label = %ErrorText
+@onready var email_input : LineEdit = $Email
+@onready var username_input : LineEdit = $Username
+@onready var password_input : LineEdit = $Password
+@onready var error_text : Label = $ErrorText
 
 @export var load_scene : PackedScene
 
 var busy : bool = false
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$CreateAccount.pressed.connect(create_account)  # Add this line
 
 func create_account() -> void:
 	if busy: return
