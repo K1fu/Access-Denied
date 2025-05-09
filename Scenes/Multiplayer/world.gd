@@ -182,7 +182,7 @@ func _populate_hackable_list(players: Array) -> void:
 		entry.name = str(data.client_id)
 
 		# set the username label
-		var name_label = entry.get_node("UsernameBox/UsernameLabel") as Label
+		var name_label = entry.get_node("UsernameBox/Username") as Label
 		if name_label:
 			name_label.text = data.username
 		else:
