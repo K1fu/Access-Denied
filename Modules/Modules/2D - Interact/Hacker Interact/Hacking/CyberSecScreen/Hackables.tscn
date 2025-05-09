@@ -28,11 +28,11 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Phishing"
 
-[node name="HackGuarantee" type="CenterContainer" parent="."]
+[node name="HackGuaranteeBox" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="HackGuarantee" type="Button" parent="HackGuarantee"]
+[node name="HackGuarantee" type="Button" parent="HackGuaranteeBox"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Ddos Attack"

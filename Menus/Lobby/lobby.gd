@@ -63,4 +63,4 @@ func _on_start_pressed():
 func _on_leave_pressed():
 #	Leave the current lobby and switch back to the lobby browser
 	GDSync.leave_lobby()
-	get_tree().change_scene_to_file("res://Menus/lobby_browsing_menu.tscn")
+	get_tree().change_scene_to_file("res://Menus/Lobby/lobby_browsing_menu.tscn")

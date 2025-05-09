@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://sl51on6lkrii"]
+[gd_scene load_steps=5 format=3 uid="uid://sl51on6lkrii"]
 
 [ext_resource type="Script" path="res://Menus/Main Menu/main_menu.gd" id="1_e4nnw"]
 [ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="2_wrm8m"]
 [ext_resource type="Texture2D" uid="uid://ckmwwf2bgwve4" path="res://Assets/Splash Screen/MAIN MENU.png" id="3_rssk6"]
+[ext_resource type="PackedScene" uid="uid://ve5eobmbrwoj" path="res://Modules/Modules/Transition/glitch_transition.tscn" id="4_dy21i"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +13,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e4nnw")
+
+[node name="Glitch Transition" parent="." instance=ExtResource("4_dy21i")]
+top_level = true
+
+[node name="VideoStreamPlayer" parent="Glitch Transition" index="0"]
+top_level = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+autoplay = false
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -62,3 +82,5 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="PanelContainer/Control/VBoxContainer/Connect" to="." method="_on_connect_pressed"]
 [connection signal="pressed" from="PanelContainer/Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+
+[editable path="Glitch Transition"]
