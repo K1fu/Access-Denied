@@ -38,6 +38,13 @@ func _ready() -> void:
 	if GDSync.is_host():
 		await get_tree().create_timer(0.1).timeout
 		role_assign()
+		
+	var t = Timer.new()
+	t.wait_time = 2	
+	t.one_shot = false
+	t.autostart = true
+	add_child(t)
+	t.timeout.connect(Callable(self, "send_hackables"))
 
 func disconnected() -> void:
 	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
@@ -146,7 +153,6 @@ func attempt_hack(target_id: int) -> void:
 		print("──────────────────────")
 
 func send_hackables() -> void:
-	print(">>> send_hackables() fired")
 	# 1. gather hackable info
 	var list: Array = []
 	for id in GDSync.get_all_clients():
@@ -164,7 +170,7 @@ func send_hackables() -> void:
 	_populate_hackable_list(list)
 
 func _populate_hackable_list(players: Array) -> void:
-	# Properly clear out old entries:
+	# clear out old entries
 	for child in control_panel.get_children():
 		child.queue_free()
 
@@ -173,25 +179,62 @@ func _populate_hackable_list(players: Array) -> void:
 			continue
 
 		var entry = LABEL_SCENE.instantiate()
-		print("Bogos binted")  # now this will actually run
 		entry.name = str(data.client_id)
-		entry.get_node("UsernameBox/Label").text = data.username
 
-		# wire up your buttons here…
+		# set the username label
+		var name_label = entry.get_node("UsernameBox/UsernameLabel") as Label
+		if name_label:
+			name_label.text = data.username
+		else:
+			push_error("UsernameLabel not found on entry—check your TSCN!")
+
+		# wire the “chance” button → phishing (20% kill)
+		var chance_btn = entry.get_node("HackChanceBox/HackChance") as Button
+		if chance_btn:
+			chance_btn.pressed.connect(
+				Callable(self, "phishing").bind(data.client_id)
+			)
+		else:
+			push_error("Couldn’t find HackChance button in entry!")
+
+		# wire the “guarantee” button → ddos_attack (100% kill)
+		var guarantee_btn = entry.get_node("HackGuaranteeBox/HackGuarantee") as Button
+		if guarantee_btn:
+			guarantee_btn.pressed.connect(
+				Callable(self, "ddos_attack").bind(data.client_id)
+			)
+		else:
+			push_error("Couldn’t find HackGuarantee button in entry!")
 
 		control_panel.add_child(entry)
-	
 
-#func ddos_attack():
-	#100% chance to eliminate the player
-	#You may use the following:
-	#var player_string : String = str(client_id)
-	#if has_node(player_string):
-		#get_node(player_string).queue_free()
-	
-#func phishing():
-	#20% chance to eliminate the player
-	#You may use the following:
-	#var player_string : String = str(client_id)
-	#if has_node(player_string):
-		#get_node(player_string).queue_free()
+# ------------------ Attack Handlers ------------------ #
+
+func ddos_attack(target_id: int) -> void:
+	# 100% chance to eliminate the player
+	var player_node = get_node_or_null(str(target_id))
+	if player_node:
+		var name_str = str(target_id)
+		if has_node(name_str):
+			get_node(name_str).queue_free()
+		print(">> DDoS: client %d eliminated" % target_id)
+	else:
+		print(">> DDoS: client %d not found" % target_id)
+
+func phishing(target_id: int) -> void:
+	# 20% chance to eliminate the player
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var roll = rng.randi_range(1, 100)
+	if roll <= 20:
+		var player_node = get_node_or_null(str(target_id))
+		if player_node:
+			var name_str = str(target_id)
+			if has_node(name_str):
+				get_node(name_str).queue_free()
+			print("Player node removed for client " + name_str)
+			print(">> Phishing: client %d eliminated (roll %d%%)" % [target_id, roll])
+		else:
+			print(">> Phishing: client %d not found (roll %d%%)" % [target_id, roll])
+	else:
+		print(">> Phishing: client %d survived (roll %d%%)" % [target_id, roll])

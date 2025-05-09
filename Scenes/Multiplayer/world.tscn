@@ -515,7 +515,6 @@ position = Vector2(1532, 695)
 
 [node name="RoleAssigning" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
 [node name="TextureRect" type="TextureRect" parent="RoleAssigning"]
 z_index = 1

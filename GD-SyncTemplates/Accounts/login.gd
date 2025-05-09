@@ -21,6 +21,7 @@ func login() -> void:
 		loading.visible = true
 		return
 	busy = true
+	loading.visible = true
 
 	var email : String = email_input.text
 	var password : String = password_input.text
@@ -31,10 +32,12 @@ func login() -> void:
 	
 	
 	if response_code == ENUMS.LOGIN_RESPONSE_CODE.SUCCESS:
+		loading.visible = true
 		error_text.text = ""
 		logged_in.emit(email)
 		get_tree().change_scene_to_file("res://Menus/Lobby/lobby_browsing_menu.tscn")
 	else:
+		loading.visible = true
 		set_error_text(response_code, response)
 		login_failed.emit(email, response_code)
 
