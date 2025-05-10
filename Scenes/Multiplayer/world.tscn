@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cfbs8g62ughrk"]
+[gd_scene load_steps=28 format=4 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/world.gd" id="1_lsbhn"]
 [ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/fonts/Modenine-2OPd.ttf" id="2_4gx8b"]
@@ -16,12 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://676ljy6hfjma" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Control_Panel_Screen.tscn" id="14_2vki4"]
 [ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="15_43hms"]
 [ext_resource type="PackedScene" uid="uid://dv3momcp3eocp" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Control Panel.tscn" id="16_kxfh8"]
+[ext_resource type="PackedScene" uid="uid://cs474mo7d6vd5" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/Hacked/hacked.tscn" id="17_guaxh"]
+[ext_resource type="PackedScene" uid="uid://croqyfr5480or" path="res://Modules/Modules/Transition/Glitch.tscn" id="18_oorxv"]
 
-[sub_resource type="Gradient" id="Gradient_vpqf1"]
+[sub_resource type="Gradient" id="Gradient_6sowl"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_mtbdj"]
-gradient = SubResource("Gradient_vpqf1")
+gradient = SubResource("Gradient_6sowl")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5g4un"]
 texture = ExtResource("7_vb6nm")
@@ -700,6 +702,10 @@ script = null
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Close"
+
+[node name="Hacked" parent="." instance=ExtResource("17_guaxh")]
+
+[node name="Transition" parent="." instance=ExtResource("18_oorxv")]
 
 [connection signal="pressed" from="TaskArea/Developer/Dev_Button" to="TaskArea/Developer/Dev_Button" method="_on_pressed"]
 [connection signal="timeout" from="TaskArea/Developer/Dev_Button/CooldownTimer" to="TaskArea/Developer/Dev_Button" method="_on_cooldown_timer_timeout"]

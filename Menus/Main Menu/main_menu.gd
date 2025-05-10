@@ -1,19 +1,15 @@
 extends Control
 
-@onready var Glitchityglitch = $"Glitch Transition"
+@onready var Glitchityglitch = $"Glitch Transition/VideoStreamPlayer"
 
 func _ready():
-#	Connect all signals related to connecting to the servers
 	Glitchityglitch.visible = false
 	GDSync.connected.connect(connected)
 	GDSync.connection_failed.connect(connection_failed)
-	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _on_connect_pressed():
 	%Connect.disabled = true
-	
-#	Start the multiplayer plugin
 	GDSync.start_multiplayer()
 
 func _on_quit_pressed():
@@ -21,25 +17,19 @@ func _on_quit_pressed():
 
 func connected():
 	%Connect.disabled = true
-
 	await get_tree().create_timer(0.5).timeout
-	
-	Glitchityglitch.visible = true
-	
-	var video_player = Glitchityglitch.get_node("VideoStreamPlayer")
-	video_player.play()
 
-	# Wait until the video finishes playing
-	await wait_for_video_end(video_player)
+	Glitchityglitch.visible = true
+	Glitchityglitch.play()
+	await wait_for_video_end(Glitchityglitch)
 
 	get_tree().change_scene_to_file("res://Scenes/Test environment/game.tscn")
 
 func wait_for_video_end(video_player: VideoStreamPlayer) -> void:
-	while video_player.playing:
+	while video_player.is_playing():
 		await get_tree().process_frame
 
 func connection_failed(error : int):
-#	Connection failed. Display the possible error messages
 	%Connect.disabled = false
 	%Message.modulate = Color.INDIAN_RED
 	match(error):

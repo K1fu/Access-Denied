@@ -1,11 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://ve5eobmbrwoj"]
 
-[ext_resource type="VideoStream" path="res://Assets/Transitions/8482781-hd_1920_1080_25fps.ogv" id="1_8w60c"]
+[ext_resource type="PackedScene" uid="uid://croqyfr5480or" path="res://Modules/Modules/Transition/Glitch.tscn" id="1_c8fdc"]
 
 [node name="Glitch Transition" type="Node2D"]
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
-stream = ExtResource("1_8w60c")
-autoplay = true
+[node name="VideoStreamPlayer" parent="." instance=ExtResource("1_c8fdc")]

@@ -24,6 +24,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="NameBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2

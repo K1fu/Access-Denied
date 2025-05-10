@@ -4,12 +4,14 @@ extends Node2D
 var PLAYER_SCENE: PackedScene = preload("res://Modules/Modules/2D - Player/player.tscn")
 var HACKABLE_SCENE: PackedScene = preload("res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/hackable.tscn")
 
+@onready var hacked: CanvasLayer = $Hacked
 @onready var Role_Assignment: CanvasLayer = $RoleAssigning
 @onready var RoleText: Label = $RoleAssigning/Label
 @onready var control_panel: Control = $ControlPanel/ControlPanel2/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/ControlPanel
 var LABEL_SCENE: PackedScene = preload(
 	"res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Hackables.tscn"
 )
+@onready var transition: VideoStreamPlayer = $Transition
 
 signal players_received(players: Array)
 signal player_died(target_id: int)
@@ -31,7 +33,11 @@ func _ready() -> void:
 	GDSync.expose_func(Callable(self, "execute_ddos_attack"))
 	GDSync.expose_func(Callable(self, "execute_phishing_attack"))
 	GDSync.expose_func(Callable(self, "on_player_died"))
-
+	
+	#Visibilities
+	hacked.visible = false
+	transition.visible = false
+	
 	# initial population
 	for id in GDSync.get_all_clients():
 		_alive_players[id] = true
@@ -221,7 +227,10 @@ func execute_ddos_attack(target_id: int) -> void:
 		return
 	var node = get_node_or_null(str(target_id))
 	if node:
-		node.queue_free()
+		transition.visible = true
+		transition.play()
+		await wait_for_video_end(transition)
+		hacked.visible = true
 	# Refresh hackable list on all clients
 	send_hackables()
 
@@ -234,6 +243,13 @@ func execute_phishing_attack(target_id: int) -> void:
 	if rng.randi_range(1, 100) <= 20:
 		var node = get_node_or_null(str(target_id))
 		if node:
-			node.queue_free()
+			transition.visible = true
+			transition.play()
+			await wait_for_video_end(transition)
+			hacked.visible = true
 	# Refresh hackable list on all clients
 	send_hackables()
+
+func wait_for_video_end(video_player: VideoStreamPlayer) -> void:
+	while video_player.is_playing():
+		await get_tree().process_frame
