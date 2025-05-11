@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dpr88u44817be"
-path="res://.godot/imported/Modenine-2OPd.ttf-fc1279c713ce2fe6fe68fb84a2403d7f.fontdata"
+uid="uid://cwxdpt2oc7rhw"
+path="res://.godot/imported/Modenine-2OPd.ttf-e8905955a3b22e2d209672632489f339.fontdata"
 
 [deps]
 
-source_file="res://Assets/fonts/Modenine-2OPd.ttf"
-dest_files=["res://.godot/imported/Modenine-2OPd.ttf-fc1279c713ce2fe6fe68fb84a2403d7f.fontdata"]
+source_file="res://Assets/Modenine-2OPd.ttf"
+dest_files=["res://.godot/imported/Modenine-2OPd.ttf-e8905955a3b22e2d209672632489f339.fontdata"]
 
 [params]
 

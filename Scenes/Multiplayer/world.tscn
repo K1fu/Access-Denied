@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=4 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/world.gd" id="1_lsbhn"]
-[ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/fonts/Modenine-2OPd.ttf" id="2_4gx8b"]
+[ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="2_4gx8b"]
 [ext_resource type="PackedScene" uid="uid://bv4vu1yt0c73i" path="res://Scenes/Test environment/touch_control.tscn" id="3_n3a12"]
 [ext_resource type="Script" path="res://Scenes/Test environment/button.gd" id="4_4ua43"]
 [ext_resource type="PackedScene" uid="uid://cqjf1hwsnj6y2" path="res://Modules/Modules/task_area.tscn" id="4_7lc58"]
@@ -517,6 +517,7 @@ position = Vector2(1532, 695)
 
 [node name="RoleAssigning" type="CanvasLayer" parent="."]
 layer = 10
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="RoleAssigning"]
 z_index = 1

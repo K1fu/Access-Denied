@@ -1,35 +1,29 @@
-extends Control
+extends Node2D
 
-@onready var WindowAnimation: AnimationPlayer    = $Container/AnimationPlayer
-@onready var label: Label                        = $Container/MarginContainer/Label
-@onready var press: Button                       = $Button
-@onready var beep_player: AudioStreamPlayer2D    = $AudioStreamPlayer2D
+@onready var Char_name: Label = $PanelContainer/MarginContainer/Char_Name
+@onready var Dialog: Label = $PanelContainer2/Label
+@onready var beep_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var Boss_Sprite: Sprite2D = $Boss
+@onready var Boss_anim: AnimationPlayer = $Boss/AnimationPlayer
+@onready var press: Button = $Button
 
-@export var pause_time: float    = 1.0
+@export var pause_time: float    = 0.1
 @export var out_time: float      = 0.5
-@export var text_speed: float    = 0.3
-@export var load_scene: PackedScene  # assign in Inspector
+@export var text_speed: float    = 0.1
+@export var load_scene: PackedScene
 
-var full_text: String = """
-/* 
-* 'A lot of hacking is playing with other people,
-* you know, getting them to do 
-* strange things.'
-* -Steve Wozniak, 2004 
-
-
-* (Press anywhere to continue)
-"""
+var full_text: String = """Hey pookie bear"""
 var is_typing: bool = false
 var text_fully_displayed: bool = false
 
 func _ready() -> void:
-	press.connect("pressed", Callable(self, "_on_button_pressed"))
-	WindowAnimation.play("Open_tab")
 	show_message()
+	press.connect("pressed", Callable(self, "_on_button_pressed"))
+	Boss_anim.play("Talk_Smile")
 
 func show_message() -> void:
-	label.text = ""
+	Char_name.text = "Boss"
+	Dialog.text = ""
 	is_typing = true
 	await type_text(full_text)
 	is_typing = false
@@ -45,23 +39,18 @@ func type_text(new_text: String) -> void:
 		if not is_typing:
 			break
 
-		# Every 2nd char, reset & play beep
-		if char_count % 2 == 0:
-			if beep_player.is_playing():
-				beep_player.stop()
-			beep_player.play(0)
-		char_count += 1
+		beep_player.play(0)
 
 		# Append and show
 		current_text += char
-		label.text = current_text
+		Dialog.text = current_text
 
 		# Wait unless skip comes
 		await get_tree().create_timer(text_speed).timeout
 	# Finalize: stop any lingering beep, show full text
 	if beep_player.is_playing():
 		beep_player.stop()
-	label.text = new_text
+	Dialog.text = new_text
 
 func _on_button_pressed() -> void:
 	if is_typing:
@@ -69,7 +58,7 @@ func _on_button_pressed() -> void:
 		is_typing = false
 		if beep_player.is_playing():
 			beep_player.stop()
-		label.text = full_text
+		Dialog.text = full_text
 	elif text_fully_displayed:
 		# proceed to next scene
 		get_tree().change_scene_to_packed(load_scene)

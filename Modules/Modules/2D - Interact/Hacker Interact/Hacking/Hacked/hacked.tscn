@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cs474mo7d6vd5"]
 
-[ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/fonts/Modenine-2OPd.ttf" id="1_17qaa"]
+[ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="1_17qaa"]
 [ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/Hacked/hacked.gd" id="1_igxep"]
 [ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="2_f6yj0"]
 

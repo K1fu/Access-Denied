@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr4lod3lhrt74"]
+[gd_scene load_steps=11 format=3 uid="uid://dr4lod3lhrt74"]
 
 [ext_resource type="Texture2D" uid="uid://dtkgkeop8puay" path="res://Assets/Single Player/Terminal/cube_Screenshot 2025-03-26 040139.png.png" id="1_h4hbq"]
 [ext_resource type="Script" path="res://Scenes/Singleplayer/SCENE 1/terminal.gd" id="1_h8n2j"]
-[ext_resource type="PackedScene" uid="uid://cfbs8g62ughrk" path="res://Scenes/Multiplayer/world.tscn" id="2_a2bqx"]
+[ext_resource type="PackedScene" uid="uid://culjcvgx1ffv" path="res://Scenes/Singleplayer/VN_Template.tscn" id="2_3jd23"]
 [ext_resource type="Texture2D" uid="uid://io7avj1amr64" path="res://Assets/Single Player/Terminal/MyMind OS.png" id="3_1vgmg"]
 [ext_resource type="Script" path="res://Scenes/Singleplayer/SCENE 1/Window.gd" id="4_oceav"]
-[ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/fonts/Modenine-2OPd.ttf" id="5_yyfqp"]
+[ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="5_yyfqp"]
+[ext_resource type="AudioStream" uid="uid://byra83kemiwy8" path="res://Assets/Sounds/Dialog/Digital Text 1 (mp3cut.net).mp3" id="7_pttgm"]
 
 [sub_resource type="Animation" id="Animation_1qmte"]
 resource_name = "Open_tab"
@@ -52,7 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h8n2j")
 text_speed = 0.05
-load_scene = ExtResource("2_a2bqx")
+load_scene = ExtResource("2_3jd23")
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -103,5 +104,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("5_yyfqp")
 theme_override_font_sizes/font_size = 20
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_pttgm")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

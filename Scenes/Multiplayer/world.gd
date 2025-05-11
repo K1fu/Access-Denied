@@ -10,7 +10,7 @@ var HACKABLE_SCENE: PackedScene = preload("res://Modules/Modules/2D - Interact/H
 
 #---------------------CyberSecScreen vars---------------------#
 @onready var control_panel: Control = $ControlPanel/ControlPanel2/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/ControlPanel
-@onready var devlist: VBoxContainer = %DevList
+@onready var devlist: VBoxContainer = $ControlPanel/ControlPanel2/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/ControlPanel/PanelContainer/VBoxContainer/ScrollContainer/DevList
 
 var LABEL_SCENE: PackedScene = preload(
 	"res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Hackables.tscn"
@@ -171,8 +171,6 @@ func send_hackables() -> void:
 	emit_signal("players_received", list)
 
 	# 2. update the UI
-	_populate_hackable_list(list)
-
 func _populate_hackable_list(players: Array) -> void:
 	# clear out old entries
 	for child in devlist.get_children():
@@ -210,7 +208,8 @@ func _populate_hackable_list(players: Array) -> void:
 		else:
 			push_error("Couldn’t find HackGuarantee button in entry!")
 
-		control_panel.add_child(entry)
+		# add to scrollable DevList instead of control_panel
+		devlist.add_child(entry)
 
 # ------------------ Attack Handlers ------------------ #
 
