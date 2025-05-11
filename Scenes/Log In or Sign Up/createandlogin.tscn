@@ -1,8 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4f4udja4tscl"]
 
 [ext_resource type="Script" path="res://Scenes/Log In or Sign Up/createandlogin.gd" id="1_wb8kk"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_wcrrj"]
+[ext_resource type="Texture2D" uid="uid://td4p4kbx67jc" path="res://Assets/Misc/dont.png" id="2_qb6aa"]
 
 [node name="BUTTONS" type="Control"]
 layout_mode = 3
@@ -13,57 +12,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wb8kk")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -86.5
-offset_top = -25.0
-offset_right = 86.5
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "CLICK HERE TO LOG IN"
-label_settings = SubResource("LabelSettings_wcrrj")
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="Label"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -47.5
-offset_top = 42.0
-offset_right = 52.5
-offset_bottom = 73.0
-grow_horizontal = 2
-text = "CLICK HERE"
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -97.0
-offset_top = 86.0
-offset_right = 115.0
-offset_bottom = 109.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "DON'T HAVE AN ACCOUNT?"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="Label2"]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 36.0
-offset_right = 156.0
-offset_bottom = 67.0
-scale = Vector2(0.955087, 0.860816)
-text = "CLICK HERE"
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_qb6aa")
+
+[node name="BUT1" type="TextureButton" parent="."]
+offset_left = 840.0
+offset_top = 440.0
+offset_right = 1089.0
+offset_bottom = 520.0
+
+[node name="BUT2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 836.0
+offset_top = 667.0
+offset_right = 1087.0
+offset_bottom = 746.0
