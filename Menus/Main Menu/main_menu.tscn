@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://sl51on6lkrii"]
+[gd_scene load_steps=7 format=3 uid="uid://sl51on6lkrii"]
 
 [ext_resource type="Script" path="res://Menus/Main Menu/main_menu.gd" id="1_e4nnw"]
 [ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="2_wrm8m"]
 [ext_resource type="Texture2D" uid="uid://ckmwwf2bgwve4" path="res://Assets/Splash Screen/MAIN MENU.png" id="3_rssk6"]
 [ext_resource type="PackedScene" uid="uid://ve5eobmbrwoj" path="res://Modules/Modules/Transition/glitch_transition.tscn" id="4_dy21i"]
+[ext_resource type="AudioStream" uid="uid://dhot1bupght0c" path="res://Assets/Sounds/BGM/lobby.mp3" id="5_hy3kp"]
+[ext_resource type="AudioStream" uid="uid://ddxjw6xncpxn2" path="res://Assets/Sounds/SFX/Button click.mp3" id="6_ehn44"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -79,6 +81,13 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Theme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hy3kp")
+volume_db = -7.298
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ehn44")
 
 [connection signal="pressed" from="PanelContainer/Control/VBoxContainer/Connect" to="." method="_on_connect_pressed"]
 [connection signal="pressed" from="PanelContainer/Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
