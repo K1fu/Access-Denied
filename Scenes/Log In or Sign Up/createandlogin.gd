@@ -1,7 +1,7 @@
 extends Control
 
-@onready var login_button = $Label/Button
-@onready var create_account_button = $Label2/Button
+@onready var login_button = $BUT1
+@onready var create_account_button = $BUT2
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
