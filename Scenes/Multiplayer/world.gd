@@ -17,7 +17,7 @@ var LABEL_SCENE: PackedScene = preload(
 #-------------------------------------------------------------#
 
 @onready var transition: VideoStreamPlayer = $CanvasLayer2/Transition
-
+@onready var transitioncanvas: CanvasLayer = $TransitionCanvas
 
 func _ready() -> void:
 	GDSync.client_joined.connect(client_joined)
@@ -26,20 +26,20 @@ func _ready() -> void:
 	
 	hacked.visible = false
 	
-	# connect internal signal to populate list
 	connect("players_received", Callable(self, "_populate_hackable_list"))
-	# initial fetch
 	send_hackables()
 
 	GDSync.expose_func(Callable(self, "remote_assign_role_and_components"))
 	GDSync.expose_func(Callable(self, "Role_Show"))
 	GDSync.expose_func(Callable(self, "attempt_hack"))
+	GDSync.expose_func(Callable(self, "revoke_hackable"))                # expose new function
 	GDSync.expose_func(Callable(self, "send_hackables"))
 	GDSync.expose_func(Callable(self, "ddos_attack"))
 	GDSync.expose_func(Callable(self, "phishing"))
 	GDSync.expose_func(Callable(self, "_show_hacked_transition"))
 	GDSync.expose_func(Callable(self, "execute_ddos_attack"))
 	GDSync.expose_func(Callable(self, "execute_phishing_attack"))
+
 	for id in GDSync.get_all_clients():
 		client_joined(id)
 	
@@ -53,8 +53,7 @@ func _ready() -> void:
 	t.autostart = true
 	add_child(t)
 	t.timeout.connect(Callable(self, "send_hackables"))
-	# only one connection to timeout(self, "send_hackables"))
-
+	
 func disconnected() -> void:
 	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 
@@ -109,7 +108,7 @@ func role_assign() -> void:
 
 		if role == "Developer":
 			GDSync.multiplayer_instantiate(HACKABLE_SCENE, player, true, [], true)
-
+	transitioncanvas.visible = false
 	print_all_player_roles()
 
 func remote_assign_role_and_components(role: String) -> void:
@@ -160,11 +159,20 @@ func attempt_hack(target_id: int) -> void:
 		print(">>%s [%s] is now hackable" % [username, player.role])
 		print("──────────────────────")
 
+# Reverse function to clear hackable status
+func revoke_hackable(target_id: int) -> void:
+	print(">>revoke_hackable called!")
+	var player = get_node_or_null(str(target_id))
+	if player:
+		player.is_hackable = false
+		GDSync.sync_var(player, "is_hackable")
+		var username = GDSync.get_player_data(target_id, "Username", "Unknown")
+		print("Player %d %s is not hackable" % [target_id, username])
+		print("──────────────────────")
+
 func send_hackables() -> void:
-	# 1. gather hackable info
 	var list: Array = []
 	for id in GDSync.get_all_clients():
-		print("Hackable player found")
 		var player_node = get_node_or_null(str(id))
 		var username = GDSync.get_player_data(id, "Username", "Unknown")
 		var is_hackable = player_node and player_node.is_hackable
@@ -173,11 +181,9 @@ func send_hackables() -> void:
 			"username": username,
 			"is_hackable": is_hackable
 		})
-	# 2. update the UI
 	_populate_hackable_list(list)
 
 func _populate_hackable_list(players: Array) -> void:
-	# clear out old entries
 	for child in %DevList.get_children():
 		child.queue_free()
 
@@ -202,33 +208,25 @@ func _populate_hackable_list(players: Array) -> void:
 		if guar_btn:
 			guar_btn.pressed.connect(Callable(self, "ddos_attack").bind(data.client_id))
 
-		# add instantiated label entry to DevList instead of ControlPanel
 		%DevList.add_child(entry)
 
-# ------------------ Attack Handlers ------------------ #
-
 func ddos_attack(target_id: int) -> void:
-	# 100% chance to eliminate the player
 	GDSync.call_func(Callable(self, "execute_ddos_attack"), [target_id])
 	GDSync.call_func_on(target_id, Callable(self, "_show_hacked_transition"), [])
 
 func phishing(target_id: int) -> void:
-	# 20% chance to eliminate the player
 	GDSync.call_func(Callable(self, "execute_phishing_attack"), [target_id])
 	GDSync.call_func_on(target_id, Callable(self, "_show_hacked_transition"), [])
 
-# Only on hacked client: show the hacked transition and overlay
 func _show_hacked_transition() -> void:
-	transition.visible = true
+	transitioncanvas.visible = true
 	transition.play()
 	await wait_for_video_end(transition)
 	hacked.visible = true
 
-# Utility to await end of video
 func wait_for_video_end(video_player: VideoStreamPlayer) -> void:
 	await video_player.finished
 
-# Host-only functions to execute actual removal
 func execute_ddos_attack(target_id: int) -> void:
 	if not GDSync.is_host():
 		return
@@ -247,4 +245,3 @@ func execute_phishing_attack(target_id: int) -> void:
 		if node:
 			node.queue_free()
 	send_hackables()
-	

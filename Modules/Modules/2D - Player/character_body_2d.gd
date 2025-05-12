@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var sprint_anim_speed: float = 1.5
 @export var client_id: int = 0
 @export var is_hackable: bool = false
-@export var role: String = "" 
+@export var role: String = ""
 
 @onready var _username: Label = $Username
 @onready var _position_synchronizer = $PropertySynchronizer
@@ -18,6 +18,7 @@ var last_direction: String = "down"
 func _ready():
 	GDSync.expose_node(self)
 	GDSync.sync_var(self, "is_hackable")
+	GDSync.sync_var(self, "is_caughtable")
 	char_skin = $Character/CharacterSkin
 	GDSync.sync_var(self, "client_id")
 	set_multiplayer_data.call_deferred()

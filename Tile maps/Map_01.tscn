@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bx5pgw0ypvfs2" path="res://Tile maps/Sprites/TileSet v1.0.png" id="4_r7nqh"]
 [ext_resource type="Texture2D" uid="uid://bxix2j8me7l76" path="res://Tile maps/Sprites/Tileset.png" id="5_hh286"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjrom"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nveph"]
 texture = ExtResource("1_pcoh3")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
@@ -69,7 +69,7 @@ texture_region_size = Vector2i(32, 32)
 7:9/0 = 0
 8:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6wut"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bwf7"]
 texture = ExtResource("2_giyjy")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -279,13 +279,13 @@ texture_region_size = Vector2i(32, 32)
 12:10/0 = 0
 13:10/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_65iub"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyl6x"]
 texture = ExtResource("3_8tnq1")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k4ad8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uyyco"]
 texture = ExtResource("4_r7nqh")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -361,7 +361,7 @@ texture_region_size = Vector2i(32, 32)
 8:7/0 = 0
 9:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5dgi"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e5g1w"]
 texture = ExtResource("5_hh286")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -481,11 +481,11 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_qpsja"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_mjrom")
-sources/1 = SubResource("TileSetAtlasSource_t6wut")
-sources/2 = SubResource("TileSetAtlasSource_65iub")
-sources/3 = SubResource("TileSetAtlasSource_k4ad8")
-sources/4 = SubResource("TileSetAtlasSource_j5dgi")
+sources/0 = SubResource("TileSetAtlasSource_nveph")
+sources/1 = SubResource("TileSetAtlasSource_4bwf7")
+sources/2 = SubResource("TileSetAtlasSource_dyl6x")
+sources/3 = SubResource("TileSetAtlasSource_uyyco")
+sources/4 = SubResource("TileSetAtlasSource_e5g1w")
 
 [node name="Map01" type="TileMapLayer"]
 z_index = -1
@@ -513,7 +513,6 @@ tile_set = SubResource("TileSet_qpsja")
 
 [node name="things 2" type="TileMapLayer" parent="."]
 use_parent_material = true
-scale = Vector2(1, 1)
 tile_map_data = PackedByteArray("AAATAP7/AQAKAAIAAAAVAP7/AQAKAAIAAAAUAP7/AQALAAIAAAAWAP3/AQAGAAcAAAAWAP7/AQAGAAgAAAAXAP3/AQAHAAcAAAAXAP7/AQAHAAgAAAAYAP3/AQAIAAcAAAAYAP7/AQAIAAgAAAAbAP7/AQAKAAcAAAAdAP7/AQANAAAAAAAeAP7/AQAOAAAAAAAcAP7/AQATAAMAAAAcAP//AQAPAAIAAAAdAP//AQAQAAIAAAAeAP//AQARAAIAAAAXAAIAAQAKAAAAAAAXAAMAAQATAAUAAAAaAAYAAQALAAEAAAAYAAIAAQASAAUAAFAWAAQAAwAHAAMAAGAWAAUAAwAHAAMAAGAPAAcAAQATAAUAAAAPAAgAAQATAAUAAAAOAAcAAQATAAMAAAANAAcAAQAKAAAAAAAWAAcAAQAKAAAAAAAXAAcAAQASAAAAAAAYAAcAAQATAAAAAAAZAAcAAQAUAAAAAAAXAAgAAQASAAEAAAAYAAgAAQATAAEAAAAZAAgAAQAUAAEAAAAQAAgAAQAKAAcAAGAHAAkAAQAKAAMAAAAHAAsAAQAKAAMAAAAHAA0AAQAKAAMAAAAHAAwAAQALAAMAAAAHAAoAAQALAAMAAAAHAAgAAQALAAMAAAAHAAcAAQANAAIAAGAIAAcAAQANAAMAAGAHAA4AAQAOAAIAAGAIAA4AAQAOAAMAAGANAA8AAQAKAAcAAAAPAA0AAQAKAAcAAGAPAA4AAQAKAAcAAGARABAAAwAJAAMAAAASAA8AAQAHAAAAAAARAA8AAQALAAIAAAATAA4AAQASAAUAAGAPAA8AAwAGAAMAAFAPABAAAwAHAAMAAFAaABIAAQAKAAcAAGAcAA0AAQASAAUAADAfAA0AAQAIAAAAAAAgAA0AAQAJAAAAAAAfAA8AAQALAAMAAAAdABIAAQAHAAoAAGAdABMAAQAGAAoAAGAcABIAAQAHAAkAAGAcABMAAQAGAAkAAGAcABQAAQAKAAcAAGAfABIAAQAKAAIAAAAeAAkAAQAKAAcAAFAeAAoAAQAKAAcAAFAQAAcAAQALAAcAAAARAAMAAwAJAAMAAAATAAcAAQAGAAUAAAATAAgAAQAGAAYAAAAUAAcAAQAHAAUAAAAUAAgAAQAHAAYAAAAVAAcAAQAOAAIAAAAVAAgAAQAOAAMAAAANAP7/AQAKAAcAAAAOAP7/AQAKAAcAAAAOAAYAAwAJAAMAADAQAA0AAQAQAAMAAAARAA0AAQARAAMAAAAdABEAAQAHAAUAAFAcABEAAQAHAAYAAFAZAA0AAQALAAIAAAAbAA0AAQALAAIAAAAaAA0AAQAKAAIAAAAOABAAAQAKAAcAAAAYAAYAAwAJAAMAAAAYAAUAAQALAAIAAAAaABMAAQAKAAcAAGAHAAUAAQABAAAAAAAHAAYAAQABAAAAAAAIAAUAAQABAAAAAAAIAAQAAQABAAAAAAAJAAQAAQABAAAAAAAJAAMAAQABAAAAAAAKAAMAAQABAAAAAAAKAAIAAQABAAAAAAALAAIAAQABAAAAAAALAAEAAQABAAAAAAAMAAEAAQABAAAAAAAMAAAAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_qpsja")
 
