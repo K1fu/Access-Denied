@@ -19,6 +19,7 @@ offset_bottom = 40.0
 texture = ExtResource("2_qb6aa")
 
 [node name="BUT1" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 840.0
 offset_top = 440.0
 offset_right = 1089.0

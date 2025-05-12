@@ -16,15 +16,21 @@ var LABEL_SCENE: PackedScene = preload(
 )
 #-------------------------------------------------------------#
 
-@onready var transition: VideoStreamPlayer = $CanvasLayer2/Transition
+@onready var transition: VideoStreamPlayer = $TransitionCanvas/Transition
 @onready var transitioncanvas: CanvasLayer = $TransitionCanvas
 
 func _ready() -> void:
+	
+	%developers_victory.visible = false
+	%HackersVictory.visible = false
+	
 	GDSync.client_joined.connect(client_joined)
 	GDSync.client_left.connect(client_left)
 	GDSync.disconnected.connect(disconnected)
 	
 	hacked.visible = false
+	
+	
 	
 	connect("players_received", Callable(self, "_populate_hackable_list"))
 	send_hackables()
