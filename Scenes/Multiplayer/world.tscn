@@ -754,6 +754,8 @@ text = "Close"
 visible = false
 
 [node name="Transition" parent="." instance=ExtResource("18_oorxv")]
+top_level = true
+z_index = 11
 
 [connection signal="pressed" from="TaskArea/Developer/Dev_Button" to="TaskArea/Developer/Dev_Button" method="_on_pressed"]
 [connection signal="timeout" from="TaskArea/Developer/Dev_Button/CooldownTimer" to="TaskArea/Developer/Dev_Button" method="_on_cooldown_timer_timeout"]

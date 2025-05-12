@@ -7,21 +7,6 @@
 [ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="4_os1os"]
 [ext_resource type="AudioStream" uid="uid://byra83kemiwy8" path="res://Assets/Sounds/Dialog/Digital Text 1 (mp3cut.net).mp3" id="4_p70bn"]
 
-[sub_resource type="Animation" id="Animation_665dm"]
-resource_name = "Talk_Smile"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(473.625, 520.902), Vector2(476, 450), Vector2(473, 520)]
-}
-
 [sub_resource type="Animation" id="Animation_k8yat"]
 length = 0.001
 tracks/0/type = "value"
@@ -35,6 +20,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(473.625, 520.902)]
+}
+
+[sub_resource type="Animation" id="Animation_665dm"]
+resource_name = "Talk_Smile"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(473.625, 520.902), Vector2(476, 450), Vector2(473, 520)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_laoub"]
