@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://GD-SyncTemplates/Accounts/create_account.gd" id="1_228vd"]
 [ext_resource type="PackedScene" uid="uid://b6v2t1l5wlcjk" path="res://GD-SyncTemplates/Accounts/login.tscn" id="2_h7mfo"]
-[ext_resource type="Texture2D" uid="uid://bcj7i3l0yyjwu" path="res://Assets/UI/accountcrt.png" id="3_8fqrs"]
+[ext_resource type="Texture2D" uid="uid://cfajvnicjp8va" path="res://Assets/Misc/7.png" id="3_ia451"]
 
 [node name="CreateAccount" type="Control"]
 layout_mode = 3
@@ -18,7 +18,7 @@ load_scene = ExtResource("2_h7mfo")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("3_8fqrs")
+texture = ExtResource("3_ia451")
 
 [node name="Email" type="LineEdit" parent="."]
 unique_name_in_owner = true
@@ -67,3 +67,8 @@ offset_top = 865.0
 offset_right = 833.0
 offset_bottom = 905.0
 scale = Vector2(9.42439, 3.19845)
+
+[node name="BAKBUTTOn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 243.0
+offset_bottom = 220.0
