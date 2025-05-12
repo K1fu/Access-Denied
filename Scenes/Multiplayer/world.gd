@@ -10,17 +10,14 @@ var HACKABLE_SCENE: PackedScene = preload("res://Modules/Modules/2D - Interact/H
 
 #---------------------CyberSecScreen vars---------------------#
 @onready var control_panel: Control = $ControlPanel/ControlPanel2/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/ControlPanel
-@onready var devlist: VBoxContainer = $ControlPanel/ControlPanel2/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/ControlPanel/PanelContainer/VBoxContainer/ScrollContainer/DevList
 
 var LABEL_SCENE: PackedScene = preload(
 	"res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Hackables.tscn"
 )
 #-------------------------------------------------------------#
 
-@onready var transition: VideoStreamPlayer = $Transition
-signal players_received(players: Array)
+@onready var transition: VideoStreamPlayer = $CanvasLayer2/Transition
 
-#--------------------------------Code--------------------------------#
 
 func _ready() -> void:
 	GDSync.client_joined.connect(client_joined)
@@ -29,14 +26,20 @@ func _ready() -> void:
 	
 	hacked.visible = false
 	
+	# connect internal signal to populate list
+	connect("players_received", Callable(self, "_populate_hackable_list"))
+	# initial fetch
 	send_hackables()
-	
+
 	GDSync.expose_func(Callable(self, "remote_assign_role_and_components"))
 	GDSync.expose_func(Callable(self, "Role_Show"))
 	GDSync.expose_func(Callable(self, "attempt_hack"))
 	GDSync.expose_func(Callable(self, "send_hackables"))
 	GDSync.expose_func(Callable(self, "ddos_attack"))
 	GDSync.expose_func(Callable(self, "phishing"))
+	GDSync.expose_func(Callable(self, "_show_hacked_transition"))
+	GDSync.expose_func(Callable(self, "execute_ddos_attack"))
+	GDSync.expose_func(Callable(self, "execute_phishing_attack"))
 	for id in GDSync.get_all_clients():
 		client_joined(id)
 	
@@ -50,6 +53,7 @@ func _ready() -> void:
 	t.autostart = true
 	add_child(t)
 	t.timeout.connect(Callable(self, "send_hackables"))
+	# only one connection to timeout(self, "send_hackables"))
 
 func disconnected() -> void:
 	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
@@ -160,6 +164,7 @@ func send_hackables() -> void:
 	# 1. gather hackable info
 	var list: Array = []
 	for id in GDSync.get_all_clients():
+		print("Hackable player found")
 		var player_node = get_node_or_null(str(id))
 		var username = GDSync.get_player_data(id, "Username", "Unknown")
 		var is_hackable = player_node and player_node.is_hackable
@@ -168,12 +173,12 @@ func send_hackables() -> void:
 			"username": username,
 			"is_hackable": is_hackable
 		})
-	emit_signal("players_received", list)
-
 	# 2. update the UI
+	_populate_hackable_list(list)
+
 func _populate_hackable_list(players: Array) -> void:
 	# clear out old entries
-	for child in devlist.get_children():
+	for child in %DevList.get_children():
 		child.queue_free()
 
 	for data in players:
@@ -183,46 +188,33 @@ func _populate_hackable_list(players: Array) -> void:
 		var entry = LABEL_SCENE.instantiate()
 		entry.name = str(data.client_id)
 
-		# set the username label
-		var name_label = entry.get_node("UsernameBox/Username") as Label
-		if name_label:
-			name_label.text = data.username
+		var name_lbl = entry.get_node("UsernameBox/Username") as Label
+		if name_lbl:
+			name_lbl.text = data.username
 		else:
-			push_error("UsernameLabel not found on entry—check your TSCN!")
+			push_error("UsernameBox/Label not found!")
 
-		# wire the “chance” button → phishing (20% kill)
 		var chance_btn = entry.get_node("HackChanceBox/HackChance") as Button
 		if chance_btn:
-			chance_btn.pressed.connect(
-				Callable(self, "phishing").bind(data.client_id)
-			)
-		else:
-			push_error("Couldn’t find HackChance button in entry!")
+			chance_btn.pressed.connect(Callable(self, "phishing").bind(data.client_id))
 
-		# wire the “guarantee” button → ddos_attack (100% kill)
-		var guarantee_btn = entry.get_node("HackGuaranteeBox/HackGuarantee") as Button
-		if guarantee_btn:
-			guarantee_btn.pressed.connect(
-				Callable(self, "ddos_attack").bind(data.client_id)
-			)
-		else:
-			push_error("Couldn’t find HackGuarantee button in entry!")
+		var guar_btn = entry.get_node("HackGuaranteeBox/HackGuarantee") as Button
+		if guar_btn:
+			guar_btn.pressed.connect(Callable(self, "ddos_attack").bind(data.client_id))
 
-		# add to scrollable DevList instead of control_panel
-		devlist.add_child(entry)
+		# add instantiated label entry to DevList instead of ControlPanel
+		%DevList.add_child(entry)
 
 # ------------------ Attack Handlers ------------------ #
 
 func ddos_attack(target_id: int) -> void:
-	# 100% chance to eliminate the player (host authoritative)
+	# 100% chance to eliminate the player
 	GDSync.call_func(Callable(self, "execute_ddos_attack"), [target_id])
-	# only the hacked client shows transition
 	GDSync.call_func_on(target_id, Callable(self, "_show_hacked_transition"), [])
 
 func phishing(target_id: int) -> void:
-	# ask host to attempt removal
+	# 20% chance to eliminate the player
 	GDSync.call_func(Callable(self, "execute_phishing_attack"), [target_id])
-	# only on hacked client, show transition if succeeded
 	GDSync.call_func_on(target_id, Callable(self, "_show_hacked_transition"), [])
 
 # Only on hacked client: show the hacked transition and overlay
@@ -235,3 +227,24 @@ func _show_hacked_transition() -> void:
 # Utility to await end of video
 func wait_for_video_end(video_player: VideoStreamPlayer) -> void:
 	await video_player.finished
+
+# Host-only functions to execute actual removal
+func execute_ddos_attack(target_id: int) -> void:
+	if not GDSync.is_host():
+		return
+	var node = get_node_or_null(str(target_id))
+	if node:
+		node.queue_free()
+		send_hackables()
+
+func execute_phishing_attack(target_id: int) -> void:
+	if not GDSync.is_host():
+		return
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	if rng.randi_range(1, 100) <= 20:
+		var node = get_node_or_null(str(target_id))
+		if node:
+			node.queue_free()
+	send_hackables()
+	

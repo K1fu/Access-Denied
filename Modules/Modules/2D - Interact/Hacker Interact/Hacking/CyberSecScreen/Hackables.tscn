@@ -1,12 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcuhgr8g30qbt"]
-
-[ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/hackables.gd" id="1_823qc"]
+[gd_scene format=3 uid="uid://dcuhgr8g30qbt"]
 
 [node name="Hackables" type="HBoxContainer"]
 offset_top = 489.0
 offset_right = 1920.0
 offset_bottom = 591.0
-script = ExtResource("1_823qc")
 
 [node name="UsernameBox" type="HBoxContainer" parent="."]
 layout_mode = 2
