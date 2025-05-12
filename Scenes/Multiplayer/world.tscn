@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cfbs8g62ughrk"]
+[gd_scene load_steps=38 format=4 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/world.gd" id="1_lsbhn"]
 [ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="2_4gx8b"]
@@ -22,8 +22,6 @@
 [ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Developer Interact/Dev_Tasks/Update Antivirus/Antivirus.gd" id="17_pm2k8"]
 [ext_resource type="PackedScene" uid="uid://croqyfr5480or" path="res://Modules/Modules/Transition/Glitch.tscn" id="18_oorxv"]
 [ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Developer Interact/Dev_Tasks/Update Antivirus/update.gd" id="19_qf1qh"]
-[ext_resource type="PackedScene" uid="uid://bo5q32h1f0v7t" path="res://Modules/Victiry_Module/developers_victory.tscn" id="23_f4i8c"]
-[ext_resource type="PackedScene" uid="uid://cnhwun6xfqjy7" path="res://Modules/Victiry_Module/hackers_victory.tscn" id="24_v56x6"]
 
 [sub_resource type="Gradient" id="Gradient_6sowl"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -775,6 +773,7 @@ size_flags_horizontal = 4
 text = "Close"
 
 [node name="DeveloperPanel" type="CanvasLayer" parent="ControlPanel"]
+layer = 100
 visible = false
 script = ExtResource("17_f8qs8")
 
@@ -852,6 +851,7 @@ theme_override_constants/margin_top = 30
 layout_mode = 2
 
 [node name="Yes" type="Button" parent="ControlPanel/DeveloperPanel/Control/Panel/VBoxContainer/ButtonsMargin/HBoxContainer"]
+z_index = 100
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("17_akgh2")
@@ -930,12 +930,6 @@ tile_set = SubResource("TileSet_samme")
 
 [node name="Hacked" parent="." instance=ExtResource("17_guaxh")]
 layer = 20
-
-[node name="developers_victory" parent="." instance=ExtResource("23_f4i8c")]
-unique_name_in_owner = true
-
-[node name="HackersVictory" parent="." instance=ExtResource("24_v56x6")]
-unique_name_in_owner = true
 
 [connection signal="pressed" from="TaskArea/Developer/Dev_Button" to="TaskArea/Developer/Dev_Button" method="_on_pressed"]
 [connection signal="timeout" from="TaskArea/Developer/Dev_Button/CooldownTimer" to="TaskArea/Developer/Dev_Button" method="_on_cooldown_timer_timeout"]

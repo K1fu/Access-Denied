@@ -21,9 +21,6 @@ var LABEL_SCENE: PackedScene = preload(
 
 func _ready() -> void:
 	
-	%developers_victory.visible = false
-	%HackersVictory.visible = false
-	
 	GDSync.client_joined.connect(client_joined)
 	GDSync.client_left.connect(client_left)
 	GDSync.disconnected.connect(disconnected)
