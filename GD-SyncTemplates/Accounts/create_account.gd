@@ -7,6 +7,7 @@ signal account_creation_failed(email, username, password, response_code)
 @onready var username_input : LineEdit = $Username
 @onready var password_input : LineEdit = $Password
 @onready var error_text : Label = $ErrorText
+@onready var bak_button = $BAKBUTTOn
 
 @export var load_scene : PackedScene
 
@@ -15,6 +16,11 @@ var busy : bool = false
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$CreateAccount.pressed.connect(create_account)  # Add this line
+	bak_button.pressed.connect(_on_bak_button_pressed)
+
+func _on_bak_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Log In or Sign Up/createandlogin.tscn")
+
 
 func create_account() -> void:
 	if busy: return

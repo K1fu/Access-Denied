@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b6v2t1l5wlcjk"]
 
 [ext_resource type="Script" path="res://GD-SyncTemplates/Accounts/login.gd" id="1_dw383"]
-[ext_resource type="Texture2D" uid="uid://bgkhe6qshr4j8" path="res://Assets/Misc/LOGIN.png" id="2_2c371"]
+[ext_resource type="Texture2D" uid="uid://fmresa1o05kj" path="res://Assets/Misc/6.png" id="2_yqnlx"]
 [ext_resource type="Texture2D" uid="uid://ddsyl6jjfrjjs" path="res://Assets/spinner.png" id="3_ecexb"]
 [ext_resource type="Script" path="res://GD-SyncTemplates/Accounts/spinner.gd" id="3_osw85"]
 
@@ -58,7 +58,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_2c371")
+texture = ExtResource("2_yqnlx")
 
 [node name="Email" type="LineEdit" parent="Background"]
 layout_mode = 0
@@ -88,6 +88,13 @@ offset_left = 1255.0
 offset_top = 675.0
 offset_right = 1347.0
 offset_bottom = 792.0
+
+[node name="BackButton" type="TextureButton" parent="Background"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 45.0
+offset_right = 181.0
+offset_bottom = 183.0
 
 [node name="Spinner" type="Control" parent="."]
 layout_mode = 1
