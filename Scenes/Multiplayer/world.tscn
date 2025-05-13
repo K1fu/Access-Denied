@@ -640,6 +640,7 @@ horizontal_alignment = 1
 position = Vector2(-298, 323)
 
 [node name="Developer" type="CanvasLayer" parent="TaskArea"]
+layer = 100
 
 [node name="Dev_Button" type="Button" parent="TaskArea/Developer"]
 anchors_preset = 8
@@ -700,6 +701,7 @@ script = ExtResource("12_lj6o1")
 position = Vector2(1295, 324)
 
 [node name="HackerServer" type="CanvasLayer" parent="ControlPanel"]
+layer = 100
 visible = false
 
 [node name="LobbyBrowsingMenu" parent="ControlPanel/HackerServer" instance=ExtResource("14_2vki4")]
