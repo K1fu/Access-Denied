@@ -1,8 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx00vd8c6387g"]
+[gd_scene load_steps=9 format=3 uid="uid://dx00vd8c6387g"]
 
 [ext_resource type="Script" path="res://GD-SyncTemplates/Accounts/create_account.gd" id="1_228vd"]
 [ext_resource type="PackedScene" uid="uid://b6v2t1l5wlcjk" path="res://GD-SyncTemplates/Accounts/login.tscn" id="2_h7mfo"]
 [ext_resource type="Texture2D" uid="uid://cfajvnicjp8va" path="res://Assets/Misc/7.png" id="3_ia451"]
+[ext_resource type="Script" path="res://GD-SyncTemplates/Accounts/spinner.gd" id="4_v25qs"]
+[ext_resource type="Texture2D" uid="uid://ddsyl6jjfrjjs" path="res://Assets/spinner.png" id="5_d6x7i"]
+
+[sub_resource type="Animation" id="Animation_lrcha"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_65r0i"]
+resource_name = "rotation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.28319, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y11wr"]
+_data = {
+"RESET": SubResource("Animation_lrcha"),
+"rotation": SubResource("Animation_65r0i")
+}
 
 [node name="CreateAccount" type="Control"]
 layout_mode = 3
@@ -72,3 +111,41 @@ scale = Vector2(9.42439, 3.19845)
 layout_mode = 0
 offset_right = 243.0
 offset_bottom = 220.0
+
+[node name="Spinner" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -60.0
+offset_right = 34.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("4_v25qs")
+
+[node name="TextureRect" type="TextureRect" parent="Spinner"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("5_d6x7i")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Spinner"]
+libraries = {
+"": SubResource("AnimationLibrary_y11wr")
+}

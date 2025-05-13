@@ -8,12 +8,14 @@ signal account_creation_failed(email, username, password, response_code)
 @onready var password_input : LineEdit = $Password
 @onready var error_text : Label = $ErrorText
 @onready var bak_button = $BAKBUTTOn
-
+	
+@onready var loading : Control = $Spinner
 @export var load_scene : PackedScene
 
 var busy : bool = false
 
 func _ready():
+	loading.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$CreateAccount.pressed.connect(create_account)  # Add this line
 	bak_button.pressed.connect(_on_bak_button_pressed)
@@ -23,8 +25,11 @@ func _on_bak_button_pressed():
 
 
 func create_account() -> void:
-	if busy: return
+	if busy:
+		loading.visible = true
+		return
 	busy = true
+	loading.visible = true
 	
 	var email : String = email_input.text
 	var username : String = username_input.text
