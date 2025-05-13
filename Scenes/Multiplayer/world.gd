@@ -8,6 +8,9 @@ var HACKABLE_SCENE: PackedScene = preload("res://Modules/Modules/2D - Interact/H
 @onready var RoleText: Label = $RoleAssigning/Label
 @onready var hacked: CanvasLayer = $Hacked
 
+@onready var health_bar: HealthBarUI = $CanvasLayer/HealthBar
+
+
 #---------------------CyberSecScreen vars---------------------#
 @onready var control_panel: Control = $ControlPanel/ControlPanel2/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/ControlPanel
 
@@ -26,9 +29,7 @@ func _ready() -> void:
 	GDSync.disconnected.connect(disconnected)
 	
 	hacked.visible = false
-	
-	
-	
+
 	connect("players_received", Callable(self, "_populate_hackable_list"))
 	send_hackables()
 
@@ -50,6 +51,16 @@ func _ready() -> void:
 		await get_tree().create_timer(0.1).timeout
 		role_assign()
 		
+		var check_timer = Timer.new()
+		check_timer.wait_time = 1.0
+		check_timer.one_shot = false
+		check_timer.autostart = true
+		add_child(check_timer)
+		check_timer.timeout.connect(check_roles)
+		
+	if health_bar:
+		health_bar.health_reached_max.connect(_on_health_reached_max)
+	
 	var t = Timer.new()
 	t.wait_time = 2    
 	t.one_shot = false
@@ -248,3 +259,35 @@ func execute_phishing_attack(target_id: int) -> void:
 		if node:
 			node.queue_free()
 	send_hackables()
+
+# ---------------------Victory Conditions---------------------#
+func check_roles() -> void:
+	if not GDSync.is_host():
+		return
+	
+	var developers = 0
+	var hackers = 0
+	
+	for client_id in GDSync.get_all_clients():
+		var player = get_node_or_null(str(client_id))
+		if player:
+			match player.role:
+				"Developer":
+					developers += 1
+				"Hacker":
+					hackers += 1
+	
+	if developers == 0:
+		Hacker_victory()
+	if hackers == 0:
+		Developer_Victory()
+
+func _on_health_reached_max() -> void:
+	if GDSync.is_host():
+		Developer_Victory()
+
+func Hacker_victory() -> void:
+	print("Hackers victory")
+
+func Developer_Victory() -> void:
+	print("Developers victory")

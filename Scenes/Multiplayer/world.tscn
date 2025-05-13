@@ -598,6 +598,7 @@ sources/4 = SubResource("TileSetAtlasSource_a8goj")
 script = ExtResource("1_lsbhn")
 
 [node name="TouchControl" parent="." instance=ExtResource("3_n3a12")]
+layer = 100
 
 [node name="StartLocation" type="Marker2D" parent="."]
 position = Vector2(1900, 400)
@@ -776,7 +777,6 @@ text = "Close"
 
 [node name="DeveloperPanel" type="CanvasLayer" parent="ControlPanel"]
 layer = 100
-visible = false
 script = ExtResource("17_f8qs8")
 
 [node name="Control" type="Control" parent="ControlPanel/DeveloperPanel"]
@@ -788,6 +788,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(-3, 189)
 script = ExtResource("17_pm2k8")
 
 [node name="Panel" type="PanelContainer" parent="ControlPanel/DeveloperPanel/Control"]
@@ -804,6 +805,7 @@ offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(165, 366)
 theme = ExtResource("15_43hms")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ControlPanel/DeveloperPanel/Control/Panel"]
@@ -872,6 +874,7 @@ libraries = {
 }
 
 [node name="TransitionCanvas" type="CanvasLayer" parent="."]
+layer = 100
 
 [node name="Transition" parent="TransitionCanvas" instance=ExtResource("18_oorxv")]
 top_level = true
