@@ -11,6 +11,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_khxb0")
 
 [node name="Hacked" type="CanvasLayer"]
+layer = 128
 script = ExtResource("1_igxep")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]

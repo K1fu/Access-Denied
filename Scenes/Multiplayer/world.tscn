@@ -598,7 +598,7 @@ sources/4 = SubResource("TileSetAtlasSource_a8goj")
 script = ExtResource("1_lsbhn")
 
 [node name="TouchControl" parent="." instance=ExtResource("3_n3a12")]
-layer = 100
+layer = 10
 
 [node name="StartLocation" type="Marker2D" parent="."]
 position = Vector2(1900, 400)
@@ -680,6 +680,7 @@ label_settings = SubResource("LabelSettings_5kdpk")
 horizontal_alignment = 1
 
 [node name="Hacker" type="CanvasLayer" parent="TaskArea"]
+layer = 11
 
 [node name="Sabotage" type="Button" parent="TaskArea/Hacker"]
 anchors_preset = 8
@@ -702,7 +703,7 @@ script = ExtResource("12_lj6o1")
 position = Vector2(1295, 324)
 
 [node name="HackerServer" type="CanvasLayer" parent="ControlPanel"]
-layer = 100
+layer = 15
 visible = false
 
 [node name="LobbyBrowsingMenu" parent="ControlPanel/HackerServer" instance=ExtResource("14_2vki4")]
@@ -778,6 +779,7 @@ text = "Close"
 [node name="DeveloperPanel" type="CanvasLayer" parent="ControlPanel"]
 layer = 100
 script = ExtResource("17_f8qs8")
+target_client_id = 15
 
 [node name="Control" type="Control" parent="ControlPanel/DeveloperPanel"]
 layout_mode = 3
@@ -874,7 +876,7 @@ libraries = {
 }
 
 [node name="TransitionCanvas" type="CanvasLayer" parent="."]
-layer = 100
+layer = 128
 
 [node name="Transition" parent="TransitionCanvas" instance=ExtResource("18_oorxv")]
 top_level = true
