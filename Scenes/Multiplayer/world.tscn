@@ -776,8 +776,39 @@ theme_override_font_sizes/font_size = 50
 label_settings = SubResource("LabelSettings_5kdpk")
 horizontal_alignment = 1
 
+[node name="PanelContainer" type="PanelContainer" parent="TaskArea/Developer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -219.0
+offset_top = -189.0
+offset_right = 219.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("15_43hms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea/Developer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Boss' task"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="Hacker" type="CanvasLayer" parent="TaskArea"]
 layer = 70
+visible = false
 
 [node name="Control" type="Control" parent="TaskArea/Hacker"]
 layout_mode = 3
