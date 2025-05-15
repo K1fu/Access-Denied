@@ -32,8 +32,8 @@ func Dev_on_interact():
 
 func _hacker_interact():
 	Hack_interactable.interact = Hack_on_interact
-	ControlPanel.layer = 0
-	ControlPanel.visible = false
+	ControlPanel.layer = 128
+	ControlPanel.visible = true
 
 func Hack_on_interact():
 	print("Hacker Interacted")

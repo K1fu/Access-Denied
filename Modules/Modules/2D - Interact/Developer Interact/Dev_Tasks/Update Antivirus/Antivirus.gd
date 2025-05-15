@@ -1,4 +1,4 @@
-class_name Hack_Button
+class_name Antivirus
 
 extends Control
 

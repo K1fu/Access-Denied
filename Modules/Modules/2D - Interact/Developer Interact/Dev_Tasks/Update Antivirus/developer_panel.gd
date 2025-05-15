@@ -30,8 +30,9 @@ func _on_yes_pressed() -> void:
 	print("Player %d %s is not hackable" % [target_client_id, username])
 
 	# 1) play the Close tab tween and wait for it
-	var close_tween = %TabAnimation.play("Close tab")
-	await close_tween.finished
+	%TabAnimation.play("Close tab")
+	await %TabAnimation.animation_finished
+
 
 	# 2) now call click(), which itself tweens & awaits internally
 	await %Update.click(100)
@@ -42,8 +43,8 @@ func _on_yes_pressed() -> void:
 
 func _on_no_pressed() -> void:
 	# play Close tab animation and wait
-	var close_tween = %TabAnimation.play("Close tab")
-	await close_tween.finished
+	%TabAnimation.play("Close tab")
+	await %TabAnimation.finished
 
 	visible = false
 	layer = 0

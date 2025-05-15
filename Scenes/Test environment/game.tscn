@@ -80,11 +80,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="User Control"]
+layer = 100
 
 [node name="Virtual Joystick" parent="User Control/CanvasLayer" instance=ExtResource("5_dwhki")]
-offset_top = -171.0
-offset_right = 171.0
-offset_bottom = 0.0
+z_index = 1000
+offset_left = 5.0
+offset_top = -519.0
+offset_right = 556.0
+offset_bottom = 26.0
 
 [node name="TextureRect" type="TextureRect" parent="User Control/CanvasLayer"]
 anchors_preset = 8
@@ -102,6 +105,7 @@ texture = ExtResource("6_d2p80")
 expand_mode = 1
 
 [node name="Jump" type="TouchScreenButton" parent="User Control/CanvasLayer"]
+z_index = 1000
 position = Vector2(1441, 955)
 rotation = -1.5708
 scale = Vector2(0.132203, 0.132203)
@@ -109,6 +113,7 @@ texture_normal = ExtResource("7_6dnhy")
 action = "ui_accept"
 
 [node name="interact" type="TouchScreenButton" parent="User Control/CanvasLayer"]
+z_index = 1000
 position = Vector2(1689, 675)
 scale = Vector2(0.142373, 0.142373)
 texture_normal = ExtResource("8_vruot")

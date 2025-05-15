@@ -23,7 +23,7 @@ func Hack_on_interact():
 	print(">>Hacker interacted")
 
 func _on_hack_pressed() -> void:
-	Hack.call("Hack")
+	Hack.Hack()
 
 func _on_no_pressed() -> void:
 	%HackAnim.play("Close_Panel")
