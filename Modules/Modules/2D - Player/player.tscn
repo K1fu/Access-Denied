@@ -1,9 +1,10 @@
-[gd_scene load_steps=58 format=3 uid="uid://ceklaelifj1th"]
+[gd_scene load_steps=59 format=3 uid="uid://ceklaelifj1th"]
 
 [ext_resource type="Script" path="res://Modules/Modules/2D - Player/character_body_2d.gd" id="1_s6ifd"]
 [ext_resource type="Script" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="2_cilbb"]
 [ext_resource type="Texture2D" uid="uid://dlx76sucbhwfh" path="res://Assets/Player/Screenshot_2025-2-9_214139306.png" id="2_turdi"]
 [ext_resource type="PackedScene" uid="uid://0jp5ylptv7ac" path="res://Modules/Modules/2D - Player/character_skin.tscn" id="5_35ssf"]
+[ext_resource type="AudioStream" uid="uid://dq8ekvxpfwyqt" path="res://Assets/Sounds/SFX/footsteps-on-tile-31653.mp3" id="5_tbgnf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ksjuq"]
 size = Vector2(39, 66)
@@ -618,3 +619,6 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-2, -13)
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_tbgnf")

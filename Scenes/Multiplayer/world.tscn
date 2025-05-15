@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cfbs8g62ughrk"]
+[gd_scene load_steps=45 format=4 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/world.gd" id="1_lsbhn"]
 [ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="2_4gx8b"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cqjf1hwsnj6y2" path="res://Modules/Modules/task_area.tscn" id="4_7lc58"]
 [ext_resource type="PackedScene" uid="uid://dpp0rwn4xlpm5" path="res://Modules/Modules/Task_Bar/healthbar.tscn" id="4_208g2"]
 [ext_resource type="Texture2D" uid="uid://br0ilewtnhay2" path="res://Tile maps/Sprites/neo_zero_tiles_and_buildings_01.png" id="7_vb6nm"]
+[ext_resource type="Script" path="res://Scenes/Multiplayer/SabotagePanel.gd" id="8_2duqp"]
 [ext_resource type="Texture2D" uid="uid://cs1uqkv6kijl6" path="res://Tile maps/Sprites/pixel-cyberpunk-interior.png" id="8_mjaac"]
 [ext_resource type="Texture2D" uid="uid://c5yd5ingxf2oy" path="res://Tile maps/Sprites/playButton.png" id="9_nvgki"]
 [ext_resource type="Texture2D" uid="uid://bx5pgw0ypvfs2" path="res://Tile maps/Sprites/TileSet v1.0.png" id="10_asm0b"]
@@ -29,8 +30,75 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_mtbdj"]
 gradient = SubResource("Gradient_6sowl")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46bxd"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7eirf"]
+bg_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [sub_resource type="LabelSettings" id="LabelSettings_5kdpk"]
 font_size = 41
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ni5w"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="Animation" id="Animation_uiymf"]
+resource_name = "Open_Panel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SabotagePanel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k8whs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SabotagePanel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jylxg"]
+_data = {
+"Open_Panel": SubResource("Animation_uiymf"),
+"RESET": SubResource("Animation_k8whs")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sj0b"]
 bg_color = Color(0.145098, 0.145098, 0.14902, 1)
@@ -96,7 +164,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Panel:scale")
+tracks/0/path = NodePath("Hack/Panel:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -598,13 +666,13 @@ sources/4 = SubResource("TileSetAtlasSource_a8goj")
 script = ExtResource("1_lsbhn")
 
 [node name="TouchControl" parent="." instance=ExtResource("3_n3a12")]
-layer = 10
+layer = 120
 
 [node name="StartLocation" type="Marker2D" parent="."]
 position = Vector2(1900, 400)
 
 [node name="RoleAssigning" type="CanvasLayer" parent="."]
-layer = 10
+layer = 100
 visible = false
 
 [node name="TextureRect" type="TextureRect" parent="RoleAssigning"]
@@ -636,12 +704,17 @@ horizontal_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource("4_208g2")]
+theme = ExtResource("15_43hms")
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/background = SubResource("StyleBoxFlat_46bxd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7eirf")
 
 [node name="TaskArea" parent="." instance=ExtResource("4_7lc58")]
 position = Vector2(-298, 323)
 
 [node name="Developer" type="CanvasLayer" parent="TaskArea"]
-layer = 100
+layer = 70
 
 [node name="Dev_Button" type="Button" parent="TaskArea/Developer"]
 anchors_preset = 8
@@ -680,30 +753,95 @@ label_settings = SubResource("LabelSettings_5kdpk")
 horizontal_alignment = 1
 
 [node name="Hacker" type="CanvasLayer" parent="TaskArea"]
-layer = 11
+layer = 70
 
-[node name="Sabotage" type="Button" parent="TaskArea/Hacker"]
+[node name="Control" type="Control" parent="TaskArea/Hacker"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_2duqp")
+
+[node name="SabotagePanel" type="PanelContainer" parent="TaskArea/Hacker/Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -46.0
-offset_right = 104.0
-offset_bottom = 46.0
+offset_left = 699.0
+offset_top = 380.5
+offset_right = 1181.0
+offset_bottom = 659.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(239, 317.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ni5w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea/Hacker/Control/SabotagePanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
 theme_override_font_sizes/font_size = 30
+text = "Sabotage.Exe"
+horizontal_alignment = 1
+
+[node name="TerminalContainer" type="MarginContainer" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Terminal" type="Label" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/TerminalContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+autowrap_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Sabotage" type="Button" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
 text = "Data Integrity
 attack"
 script = ExtResource("12_lj6o1")
+
+[node name="Close" type="Button" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+
+[node name="SabotagePanelAnim" type="AnimationPlayer" parent="TaskArea/Hacker/Control"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_jylxg")
+}
 
 [node name="ControlPanel" parent="." instance=ExtResource("13_f8lve")]
 position = Vector2(1295, 324)
 
 [node name="HackerServer" type="CanvasLayer" parent="ControlPanel"]
-layer = 15
+layer = 128
 visible = false
 
 [node name="LobbyBrowsingMenu" parent="ControlPanel/HackerServer" instance=ExtResource("14_2vki4")]
@@ -776,10 +914,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Close"
 
+[node name="HackerServer_anim" type="AnimationPlayer" parent="ControlPanel/HackerServer"]
+
 [node name="DeveloperPanel" type="CanvasLayer" parent="ControlPanel"]
 layer = 100
 script = ExtResource("17_f8qs8")
-target_client_id = 15
+target_client_id = 70
 
 [node name="Control" type="Control" parent="ControlPanel/DeveloperPanel"]
 layout_mode = 3
@@ -936,11 +1076,12 @@ tile_map_data = PackedByteArray("AAASABAAAQAGAAIAADARABAAAQAHAAIAADAQABAAAQAIAAI
 tile_set = SubResource("TileSet_samme")
 
 [node name="Hacked" parent="." instance=ExtResource("17_guaxh")]
-layer = 20
+layer = 120
+visible = false
 
 [connection signal="pressed" from="TaskArea/Developer/Dev_Button" to="TaskArea/Developer/Dev_Button" method="_on_pressed"]
 [connection signal="timeout" from="TaskArea/Developer/Dev_Button/CooldownTimer" to="TaskArea/Developer/Dev_Button" method="_on_cooldown_timer_timeout"]
-[connection signal="pressed" from="TaskArea/Hacker/Sabotage" to="TaskArea/Hacker/Sabotage" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" to="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_pressed"]
 [connection signal="pressed" from="ControlPanel/HackerServer/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/Button" to="ControlPanel" method="_on_button_pressed"]
 [connection signal="pressed" from="ControlPanel/DeveloperPanel/Control/Panel/VBoxContainer/ButtonsMargin/HBoxContainer/Yes" to="ControlPanel/DeveloperPanel/Control" method="_on_yes_pressed"]
 [connection signal="pressed" from="ControlPanel/DeveloperPanel/Control/Panel/VBoxContainer/ButtonsMargin/HBoxContainer/No" to="ControlPanel/DeveloperPanel/Control" method="_on_no_pressed"]

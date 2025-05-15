@@ -17,3 +17,4 @@ func Hack() -> void:
 	else:
 		print(">>No valid hack target in range.")
 	$".".visible = false
+	$"..".layer = 0

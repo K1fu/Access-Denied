@@ -2,16 +2,19 @@
 class_name world
 extends Node2D
 
+var role_assignments = {}
+
 var PLAYER_SCENE: PackedScene = preload("res://Modules/Modules/2D - Player/player.tscn")
 var HACKABLE_SCENE: PackedScene = preload("res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/hackable.tscn")
 
+@onready var UI: CanvasLayer = $TouchControl
 @onready var Role_Assignment: CanvasLayer = $RoleAssigning
 @onready var RoleText: Label = $RoleAssigning/Label
 @onready var hacked: CanvasLayer = $Hacked
 @onready var health_bar: HealthBarUI = $CanvasLayer/HealthBar
 @onready var transitioncanvas: CanvasLayer = $TransitionCanvas
 @onready var transition: VideoStreamPlayer = $TransitionCanvas/Transition
-@onready var control_panel: Control = $ControlPanel/ControlPanel2/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/ControlPanel
+@onready var control_panel: Control = $ControlPanel/HackerServer/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/ControlPanel
 var LABEL_SCENE: PackedScene = preload("res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Hackables.tscn")
 
 var Hacker_victory_scene: PackedScene = preload("res://Modules/Victiry_Module/hackers_victory.tscn")
@@ -61,7 +64,7 @@ func _ready() -> void:
 
 	# Periodic hackables update
 	var t = Timer.new()
-	t.wait_time = 2
+	t.wait_time = 1
 	t.one_shot = false
 	t.autostart = true
 	add_child(t)
@@ -80,17 +83,14 @@ func client_joined(client_id: int) -> void:
 	player.client_id = client_id
 	GDSync.sync_var(player, "client_id")
 
-	# If host already has a role assigned, send it to the new client
-	if GDSync.is_host():
-		if host_roles.has(client_id):
-			var assigned_role = host_roles[client_id]
-			player.role = assigned_role
-			GDSync.sync_var(player, "role")
-			GDSync.call_func_on(client_id, Callable(self, "remote_assign_role_and_components"), [assigned_role])
-			GDSync.call_func_on(client_id, Callable(self, "Role_Show"), [assigned_role])
-
 	var username = GDSync.get_player_data(client_id, "Username", "Unknown")
 	print("Spawned %s with client_id = %d" % [username, client_id])
+
+	# Assign role if already assigned
+	if role_assignments.has(client_id):
+		var role = role_assignments[client_id]
+		player.role = role
+		GDSync.sync_var(player, "role")
 
 func client_left(client_id: int) -> void:
 	var name_str = str(client_id)
@@ -110,8 +110,6 @@ func role_assign() -> void:
 	else:
 		hacker_count = 1
 
-	var developer_count: int = 0
-
 	for i in range(ids.size()):
 		var cid = ids[i]
 		var player = get_node_or_null(str(cid))
@@ -124,24 +122,22 @@ func role_assign() -> void:
 		else:
 			role = "Developer"
 
-		# Register host-side
-		host_roles[cid] = role
-		if role == "Developer":
-			developer_count += 1
-
 		player.role = role
 		player.is_hackable = false
 		GDSync.sync_var(player, "role")
 		GDSync.sync_var(player, "is_hackable")
+
+		role_assignments[cid] = role  # Store role assignment
 
 		GDSync.call_func_on(cid, Callable(self, "remote_assign_role_and_components"), [role])
 		GDSync.call_func_on(cid, Callable(self, "Role_Show"), [role])
 
 		if role == "Developer":
 			GDSync.multiplayer_instantiate(HACKABLE_SCENE, player, true, [], true)
-
 	transitioncanvas.visible = false
+	transitioncanvas.layer = 0
 	print_all_player_roles()
+
 
 func remote_assign_role_and_components(role: String) -> void:
 	var my_id = GDSync.get_client_id()
@@ -164,7 +160,7 @@ func Role_Show(role: String) -> void:
 	RoleText.text = "You are a %s" % role
 	Role_Assignment.visible = true
 	await get_tree().create_timer(5.0).timeout
-	Role_Assignment.visible = false
+	remove_child(Role_Assignment)
 	print("%d sees role %s" % [GDSync.get_client_id(), role])
 
 func print_all_player_roles() -> void:
@@ -182,20 +178,16 @@ func check_roles() -> void:
 	if not GDSync.is_host():
 		return
 
-	var developers: int = 0
-	var hackers: int = 0
-	for client_id in GDSync.get_all_clients():
-		var player = get_node_or_null(str(client_id))
-		if not player:
-			continue
+	var developers = 0
+	var hackers = 0
 
-		# Ensure role is updated
-		GDSync.sync_var(player, "role")
-		await get_tree().process_frame
-		if player.role == "Developer":
-			developers += 1
-		elif player.role == "Hacker":
-			hackers += 1
+	for client_id in GDSync.get_all_clients():
+		if role_assignments.has(client_id):
+			var role = role_assignments[client_id]
+			if role == "Developer":
+				developers += 1
+			elif role == "Hacker":
+				hackers += 1
 
 	if developers == 0:
 		Hacker_victory()
@@ -259,6 +251,8 @@ func _populate_hackable_list(players: Array) -> void:
 		%DevList.add_child(entry)
 
 func ddos_attack(target_id: int) -> void:
+	UI.layer = 0
+	UI.visible = false
 	GDSync.call_func(Callable(self, "execute_ddos_attack"), [target_id])
 	GDSync.call_func_on(target_id, Callable(self, "_show_hacked_transition"), [])
 
@@ -267,10 +261,15 @@ func phishing(target_id: int) -> void:
 	GDSync.call_func_on(target_id, Callable(self, "_show_hacked_transition"), [])
 
 func _show_hacked_transition() -> void:
+	UI.layer = 0
+	UI.visible = false
+	transitioncanvas.layer = 126
 	transitioncanvas.visible = true
 	transition.play()
 	await wait_for_video_end(transition)
+	transitioncanvas.layer = 0
 	hacked.visible = true
+	hacked.layer = 128
 
 func wait_for_video_end(video_player: VideoStreamPlayer) -> void:
 	await video_player.finished

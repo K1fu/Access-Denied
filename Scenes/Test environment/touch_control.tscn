@@ -1,47 +1,283 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv4vu1yt0c73i"]
+[gd_scene load_steps=15 format=3 uid="uid://bv4vu1yt0c73i"]
 
-[ext_resource type="Texture2D" uid="uid://daejyuuo0hs7p" path="res://Assets/UI/E.png" id="1_dofd4"]
+[ext_resource type="Texture2D" uid="uid://ddvvmd1ru763m" path="res://Assets/Joystick/cropped_image (2).png" id="1_hg0el"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_p5xjg"]
 [ext_resource type="Script" path="res://Scenes/Test environment/quit.gd" id="2_cyy8q"]
-[ext_resource type="Texture2D" uid="uid://cn312ul1vonk0" path="res://Assets/UI/noFilter.png" id="2_d2uge"]
+[ext_resource type="Script" path="res://Scenes/Test environment/menu_button.gd" id="2_fj08i"]
+[ext_resource type="Texture2D" uid="uid://d25whgc6y4q21" path="res://Assets/Joystick/sprint.png" id="3_uwd2d"]
+[ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="5_0s0xb"]
+[ext_resource type="FontFile" uid="uid://dpr88u44817be" path="res://Assets/fonts/Modenine-2OPd.ttf" id="6_n4gaa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0huw8"]
+bg_color = Color(0, 0, 0, 0.780392)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vov8"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="Theme" id="Theme_d21j2"]
+default_font = ExtResource("6_n4gaa")
+default_font_size = 20
+/styles/Blue = SubResource("StyleBoxFlat_3vov8")
+
+[sub_resource type="Animation" id="Animation_lcuf0"]
+resource_name = "Open_Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ta0kb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_14ppu"]
+resource_name = "Close_Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3m78f"]
+_data = {
+"Close_Menu": SubResource("Animation_14ppu"),
+"Open_Menu": SubResource("Animation_lcuf0"),
+"RESET": SubResource("Animation_ta0kb")
+}
 
 [node name="TouchControl" type="CanvasLayer"]
 
+[node name="Menu_Button" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -331.0
+offset_top = 43.0
+offset_right = -117.0
+offset_bottom = 145.0
+grow_horizontal = 0
+theme = ExtResource("5_0s0xb")
+theme_override_colors/font_color = Color(0.145098, 0.588235, 0.745098, 1)
+theme_override_font_sizes/font_size = 30
+text = "Menu"
+script = ExtResource("2_fj08i")
+
 [node name="Sprint2" type="TouchScreenButton" parent="."]
-position = Vector2(1564, 420)
-scale = Vector2(1.56, 1.56)
-texture_normal = ExtResource("1_dofd4")
+position = Vector2(1571, 518)
+scale = Vector2(0.177119, 0.177119)
+texture_normal = ExtResource("1_hg0el")
 action = "interact"
 
-[node name="Quit" type="Button" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -382.0
-offset_top = -1035.0
-offset_right = -125.0
-offset_bottom = -928.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 0
+[node name="Sprint" type="TouchScreenButton" parent="."]
+position = Vector2(1339, 774)
+scale = Vector2(0.173948, 0.173948)
+texture_normal = ExtResource("3_uwd2d")
+action = "Sprint"
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("1_p5xjg")]
+offset_top = -300.0
+offset_bottom = 0.0
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Menu"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -288.5
+offset_right = 210.0
+offset_bottom = 288.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(943, -177.5)
+theme = ExtResource("5_0s0xb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0huw8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.5
+offset_top = -268.5
+offset_right = 210.5
+offset_bottom = 268.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(210, 531)
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="Menu/Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_d21j2")
+theme_override_font_sizes/font_size = 70
+text = "- Menu -"
+horizontal_alignment = 1
+
+[node name="LabelContainer" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="Label" type="Label" parent="Menu/Panel/VBoxContainer/LabelContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_n4gaa")
+theme_override_font_sizes/font_size = 30
+text = "Master"
+horizontal_alignment = 1
+
+[node name="MasterVolumeContainer" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+
+[node name="HSlider" type="HSlider" parent="Menu/Panel/VBoxContainer/MasterVolumeContainer"]
+layout_mode = 2
+
+[node name="LabelContainer2" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/Panel/VBoxContainer/LabelContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_n4gaa")
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="SFXContainer" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+
+[node name="HSlider" type="HSlider" parent="Menu/Panel/VBoxContainer/SFXContainer"]
+layout_mode = 2
+
+[node name="LabelContainer3" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/Panel/VBoxContainer/LabelContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_n4gaa")
+theme_override_font_sizes/font_size = 30
+text = "Music"
+horizontal_alignment = 1
+
+[node name="MusicContainer" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+
+[node name="HSlider" type="HSlider" parent="Menu/Panel/VBoxContainer/MusicContainer"]
+layout_mode = 2
+
+[node name="LabelContainer4" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="Label" type="Label" parent="Menu/Panel/VBoxContainer/LabelContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_n4gaa")
+theme_override_font_sizes/font_size = 30
+text = "--Danger Zone--"
+horizontal_alignment = 1
+
+[node name="Quit Container" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Quit" type="Button" parent="Menu/Panel/VBoxContainer/Quit Container"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 script = ExtResource("2_cyy8q")
 
-[node name="Sprint" type="TouchScreenButton" parent="."]
-position = Vector2(1555, 721)
-rotation = 1.5708
-scale = Vector2(0.666321, 0.666321)
-texture_normal = ExtResource("2_d2uge")
-action = "Sprint"
+[node name="Quit Container2" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 29
 
-[node name="Virtual Joystick" parent="." instance=ExtResource("1_p5xjg")]
-offset_left = 7.0
-offset_top = -599.0
-offset_right = 307.0
-offset_bottom = -299.0
-scale = Vector2(2, 2)
+[node name="Close Menu" type="Button" parent="Menu/Panel/VBoxContainer/Quit Container2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Close Menu"
+script = ExtResource("2_cyy8q")
 
-[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]
+[node name="MenuAnim" type="AnimationPlayer" parent="Menu"]
+libraries = {
+"": SubResource("AnimationLibrary_3m78f")
+}
+
+[connection signal="pressed" from="Menu_Button" to="Menu_Button" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Panel/VBoxContainer/Quit Container/Quit" to="Menu/Panel/VBoxContainer/Quit Container/Quit" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Panel/VBoxContainer/Quit Container2/Close Menu" to="Menu/Panel/VBoxContainer/Quit Container2/Close Menu" method="_on_pressed"]

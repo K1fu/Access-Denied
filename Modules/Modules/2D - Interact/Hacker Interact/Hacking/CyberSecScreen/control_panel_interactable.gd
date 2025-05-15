@@ -13,11 +13,14 @@ func _ready() -> void:
 
 func _crewmate_interact():
 	Dev_interactable.interact = Dev_on_interact
+	DeveloperPanel.layer = 0
 	Antivirus.visible = false
 
 func Dev_on_interact():
 	print("Developer Interacted")
 	%TabAnimation.play("Open tab")
+	%Update.download(0)
+	DeveloperPanel.layer = 128
 	Antivirus.visible = true
 
 	# ——— NEW: invoke your popup logic here ———
@@ -29,11 +32,13 @@ func Dev_on_interact():
 
 func _hacker_interact():
 	Hack_interactable.interact = Hack_on_interact
+	ControlPanel.layer = 0
 	ControlPanel.visible = false
 
 func Hack_on_interact():
 	print("Hacker Interacted")
 	ControlPanel.visible = true
+	ControlPanel.layer = 128
 
 func _on_button_pressed() -> void:
 	ControlPanel.visible = false

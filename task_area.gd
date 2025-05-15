@@ -17,6 +17,7 @@ func _crewmate_interact():
 
 func Dev_on_interact():
 	print("Developer Interacted")
+	CrewScreen.layer = 128
 	CrewScreen.visible = true
 
 func _hacker_interact():
@@ -24,5 +25,6 @@ func _hacker_interact():
 	HackScreen.visible = false
 
 func Hack_on_interact():
+	HackScreen.layer = 128
 	print("Hacker Interacted")
 	HackScreen.visible = true

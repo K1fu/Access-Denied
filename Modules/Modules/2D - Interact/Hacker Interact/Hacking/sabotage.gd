@@ -5,5 +5,7 @@ extends Button
 @onready var button: Button = $"."
 
 func _on_pressed() -> void:
+	$"../../../../..".visible = false
+
+func sabotage():
 	health_bar.take_damage(10)
-	HackScreen.hide()
