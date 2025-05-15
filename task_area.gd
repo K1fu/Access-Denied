@@ -28,3 +28,4 @@ func Hack_on_interact():
 	HackScreen.layer = 128
 	print("Hacker Interacted")
 	HackScreen.visible = true
+	%SabotagePanelAnim.play("Open_Panel")

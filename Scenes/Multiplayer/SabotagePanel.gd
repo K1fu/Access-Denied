@@ -1,6 +1,7 @@
 extends Control
 
 @onready var Terminal: Label = $SabotagePanel/VBoxContainer/TerminalContainer/Terminal
+@onready var Sabotagee: ProgressBar = $"../../../CanvasLayer/HealthBar"
 
 @export var pause_time: float = 0.1
 @export var out_time:   float = 0.5
@@ -36,5 +37,8 @@ func type_text(new_text: String) -> void:
 	Terminal.text = new_text
 
 func Sabotage() -> void:
+	type_text(full_text)
 	await show_message()
-	self.visible = false
+	Sabotagee.take_damage(10)
+	%SabotagePanelAnim.play("Close_Panel")
+	get_parent().layer = 0

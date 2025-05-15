@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://cfbs8g62ughrk"]
+[gd_scene load_steps=48 format=4 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/world.gd" id="1_lsbhn"]
 [ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="2_4gx8b"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scenes/Multiplayer/SabotagePanel.gd" id="8_2duqp"]
 [ext_resource type="Texture2D" uid="uid://cs1uqkv6kijl6" path="res://Tile maps/Sprites/pixel-cyberpunk-interior.png" id="8_mjaac"]
 [ext_resource type="Texture2D" uid="uid://c5yd5ingxf2oy" path="res://Tile maps/Sprites/playButton.png" id="9_nvgki"]
+[ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Sabotage/close.gd" id="10_4dq6s"]
 [ext_resource type="Texture2D" uid="uid://bx5pgw0ypvfs2" path="res://Tile maps/Sprites/TileSet v1.0.png" id="10_asm0b"]
 [ext_resource type="Texture2D" uid="uid://bxix2j8me7l76" path="res://Tile maps/Sprites/Tileset.png" id="11_nnosh"]
 [ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/sabotage.gd" id="12_lj6o1"]
@@ -64,6 +65,13 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guib2"]
+bg_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [sub_resource type="Animation" id="Animation_uiymf"]
 resource_name = "Open_Panel"
 tracks/0/type = "value"
@@ -94,8 +102,24 @@ tracks/0/keys = {
 "values": [Vector2(1e-05, 1e-05)]
 }
 
+[sub_resource type="Animation" id="Animation_7aceu"]
+resource_name = "Close_Panel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SabotagePanel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jylxg"]
 _data = {
+"Close_Panel": SubResource("Animation_7aceu"),
 "Open_Panel": SubResource("Animation_uiymf"),
 "RESET": SubResource("Animation_k8whs")
 }
@@ -770,9 +794,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 699.0
-offset_top = 380.5
+offset_top = 421.0
 offset_right = 1181.0
-offset_bottom = 659.5
+offset_bottom = 620.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
@@ -804,6 +828,7 @@ theme_override_constants/margin_bottom = 20
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 20
 autowrap_mode = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer"]
@@ -825,11 +850,32 @@ text = "Data Integrity
 attack"
 script = ExtResource("12_lj6o1")
 
+[node name="CooldownTimer" type="Timer" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guib2")
+
+[node name="Label" type="Label" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
 [node name="Close" type="Button" parent="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("15_43hms")
 theme_override_font_sizes/font_size = 20
 text = "Close"
+script = ExtResource("10_4dq6s")
 
 [node name="SabotagePanelAnim" type="AnimationPlayer" parent="TaskArea/Hacker/Control"]
 unique_name_in_owner = true
@@ -1082,6 +1128,7 @@ visible = false
 [connection signal="pressed" from="TaskArea/Developer/Dev_Button" to="TaskArea/Developer/Dev_Button" method="_on_pressed"]
 [connection signal="timeout" from="TaskArea/Developer/Dev_Button/CooldownTimer" to="TaskArea/Developer/Dev_Button" method="_on_cooldown_timer_timeout"]
 [connection signal="pressed" from="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" to="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" to="TaskArea/Hacker/Control/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" method="_on_pressed"]
 [connection signal="pressed" from="ControlPanel/HackerServer/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/Button" to="ControlPanel" method="_on_button_pressed"]
 [connection signal="pressed" from="ControlPanel/DeveloperPanel/Control/Panel/VBoxContainer/ButtonsMargin/HBoxContainer/Yes" to="ControlPanel/DeveloperPanel/Control" method="_on_yes_pressed"]
 [connection signal="pressed" from="ControlPanel/DeveloperPanel/Control/Panel/VBoxContainer/ButtonsMargin/HBoxContainer/No" to="ControlPanel/DeveloperPanel/Control" method="_on_no_pressed"]
