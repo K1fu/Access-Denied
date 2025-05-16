@@ -1,6 +1,6 @@
-extends Control
+extends PanelContainer
 
-@onready var Terminal: Label = $SabotagePanel/VBoxContainer/TerminalContainer/Terminal
+@onready var Terminal: Label = $VBoxContainer/TerminalContainer/Terminal
 @onready var Sabotagee: ProgressBar = $"../../../CanvasLayer/HealthBar"
 
 @export var pause_time: float = 0.1
