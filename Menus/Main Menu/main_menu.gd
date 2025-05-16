@@ -16,10 +16,7 @@ func _on_connect_pressed():
 	%Connect.disabled = true
 	GDSync.start_multiplayer()
 
-func _on_quit_pressed():
-	click.play()
-	Sound.stop()
-	get_tree().quit()
+
 
 func connected():
 	%Connect.disabled = true
@@ -44,3 +41,9 @@ func connection_failed(error : int):
 			%Message.text = "The public or private key you entered were invalid."
 		ENUMS.CONNECTION_FAILED.TIMEOUT:
 			%Message.text = "Unable to connect, please check your internet connection."
+
+
+func _on_quit_pressed() -> void:
+	click.play()
+	Sound.stop()
+	get_tree().quit()
