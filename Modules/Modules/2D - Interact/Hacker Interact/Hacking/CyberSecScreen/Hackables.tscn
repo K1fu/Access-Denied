@@ -21,7 +21,6 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="HackChance" type="Button" parent="HackChanceBox"]
-z_index = 1000
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Phishing"
@@ -31,7 +30,6 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="HackGuarantee" type="Button" parent="HackGuaranteeBox"]
-z_index = 1000
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Ddos Attack"

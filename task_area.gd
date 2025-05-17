@@ -13,19 +13,18 @@ func _ready() -> void:
 
 func _crewmate_interact():
 	Dev_interactable.interact = Dev_on_interact  # No parentheses!
-	CrewScreen.visible = false
 
 func Dev_on_interact():
 	print("Developer Interacted")
+	%DeveloperTaskAnim.play("Open_Task")
 	CrewScreen.layer = 128
 	CrewScreen.visible = true
 
 func _hacker_interact():
 	Hack_interactable.interact = Hack_on_interact  # No parentheses!
-	HackScreen.visible = false
 
 func Hack_on_interact():
-	HackScreen.layer = 128
 	print("Hacker Interacted")
-	HackScreen.visible = true
 	%SabotagePanelAnim.play("Open_Panel")
+	HackScreen.layer = 128
+	HackScreen.visible = true
