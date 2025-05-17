@@ -43,10 +43,9 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2egjy"]
-radius = 370.022
+radius = 135.059
 
 [node name="Hackable" type="Node2D"]
-visible = false
 script = ExtResource("1_e8as4")
 
 [node name="HackScreen" type="CanvasLayer" parent="."]
@@ -137,3 +136,4 @@ interact_name = "Hack player"
 shape = SubResource("CircleShape2D_2egjy")
 
 [connection signal="pressed" from="HackScreen/Hack/Panel/VBoxContainer/ButtonsMargin/HBoxContainer/Hack" to="." method="_on_hack_pressed"]
+[connection signal="pressed" from="HackScreen/Hack/Panel/VBoxContainer/ButtonsMargin/HBoxContainer/No" to="." method="_on_no_pressed"]

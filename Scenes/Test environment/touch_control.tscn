@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bv4vu1yt0c73i"]
+[gd_scene load_steps=16 format=3 uid="uid://bv4vu1yt0c73i"]
 
 [ext_resource type="Texture2D" uid="uid://ddvvmd1ru763m" path="res://Assets/Joystick/cropped_image (2).png" id="1_hg0el"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_p5xjg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d25whgc6y4q21" path="res://Assets/Joystick/sprint.png" id="3_uwd2d"]
 [ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="5_0s0xb"]
 [ext_resource type="FontFile" uid="uid://dpr88u44817be" path="res://Assets/fonts/Modenine-2OPd.ttf" id="6_n4gaa"]
+[ext_resource type="Script" path="res://Scenes/Test environment/close_menu.gd" id="8_ewnuw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0huw8"]
 bg_color = Color(0, 0, 0, 0.780392)
@@ -37,6 +38,21 @@ default_font = ExtResource("6_n4gaa")
 default_font_size = 20
 /styles/Blue = SubResource("StyleBoxFlat_3vov8")
 
+[sub_resource type="Animation" id="Animation_14ppu"]
+resource_name = "Close_Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
 [sub_resource type="Animation" id="Animation_lcuf0"]
 resource_name = "Open_Menu"
 tracks/0/type = "value"
@@ -65,21 +81,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05)]
-}
-
-[sub_resource type="Animation" id="Animation_14ppu"]
-resource_name = "Close_Menu"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3m78f"]
@@ -271,7 +272,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "Close Menu"
-script = ExtResource("2_cyy8q")
+script = ExtResource("8_ewnuw")
 
 [node name="MenuAnim" type="AnimationPlayer" parent="Menu"]
 libraries = {

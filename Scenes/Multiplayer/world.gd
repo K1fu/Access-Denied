@@ -42,6 +42,8 @@ func _ready() -> void:
 	GDSync.expose_func(Callable(self, "_show_hacked_transition"))
 	GDSync.expose_func(Callable(self, "execute_ddos_attack"))
 	GDSync.expose_func(Callable(self, "execute_phishing_attack"))
+	GDSync.expose_func(Callable(self, "Hacker_victory"))
+	GDSync.expose_func(Callable(self, "Developer_victory"))
 
 	# Spawn existing clients
 	for id in GDSync.get_all_clients():
@@ -160,6 +162,10 @@ func Role_Show(role: String) -> void:
 	RoleText.text = "You are a %s" % role
 	Role_Assignment.visible = true
 	await get_tree().create_timer(5.0).timeout
+	Role_Assignment.visible = false
+	Role_Assignment.layer = 0
+	transitioncanvas.visible = false
+	transitioncanvas.layer = 0
 	remove_child(Role_Assignment)
 	print("%d sees role %s" % [GDSync.get_client_id(), role])
 

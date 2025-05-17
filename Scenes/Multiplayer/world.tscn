@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://cfbs8g62ughrk"]
+[gd_scene load_steps=54 format=4 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/world.gd" id="1_lsbhn"]
 [ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="2_4gx8b"]
@@ -125,6 +125,21 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="Animation" id="Animation_hwjqb"]
+resource_name = "Close_Panel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
 [sub_resource type="Animation" id="Animation_snq3p"]
 resource_name = "Open_Panel"
 tracks/0/type = "value"
@@ -153,21 +168,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05)]
-}
-
-[sub_resource type="Animation" id="Animation_hwjqb"]
-resource_name = "Close_Panel"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_swr5q"]
@@ -739,6 +739,9 @@ sources/2 = SubResource("TileSetAtlasSource_j7d63")
 sources/3 = SubResource("TileSetAtlasSource_urx7k")
 sources/4 = SubResource("TileSetAtlasSource_a8goj")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_tuyro"]
+specular_color = Color(0, 0, 0, 1)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_lsbhn")
 
@@ -749,7 +752,7 @@ layer = 120
 position = Vector2(1900, 400)
 
 [node name="RoleAssigning" type="CanvasLayer" parent="."]
-layer = 100
+layer = 128
 visible = false
 
 [node name="TextureRect" type="TextureRect" parent="RoleAssigning"]
@@ -946,6 +949,7 @@ attack"
 script = ExtResource("12_lj6o1")
 
 [node name="CooldownTimer" type="Timer" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+one_shot = true
 
 [node name="cooldown_container" type="PanelContainer" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
 self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
@@ -1221,6 +1225,15 @@ tile_set = SubResource("TileSet_samme")
 [node name="Hacked" parent="." instance=ExtResource("17_guaxh")]
 layer = 120
 visible = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.0646965, 0.0646965, 0.0646965, 1)
+z_index = -10
+offset_left = -3135.0
+offset_top = -2590.0
+offset_right = 4924.0
+offset_bottom = 3068.0
+texture = SubResource("CanvasTexture_tuyro")
 
 [connection signal="pressed" from="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" to="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_pressed"]
 [connection signal="timeout" from="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/CooldownTimer" to="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_cooldown_timer_timeout"]
