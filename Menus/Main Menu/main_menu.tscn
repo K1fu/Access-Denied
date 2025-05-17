@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://sl51on6lkrii"]
+[gd_scene load_steps=8 format=3 uid="uid://sl51on6lkrii"]
 
 [ext_resource type="Script" path="res://Menus/Main Menu/main_menu.gd" id="1_e4nnw"]
 [ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="2_wrm8m"]
-[ext_resource type="Texture2D" uid="uid://ckmwwf2bgwve4" path="res://Assets/Splash Screen/MAIN MENU.png" id="3_rssk6"]
 [ext_resource type="PackedScene" uid="uid://ve5eobmbrwoj" path="res://Modules/Modules/Transition/glitch_transition.tscn" id="4_dy21i"]
+[ext_resource type="Texture2D" uid="uid://cbdajufv8pvqy" path="res://Menus/Main Menu/updatedmainmenu.jpg" id="4_i17se"]
 [ext_resource type="AudioStream" uid="uid://dhot1bupght0c" path="res://Assets/Sounds/BGM/lobby.mp3" id="5_hy3kp"]
 [ext_resource type="AudioStream" uid="uid://ddxjw6xncpxn2" path="res://Assets/Sounds/SFX/Button click.mp3" id="6_ehn44"]
+
+[sub_resource type="Theme" id="Theme_ijqcr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -46,7 +48,7 @@ theme = ExtResource("2_wrm8m")
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer"]
 layout_mode = 2
-texture = ExtResource("3_rssk6")
+texture = ExtResource("4_i17se")
 
 [node name="Control" type="Control" parent="PanelContainer"]
 layout_mode = 2
@@ -60,22 +62,46 @@ offset_bottom = 1080.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="Connect" type="Button" parent="PanelContainer/Control/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 54
+theme_override_constants/margin_bottom = 39
+
+[node name="Connect" type="Button" parent="PanelContainer/Control/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("2_wrm8m")
+theme = SubResource("Theme_ijqcr")
+theme_override_colors/font_color = Color(0.384487, 0.673396, 0.728597, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0.858824, 0.745098)
+theme_override_font_sizes/font_size = 32
 text = "CONNECT"
 
-[node name="Quit" type="Button" parent="PanelContainer/Control/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -14
+theme_override_constants/margin_bottom = 2
+
+[node name="Quit" type="Button" parent="PanelContainer/Control/VBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
-theme = ExtResource("2_wrm8m")
-text = "QUIT"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_ijqcr")
+theme_override_colors/font_color = Color(0.384487, 0.673396, 0.728597, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0.858824, 0.745098)
+theme_override_font_sizes/font_size = 32
+text = "QUIT
+"
 
-[node name="Message" type="Label" parent="PanelContainer/Control/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Message" type="Label" parent="PanelContainer/Control/VBoxContainer/MarginContainer3"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -89,7 +115,7 @@ volume_db = -7.298
 [node name="Click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_ehn44")
 
-[connection signal="pressed" from="PanelContainer/Control/VBoxContainer/Connect" to="." method="_on_connect_pressed"]
-[connection signal="pressed" from="PanelContainer/Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/Control/VBoxContainer/MarginContainer/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="PanelContainer/Control/VBoxContainer/MarginContainer2/Quit" to="." method="_on_quit_pressed"]
 
 [editable path="Glitch Transition"]
