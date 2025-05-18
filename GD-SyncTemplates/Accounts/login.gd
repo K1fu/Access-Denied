@@ -3,9 +3,9 @@ extends Control
 signal logged_in(email)
 signal login_failed(email, response_code)
 
-@onready var email_input : LineEdit = $Background/Email
-@onready var password_input : LineEdit = $Background/Password
-@onready var error_text : Label = $Background/ErrorText
+@onready var email_input : LineEdit = $LoginPanel/Email
+@onready var password_input : LineEdit = $LoginPanel/Password
+@onready var error_text : Label = $LoginPanel/ErrorText
 @onready var back_button = $Background/BackButton
 
 
@@ -17,7 +17,7 @@ var busy : bool = false
 func _ready():
 	loading.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	$Background/LoginButton.pressed.connect(login)
+	$LoginPanel/LogInButton.pressed.connect(login)
 	back_button.pressed.connect(_on_back_button_pressed)
 
 func _on_back_button_pressed():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cfbs8g62ughrk"]
+[gd_scene load_steps=54 format=4 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/world.gd" id="1_lsbhn"]
 [ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="2_4gx8b"]
@@ -7,8 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://cqjf1hwsnj6y2" path="res://Modules/Modules/task_area.tscn" id="4_7lc58"]
 [ext_resource type="PackedScene" uid="uid://dpp0rwn4xlpm5" path="res://Modules/Modules/Task_Bar/healthbar.tscn" id="4_208g2"]
 [ext_resource type="Texture2D" uid="uid://br0ilewtnhay2" path="res://Tile maps/Sprites/neo_zero_tiles_and_buildings_01.png" id="7_vb6nm"]
+[ext_resource type="Script" path="res://Scenes/Multiplayer/SabotagePanel.gd" id="8_2duqp"]
+[ext_resource type="Script" path="res://Scenes/Multiplayer/close_button.gd" id="8_ilyti"]
 [ext_resource type="Texture2D" uid="uid://cs1uqkv6kijl6" path="res://Tile maps/Sprites/pixel-cyberpunk-interior.png" id="8_mjaac"]
 [ext_resource type="Texture2D" uid="uid://c5yd5ingxf2oy" path="res://Tile maps/Sprites/playButton.png" id="9_nvgki"]
+[ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Sabotage/close.gd" id="10_4dq6s"]
 [ext_resource type="Texture2D" uid="uid://bx5pgw0ypvfs2" path="res://Tile maps/Sprites/TileSet v1.0.png" id="10_asm0b"]
 [ext_resource type="Texture2D" uid="uid://bxix2j8me7l76" path="res://Tile maps/Sprites/Tileset.png" id="11_nnosh"]
 [ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/sabotage.gd" id="12_lj6o1"]
@@ -29,8 +32,150 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_mtbdj"]
 gradient = SubResource("Gradient_6sowl")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46bxd"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7eirf"]
+bg_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [sub_resource type="LabelSettings" id="LabelSettings_5kdpk"]
 font_size = 41
+
+[sub_resource type="Animation" id="Animation_tefin"]
+resource_name = "Close_Task"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_o3e2j"]
+resource_name = "Open_Task"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ubr41"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bvh3s"]
+_data = {
+"Close_Task": SubResource("Animation_tefin"),
+"Open_Task": SubResource("Animation_o3e2j"),
+"RESET": SubResource("Animation_ubr41")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ni5w"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guib2"]
+bg_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="Animation" id="Animation_hwjqb"]
+resource_name = "Close_Panel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_snq3p"]
+resource_name = "Open_Panel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3ex6y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_swr5q"]
+_data = {
+"Close_Panel": SubResource("Animation_hwjqb"),
+"Open_Panel": SubResource("Animation_snq3p"),
+"RESET": SubResource("Animation_3ex6y")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sj0b"]
 bg_color = Color(0.145098, 0.145098, 0.14902, 1)
@@ -96,7 +241,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Panel:scale")
+tracks/0/path = NodePath("Hack/Panel:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -594,17 +739,20 @@ sources/2 = SubResource("TileSetAtlasSource_j7d63")
 sources/3 = SubResource("TileSetAtlasSource_urx7k")
 sources/4 = SubResource("TileSetAtlasSource_a8goj")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_tuyro"]
+specular_color = Color(0, 0, 0, 1)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_lsbhn")
 
 [node name="TouchControl" parent="." instance=ExtResource("3_n3a12")]
-layer = 10
+layer = 120
 
 [node name="StartLocation" type="Marker2D" parent="."]
 position = Vector2(1900, 400)
 
 [node name="RoleAssigning" type="CanvasLayer" parent="."]
-layer = 10
+layer = 128
 visible = false
 
 [node name="TextureRect" type="TextureRect" parent="RoleAssigning"]
@@ -636,34 +784,72 @@ horizontal_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource("4_208g2")]
+theme = ExtResource("15_43hms")
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/background = SubResource("StyleBoxFlat_46bxd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7eirf")
 
 [node name="TaskArea" parent="." instance=ExtResource("4_7lc58")]
 position = Vector2(-298, 323)
 
 [node name="Developer" type="CanvasLayer" parent="TaskArea"]
-layer = 100
+layer = 70
 
-[node name="Dev_Button" type="Button" parent="TaskArea/Developer"]
+[node name="PanelContainer" type="PanelContainer" parent="TaskArea/Developer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -95.5
-offset_top = -38.5
-offset_right = 102.5
-offset_bottom = 38.5
+offset_left = -190.0
+offset_top = -67.0
+offset_right = 190.0
+offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(200, 172)
+theme = ExtResource("15_43hms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea/Developer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Assigned Task"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Dev_Button" type="Button" parent="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
 text = "Do Task"
 script = ExtResource("4_4ua43")
 cooldownTime = 50.0
 
-[node name="CooldownTimer" type="Timer" parent="TaskArea/Developer/Dev_Button"]
+[node name="CooldownTimer" type="Timer" parent="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
 one_shot = true
 
-[node name="cooldown_container" type="PanelContainer" parent="TaskArea/Developer/Dev_Button"]
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+visible = false
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -672,38 +858,136 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="TaskArea/Developer/Dev_Button/cooldown_container"]
+[node name="Label" type="Label" parent="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/cooldown_container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 label_settings = SubResource("LabelSettings_5kdpk")
 horizontal_alignment = 1
 
-[node name="Hacker" type="CanvasLayer" parent="TaskArea"]
-layer = 11
+[node name="Close_Button" type="Button" parent="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Close"
+script = ExtResource("8_ilyti")
 
-[node name="Sabotage" type="Button" parent="TaskArea/Hacker"]
+[node name="DeveloperTaskAnim" type="AnimationPlayer" parent="TaskArea/Developer/PanelContainer"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_bvh3s")
+}
+
+[node name="Hacker" type="CanvasLayer" parent="TaskArea"]
+layer = 70
+
+[node name="SabotagePanel" type="PanelContainer" parent="TaskArea/Hacker"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -46.0
-offset_right = 104.0
-offset_bottom = 46.0
+offset_left = -241.0
+offset_top = -100.5
+offset_right = 241.0
+offset_bottom = 101.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(239, 317.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ni5w")
+script = ExtResource("8_2duqp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea/Hacker/SabotagePanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
 theme_override_font_sizes/font_size = 30
+text = "Sabotage.Exe"
+horizontal_alignment = 1
+
+[node name="TerminalContainer" type="MarginContainer" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Terminal" type="Label" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer/TerminalContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Sabotage" type="Button" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+action_mode = 0
 text = "Data Integrity
 attack"
 script = ExtResource("12_lj6o1")
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guib2")
+
+[node name="Label" type="Label" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+script = ExtResource("10_4dq6s")
+
+[node name="SabotagePanelAnim" type="AnimationPlayer" parent="TaskArea/Hacker/SabotagePanel"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_swr5q")
+}
 
 [node name="ControlPanel" parent="." instance=ExtResource("13_f8lve")]
 position = Vector2(1295, 324)
 
 [node name="HackerServer" type="CanvasLayer" parent="ControlPanel"]
-layer = 15
+layer = 128
 visible = false
 
 [node name="LobbyBrowsingMenu" parent="ControlPanel/HackerServer" instance=ExtResource("14_2vki4")]
@@ -762,6 +1046,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ControlPanel/HackerServer/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/ControlPanel/PanelContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -776,10 +1061,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Close"
 
+[node name="HackerServer_anim" type="AnimationPlayer" parent="ControlPanel/HackerServer"]
+
 [node name="DeveloperPanel" type="CanvasLayer" parent="ControlPanel"]
 layer = 100
+visible = false
 script = ExtResource("17_f8qs8")
-target_client_id = 15
+target_client_id = 70
 
 [node name="Control" type="Control" parent="ControlPanel/DeveloperPanel"]
 layout_mode = 3
@@ -806,7 +1094,6 @@ offset_right = 168.0
 offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(165, 366)
 theme = ExtResource("15_43hms")
 
@@ -936,11 +1223,23 @@ tile_map_data = PackedByteArray("AAASABAAAQAGAAIAADARABAAAQAHAAIAADAQABAAAQAIAAI
 tile_set = SubResource("TileSet_samme")
 
 [node name="Hacked" parent="." instance=ExtResource("17_guaxh")]
-layer = 20
+layer = 120
+visible = false
 
-[connection signal="pressed" from="TaskArea/Developer/Dev_Button" to="TaskArea/Developer/Dev_Button" method="_on_pressed"]
-[connection signal="timeout" from="TaskArea/Developer/Dev_Button/CooldownTimer" to="TaskArea/Developer/Dev_Button" method="_on_cooldown_timer_timeout"]
-[connection signal="pressed" from="TaskArea/Hacker/Sabotage" to="TaskArea/Hacker/Sabotage" method="_on_pressed"]
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.0646965, 0.0646965, 0.0646965, 1)
+z_index = -10
+offset_left = -3135.0
+offset_top = -2590.0
+offset_right = 4924.0
+offset_bottom = 3068.0
+texture = SubResource("CanvasTexture_tuyro")
+
+[connection signal="pressed" from="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" to="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/CooldownTimer" to="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" to="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" to="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" to="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" method="_on_pressed"]
 [connection signal="pressed" from="ControlPanel/HackerServer/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/Button" to="ControlPanel" method="_on_button_pressed"]
 [connection signal="pressed" from="ControlPanel/DeveloperPanel/Control/Panel/VBoxContainer/ButtonsMargin/HBoxContainer/Yes" to="ControlPanel/DeveloperPanel/Control" method="_on_yes_pressed"]
 [connection signal="pressed" from="ControlPanel/DeveloperPanel/Control/Panel/VBoxContainer/ButtonsMargin/HBoxContainer/No" to="ControlPanel/DeveloperPanel/Control" method="_on_no_pressed"]

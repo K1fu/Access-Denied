@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://5whm1igkt23h"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://5whm1igkt23h"]
+
+[ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="1_p2egw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgnno"]
 content_margin_left = 15.0
@@ -16,11 +18,16 @@ content_margin_left = 15.0
 content_margin_top = 8.0
 content_margin_right = 15.0
 content_margin_bottom = 8.0
-bg_color = Color(0.25098, 0.556863, 0.670588, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_667a7"]
 content_margin_left = 15.0
@@ -125,6 +132,7 @@ corner_radius_bottom_left = 20
 
 [resource]
 default_font_size = 16
+Button/fonts/font = ExtResource("1_p2egw")
 Button/styles/disabled = SubResource("StyleBoxFlat_qgnno")
 Button/styles/focus = SubResource("StyleBoxFlat_lnhoy")
 Button/styles/hover = SubResource("StyleBoxFlat_667a7")

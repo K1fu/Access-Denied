@@ -1,9 +1,7 @@
-class_name Antivirus
+extends PanelContainer
 
-extends Control
-
-@onready var world_node   = get_tree().get_root().get_node("World")
-@onready var Terminal     = $Panel/VBoxContainer/Hacking/Terminal as Label
+@onready var Terminal: Label = $VBoxContainer/TerminalContainer/Terminal
+@onready var Sabotagee: ProgressBar = $"../../../CanvasLayer/HealthBar"
 
 @export var pause_time: float = 0.1
 @export var out_time:   float = 0.5
@@ -12,10 +10,10 @@ extends Control
 
 var full_text: String = """
 /* 
->>>Hacking player
->>>Hackening...
->>>Hookening...
->>>Hacking complete!
+>>>Sabotaging tasks....
+>>>Sabotaging...
+>>>removing progress...
+>>>Sabotage complete!
 """
 var is_typing: bool            = false
 var text_fully_displayed: bool = false
@@ -38,18 +36,9 @@ func type_text(new_text: String) -> void:
 		await get_tree().create_timer(text_speed).timeout
 	Terminal.text = new_text
 
-func find_target_node() -> CharacterBody2D:
-	var hackable_node = get_parent().get_parent()
-	return hackable_node.get_parent()
-
-func Hack() -> void:
-	print(">>Hacker Requested Hack")
+func Sabotage() -> void:
+	type_text(full_text)
 	await show_message()
-	var target = find_target_node()
-	if target:
-		print(">>target found")
-		GDSync.call_func(Callable(world_node, "attempt_hack"), [target.client_id])
-		self.visible = false
-		$"..".layer = 0
-	else:
-		print(">>No valid hack target in range.")
+	Sabotagee.take_damage(10)
+	%SabotagePanelAnim.play("Close_Panel")
+	get_parent().layer = 0

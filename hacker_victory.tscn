@@ -80,12 +80,4 @@ text = "Play again"
 [node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Main Menu" type="Button" parent="Control/MarginContainer2/VBoxContainer/MarginContainer2"]
-layout_mode = 2
-theme = ExtResource("3_kg5vm")
-theme_override_fonts/font = ExtResource("2_t6dhy")
-theme_override_font_sizes/font_size = 30
-text = "Main Menu"
-
 [connection signal="pressed" from="Control/MarginContainer2/VBoxContainer/MarginContainer/Play Again" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/MarginContainer2/VBoxContainer/MarginContainer2/Main Menu" to="." method="_on_button_pressed"]

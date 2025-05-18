@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://d0kab5avmm2c1" path="res://Modules/Modules/3D - Player/3D PLAYER.tscn" id="4_cw7hq"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="5_dwhki"]
 [ext_resource type="Texture2D" uid="uid://b4qpvxsp7y5au" path="res://Assets/UI/Crosshair-PNG-Picture.png" id="6_d2p80"]
-[ext_resource type="Texture2D" uid="uid://cn312ul1vonk0" path="res://Assets/UI/noFilter.png" id="7_e2s78"]
-[ext_resource type="Texture2D" uid="uid://daejyuuo0hs7p" path="res://Assets/UI/E.png" id="8_ypiee"]
+[ext_resource type="Texture2D" uid="uid://d25whgc6y4q21" path="res://Assets/Joystick/sprint.png" id="7_6dnhy"]
+[ext_resource type="Texture2D" uid="uid://ddvvmd1ru763m" path="res://Assets/Joystick/cropped_image (2).png" id="8_vruot"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_egsed"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -80,12 +80,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="User Control"]
+layer = 100
 
 [node name="Virtual Joystick" parent="User Control/CanvasLayer" instance=ExtResource("5_dwhki")]
-offset_left = 178.0
-offset_top = -351.0
-offset_right = 349.0
-offset_bottom = -180.0
+z_index = 1000
+offset_left = 5.0
+offset_top = -519.0
+offset_right = 556.0
+offset_bottom = 26.0
 
 [node name="TextureRect" type="TextureRect" parent="User Control/CanvasLayer"]
 anchors_preset = 8
@@ -103,15 +105,18 @@ texture = ExtResource("6_d2p80")
 expand_mode = 1
 
 [node name="Jump" type="TouchScreenButton" parent="User Control/CanvasLayer"]
-position = Vector2(1447, 848)
-scale = Vector2(0.297619, 0.297619)
-texture_normal = ExtResource("7_e2s78")
+z_index = 1000
+position = Vector2(1441, 955)
+rotation = -1.5708
+scale = Vector2(0.132203, 0.132203)
+texture_normal = ExtResource("7_6dnhy")
 action = "ui_accept"
 
 [node name="interact" type="TouchScreenButton" parent="User Control/CanvasLayer"]
+z_index = 1000
 position = Vector2(1689, 675)
-scale = Vector2(0.66, 0.66)
-texture_normal = ExtResource("8_ypiee")
+scale = Vector2(0.142373, 0.142373)
+texture_normal = ExtResource("8_vruot")
 action = "interact"
 
 [connection signal="interacted" from="Computer2" to="Computer2" method="_on_interacted"]
