@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://cfbs8g62ughrk"]
+[gd_scene load_steps=57 format=4 uid="uid://cfbs8g62ughrk"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/world.gd" id="1_lsbhn"]
 [ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="2_4gx8b"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bxix2j8me7l76" path="res://Tile maps/Sprites/Tileset.png" id="11_nnosh"]
 [ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/sabotage.gd" id="12_lj6o1"]
 [ext_resource type="PackedScene" uid="uid://bds8y8x4sw5ss" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Control_Panel_interactable.tscn" id="13_f8lve"]
+[ext_resource type="Texture2D" uid="uid://kolp87daxvrs" path="res://Assets/Cumputer/Server.png" id="13_jf4wq"]
 [ext_resource type="PackedScene" uid="uid://676ljy6hfjma" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Control_Panel_Screen.tscn" id="14_2vki4"]
 [ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="15_43hms"]
 [ext_resource type="PackedScene" uid="uid://dv3momcp3eocp" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/Control Panel.tscn" id="16_kxfh8"]
@@ -25,6 +26,8 @@
 [ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Developer Interact/Dev_Tasks/Update Antivirus/Antivirus.gd" id="17_pm2k8"]
 [ext_resource type="PackedScene" uid="uid://croqyfr5480or" path="res://Modules/Modules/Transition/Glitch.tscn" id="18_oorxv"]
 [ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Developer Interact/Dev_Tasks/Update Antivirus/update.gd" id="19_qf1qh"]
+[ext_resource type="Texture2D" uid="uid://c3hoir3a2mtpl" path="res://Assets/Cumputer/Blue.png" id="22_v21l5"]
+[ext_resource type="Texture2D" uid="uid://bxt4nnmwbojh" path="res://Assets/Cumputer/Ornag.png" id="28_pfkyt"]
 
 [sub_resource type="Gradient" id="Gradient_6sowl"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -258,7 +261,10 @@ _data = {
 "RESET": SubResource("Animation_d6vb1")
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2r6d3"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_tuyro"]
+specular_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5pyl0"]
 texture = ExtResource("7_vb6nm")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
@@ -321,7 +327,7 @@ texture_region_size = Vector2i(32, 32)
 7:9/0 = 0
 8:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85p0h"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ewms2"]
 texture = ExtResource("8_mjaac")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -451,7 +457,9 @@ texture_region_size = Vector2i(32, 32)
 8:5/0 = 0
 8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(13.75, -4.75, 13, 16, -12.5, 16, -12.75, -5.5)
 10:5/0 = 0
+10:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.5, -8.5, 7.25, -9.25, 11.25, 12.75, -13.75, 12.75)
 11:5/0 = 0
+11:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.5, -8.5, 7.25, -9.25, 11.25, 12.75, -13.75, 12.75)
 12:5/0 = 0
 13:5/0 = 0
 16:5/0 = 0
@@ -531,13 +539,13 @@ texture_region_size = Vector2i(32, 32)
 12:10/0 = 0
 13:10/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7d63"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_usu45"]
 texture = ExtResource("9_nvgki")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urx7k"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ss2g5"]
 texture = ExtResource("10_asm0b")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -576,7 +584,9 @@ texture_region_size = Vector2i(32, 32)
 4:3/0 = 0
 5:3/0 = 0
 6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 8:3/0 = 0
 9:3/0 = 0
 0:4/0 = 0
@@ -613,7 +623,7 @@ texture_region_size = Vector2i(32, 32)
 8:7/0 = 0
 9:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8goj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ojx1"]
 texture = ExtResource("11_nnosh")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -730,17 +740,14 @@ texture_region_size = Vector2i(32, 32)
 13:7/0 = 0
 14:7/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_samme"]
+[sub_resource type="TileSet" id="TileSet_he63k"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_2r6d3")
-sources/1 = SubResource("TileSetAtlasSource_85p0h")
-sources/2 = SubResource("TileSetAtlasSource_j7d63")
-sources/3 = SubResource("TileSetAtlasSource_urx7k")
-sources/4 = SubResource("TileSetAtlasSource_a8goj")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_tuyro"]
-specular_color = Color(0, 0, 0, 1)
+sources/0 = SubResource("TileSetAtlasSource_5pyl0")
+sources/1 = SubResource("TileSetAtlasSource_ewms2")
+sources/2 = SubResource("TileSetAtlasSource_usu45")
+sources/3 = SubResource("TileSetAtlasSource_ss2g5")
+sources/4 = SubResource("TileSetAtlasSource_7ojx1")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_lsbhn")
@@ -843,7 +850,7 @@ theme_override_font_sizes/font_size = 30
 action_mode = 0
 text = "Do Task"
 script = ExtResource("4_4ua43")
-cooldownTime = 50.0
+cooldownTime = 10.0
 
 [node name="CooldownTimer" type="Timer" parent="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
 one_shot = true
@@ -985,6 +992,9 @@ libraries = {
 
 [node name="ControlPanel" parent="." instance=ExtResource("13_f8lve")]
 position = Vector2(1295, 324)
+
+[node name="Sprite2D" parent="ControlPanel" index="0"]
+texture = ExtResource("13_jf4wq")
 
 [node name="HackerServer" type="CanvasLayer" parent="ControlPanel"]
 layer = 128
@@ -1169,59 +1179,6 @@ layer = 128
 top_level = true
 z_index = 100
 
-[node name="FLoor" type="TileMapLayer" parent="."]
-z_index = -5
-use_parent_material = true
-position = Vector2(-2614, -1137)
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAJAAYAAQACAAIAAAAKAAYAAQACAAIAAAALAAYAAQACAAIAAAAMAAYAAQACAAIAAAAHAAcAAQACAAIAAAAHAAgAAQACAAIAAAAHAAkAAQACAAIAAAAHAAoAAQACAAIAAAAHAAsAAQACAAIAAAAHAAwAAQACAAIAAAAHAA0AAQACAAIAAAAHAA4AAQACAAIAAAAHAA8AAQACAAIAAAAIAAcAAQACAAIAAAAIAAgAAQACAAIAAAAJAAgAAQACAAIAAAAJAAkAAQACAAIAAAAIAAkAAQACAAIAAAAIAAoAAQACAAIAAAAIAAsAAQACAAIAAAAIAAwAAQACAAIAAAAIAA0AAQACAAIAAAAIAA4AAQACAAIAAAAIAA8AAQACAAIAAAAJAAcAAQACAAIAAAAKAAcAAQACAAIAAAALAAcAAQACAAIAAAAMAAcAAQACAAIAAAAMAAgAAQACAAIAAAAMAAkAAQACAAIAAAAMAAoAAQACAAIAAAAMAAsAAQACAAIAAAALAAsAAQACAAIAAAALAAwAAQACAAIAAAALAA0AAQACAAIAAAALAA4AAQACAAIAAAALAA8AAQACAAIAAAAMAA8AAQACAAIAAAAKAA8AAQACAAIAAAAKAA4AAQACAAIAAAAKAA0AAQACAAIAAAAKAAwAAQACAAIAAAAKAAsAAQACAAIAAAAKAAoAAQACAAIAAAAKAAkAAQACAAIAAAALAAkAAQACAAIAAAALAAgAAQACAAIAAAAKAAgAAQACAAIAAAALAAoAAQACAAIAAAAMAAwAAQACAAIAAAAMAA0AAQACAAIAAAAMAA4AAQACAAIAAAAJAAoAAQACAAIAAAAJAAsAAQACAAIAAAAJAAwAAQACAAIAAAAJAA0AAQACAAIAAAAJAA4AAQACAAIAAAAJAA8AAQACAAIAAAANAA8AAQACAAIAAAANAAkAAQACAAIAAAAOAAkAAQACAAIAAAAPAAkAAQACAAIAAAAQAAkAAQACAAIAAAARAAkAAQACAAIAAAASAAkAAQACAAIAAAATAAkAAQACAAIAAAAUAAkAAQACAAIAAAAVAAkAAQACAAIAAAAWAAkAAQACAAIAAAAXAAkAAQACAAIAAAAYAAkAAQACAAIAAAAZAAkAAQACAAIAAAAbAAkAAQACAAIAAAAaAAkAAwACAAMAAAAbAAoAAQACAAIAAAAbAAsAAQACAAIAAAANAAoAAQACAAIAAAAOAAoAAQACAAIAAAAPAAsAAQACAAIAAAAQAAsAAQACAAIAAAARAAsAAQACAAIAAAASAAsAAQACAAIAAAATAAsAAQACAAIAAAAUAAsAAQACAAIAAAAVAAsAAQACAAIAAAAWAAsAAQACAAIAAAAXAAsAAQACAAIAAAAXAAoAAQACAAIAAAAYAAoAAQACAAIAAAAZAAoAAQACAAIAAAAaAAoAAQACAAIAAAAQAAoAAQACAAIAAAARAAoAAQACAAIAAAASAAoAAQACAAIAAAATAAoAAQACAAIAAAAUAAoAAQACAAIAAAAVAAoAAQACAAIAAAAWAAoAAQACAAIAAAAPAAoAAQACAAIAAAANAAsAAQACAAIAAAAOAAsAAQACAAIAAAAZAAsAAQACAAIAAAAYAAsAAQACAAIAAAAaAAsAAQACAAIAAAAcAAkAAQACAAIAAAAdAAkAAQACAAIAAAAeAAkAAQACAAIAAAAcAAoAAQACAAIAAAAdAAoAAQACAAIAAAAeAAoAAQACAAIAAAAeAAgAAQACAAIAAAAeAAcAAQACAAIAAAAeAAYAAQACAAIAAAAeAAUAAQACAAIAAAAeAAQAAQACAAIAAAAeAAMAAQACAAIAAAAeAAIAAQACAAIAAAAeAAEAAQACAAIAAAAeAAAAAQACAAIAAAAeAP//AQACAAIAAAAdAAgAAQACAAIAAAAcAAgAAQACAAIAAAAbAAgAAQACAAIAAAAbAP//AQACAAIAAAAcAP//AQACAAIAAAAdAP//AQACAAIAAAAdAAAAAQACAAIAAAAdAAEAAQACAAIAAAAdAAIAAQACAAIAAAAdAAMAAQACAAIAAAAdAAQAAQACAAIAAAAcAAQAAQACAAIAAAAcAAUAAQACAAIAAAAcAAYAAQACAAIAAAAcAAcAAQACAAIAAAAbAAAAAQACAAIAAAAbAAEAAQACAAIAAAAbAAIAAQACAAIAAAAbAAMAAQACAAIAAAAbAAQAAQACAAIAAAAbAAUAAQACAAIAAAAbAAYAAQACAAIAAAAbAAcAAQACAAIAAAAcAAAAAQACAAIAAAAcAAEAAQACAAIAAAAcAAIAAQACAAIAAAAcAAMAAQACAAIAAAAdAAUAAQACAAIAAAAdAAYAAQACAAIAAAAdAAcAAQACAAIAAAAaAP//AQACAAIAAAAaAAAAAQACAAIAAAAaAAEAAQACAAIAAAAHAAYAAQACAAIAAAAIAAYAAQACAAIAAAALABAAAQACAAIAAAAMABAAAQACAAIAAAANABAAAQACAAIAAAAOABAAAQACAAIAAAALABEAAQACAAIAAAAMABEAAQACAAIAAAANABEAAQACAAIAAAAOABEAAQACAAIAAAAPABEAAQACAAIAAAAQABEAAQACAAIAAAARABEAAQACAAIAAAASABEAAQACAAIAAAATABEAAQACAAIAAAAUABEAAQACAAIAAAAVABEAAQACAAIAAAAWABEAAQACAAIAAAAXABEAAQACAAIAAAAYABEAAQACAAIAAAAZABEAAQACAAIAAAAaABEAAQACAAIAAAATABIAAQACAAIAAAAUABIAAQACAAIAAAAVABIAAQACAAIAAAAWABIAAQACAAIAAAAXABIAAQACAAIAAAAYABIAAQACAAIAAAAZABIAAQACAAIAAAAaABIAAQACAAIAAAAbAAwAAQACAAIAAAAbABAAAQACAAIAAAAbAA8AAQACAAIAAAAbAA4AAQACAAIAAAAbAA0AAQACAAIAAAAaAAwAAQACAAIAAAAaAA0AAQACAAIAAAAaAA4AAQACAAIAAAAaAA8AAQACAAIAAAAaABAAAQACAAIAAAAZAAwAAQACAAIAAAAZAA0AAQACAAIAAAAZAA4AAQACAAIAAAAZAA8AAQACAAIAAAAZABAAAQACAAIAAAAYAAwAAQACAAIAAAAYAA0AAQACAAIAAAAYAA4AAQACAAIAAAAYAA8AAQACAAIAAAAYABAAAQACAAIAAAAXAAwAAwABAAMAAAAXAA0AAwABAAMAAAAXAA4AAwABAAMAAGAXAA8AAQACAAIAAAAXABAAAQACAAIAAAAWABAAAQACAAIAAAAVABAAAQACAAIAAAAUABAAAQACAAIAAAAUAA8AAQACAAIAAAAVAA8AAQACAAIAAAAVAA4AAQACAAIAAAAVAA0AAQACAAIAAAAVAAwAAQACAAIAAAAWAAwAAQACAAIAAAAWAA0AAQACAAIAAAAWAA4AAQACAAIAAAAUAAwAAQACAAIAAAAUAA0AAQACAAIAAAAUAA4AAQACAAIAAAAWAA8AAQACAAIAAAAPAAwAAwACAAMAAAAQAAwAAQADAAIAAAARAAwAAQADAAIAAAAPAA0AAQADAAIAAAAPAA4AAQADAAIAAAAPAA8AAQADAAIAAAAPABAAAQADAAIAAAAQABAAAQADAAIAAAARABAAAQADAAIAAAASABAAAQADAAIAAAATABAAAQADAAIAAAATAA8AAQADAAIAAAASAA8AAQADAAIAAAARAA8AAQADAAIAAAAQAA8AAQADAAIAAAAQAA4AAQADAAIAAAAQAA0AAQADAAIAAAARAA0AAQADAAIAAAARAA4AAQADAAIAAAASAA4AAQADAAIAAAATAA4AAQADAAIAAAASAA0AAwABAAMAAGASAAwAAwABAAMAAAATAA0AAwABAAMAAAAcAA0AAwABAAMAAAAcAA4AAwABAAMAAAAcAA8AAwABAAMAAAAcABAAAwABAAMAAAAdAA0AAQADAAIAAAAeAA0AAQADAAIAAAAfAA0AAQADAAIAAAAgAA0AAQADAAIAAAAhAA0AAQADAAIAAAAcABEAAQADAAIAAAAcABIAAQADAAIAAAAcABMAAQADAAIAAAAcABQAAQADAAIAAAAdABQAAQADAAIAAAAeABQAAQADAAIAAAAfABQAAQADAAIAAAAgABQAAQADAAIAAAAhABQAAQADAAIAAAAhAA4AAQADAAIAAAAhAA8AAQADAAIAAAAhABAAAQADAAIAAAAhABEAAQADAAIAAAAhABIAAQADAAIAAAAhABMAAQADAAIAAAAgABMAAQADAAIAAAAgAA4AAQADAAIAAAAgAA8AAQADAAIAAAAgABAAAQADAAIAAAAgABEAAQADAAIAAAAgABIAAQADAAIAAAAfABIAAQADAAIAAAAfABMAAQADAAIAAAAeABIAAQADAAIAAAAeABEAAQADAAIAAAAeABAAAQADAAIAAAAeAA8AAQADAAIAAAAeAA4AAQADAAIAAAAfAA4AAQADAAIAAAAdAA4AAQADAAIAAAAdAA8AAQADAAIAAAAdABEAAQADAAIAAAAdABIAAQADAAIAAAAeABMAAQADAAIAAAAfABEAAQADAAIAAAAfABAAAQADAAIAAAAfAA8AAQADAAIAAAAdABAAAQADAAIAAAAdABMAAQADAAIAAAAVAAYAAQACAAIAAAAUAAYAAQACAAIAAAATAAYAAQACAAIAAAATAAcAAQACAAIAAAAUAAcAAQACAAIAAAAVAAcAAQACAAIAAAAVAAgAAQACAAIAAAAUAAgAAQACAAIAAAATAAgAAQACAAIAAAARAAcAAwABAAMAAAAQAAcAAQACAAIAAAAQAAgAAQACAAIAAAARAAgAAQACAAIAAAASAAgAAQACAAIAAAANAAcAAQAEAAAAAAAOAAcAAQAEAAAAAAAPAAcAAQAEAAAAAAANAAgAAQAEAAEAAAAOAAgAAQAEAAEAAAAPAAgAAQAEAAEAAAAJAAUAAwABAAQAAAAKAAUAAwABAAQAAAALAAUAAwABAAQAAAAMAAUAAwABAAQAAAALAAQAAwABAAMAAAANAAIAAwABAAMAAAAOAAEAAwABAAMAAAAWAAYAAQADAAIAAAAXAAYAAQADAAIAAAAYAAYAAQADAAIAAAAZAAYAAQADAAIAAAAaAAYAAQADAAIAAAAaAAUAAQADAAIAAAAaAAQAAQADAAIAAAAaAAMAAQADAAIAAAAXAAIAAQAEAAAAAAAWAAIAAQAEAAAAAAAWAAMAAQAEAAEAAAAWAAQAAQADAAIAAAAWAAUAAQADAAIAAAAXAAMAAQAEAAEAAAAXAAQAAQADAAIAAAAYAAQAAQADAAIAAAAYAAUAAQADAAIAAAAZAAUAAQADAAIAAAAZAAQAAQADAAIAAAAZAAMAAQADAAIAAAAYAAMAAQADAAIAAAAXAAUAAQADAAIAAAAYAAIAAwABAAMAAAAaAAIAAwABAAMAAAASAAcAAwABAAMAAGAZAAIAAwABAAMAAGAMAAMAAwABAAMAAGAPAAEAAwABAAMAAGAQAAEAAQADAAMAAAARAAEAAQADAAMAAAASAAEAAQADAAMAAAATAAEAAQADAAMAAAAUAAEAAQADAAMAAAAVAAEAAQADAAMAAAAWAAEAAQADAAMAAAAXAAEAAQADAAMAAAAYAAEAAQADAAMAAAAZAAEAAQADAAMAAAAZAP//AQADAAMAAAAZAAAAAQADAAMAAAAZAP7/AQADAAMAAAAaAP7/AQACAAIAAAAbAP7/AQACAAIAAAAcAP7/AQACAAIAAAAdAP7/AQACAAIAAAAeAP7/AQACAAIAAAAMAAQAAwACAAMAAAANAAMAAwACAAMAAAAOAAIAAwACAAMAAAANAAQAAwAAAAQAAAAOAAMAAwAAAAQAAAAPAAIAAwAAAAQAAAAKAAQAAwAAAAYAAAALAAMAAwACAAYAAAAMAAIAAwACAAUAAAANAAEAAwABAAUAAAANAAAAAwABAAUAAAAOAAAAAwABAAQAAAAPAAAAAwACAAQAAAAQAAAAAwACAAQAAAANAP//AwABAAEAAAAOAP//AwABAAEAAAAPAP//AwABAAEAAAAQAP//AwABAAEAAAARAP//AwACAAMAAAARAAAAAwABAAMAAAATAP//AwABAAMAADAUAAAAAwABAAMAADAWAP//AwABAAMAADAXAAAAAwABAAMAADAYAAAAAwACAAMAAAAUAP//AwABAAQAAAAVAP//AwABAAQAAAAVAAAAAwABAAYAAAAWAAAAAwABAAYAAAATAAAAAwABAAYAAAASAAAAAwABAAEAAAASAP//AwABAAQAAAAYAP//AwABAAQAAAAXAP//AwABAAEAAAAYAP7/AwABAAEAAAAXAP7/AwABAAEAAAAVAP7/AwABAAEAAAAWAP7/AwABAAEAAAAUAP7/AwABAAEAAAATAP7/AwABAAEAAAAUAAIAAQAEAAIAAAAVAAIAAQAEAAIAAAAUAAMAAQAEAAIAAAAVAAMAAQAEAAIAAAAVAAQAAQAEAAIAAAAVAAUAAQAEAAIAAAAUAAUAAQAEAAIAAAAUAAQAAQAEAAIAAAATAAIAAwACAAMAAAATAAMAAQAEAAIAAAATAAQAAQAEAAIAAAATAAUAAQAEAAIAAAAQAAIAAQAEAAIAAAARAAIAAQAEAAIAAAASAAIAAQAEAAIAAAAPAAMAAQAEAAIAAAAQAAMAAQAEAAIAAAARAAMAAQAEAAIAAAASAAMAAQAEAAIAAAAOAAQAAQAEAAIAAAAPAAQAAQAEAAIAAAAQAAQAAQAEAAIAAAARAAQAAQAEAAIAAAASAAQAAQAEAAIAAAANAAUAAQAEAAIAAAANAAYAAQAEAAIAAAAOAAYAAQAEAAIAAAAPAAYAAQAEAAIAAAAQAAYAAQAEAAIAAAARAAYAAQAEAAIAAAASAAYAAQAEAAIAAAASAAUAAQAEAAIAAAARAAUAAQAEAAIAAAAQAAUAAQAEAAIAAAAPAAUAAQAEAAIAAAAOAAUAAQAEAAIAAAALABIAAQACAAIAAAAMABIAAQACAAIAAAANABIAAQACAAIAAAAOABIAAQACAAIAAAAPABIAAQACAAIAAAAQABIAAQACAAIAAAARABIAAQACAAIAAAASABIAAQACAAIAAAANAA4AAQACAAgAADAOAA4AAQAAAAcAADAOAA8AAQACAAgAADATAAwAAwABAAMAAGATAP3/AQAEAAEAAAAUAP3/AQAEAAEAAAAVAP3/AQAEAAEAAAAWAP3/AQAEAAEAAAAXAP3/AQAEAAEAAAAYAP3/AQAEAAEAAAAZAP3/AQAEAAEAAAAaAP3/AQAEAAEAAAAbAP3/AQAEAAEAAAATAPz/AQAEAAAAAAAUAPz/AQAEAAAAAAAVAPz/AQAEAAAAAAAXAPz/AQAEAAAAAAAYAPz/AQAEAAAAAAAZAPz/AQAEAAAAAAAaAPz/AQAEAAAAAAAbAPz/AQAEAAAAAAARAP7/AwACAAQAAAAQAP7/AwACAAQAAAAOAP7/AwABAAYAAAAPAP7/AwABAAYAAAANAP7/AwAAAAUAAAASAP7/AwACAAUAAAAWAPz/AQAEAAAAAAANAP3/AQAEAAEAAAAOAP3/AQAEAAEAAAAPAP3/AQAEAAEAAAAQAP3/AQAEAAEAAAARAP3/AQAEAAEAAAASAP3/AQAEAAEAAAANAPz/AQAEAAAAAAAOAPz/AQAEAAAAAAAPAPz/AQAEAAAAAAAQAPz/AQAEAAAAAAARAPz/AQAEAAAAAAASAPz/AQAEAAAAAAALABMAAQACAAIAAAAMABMAAQACAAIAAAANABMAAQACAAIAAAAOABMAAQACAAIAAAAPABMAAQACAAIAAAAQABMAAQACAAIAAAARABMAAQACAAIAAAASABMAAQACAAIAAAATABMAAQACAAIAAAAUABMAAQACAAIAAAAVABMAAQACAAIAAAAWABMAAQACAAIAAAAXABMAAQACAAIAAAAYABMAAQACAAIAAAAZABMAAQACAAIAAAAaABMAAQACAAIAAAALABQAAQACAAIAAAAMABQAAQACAAIAAAANABQAAQACAAIAAAAOABQAAQACAAIAAAAPABQAAQACAAIAAAAQABQAAQACAAIAAAARABQAAQACAAIAAAASABQAAQACAAIAAAATABQAAQACAAIAAAAUABQAAQACAAIAAAAVABQAAQACAAIAAAAWABQAAQACAAIAAAAXABQAAQACAAIAAAAYABQAAQACAAIAAAAZABQAAQACAAIAAAAaABQAAQACAAIAAAA=")
-tile_set = SubResource("TileSet_samme")
-
-[node name="floor2" type="TileMapLayer" parent="."]
-z_index = -5
-position = Vector2(-2614, -1137)
-scale = Vector2(5, 5)
-
-[node name="wall 1" type="TileMapLayer" parent="."]
-z_index = -5
-use_parent_material = true
-position = Vector2(-2614, -1137)
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAANAA0AAQAEAAEAAAAHAAkAAQAEAAYAAAAHAAcAAQAEAAYAAAAHAAgAAQAEAAYAAAAaAAgAAQAEAAEAAAAZAAgAAQAEAAEAAAAYAAgAAQAEAAEAAAAXAAgAAQAEAAEAAAAWAAgAAQAEAAEAAAAYAAcAAQAEAAAAAAAZAAcAAQAEAAAAAAAaAAcAAQAEAAAAAAAXAAcAAQAEAAAAAAASAAoAAgAAAAAAAAATAAoAAgABAAAAAAAeAP//AQAEAAEAAAAdAP//AQAEAAEAAAAeAP7/AQAEAAAAAAAdAP7/AQAEAAAAAAAcAP//AQAEAAEAAAAWAAcAAQAEAAAAAAANAAwAAQAEAAAAAAAOAAwAAQAEAAAAAAAOAA0AAQAEAAEAAAAHAAoAAQAEAAYAAAAHAAsAAQAEAAYAAAAHAAwAAQAEAAYAAAAHAA0AAQAEAAYAAAAHAA4AAQAEAAYAAAAHAA8AAQAEAAYAAAAIAA8AAQAEAAYAAGALABEAAQACAAQAAFALABAAAQACAAQAAFAcAP7/AQAEAAAAAAAcABEAAQAEAAYAAAAcABIAAQAEAAYAAAAcABMAAQAEAAYAAAAOAA4AAQACAAgAAFANAA4AAQADAAcAAGAOAA8AAQACAAgAAFAcABAAAQADAAQAAAAaABEAAQAEAAEAAAAbAAsAAQAEAAAAAAAbAAwAAQAEAAEAAAAbAA0AAQABAAAAAAAcAA0AAQAEAAAAAAAbAAoAAQACAAQAAAANAAcAAQAAAAAAAAAPAAcAAQACAAgAAAANAAgAAQAAAAEAAAATAAYAAQAEAAAAAAAUAAYAAQAEAAAAAAAVAAYAAQAEAAAAAAATAAcAAQAEAAEAAAATAAgAAQAEAAYAAAAYAAEAAQAEAAUAAAALAA8AAQAAAAUAAFAbAP7/AQABAAAAAAAZAA8AAQACAAQAAAAXAAsAAQAEAAAAAAAYAAsAAQAEAAAAAAAZAAsAAQAEAAAAAAAaAAsAAQAEAAAAAAAPAA8AAQADAAQAAAAPABAAAQADAAUAAAAQAAcAAQACAAgAAAANAPv/AQACAAQAAAAOAPv/AQACAAQAAAAPAPv/AQACAAQAAAAQAPv/AQACAAQAAAARAPv/AQACAAQAAAASAPv/AQACAAQAAAATAPv/AQACAAQAAAAUAPv/AQACAAQAAAAVAPv/AQACAAQAAAAWAPv/AQACAAQAAAAXAPv/AQACAAQAAAAYAPv/AQACAAQAAAAZAPv/AQACAAQAAAAaAPv/AQACAAQAAAAbAPv/AQACAAQAAAAcAPz/AQACAAQAAFAcAP3/AQACAAQAAFAIAAMAAQABAAUAAAAJAAIAAQABAAUAAAAKAAEAAQABAAUAAAALAAAAAQABAAUAAAAMAP//AQABAAUAAAAMAP7/AQAAAAYAAAAMAP3/AQAAAAYAAAAMAPz/AQAAAAYAAAAMAPv/AQAAAAUAAAALAP//AQAAAAUAAAAKAAAAAQAAAAUAAAAJAAEAAQAAAAUAAAAIAAIAAQAAAAUAAAAHAAQAAQAAAAYAAAAHAAUAAQAEAAAAAAAHAAMAAQAAAAUAAAAPABIAAQAEAAEAAAARABIAAQAEAAEAAAAQABIAAQAEAAEAAAATABIAAQAEAAEAAAASABIAAQAEAAEAAAAPABEAAQAEAAAAAAAQABEAAQAEAAAAAAARABEAAQAEAAAAAAASABEAAQAEAAAAAAATABEAAQAEAAAAAAAYABAAAQAEAAAAAAAYABEAAQAEAAEAAAAZABAAAQAEAAAAAAAZABEAAQAEAAEAAAAUAAcAAQAEAAEAAAAVAAcAAQAEAAEAAAAcAA4AAQAEAAEAAAAdAA0AAQAEAAAAAAAdAA4AAQAEAAEAAAAeAA0AAQAEAAAAAAAeAA4AAQAEAAEAAAAfAA0AAQAEAAAAAAAfAA4AAQAEAAEAAAAgAA0AAQAEAAAAAAAgAA4AAQAEAAEAAAAhAA0AAQAEAAAAAAAhAA4AAQAEAAEAAAAbAA4AAQABAAEAAAAdABQAAQACAAQAAAAeABQAAQACAAQAAAAfABQAAQACAAQAAAAgABQAAQACAAQAAAAhABQAAQABAAUAAAAcABQAAQADAAUAAAALABIAAQACAAQAAFALABMAAQACAAQAAFAaABQAAQABAAUAAAAMABQAAQACAAQAAAANABQAAQACAAQAAAAOABQAAQACAAQAAAAPABQAAQACAAQAAAAQABQAAQACAAQAAAARABQAAQACAAQAAAASABQAAQACAAQAAAATABQAAQACAAQAAAAUABQAAQACAAQAAAAVABQAAQACAAQAAAAWABQAAQACAAQAAAAXABQAAQACAAQAAAAYABQAAQACAAQAAAAZABQAAQACAAQAAAALABQAAQADAAUAAAAaABMAAQAAAAYAAAAaABIAAQAAAAYAAAAQAAEAAQAEAAAAAAAQAAIAAQAEAAEAAAARAAEAAQAEAAAAAAARAAIAAQAEAAEAAAASAAEAAQAEAAAAAAASAAIAAQAEAAEAAAATAAEAAQAEAAAAAAATAAIAAQAEAAEAAAAUAAEAAQAEAAAAAAAUAAIAAQAEAAEAAAAVAAEAAQAEAAAAAAAVAAIAAQAEAAEAAAAQAAAAAQACAAQAAAARAAAAAQACAAQAAAASAAAAAQACAAQAAAATAAAAAQACAAQAAAAUAAAAAQACAAQAAAAVAAAAAQACAAQAAAAWAAEAAQAEAAYAAAAPAAAAAQAAAAUAAAAWAAAAAQAEAAUAAAANAAMAAQABAAUAAAAOAAIAAQABAAUAAAAPAAEAAQABAAUAAAAMAAQAAQAAAAYAAAANAAIAAQAAAAUAAAAOAAEAAQAAAAUAAAAMAAMAAQAAAAUAAAAMAAAAAQAEAAAAAAAMAAEAAQAEAAEAAAALAAEAAQAEAAAAAAALAAIAAQAEAAEAAAAKAAIAAQAEAAAAAAAKAAMAAQAEAAEAAAAJAAMAAQAEAAAAAAAJAAQAAQAEAAEAAAAIAAQAAQAEAAAAAAAIAAUAAQAEAAEAAAAPAAIAAQAEAAAAAAAPAAMAAQAEAAEAAAAOAAMAAQAEAAAAAAAOAAQAAQAEAAEAAAANAAQAAQAEAAAAAAANAAUAAQAEAAEAAAAPAAsAAQAEAAAAAAAPAAwAAQAEAAEAAAAQAAsAAQAEAAAAAAAQAAwAAQAEAAEAAAARAAsAAQAEAAAAAAARAAwAAQAEAAEAAAAOAAoAAQABAAQAAAAOAAsAAQABAAUAAAAPAAoAAQACAAQAAAAQAAoAAQACAAQAAAARAAoAAQACAAQAAAASAAsAAQAEAAYAAAAXAAwAAQAEAAEAAAAYAAwAAQAEAAEAAAAZAAwAAQAEAAEAAAAaAAwAAQAEAAEAAAAXAAoAAQACAAQAAAAYAAoAAQACAAQAAAAZAAoAAQACAAQAAAAaAAoAAQACAAQAAAAWAAoAAQAAAAUAAAAWAAsAAQAAAAYAAAAWAAwAAQAAAAYAAAAYAA8AAQACAAQAAAAXAA8AAQADAAUAAAAaAA8AAQADAAQAAAAaABAAAQADAAUAAAAWAAQAAQAAAAEAAAAWAAUAAQAAAAEAAAAHAAYAAQAEAAEAAAAXABAAAQAEAAAAAAAXABEAAQAEAAEAAAA=")
-tile_set = SubResource("TileSet_samme")
-
-[node name="wall2" type="TileMapLayer" parent="."]
-z_index = -5
-use_parent_material = true
-position = Vector2(-2614, -1137)
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAHAA8AAQADAAUAAAAJAA8AAQACAAQAAAAKAA8AAQACAAQAAAAOAA0AAQABAAEAAAAOAAwAAQABAAAAAAAPAAcAAQABAAAAAAAWAAcAAQAAAAAAAAAaAAcAAQABAAAAAAAaAAgAAQABAAEAAAAWAAgAAQAAAAEAAAAPAAgAAQABAAEAAAAbAP//AQABAAEAAAAWAAIAAQAAAAAAAAAWAAMAAQAAAAEAAAAYAAIAAQAAAAAAAAAYAAMAAQAAAAEAAAAhABMAAQAEAAYAADAhABIAAQAEAAYAADAhABEAAQAEAAYAADAhABAAAQAEAAYAADAhAA8AAQAEAAYAADAhAA4AAQAEAAYAADAhAA0AAQADAAUAADAgAA0AAQACAAQAADAfAA0AAQACAAQAADAeAA0AAQACAAQAADAdAA0AAQACAAQAADAcAA0AAQACAAQAADAbABAAAQACAAQAAAAIAA8AAQACAAQAAAAeAAoAAQABAAUAAAAeAAkAAQACAAQAAGAeAAgAAQACAAQAAGAeAAcAAQACAAQAAGAeAAYAAQACAAQAAGAeAAUAAQACAAQAAGAeAAQAAQACAAQAAGAeAAMAAQACAAQAAGAeAAIAAQACAAQAAGAeAAEAAQACAAQAAGAeAAAAAQACAAQAAGAeAP//AQACAAQAAGAeAP7/AQADAAUAADAdAP7/AQACAAQAADAcAP7/AQACAAQAADAdAAoAAQACAAQAAAAcAAoAAQACAAQAAAARABAAAQACAAQAAAASABAAAQACAAQAAAATABAAAQABAAUAAAATAA8AAQAAAAYAAAATAA4AAQAAAAYAAAAPAA8AAQAEAAYAAAAPAA4AAQAEAAYAAAAPAA0AAQAEAAYAAAAaAAYAAQABAAUAAAAaAAUAAQAAAAYAAAAaAAQAAQAAAAYAAAAaAAMAAQAAAAYAAAAaAAIAAQAAAAYAAAAWAAYAAQADAAUAAAAWAAQAAQAAAAEAAAAXAAYAAQACAAQAAAAYAAYAAQACAAQAAAAZAAYAAQACAAQAAAANAAcAAQACAAgAAAANAAgAAQAAAAEAAAANAAsAAQACAAQAAAAOAAsAAQACAAQAAAANAAwAAQAAAAAAAAANAA0AAQAAAAEAAAANAA4AAQADAAcAAAAOAA4AAQABAAcAAAAOAA8AAQADAAcAAGAbAAoAAQABAAQAAAATAP//AQAAAAUAADAMAAUAAQAAAAYAAAAMAAYAAQAAAAYAAAAMAAcAAQAAAAYAAAAMAAgAAQAAAAYAAAAOAAcAAQACAAgAAAAbAAsAAQAAAAYAAAAQABAAAQACAAQAAAAUAAYAAQACAAgAAAAWAAUAAQAEAAYAAAAPABEAAQAAAAAAAAAPABIAAQAAAAEAAAATABEAAQABAAAAAAATABIAAQABAAEAAAATAAYAAQADAAcAAAAVAAYAAQACAAgAAAATAAcAAQAEAAYAAAAWAAEAAQACAAQAAAAXAAEAAQACAAQAAAAPAAIAAQABAAAAAAAPAAMAAQABAAEAAAAOAAMAAQABAAAAAAAOAAQAAQABAAEAAAANAAQAAQABAAAAAAANAAUAAQABAAEAAAASAAoAAQAEAAUAAAASAAwAAQAEAAYAAAAbAAwAAQAAAAYAAAAHAAYAAQAEAAYAAAAHAAUAAQAEAAYAAAAHAAQAAQACAAQAAAAXABAAAQAAAAAAAAAXABEAAQAAAAEAAAA=")
-tile_set = SubResource("TileSet_samme")
-
-[node name="things 2" type="TileMapLayer" parent="."]
-z_index = -5
-use_parent_material = true
-position = Vector2(-2614, -1137)
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAATAP7/AQAKAAIAAAAVAP7/AQAKAAIAAAAUAP7/AQALAAIAAAAWAP3/AQAGAAcAAAAWAP7/AQAGAAgAAAAXAP3/AQAHAAcAAAAXAP7/AQAHAAgAAAAYAP3/AQAIAAcAAAAYAP7/AQAIAAgAAAAbAP7/AQAKAAcAAAAdAP7/AQANAAAAAAAeAP7/AQAOAAAAAAAcAP7/AQATAAMAAAAcAP//AQAPAAIAAAAdAP//AQAQAAIAAAAeAP//AQARAAIAAAAXAAIAAQAKAAAAAAAXAAMAAQATAAUAAAAaAAYAAQALAAEAAAAYAAIAAQASAAUAAFAWAAQAAwAHAAMAAGAWAAUAAwAHAAMAAGAPAAcAAQATAAUAAAAPAAgAAQATAAUAAAAOAAcAAQATAAMAAAANAAcAAQAKAAAAAAAWAAcAAQAKAAAAAAAXAAcAAQASAAAAAAAYAAcAAQATAAAAAAAZAAcAAQAUAAAAAAAXAAgAAQASAAEAAAAYAAgAAQATAAEAAAAZAAgAAQAUAAEAAAAQAAgAAQAKAAcAAGAHAAkAAQAKAAMAAAAHAAsAAQAKAAMAAAAHAA0AAQAKAAMAAAAHAAwAAQALAAMAAAAHAAoAAQALAAMAAAAHAAgAAQALAAMAAAAHAAcAAQANAAIAAGAIAAcAAQANAAMAAGAHAA4AAQAOAAIAAGAIAA4AAQAOAAMAAGANAA8AAQAKAAcAAAAPAA0AAQAKAAcAAGAPAA4AAQAKAAcAAGARABAAAwAJAAMAAAASAA8AAQAHAAAAAAARAA8AAQALAAIAAAATAA4AAQASAAUAAGAPAA8AAwAGAAMAAFAPABAAAwAHAAMAAFAaABIAAQAKAAcAAGAcAA0AAQASAAUAADAfAA0AAQAIAAAAAAAgAA0AAQAJAAAAAAAfAA8AAQALAAMAAAAdABIAAQAHAAoAAGAdABMAAQAGAAoAAGAcABIAAQAHAAkAAGAcABMAAQAGAAkAAGAcABQAAQAKAAcAAGAfABIAAQAKAAIAAAAeAAkAAQAKAAcAAFAeAAoAAQAKAAcAAFAQAAcAAQALAAcAAAARAAMAAwAJAAMAAAATAAcAAQAGAAUAAAATAAgAAQAGAAYAAAAUAAcAAQAHAAUAAAAUAAgAAQAHAAYAAAAVAAcAAQAOAAIAAAAVAAgAAQAOAAMAAAANAP7/AQAKAAcAAAAOAP7/AQAKAAcAAAAOAAYAAwAJAAMAADAQAA0AAQAQAAMAAAARAA0AAQARAAMAAAAdABEAAQAHAAUAAFAcABEAAQAHAAYAAFAZAA0AAQALAAIAAAAbAA0AAQALAAIAAAAaAA0AAQAKAAIAAAAOABAAAQAKAAcAAAAYAAYAAwAJAAMAAAAYAAUAAQALAAIAAAAaABMAAQAKAAcAAGAHAAUAAQABAAAAAAAHAAYAAQABAAAAAAAIAAUAAQABAAAAAAAIAAQAAQABAAAAAAAJAAQAAQABAAAAAAAJAAMAAQABAAAAAAAKAAMAAQABAAAAAAAKAAIAAQABAAAAAAALAAIAAQABAAAAAAALAAEAAQABAAAAAAAMAAEAAQABAAAAAAAMAAAAAQABAAAAAAA=")
-tile_set = SubResource("TileSet_samme")
-
-[node name="things 1" type="TileMapLayer" parent="."]
-z_index = -5
-use_parent_material = true
-position = Vector2(-2614, -1137)
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAATAP7/AQAKAAIAAAAVAP7/AQAKAAIAAAAUAP7/AQALAAIAAAAWAP3/AQAGAAcAAAAWAP7/AQAGAAgAAAAXAP3/AQAHAAcAAAAXAP7/AQAHAAgAAAAYAP3/AQAIAAcAAAAYAP7/AQAIAAgAAAAbAP7/AQAKAAcAAAAdAP7/AQANAAAAAAAeAP7/AQAOAAAAAAAcAP7/AQATAAMAAAAcAP//AQAPAAIAAAAdAP//AQAQAAIAAAAeAP//AQARAAIAAAAXAAIAAQAKAAAAAAAXAAMAAQATAAUAAAAaAAYAAQALAAEAAAAYAAIAAQASAAUAAFAWAAQAAwAHAAMAAGAWAAUAAwAHAAMAAGAPAAcAAQATAAUAAAAPAAgAAQATAAUAAAAOAAcAAQATAAMAAAANAAcAAQAKAAAAAAAWAAcAAQAKAAAAAAAXAAcAAQASAAAAAAAYAAcAAQATAAAAAAAZAAcAAQAUAAAAAAAXAAgAAQASAAEAAAAYAAgAAQATAAEAAAAZAAgAAQAUAAEAAAAQAAgAAQAKAAcAAGAHAAkAAQAKAAMAAAAHAAsAAQAKAAMAAAAHAA0AAQAKAAMAAAAHAAwAAQALAAMAAAAHAAoAAQALAAMAAAAHAAgAAQALAAMAAAAHAAcAAQANAAIAAGAIAAcAAQANAAMAAGAHAA4AAQAOAAIAAGAIAA4AAQAOAAMAAGANAA8AAQAKAAcAAAAPAA0AAQAKAAcAAGAPAA4AAQAKAAcAAGARABAAAwAJAAMAAAASAA8AAQAHAAAAAAARAA8AAQALAAIAAAATAA4AAQASAAUAAGAPAA8AAwAGAAMAAFAPABAAAwAHAAMAAFAaABIAAQAKAAcAAGAcAA0AAQASAAUAADAfAA0AAQAIAAAAAAAgAA0AAQAJAAAAAAAfAA8AAQALAAMAAAAdABIAAQAHAAoAAGAdABMAAQAGAAoAAGAcABIAAQAHAAkAAGAcABMAAQAGAAkAAGAcABQAAQAKAAcAAGAfABIAAQAKAAIAAAAeAAkAAQAKAAcAAFAeAAoAAQAKAAcAAFAQAAcAAQALAAcAAAARAAMAAwAJAAMAAAATAAcAAQAGAAUAAAATAAgAAQAGAAYAAAAUAAcAAQAHAAUAAAAUAAgAAQAHAAYAAAAVAAcAAQAOAAIAAAAVAAgAAQAOAAMAAAANAP7/AQAKAAcAAAAOAP7/AQAKAAcAAAAOAAYAAwAJAAMAADAQAA0AAQAQAAMAAAARAA0AAQARAAMAAAAdABEAAQAHAAUAAFAcABEAAQAHAAYAAFAZAA0AAQALAAIAAAAbAA0AAQALAAIAAAAaAA0AAQAKAAIAAAAOABAAAQAKAAcAAAAYAAYAAwAJAAMAAAAYAAUAAQALAAIAAAAaABMAAQAKAAcAAGA=")
-tile_set = SubResource("TileSet_samme")
-
-[node name="things2" type="TileMapLayer" parent="."]
-z_index = -5
-use_parent_material = true
-position = Vector2(-2614, -1137)
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAASABAAAQAGAAIAADARABAAAQAHAAIAADAQABAAAQAIAAIAADAgAA4AAQAGAAMAAFAgAA8AAQAHAAMAAFAgABAAAQAIAAMAAFAeABMAAQAIAAIAADAfABMAAQAHAAIAADAgABMAAQAGAAIAADAQAAMAAQAGAAIAAAARAAMAAQAHAAIAAAASAAMAAQAIAAIAAAARAAQAAQAKAAUAAAATAAMAAQAMAAcAAAATAAQAAQAMAAgAAAAUAAMAAQANAAcAAAAUAAQAAQANAAgAAAAVAAQAAQAKAAcAAGAVAAUAAQAKAAcAAGANAAYAAQAIAAMAADAOAAYAAQAHAAMAADAPAAYAAQAGAAMAADAOAAUAAQALAAIAAAAXAAYAAQAIAAIAADAYAAYAAQAHAAIAADAZAAYAAQAGAAIAADALAAwAAQABAAAAAAA=")
-tile_set = SubResource("TileSet_samme")
-
 [node name="Hacked" parent="." instance=ExtResource("17_guaxh")]
 layer = 120
 visible = false
@@ -1235,14 +1192,1827 @@ offset_right = 4924.0
 offset_bottom = 3068.0
 texture = SubResource("CanvasTexture_tuyro")
 
+[node name="TaskArea2" parent="." instance=ExtResource("4_7lc58")]
+position = Vector2(3220, -469)
+
+[node name="CollisionShape2D" parent="TaskArea2" index="0"]
+position = Vector2(-3206, -174)
+
+[node name="Sprite2D" parent="TaskArea2" index="1"]
+position = Vector2(-3207, -176)
+texture = ExtResource("22_v21l5")
+
+[node name="hack_interactable" parent="TaskArea2" index="2"]
+position = Vector2(-3206, -174)
+
+[node name="dev_interactable" parent="TaskArea2" index="3"]
+position = Vector2(-3206, -174)
+
+[node name="Developer" type="CanvasLayer" parent="TaskArea2"]
+layer = 70
+
+[node name="PanelContainer" type="PanelContainer" parent="TaskArea2/Developer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -67.0
+offset_right = 190.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(200, 172)
+theme = ExtResource("15_43hms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea2/Developer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea2/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Assigned Task"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea2/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Dev_Button" type="Button" parent="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Do Task"
+script = ExtResource("4_4ua43")
+cooldownTime = 10.0
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close_Button" type="Button" parent="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Close"
+script = ExtResource("8_ilyti")
+
+[node name="DeveloperTaskAnim" type="AnimationPlayer" parent="TaskArea2/Developer/PanelContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_bvh3s")
+}
+
+[node name="Hacker" type="CanvasLayer" parent="TaskArea2"]
+layer = 70
+
+[node name="SabotagePanel" type="PanelContainer" parent="TaskArea2/Hacker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -100.5
+offset_right = 241.0
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(239, 317.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ni5w")
+script = ExtResource("8_2duqp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea2/Hacker/SabotagePanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea2/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Sabotage.Exe"
+horizontal_alignment = 1
+
+[node name="TerminalContainer" type="MarginContainer" parent="TaskArea2/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Terminal" type="Label" parent="TaskArea2/Hacker/SabotagePanel/VBoxContainer/TerminalContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea2/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Sabotage" type="Button" parent="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "Data Integrity
+attack"
+script = ExtResource("12_lj6o1")
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guib2")
+
+[node name="Label" type="Label" parent="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+script = ExtResource("10_4dq6s")
+
+[node name="SabotagePanelAnim" type="AnimationPlayer" parent="TaskArea2/Hacker/SabotagePanel"]
+libraries = {
+"": SubResource("AnimationLibrary_swr5q")
+}
+
+[node name="TaskArea3" parent="." instance=ExtResource("4_7lc58")]
+position = Vector2(3220, -469)
+
+[node name="CollisionShape2D" parent="TaskArea3" index="0"]
+position = Vector2(-2719, -163)
+
+[node name="Sprite2D" parent="TaskArea3" index="1"]
+position = Vector2(-2720, -165)
+texture = ExtResource("28_pfkyt")
+
+[node name="hack_interactable" parent="TaskArea3" index="2"]
+position = Vector2(-2719, -163)
+
+[node name="dev_interactable" parent="TaskArea3" index="3"]
+position = Vector2(-2719, -163)
+
+[node name="Developer" type="CanvasLayer" parent="TaskArea3"]
+layer = 70
+
+[node name="PanelContainer" type="PanelContainer" parent="TaskArea3/Developer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -67.0
+offset_right = 190.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(200, 172)
+theme = ExtResource("15_43hms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea3/Developer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea3/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Assigned Task"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea3/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Dev_Button" type="Button" parent="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Do Task"
+script = ExtResource("4_4ua43")
+cooldownTime = 10.0
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close_Button" type="Button" parent="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Close"
+script = ExtResource("8_ilyti")
+
+[node name="DeveloperTaskAnim" type="AnimationPlayer" parent="TaskArea3/Developer/PanelContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_bvh3s")
+}
+
+[node name="Hacker" type="CanvasLayer" parent="TaskArea3"]
+layer = 70
+
+[node name="SabotagePanel" type="PanelContainer" parent="TaskArea3/Hacker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -100.5
+offset_right = 241.0
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(239, 317.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ni5w")
+script = ExtResource("8_2duqp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea3/Hacker/SabotagePanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea3/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Sabotage.Exe"
+horizontal_alignment = 1
+
+[node name="TerminalContainer" type="MarginContainer" parent="TaskArea3/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Terminal" type="Label" parent="TaskArea3/Hacker/SabotagePanel/VBoxContainer/TerminalContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea3/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Sabotage" type="Button" parent="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "Data Integrity
+attack"
+script = ExtResource("12_lj6o1")
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guib2")
+
+[node name="Label" type="Label" parent="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+script = ExtResource("10_4dq6s")
+
+[node name="SabotagePanelAnim" type="AnimationPlayer" parent="TaskArea3/Hacker/SabotagePanel"]
+libraries = {
+"": SubResource("AnimationLibrary_swr5q")
+}
+
+[node name="TaskArea4" parent="." instance=ExtResource("4_7lc58")]
+position = Vector2(3220, -469)
+
+[node name="CollisionShape2D" parent="TaskArea4" index="0"]
+position = Vector2(0, -969)
+
+[node name="Sprite2D" parent="TaskArea4" index="1"]
+position = Vector2(-1.00002, -971)
+texture = ExtResource("28_pfkyt")
+
+[node name="hack_interactable" parent="TaskArea4" index="2"]
+position = Vector2(0, -969)
+
+[node name="dev_interactable" parent="TaskArea4" index="3"]
+position = Vector2(0, -969)
+
+[node name="Developer" type="CanvasLayer" parent="TaskArea4"]
+layer = 70
+
+[node name="PanelContainer" type="PanelContainer" parent="TaskArea4/Developer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -67.0
+offset_right = 190.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(200, 172)
+theme = ExtResource("15_43hms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea4/Developer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea4/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Assigned Task"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea4/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Dev_Button" type="Button" parent="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Do Task"
+script = ExtResource("4_4ua43")
+cooldownTime = 10.0
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close_Button" type="Button" parent="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Close"
+script = ExtResource("8_ilyti")
+
+[node name="DeveloperTaskAnim" type="AnimationPlayer" parent="TaskArea4/Developer/PanelContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_bvh3s")
+}
+
+[node name="Hacker" type="CanvasLayer" parent="TaskArea4"]
+layer = 70
+
+[node name="SabotagePanel" type="PanelContainer" parent="TaskArea4/Hacker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -100.5
+offset_right = 241.0
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(239, 317.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ni5w")
+script = ExtResource("8_2duqp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea4/Hacker/SabotagePanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea4/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Sabotage.Exe"
+horizontal_alignment = 1
+
+[node name="TerminalContainer" type="MarginContainer" parent="TaskArea4/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Terminal" type="Label" parent="TaskArea4/Hacker/SabotagePanel/VBoxContainer/TerminalContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea4/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Sabotage" type="Button" parent="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "Data Integrity
+attack"
+script = ExtResource("12_lj6o1")
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guib2")
+
+[node name="Label" type="Label" parent="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+script = ExtResource("10_4dq6s")
+
+[node name="SabotagePanelAnim" type="AnimationPlayer" parent="TaskArea4/Hacker/SabotagePanel"]
+libraries = {
+"": SubResource("AnimationLibrary_swr5q")
+}
+
+[node name="TaskArea5" parent="." instance=ExtResource("4_7lc58")]
+position = Vector2(3220, -469)
+
+[node name="CollisionShape2D" parent="TaskArea5" index="0"]
+position = Vector2(0, 2.99988)
+
+[node name="Sprite2D" parent="TaskArea5" index="1"]
+position = Vector2(-1, 0.999939)
+texture = ExtResource("28_pfkyt")
+
+[node name="hack_interactable" parent="TaskArea5" index="2"]
+position = Vector2(0, 2.99988)
+
+[node name="dev_interactable" parent="TaskArea5" index="3"]
+position = Vector2(0, 2.99988)
+
+[node name="Developer" type="CanvasLayer" parent="TaskArea5"]
+layer = 70
+
+[node name="PanelContainer" type="PanelContainer" parent="TaskArea5/Developer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -67.0
+offset_right = 190.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(200, 172)
+theme = ExtResource("15_43hms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea5/Developer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea5/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Assigned Task"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea5/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Dev_Button" type="Button" parent="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Do Task"
+script = ExtResource("4_4ua43")
+cooldownTime = 10.0
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close_Button" type="Button" parent="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Close"
+script = ExtResource("8_ilyti")
+
+[node name="DeveloperTaskAnim" type="AnimationPlayer" parent="TaskArea5/Developer/PanelContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_bvh3s")
+}
+
+[node name="Hacker" type="CanvasLayer" parent="TaskArea5"]
+layer = 70
+
+[node name="SabotagePanel" type="PanelContainer" parent="TaskArea5/Hacker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -100.5
+offset_right = 241.0
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(239, 317.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ni5w")
+script = ExtResource("8_2duqp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea5/Hacker/SabotagePanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea5/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Sabotage.Exe"
+horizontal_alignment = 1
+
+[node name="TerminalContainer" type="MarginContainer" parent="TaskArea5/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Terminal" type="Label" parent="TaskArea5/Hacker/SabotagePanel/VBoxContainer/TerminalContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea5/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Sabotage" type="Button" parent="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "Data Integrity
+attack"
+script = ExtResource("12_lj6o1")
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guib2")
+
+[node name="Label" type="Label" parent="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+script = ExtResource("10_4dq6s")
+
+[node name="SabotagePanelAnim" type="AnimationPlayer" parent="TaskArea5/Hacker/SabotagePanel"]
+libraries = {
+"": SubResource("AnimationLibrary_swr5q")
+}
+
+[node name="TaskArea6" parent="." instance=ExtResource("4_7lc58")]
+position = Vector2(3220, -469)
+
+[node name="CollisionShape2D" parent="TaskArea6" index="0"]
+position = Vector2(642, 469)
+
+[node name="Sprite2D" parent="TaskArea6" index="1"]
+position = Vector2(641, 467)
+texture = ExtResource("28_pfkyt")
+
+[node name="hack_interactable" parent="TaskArea6" index="2"]
+position = Vector2(642, 469)
+
+[node name="dev_interactable" parent="TaskArea6" index="3"]
+position = Vector2(642, 469)
+
+[node name="Developer" type="CanvasLayer" parent="TaskArea6"]
+layer = 70
+
+[node name="PanelContainer" type="PanelContainer" parent="TaskArea6/Developer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -67.0
+offset_right = 190.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(200, 172)
+theme = ExtResource("15_43hms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea6/Developer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea6/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Assigned Task"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea6/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Dev_Button" type="Button" parent="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Do Task"
+script = ExtResource("4_4ua43")
+cooldownTime = 10.0
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close_Button" type="Button" parent="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Close"
+script = ExtResource("8_ilyti")
+
+[node name="DeveloperTaskAnim" type="AnimationPlayer" parent="TaskArea6/Developer/PanelContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_bvh3s")
+}
+
+[node name="Hacker" type="CanvasLayer" parent="TaskArea6"]
+layer = 70
+
+[node name="SabotagePanel" type="PanelContainer" parent="TaskArea6/Hacker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -100.5
+offset_right = 241.0
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(239, 317.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ni5w")
+script = ExtResource("8_2duqp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea6/Hacker/SabotagePanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea6/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Sabotage.Exe"
+horizontal_alignment = 1
+
+[node name="TerminalContainer" type="MarginContainer" parent="TaskArea6/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Terminal" type="Label" parent="TaskArea6/Hacker/SabotagePanel/VBoxContainer/TerminalContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea6/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Sabotage" type="Button" parent="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "Data Integrity
+attack"
+script = ExtResource("12_lj6o1")
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guib2")
+
+[node name="Label" type="Label" parent="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+script = ExtResource("10_4dq6s")
+
+[node name="SabotagePanelAnim" type="AnimationPlayer" parent="TaskArea6/Hacker/SabotagePanel"]
+libraries = {
+"": SubResource("AnimationLibrary_swr5q")
+}
+
+[node name="TaskArea7" parent="." instance=ExtResource("4_7lc58")]
+position = Vector2(3220, -469)
+
+[node name="CollisionShape2D" parent="TaskArea7" index="0"]
+position = Vector2(628, -510)
+
+[node name="Sprite2D" parent="TaskArea7" index="1"]
+position = Vector2(627, -512)
+texture = ExtResource("28_pfkyt")
+
+[node name="hack_interactable" parent="TaskArea7" index="2"]
+position = Vector2(628, -510)
+
+[node name="dev_interactable" parent="TaskArea7" index="3"]
+position = Vector2(628, -510)
+
+[node name="Developer" type="CanvasLayer" parent="TaskArea7"]
+layer = 70
+
+[node name="PanelContainer" type="PanelContainer" parent="TaskArea7/Developer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -67.0
+offset_right = 190.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(200, 172)
+theme = ExtResource("15_43hms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea7/Developer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea7/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Assigned Task"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea7/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Dev_Button" type="Button" parent="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Do Task"
+script = ExtResource("4_4ua43")
+cooldownTime = 10.0
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close_Button" type="Button" parent="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Close"
+script = ExtResource("8_ilyti")
+
+[node name="DeveloperTaskAnim" type="AnimationPlayer" parent="TaskArea7/Developer/PanelContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_bvh3s")
+}
+
+[node name="Hacker" type="CanvasLayer" parent="TaskArea7"]
+layer = 70
+
+[node name="SabotagePanel" type="PanelContainer" parent="TaskArea7/Hacker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -100.5
+offset_right = 241.0
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(239, 317.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ni5w")
+script = ExtResource("8_2duqp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea7/Hacker/SabotagePanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea7/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Sabotage.Exe"
+horizontal_alignment = 1
+
+[node name="TerminalContainer" type="MarginContainer" parent="TaskArea7/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Terminal" type="Label" parent="TaskArea7/Hacker/SabotagePanel/VBoxContainer/TerminalContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea7/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Sabotage" type="Button" parent="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "Data Integrity
+attack"
+script = ExtResource("12_lj6o1")
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guib2")
+
+[node name="Label" type="Label" parent="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+script = ExtResource("10_4dq6s")
+
+[node name="SabotagePanelAnim" type="AnimationPlayer" parent="TaskArea7/Hacker/SabotagePanel"]
+libraries = {
+"": SubResource("AnimationLibrary_swr5q")
+}
+
+[node name="TaskArea8" parent="." instance=ExtResource("4_7lc58")]
+position = Vector2(-298, 323)
+
+[node name="CollisionShape2D" parent="TaskArea8" index="0"]
+position = Vector2(2837, 996)
+
+[node name="Sprite2D" parent="TaskArea8" index="1"]
+position = Vector2(2836, 994)
+
+[node name="hack_interactable" parent="TaskArea8" index="2"]
+position = Vector2(2837, 996)
+
+[node name="dev_interactable" parent="TaskArea8" index="3"]
+position = Vector2(2837, 996)
+
+[node name="Developer" type="CanvasLayer" parent="TaskArea8"]
+layer = 70
+
+[node name="PanelContainer" type="PanelContainer" parent="TaskArea8/Developer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -67.0
+offset_right = 190.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(200, 172)
+theme = ExtResource("15_43hms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea8/Developer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea8/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Assigned Task"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea8/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Dev_Button" type="Button" parent="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Do Task"
+script = ExtResource("4_4ua43")
+cooldownTime = 10.0
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close_Button" type="Button" parent="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Close"
+script = ExtResource("8_ilyti")
+
+[node name="DeveloperTaskAnim" type="AnimationPlayer" parent="TaskArea8/Developer/PanelContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_bvh3s")
+}
+
+[node name="Hacker" type="CanvasLayer" parent="TaskArea8"]
+layer = 70
+
+[node name="SabotagePanel" type="PanelContainer" parent="TaskArea8/Hacker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -100.5
+offset_right = 241.0
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(239, 317.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ni5w")
+script = ExtResource("8_2duqp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea8/Hacker/SabotagePanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea8/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Sabotage.Exe"
+horizontal_alignment = 1
+
+[node name="TerminalContainer" type="MarginContainer" parent="TaskArea8/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Terminal" type="Label" parent="TaskArea8/Hacker/SabotagePanel/VBoxContainer/TerminalContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea8/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Sabotage" type="Button" parent="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "Data Integrity
+attack"
+script = ExtResource("12_lj6o1")
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guib2")
+
+[node name="Label" type="Label" parent="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+script = ExtResource("10_4dq6s")
+
+[node name="SabotagePanelAnim" type="AnimationPlayer" parent="TaskArea8/Hacker/SabotagePanel"]
+libraries = {
+"": SubResource("AnimationLibrary_swr5q")
+}
+
+[node name="TaskArea9" parent="." instance=ExtResource("4_7lc58")]
+position = Vector2(-298, 323)
+
+[node name="CollisionShape2D" parent="TaskArea9" index="0"]
+position = Vector2(-1130, -622)
+
+[node name="Sprite2D" parent="TaskArea9" index="1"]
+position = Vector2(-1131, -624)
+
+[node name="hack_interactable" parent="TaskArea9" index="2"]
+position = Vector2(-1130, -622)
+
+[node name="dev_interactable" parent="TaskArea9" index="3"]
+position = Vector2(-1130, -622)
+
+[node name="Developer" type="CanvasLayer" parent="TaskArea9"]
+layer = 70
+
+[node name="PanelContainer" type="PanelContainer" parent="TaskArea9/Developer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -67.0
+offset_right = 190.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(200, 172)
+theme = ExtResource("15_43hms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea9/Developer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea9/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Assigned Task"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea9/Developer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Dev_Button" type="Button" parent="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Do Task"
+script = ExtResource("4_4ua43")
+cooldownTime = 10.0
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close_Button" type="Button" parent="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Close"
+script = ExtResource("8_ilyti")
+
+[node name="DeveloperTaskAnim" type="AnimationPlayer" parent="TaskArea9/Developer/PanelContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_bvh3s")
+}
+
+[node name="Hacker" type="CanvasLayer" parent="TaskArea9"]
+layer = 70
+
+[node name="SabotagePanel" type="PanelContainer" parent="TaskArea9/Hacker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -100.5
+offset_right = 241.0
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(239, 317.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ni5w")
+script = ExtResource("8_2duqp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskArea9/Hacker/SabotagePanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TaskArea9/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 30
+text = "Sabotage.Exe"
+horizontal_alignment = 1
+
+[node name="TerminalContainer" type="MarginContainer" parent="TaskArea9/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Terminal" type="Label" parent="TaskArea9/Hacker/SabotagePanel/VBoxContainer/TerminalContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TaskArea9/Hacker/SabotagePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Sabotage" type="Button" parent="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "Data Integrity
+attack"
+script = ExtResource("12_lj6o1")
+
+[node name="CooldownTimer" type="Timer" parent="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage"]
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guib2")
+
+[node name="Label" type="Label" parent="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4gx8b")
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_5kdpk")
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme = ExtResource("15_43hms")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+script = ExtResource("10_4dq6s")
+
+[node name="SabotagePanelAnim" type="AnimationPlayer" parent="TaskArea9/Hacker/SabotagePanel"]
+libraries = {
+"": SubResource("AnimationLibrary_swr5q")
+}
+
+[node name="FLoor" type="TileMapLayer" parent="."]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2782, -1131)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAJAAYAAQACAAIAAAAKAAYAAQACAAIAAAALAAYAAQACAAIAAAAMAAYAAQACAAIAAAAHAAcAAQACAAIAAAAHAAgAAQACAAIAAAAHAAkAAQACAAIAAAAHAAoAAQACAAIAAAAHAAsAAQACAAIAAAAHAAwAAQACAAIAAAAHAA0AAQACAAIAAAAHAA4AAQACAAIAAAAHAA8AAQACAAIAAAAIAAcAAQACAAIAAAAIAAgAAQACAAIAAAAJAAgAAQACAAIAAAAJAAkAAQACAAIAAAAIAAkAAQACAAIAAAAIAAoAAQACAAIAAAAIAAsAAQACAAIAAAAIAAwAAQACAAIAAAAIAA0AAQACAAIAAAAIAA4AAQACAAIAAAAIAA8AAQACAAIAAAAJAAcAAQACAAIAAAAKAAcAAQACAAIAAAALAAcAAQACAAIAAAAMAAcAAQACAAIAAAAMAAgAAQACAAIAAAAMAAkAAQACAAIAAAAMAAoAAQACAAIAAAAMAAsAAQACAAIAAAALAAsAAQACAAIAAAALAAwAAQACAAIAAAALAA0AAQACAAIAAAALAA4AAQACAAIAAAALAA8AAQACAAIAAAAMAA8AAQACAAIAAAAKAA8AAQACAAIAAAAKAA4AAQACAAIAAAAKAA0AAQACAAIAAAAKAAwAAQACAAIAAAAKAAsAAQACAAIAAAAKAAoAAQACAAIAAAAKAAkAAQACAAIAAAALAAkAAQACAAIAAAALAAgAAQACAAIAAAAKAAgAAQACAAIAAAALAAoAAQACAAIAAAAMAAwAAQACAAIAAAAMAA0AAQACAAIAAAAMAA4AAQACAAIAAAAJAAoAAQACAAIAAAAJAAsAAQACAAIAAAAJAAwAAQACAAIAAAAJAA0AAQACAAIAAAAJAA4AAQACAAIAAAAJAA8AAQACAAIAAAANAA8AAQACAAIAAAANAAkAAQACAAIAAAAOAAkAAQACAAIAAAAPAAkAAQACAAIAAAAQAAkAAQACAAIAAAARAAkAAQACAAIAAAASAAkAAQACAAIAAAATAAkAAQACAAIAAAAUAAkAAQACAAIAAAAVAAkAAQACAAIAAAAWAAkAAQACAAIAAAAXAAkAAQACAAIAAAAYAAkAAQACAAIAAAAZAAkAAQACAAIAAAAbAAkAAQACAAIAAAAaAAkAAwACAAMAAAAbAAoAAQACAAIAAAAbAAsAAQACAAIAAAANAAoAAQACAAIAAAAOAAoAAQACAAIAAAAPAAsAAQACAAIAAAAQAAsAAQACAAIAAAARAAsAAQACAAIAAAASAAsAAQACAAIAAAATAAsAAQACAAIAAAAUAAsAAQACAAIAAAAVAAsAAQACAAIAAAAWAAsAAQACAAIAAAAXAAsAAQACAAIAAAAXAAoAAQACAAIAAAAYAAoAAQACAAIAAAAZAAoAAQACAAIAAAAaAAoAAQACAAIAAAAQAAoAAQACAAIAAAARAAoAAQACAAIAAAASAAoAAQACAAIAAAATAAoAAQACAAIAAAAUAAoAAQACAAIAAAAVAAoAAQACAAIAAAAWAAoAAQACAAIAAAAPAAoAAQACAAIAAAANAAsAAQACAAIAAAAOAAsAAQACAAIAAAAZAAsAAQACAAIAAAAYAAsAAQACAAIAAAAaAAsAAQACAAIAAAAcAAkAAQACAAIAAAAdAAkAAQACAAIAAAAeAAkAAQACAAIAAAAcAAoAAQACAAIAAAAdAAoAAQACAAIAAAAeAAoAAQACAAIAAAAeAAgAAQACAAIAAAAeAAcAAQACAAIAAAAeAAYAAQACAAIAAAAeAAUAAQACAAIAAAAeAAQAAQACAAIAAAAeAAMAAQACAAIAAAAeAAIAAQACAAIAAAAeAAEAAQACAAIAAAAeAP//AQACAAIAAAAdAAgAAQACAAIAAAAcAAgAAQACAAIAAAAbAAgAAQACAAIAAAAbAP//AQACAAIAAAAcAP//AQACAAIAAAAdAP//AQACAAIAAAAdAAAAAQACAAIAAAAdAAEAAQACAAIAAAAdAAIAAQACAAIAAAAdAAMAAQACAAIAAAAdAAQAAQACAAIAAAAcAAQAAQACAAIAAAAcAAUAAQACAAIAAAAcAAYAAQACAAIAAAAcAAcAAQACAAIAAAAbAAAAAQACAAIAAAAbAAEAAQACAAIAAAAbAAIAAQADAAIAAAAbAAMAAQADAAIAAAAbAAQAAQADAAIAAAAbAAUAAQADAAIAAAAbAAYAAQADAAIAAAAbAAcAAQACAAIAAAAcAAAAAQACAAIAAAAcAAEAAQACAAIAAAAcAAIAAQACAAIAAAAcAAMAAQACAAIAAAAdAAUAAQACAAIAAAAdAAYAAQACAAIAAAAdAAcAAQACAAIAAAAaAP//AQACAAIAAAAaAAAAAQACAAIAAAAaAAEAAQACAAIAAAAHAAYAAQACAAIAAAAIAAYAAQACAAIAAAALABAAAQACAAIAAAAMABAAAQACAAIAAAANABAAAQACAAIAAAAOABAAAQACAAIAAAALABEAAQACAAIAAAAMABEAAQACAAIAAAANABEAAQACAAIAAAAOABEAAQACAAIAAAAPABEAAQACAAIAAAAQABEAAQACAAIAAAARABEAAQACAAIAAAASABEAAQACAAIAAAATABEAAQACAAIAAAAUABEAAQACAAIAAAAVABEAAQACAAIAAAAWABEAAQACAAIAAAAXABEAAQACAAIAAAAYABEAAQACAAIAAAAZABEAAQACAAIAAAAaABEAAQACAAIAAAATABIAAQACAAIAAAAUABIAAQACAAIAAAAVABIAAQACAAIAAAAWABIAAQACAAIAAAAXABIAAQACAAIAAAAYABIAAQACAAIAAAAZABIAAQACAAIAAAAaABIAAQACAAIAAAAbAAwAAQACAAIAAAAbABAAAQACAAIAAAAbAA8AAQACAAIAAAAbAA4AAQACAAIAAAAbAA0AAQACAAIAAAAaAAwAAQACAAIAAAAaAA0AAQACAAIAAAAaAA4AAQACAAIAAAAaAA8AAQACAAIAAAAaABAAAQACAAIAAAAZAAwAAQACAAIAAAAZAA0AAQACAAIAAAAZAA4AAQACAAIAAAAZAA8AAQACAAIAAAAZABAAAQACAAIAAAAYAAwAAQACAAIAAAAYAA0AAQACAAIAAAAYAA4AAQACAAIAAAAYAA8AAQACAAIAAAAYABAAAQACAAIAAAAXAAwAAwABAAMAAAAXAA0AAwABAAMAAAAXAA4AAwABAAMAAGAXAA8AAwABAAMAAGAXABAAAQACAAIAAAAWABAAAQACAAIAAAAVABAAAQACAAIAAAAUABAAAQACAAIAAAAUAA8AAQACAAIAAAAVAA8AAQACAAIAAAAVAA4AAQACAAIAAAAVAA0AAQACAAIAAAAVAAwAAQACAAIAAAAWAAwAAQACAAIAAAAWAA0AAQACAAIAAAAWAA4AAQACAAIAAAAUAAwAAQACAAIAAAAUAA0AAQACAAIAAAAUAA4AAQACAAIAAAAWAA8AAQACAAIAAAAPAAwAAwACAAMAAAAQAAwAAQADAAIAAAARAAwAAQADAAIAAAAPAA0AAQADAAIAAAAPAA4AAQADAAIAAAAPAA8AAQADAAIAAAAPABAAAQADAAIAAAAQABAAAQADAAIAAAARABAAAQADAAIAAAASABAAAQADAAIAAAATABAAAQADAAIAAAATAA8AAQADAAIAAAASAA8AAQADAAIAAAARAA8AAQADAAIAAAAQAA8AAQADAAIAAAAQAA4AAQADAAIAAAAQAA0AAQADAAIAAAARAA0AAQADAAIAAAARAA4AAQADAAIAAAASAA4AAQADAAIAAAATAA4AAQADAAIAAAASAA0AAwABAAMAAGATAA0AAwABAAMAAAAcAA0AAwABAAMAAAAcAA4AAwABAAMAAAAcAA8AAwABAAMAAAAcABAAAwABAAMAAAAdAA0AAQADAAIAAAAeAA0AAQADAAIAAAAfAA0AAQADAAIAAAAgAA0AAQADAAIAAAAhAA0AAQADAAIAAAAcABEAAQADAAIAAAAcABIAAQADAAIAAAAcABMAAQADAAIAAAAcABQAAQADAAIAAAAdABQAAQADAAIAAAAeABQAAQADAAIAAAAfABQAAQADAAIAAAAgABQAAQADAAIAAAAhABQAAQADAAIAAAAhAA4AAQADAAIAAAAhAA8AAQADAAIAAAAhABAAAQADAAIAAAAhABEAAQADAAIAAAAhABIAAQADAAIAAAAhABMAAQADAAIAAAAgABMAAQADAAIAAAAgAA4AAQADAAIAAAAgAA8AAQADAAIAAAAgABAAAQADAAIAAAAgABEAAQADAAIAAAAgABIAAQADAAIAAAAfABIAAQADAAIAAAAfABMAAQADAAIAAAAeABIAAQADAAIAAAAeABEAAQADAAIAAAAeABAAAQADAAIAAAAeAA8AAQADAAIAAAAeAA4AAQADAAIAAAAfAA4AAQADAAIAAAAdAA4AAQADAAIAAAAdAA8AAQADAAIAAAAdABEAAQADAAIAAAAdABIAAQADAAIAAAAeABMAAQADAAIAAAAfABEAAQADAAIAAAAfABAAAQADAAIAAAAfAA8AAQADAAIAAAAdABAAAQADAAIAAAAdABMAAQADAAIAAAAVAAYAAQACAAIAAAAUAAYAAQACAAIAAAATAAYAAQACAAIAAAATAAcAAQACAAIAAAAUAAcAAQACAAIAAAAVAAcAAQACAAIAAAAVAAgAAQACAAIAAAAUAAgAAQACAAIAAAATAAgAAQACAAIAAAARAAcAAwABAAMAAAAQAAcAAwABAAMAAAAQAAgAAQACAAIAAAARAAgAAQACAAIAAAASAAgAAQACAAIAAAANAAcAAQAEAAAAAAAOAAcAAQAEAAAAAAAPAAcAAQAEAAAAAAANAAgAAQAEAAEAAAAOAAgAAQAEAAEAAAAPAAgAAQAEAAEAAAAJAAUAAwABAAQAAAAKAAUAAwABAAQAAAALAAUAAwABAAQAAAAMAAUAAwABAAQAAAALAAQAAwABAAMAAAANAAIAAwABAAMAAAAOAAEAAwABAAMAAAAWAAYAAQADAAIAAAAXAAYAAQADAAIAAAAYAAYAAQADAAIAAAAZAAYAAQADAAIAAAAaAAYAAQADAAIAAAAaAAUAAQADAAIAAAAaAAQAAQADAAIAAAAaAAMAAQADAAIAAAAXAAIAAQAEAAAAAAAWAAIAAQAEAAAAAAAWAAMAAQAEAAEAAAAWAAQAAQADAAIAAAAWAAUAAQADAAIAAAAXAAMAAQAEAAEAAAAXAAQAAQADAAIAAAAYAAQAAQADAAIAAAAYAAUAAQADAAIAAAAZAAUAAQADAAIAAAAZAAQAAQADAAIAAAAZAAMAAQADAAIAAAAYAAMAAQADAAIAAAAXAAUAAQADAAIAAAAYAAIAAwABAAMAAAAaAAIAAwABAAMAAAASAAcAAwABAAMAAGAZAAIAAwABAAMAAGAMAAMAAwABAAMAAGAPAAEAAwABAAMAAGAQAAEAAQADAAMAAAARAAEAAQADAAMAAAASAAEAAQADAAMAAAATAAEAAQADAAMAAAAUAAEAAQADAAMAAAAVAAEAAQADAAMAAAAWAAEAAQADAAMAAAAXAAEAAQADAAMAAAAYAAEAAQADAAMAAAAZAAEAAQADAAMAAAAZAP//AQADAAMAAAAZAAAAAQADAAMAAAAZAP7/AQADAAMAAAAaAP7/AQACAAIAAAAbAP7/AQACAAIAAAAcAP7/AQACAAIAAAAdAP7/AQACAAIAAAAeAP7/AQACAAIAAAAMAAQAAwACAAMAAAANAAMAAwACAAMAAAAOAAIAAwACAAMAAAANAAQAAwAAAAQAAAAOAAMAAwAAAAQAAAAPAAIAAwAAAAQAAAAKAAQAAwAAAAYAAAALAAMAAwACAAYAAAAMAAIAAwACAAUAAAANAAEAAwABAAUAAAANAAAAAwABAAUAAAAOAAAAAwABAAQAAAAPAAAAAwACAAQAAAAQAAAAAwACAAQAAAANAP//AwABAAEAAAAOAP//AwABAAEAAAAPAP//AwABAAEAAAAQAP//AwABAAEAAAARAP//AwACAAMAAAARAAAAAwABAAMAAAATAP//AwABAAMAADAUAAAAAwABAAMAADAWAP//AwABAAMAADAXAAAAAwABAAMAADAYAAAAAwACAAMAAAAUAP//AwABAAQAAAAVAP//AwABAAQAAAAVAAAAAwABAAYAAAAWAAAAAwABAAYAAAATAAAAAwABAAYAAAASAAAAAwABAAEAAAASAP//AwABAAQAAAAYAP//AwABAAQAAAAXAP//AwABAAEAAAAYAP7/AwABAAEAAAAXAP7/AwABAAEAAAAVAP7/AwABAAEAAAAWAP7/AwABAAEAAAAUAP7/AwABAAEAAAATAP7/AwABAAEAAAAUAAIAAQAEAAIAAAAVAAIAAQAEAAIAAAAUAAMAAQAEAAIAAAAVAAMAAQAEAAIAAAAVAAQAAQAEAAIAAAAVAAUAAQAEAAIAAAAUAAUAAQAEAAIAAAAUAAQAAQAEAAIAAAATAAIAAwACAAMAAAATAAMAAQAEAAIAAAATAAQAAQAEAAIAAAATAAUAAQAEAAIAAAAQAAIAAQAEAAIAAAARAAIAAQAEAAIAAAASAAIAAQAEAAIAAAAPAAMAAQAEAAIAAAAQAAMAAQAEAAIAAAARAAMAAQAEAAIAAAASAAMAAQAEAAIAAAAOAAQAAQAEAAIAAAAPAAQAAQAEAAIAAAAQAAQAAQAEAAIAAAARAAQAAQAEAAIAAAASAAQAAQAEAAIAAAANAAUAAQAEAAIAAAANAAYAAQAEAAIAAAAOAAYAAQAEAAIAAAAPAAYAAQAEAAIAAAAQAAYAAQAEAAIAAAARAAYAAQAEAAIAAAASAAYAAQAEAAIAAAASAAUAAQAEAAIAAAARAAUAAQAEAAIAAAAQAAUAAQAEAAIAAAAPAAUAAQAEAAIAAAAOAAUAAQAEAAIAAAALABIAAQACAAIAAAAMABIAAQACAAIAAAANABIAAQACAAIAAAAOABIAAQACAAIAAAAPABIAAQACAAIAAAAQABIAAQACAAIAAAARABIAAQACAAIAAAASABIAAQACAAIAAAANAA4AAQACAAgAADAOAA4AAQAAAAcAADAOAA8AAQACAAgAADATAP3/AQAEAAEAAAAUAP3/AQAEAAEAAAAVAP3/AQAEAAEAAAAWAP3/AQAEAAEAAAAXAP3/AQAEAAEAAAAYAP3/AQAEAAEAAAAZAP3/AQAEAAEAAAAaAP3/AQAEAAEAAAAbAP3/AQAEAAEAAAATAPz/AQAEAAAAAAAUAPz/AQAEAAAAAAAVAPz/AQAEAAAAAAAXAPz/AQAEAAAAAAAYAPz/AQAEAAAAAAAZAPz/AQAEAAAAAAAaAPz/AQAEAAAAAAAbAPz/AQAEAAAAAAARAP7/AwACAAQAAAAQAP7/AwACAAQAAAAOAP7/AwABAAYAAAAPAP7/AwABAAYAAAANAP7/AwAAAAUAAAASAP7/AwACAAUAAAAWAPz/AQAEAAAAAAANAP3/AQAEAAEAAAAOAP3/AQAEAAEAAAAPAP3/AQAEAAEAAAAQAP3/AQAEAAEAAAARAP3/AQAEAAEAAAASAP3/AQAEAAEAAAANAPz/AQAEAAAAAAAOAPz/AQAEAAAAAAAPAPz/AQAEAAAAAAAQAPz/AQAEAAAAAAARAPz/AQAEAAAAAAASAPz/AQAEAAAAAAALABMAAQACAAIAAAAMABMAAQACAAIAAAANABMAAQACAAIAAAAOABMAAQACAAIAAAAPABMAAQACAAIAAAAQABMAAQACAAIAAAARABMAAQACAAIAAAASABMAAQACAAIAAAATABMAAQACAAIAAAAUABMAAQACAAIAAAAVABMAAQACAAIAAAAWABMAAQACAAIAAAAXABMAAQACAAIAAAAYABMAAQACAAIAAAAZABMAAQACAAIAAAAaABMAAQACAAIAAAALABQAAQACAAIAAAAMABQAAQACAAIAAAANABQAAQACAAIAAAAOABQAAQACAAIAAAAPABQAAQACAAIAAAAQABQAAQACAAIAAAARABQAAQACAAIAAAASABQAAQACAAIAAAATABQAAQACAAIAAAAUABQAAQACAAIAAAAVABQAAQACAAIAAAAWABQAAQACAAIAAAAXABQAAQACAAIAAAAYABQAAQACAAIAAAAZABQAAQACAAIAAAAaABQAAQACAAIAAAAJABAAAQACAAIAAAAKABAAAQACAAIAAAAIABAAAQACAAIAAAAKABEAAQACAAIAAAAJABEAAQACAAIAAAAKABIAAQACAAIAAAAfAP7/AQACAAIAAAAfAP//AQACAAIAAAAfAAIAAQACAAIAAAAfAAEAAQACAAIAAAAfAAAAAQACAAIAAAAfAAQAAQACAAIAAAAfAAUAAQACAAIAAAAfAAYAAQACAAIAAAAfAAcAAQACAAIAAAAfAAgAAQACAAIAAAAfAAoAAQACAAIAAAAfAAkAAQACAAIAAAAMAAAAAwAAAAAAAAAMAAEAAwAAAAAAAAALAAEAAwAAAAAAAAALAAIAAwAAAAAAAAAKAAMAAwAAAAAAAAAJAAQAAwAAAAAAAAAKAAIAAwAAAAAAAAAJAAMAAwAAAAAAAAAIAAQAAwAAAAAAAAAIAAUAAwAAAAAAAAAHAAUAAwAAAAAAAAAfAAMAAQACAAIAAAAgAAUAAQABAAMAAAAgAAQAAQABAAMAAAAgAAMAAQABAAMAAAAgAAIAAQABAAMAAAAhAAIAAQABAAMAAAAhAAUAAQABAAMAAAAiAAIAAQABAAMAAAAiAAMAAQABAAMAAAAiAAQAAQABAAMAAAAiAAUAAQABAAMAAAAjAAIAAwABAAMAAAAjAAMAAwABAAMAAAAjAAUAAwABAAMAAAAjAAQAAwABAAMAAAAkAAIAAQADAAMAAAAkAAMAAQADAAMAAAAkAAQAAQADAAMAAAAkAAUAAQADAAMAAAAlAAIAAQADAAMAAAAlAAMAAQADAAMAAAAlAAQAAQADAAMAAAAlAAUAAQADAAMAAAAmAAIAAQADAAMAAAAmAAMAAQADAAMAAAAmAAUAAQADAAMAAAAmAAQAAQADAAMAAAAnAAIAAQADAAMAAAAnAAMAAQADAAMAAAAnAAQAAQADAAMAAAAnAAUAAQADAAMAAAAjAAEAAQABAAMAAAAjAAAAAQABAAMAAAAjAP//AQABAAMAAAAqAP//AQADAAMAAAAqAAAAAQADAAMAAAAqAAEAAQADAAMAAAAqAAIAAQADAAMAAAAqAAMAAQADAAMAAAAqAAQAAQADAAMAAAAqAAUAAQADAAMAAAAqAAYAAQADAAMAAAAqAAcAAQADAAMAAAAqAAgAAQADAAMAAAApAAgAAQADAAMAAAAoAAgAAQADAAMAAAAnAAgAAQADAAMAAAAmAAgAAQADAAMAAAAlAAgAAQADAAMAAAAkAAgAAQADAAMAAAAkAAcAAQADAAMAAAAjAAcAAQABAAMAAAAjAAYAAQABAAMAAAAjAAgAAQABAAMAAAAkAP//AQADAAMAAAAlAP//AQADAAMAAAAmAP//AQADAAMAAAAnAP//AQADAAMAAAAoAP//AQADAAMAAAApAP//AQADAAMAAAApAAAAAQADAAMAAAApAAEAAQADAAMAAAApAAIAAQADAAMAAAAoAAIAAQADAAMAAAAoAAMAAQADAAMAAAAoAAQAAQADAAMAAAAoAAUAAQADAAMAAAAoAAYAAQADAAMAAAAoAAcAAQADAAMAAAApAAcAAQADAAMAAAApAAYAAQADAAMAAAApAAUAAQADAAMAAAApAAQAAQADAAMAAAApAAMAAQADAAMAAAAoAAEAAQADAAMAAAAoAAAAAQADAAMAAAAnAAAAAQADAAMAAAAnAAEAAQADAAMAAAAmAAEAAQADAAMAAAAmAAAAAQADAAMAAAAlAAAAAQADAAMAAAAkAAAAAQADAAMAAAAkAAEAAQADAAMAAAAlAAEAAQADAAMAAAAkAAYAAQADAAMAAAAnAAYAAQADAAMAAAAmAAYAAQADAAMAAAAlAAYAAQADAAMAAAAlAAcAAQADAAMAAAAmAAcAAQADAAMAAAAnAAcAAQADAAMAAAAjAAkAAQABAAMAAAAkAAkAAQABAAMAAAAlAAkAAQABAAMAAAAmAAkAAQABAAMAAAAnAAkAAQABAAMAAAAoAAkAAQABAAMAAAApAAkAAQABAAMAAAAqAAkAAQABAAMAAAAhAAQAAQABAAMAAAAhAAMAAQABAAMAAAASAAwAAQACAAIAAAATAAwAAQACAAIAAAArAAkAAQABAAMAAAArAAgAAQABAAMAAAArAAcAAQABAAMAAAArAAYAAQABAAMAAAArAAUAAQABAAMAAAArAAQAAQABAAMAAAArAAMAAQABAAMAAAArAAIAAQABAAMAAAArAAEAAQABAAMAAAArAP//AQABAAMAAAArAAAAAQABAAMAAAAjAP3/AQABAAMAAAAkAP3/AQABAAMAAAAlAP3/AQABAAMAAAAmAP3/AQABAAMAAAAnAP3/AQABAAMAAAAoAP3/AQABAAMAAAApAP3/AQABAAMAAAAqAP3/AQABAAMAAAArAP3/AQABAAMAAAAkAP7/AQADAAMAAAAlAP7/AQADAAMAAAAmAP7/AQADAAMAAAAnAP7/AQADAAMAAAAoAP7/AQADAAMAAAApAP7/AQADAAMAAAAqAP7/AQADAAMAAAAjAP7/AQABAAMAAAArAP7/AQABAAMAAAAeAAAAAQACAAIAAAA=")
+tile_set = SubResource("TileSet_he63k")
+
+[node name="Seats" type="TileMapLayer" parent="."]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2782, -1131)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAQABAAAQAKAAUAAAARABAAAQAKAAUAAAASABAAAQAKAAUAAAATABAAAQAKAAUAAAA=")
+tile_set = SubResource("TileSet_he63k")
+
+[node name="floor2" type="TileMapLayer" parent="."]
+z_index = -1
+position = Vector2(-2782, -1131)
+scale = Vector2(5, 5)
+
+[node name="wall 1" type="TileMapLayer" parent="."]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2782, -1131)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAANAA0AAQAEAAEAAAAHAAkAAQAEAAYAAAAHAAcAAQAEAAYAAAAHAAgAAQAEAAYAAAAZAAgAAQAEAAEAAAAYAAgAAQAEAAEAAAAXAAgAAQAEAAEAAAAWAAgAAQAEAAEAAAAYAAcAAQAEAAAAAAAZAAcAAQAEAAAAAAAXAAcAAQAEAAAAAAAdAP//AQAEAAEAAAAdAP7/AQAEAAAAAAAcAP//AQAEAAEAAAAWAAcAAQAEAAAAAAANAAwAAQAEAAAAAAAOAAwAAQAEAAAAAAAOAA0AAQAEAAEAAAAHAAoAAQAEAAYAAAAHAAsAAQAEAAYAAAAHAAwAAQAEAAYAAAAHAA0AAQAEAAYAAAAHAA4AAQAEAAYAAAAHAA8AAQAEAAYAAAAcAP7/AQAEAAAAAAAcABEAAQAEAAYAAAAcABIAAQAEAAYAAAAcABMAAQAEAAYAAAAOAA4AAQACAAgAAFANAA4AAQADAAcAAGAOAA8AAQACAAgAAFAcABAAAQADAAQAAAAaABEAAQAEAAEAAAAbAAsAAQAEAAAAAAAbAAwAAQAEAAEAAAAbAA0AAQABAAAAAAAcAA0AAQAEAAAAAAAbAAoAAQACAAQAAAAPAAcAAQACAAgAAAATAAYAAQAEAAAAAAAUAAYAAQAEAAAAAAAVAAYAAQAEAAAAAAATAAcAAQAEAAEAAAATAAgAAQAEAAYAAAAYAAEAAQAEAAUAAAAbAP7/AQABAAAAAAAZAA8AAQACAAQAAAAXAAsAAQAEAAAAAAAYAAsAAQAEAAAAAAAZAAsAAQAEAAAAAAAPAA8AAQADAAQAAAAPABAAAQADAAUAAAANAPv/AQACAAQAAAAOAPv/AQACAAQAAAAPAPv/AQACAAQAAAAQAPv/AQACAAQAAAARAPv/AQACAAQAAAASAPv/AQACAAQAAAATAPv/AQACAAQAAAAUAPv/AQACAAQAAAAVAPv/AQACAAQAAAAWAPv/AQACAAQAAAAXAPv/AQACAAQAAAAYAPv/AQACAAQAAAAZAPv/AQACAAQAAAAaAPv/AQACAAQAAAAbAPv/AQACAAQAAAAcAPz/AQACAAQAAFAcAP3/AQACAAQAAAAMAP7/AQABAAUAAAAMAP3/AQAAAAYAAAAMAPv/AQAAAAUAAAAPABIAAQAEAAEAAAARABIAAQAEAAEAAAAQABIAAQAEAAEAAAATABIAAQAEAAEAAAASABIAAQAEAAEAAAAPABEAAQAEAAAAAAAQABEAAQAEAAAAAAARABEAAQAEAAAAAAASABEAAQAEAAAAAAATABEAAQAEAAAAAAAYABAAAQAEAAAAAAAYABEAAQAEAAEAAAAZABAAAQAEAAAAAAAZABEAAQAEAAEAAAAUAAcAAQAEAAEAAAAVAAcAAQAEAAEAAAAcAA4AAQAEAAEAAAAdAA0AAQAEAAAAAAAdAA4AAQAEAAEAAAAeAA0AAQAEAAAAAAAeAA4AAQAEAAEAAAAfAA0AAQAAAAYAAAAfAA4AAQAEAAEAAAAgAA0AAQAEAAAAAAAgAA4AAQAEAAEAAAAhAA0AAQAEAAAAAAAhAA4AAQAEAAEAAAAbAA4AAQABAAEAAAAdABQAAQACAAQAAAAeABQAAQACAAQAAAAfABQAAQACAAQAAAAgABQAAQACAAQAAAAhABQAAQABAAUAAAAcABQAAQADAAUAAAAaABQAAQABAAUAAAAMABQAAQACAAQAAAANABQAAQACAAQAAAAOABQAAQACAAQAAAAPABQAAQACAAQAAAAQABQAAQACAAQAAAARABQAAQACAAQAAAASABQAAQACAAQAAAATABQAAQACAAQAAAAUABQAAQACAAQAAAAWABQAAQACAAQAAAAXABQAAQACAAQAAAAYABQAAQACAAQAAAAZABQAAQACAAQAAAAaABMAAQAAAAYAAAAaABIAAQAAAAYAAAAQAAEAAQAEAAAAAAAQAAIAAQAEAAEAAAARAAEAAQAEAAAAAAARAAIAAQAEAAEAAAASAAEAAQAEAAAAAAASAAIAAQAEAAEAAAATAAEAAQAEAAAAAAATAAIAAQAEAAEAAAAUAAEAAQAEAAAAAAAUAAIAAQAEAAEAAAAVAAEAAQAEAAAAAAAVAAIAAQAEAAEAAAAQAAAAAQACAAQAAAARAAAAAQACAAQAAAASAAAAAQACAAQAAAATAAAAAQACAAQAAAAUAAAAAQACAAQAAAAVAAAAAQACAAQAAAAWAAEAAQAEAAYAAAAPAAAAAQAAAAUAAAAWAAAAAQAEAAUAAAANAAMAAQABAAUAAAAOAAIAAQABAAUAAAAPAAEAAQABAAUAAAAMAAQAAQAAAAYAAAANAAIAAQAAAAUAAAAOAAEAAQAAAAUAAAAMAAMAAQAAAAUAAAAPAAIAAQAEAAAAAAAPAAMAAQAEAAEAAAAOAAMAAQAEAAAAAAAOAAQAAQAEAAEAAAANAAQAAQAEAAAAAAANAAUAAQAEAAEAAAAPAAsAAQAEAAAAAAAPAAwAAQAEAAEAAAAQAAsAAQAEAAAAAAAQAAwAAQAEAAEAAAARAAsAAQAEAAAAAAARAAwAAQAEAAEAAAAOAAoAAQABAAQAAAAOAAsAAQABAAUAAAAPAAoAAQACAAQAAAAQAAoAAQACAAQAAAARAAoAAQACAAQAAAASAAsAAQAEAAYAAAAXAAwAAQAEAAEAAAAYAAwAAQAEAAEAAAAZAAwAAQAEAAEAAAAaAAwAAQAEAAEAAAAXAAoAAQACAAQAAAAYAAoAAQACAAQAAAAZAAoAAQACAAQAAAAaAAoAAQACAAQAAAAYAA8AAQACAAQAAAAaAA8AAQADAAQAAAAaABAAAQADAAUAAAAXABAAAQAEAAAAAAAXABEAAQAEAAEAAAAIABAAAQADAAUAAAAJABEAAQADAAUAAAAKABIAAQADAAUAAAALABQAAQADAAUAAAAKABEAAQADAAQAAAALABIAAQADAAQAAAAJABAAAQADAAQAAAAIAA8AAQADAAQAAAALABMAAQAEAAYAAAAeAP//AQAEAAEAAAAeAAoAAQACAAQAAAAfAAoAAQABAAUAAAAfAAkAAQAAAAYAAAAfAAgAAQAAAAYAAAAfAAcAAQAAAAYAAAAfAAYAAQAAAAYAAAAfAP7/AQAEAAAAAAAcAPv/AQADAAQAAAAdAP3/AQACAAQAAAAeAP3/AQACAAQAAAAfAP3/AQACAAQAAAAbAAEAAQACAAQAAAAbAAcAAQAEAAAAAAAbAAgAAQAEAAEAAAAaAAgAAQAEAAEAAAAaAAcAAQAEAAAAAAAXAA8AAQACAAQAAAALAAAAAQAEAAAAAAALAAEAAQAEAAEAAAAKAAEAAQAEAAAAAAAKAAIAAQAEAAEAAAAJAAIAAQAEAAAAAAAJAAMAAQAEAAEAAAAIAAMAAQAEAAAAAAAIAAQAAQAEAAEAAAAHAAQAAQAEAAAAAAAHAAUAAQAEAAEAAAAMAP//AQAEAAAAAAAMAAAAAQAEAAEAAAAHAAIAAQABAAQAAAAHAAMAAQABAAUAAAAIAAEAAQABAAQAAAAIAAIAAQABAAUAAAAJAAAAAQABAAQAAAAJAAEAAQABAAUAAAAKAP//AQABAAQAAAAKAAAAAQABAAUAAAALAP7/AQABAAQAAAALAP//AQABAAUAAAAVABQAAQACAAQAAAAaAAsAAQAEAAAAAAAfAP//AQAEAAEAAAAMAPz/AQAAAAYAAAAiAP7/AQAAAAYAAAAiAP//AQAAAAYAAAAgAP3/AQADAAQAAAAjAAUAAQADAAQAAAAfAAUAAQAAAAUAAAAjAAYAAQACAAQAAFAjAAcAAQACAAQAAFAjAAgAAQACAAQAAFAjAAkAAQACAAQAAFAsAP7/AQACAAQAAFAsAP//AQACAAQAAFAsAAAAAQACAAQAAFAsAAEAAQACAAQAAFAsAAIAAQACAAQAAFAsAAMAAQACAAQAAFAsAAQAAQACAAQAAFAsAAUAAQACAAQAAFAsAAYAAQACAAQAAFAsAAcAAQACAAQAAFAsAAgAAQACAAQAAFAsAAkAAQACAAQAAFAiAPv/AQAAAAYAAAAiAPz/AQAAAAYAAAAjAPv/AQAEAAAAAAAjAPz/AQAEAAEAAAAkAPv/AQAEAAAAAAAkAPz/AQAEAAEAAAAlAPv/AQAEAAAAAAAlAPz/AQAEAAEAAAAmAPv/AQAEAAAAAAAmAPz/AQAEAAEAAAAnAPv/AQAEAAAAAAAnAPz/AQAEAAEAAAAoAPv/AQAEAAAAAAAoAPz/AQAEAAEAAAApAPv/AQAEAAAAAAApAPz/AQAEAAEAAAAqAPv/AQAEAAAAAAAqAPz/AQAEAAEAAAArAPv/AQAEAAAAAAArAPz/AQAEAAEAAAAsAPv/AQACAAQAAFAsAPz/AQACAAQAAFAiAPr/AQAAAAUAAAAjAPr/AQACAAQAAAAkAPr/AQACAAQAAAAlAPr/AQACAAQAAAAmAPr/AQACAAQAAAAnAPr/AQACAAQAAAAoAPr/AQACAAQAAAApAPr/AQACAAQAAAAqAPr/AQACAAQAAAArAPr/AQACAAQAAAAsAPr/AQADAAQAAAAiAP3/AQAAAAYAAAAsAP3/AQACAAQAAFA=")
+tile_set = SubResource("TileSet_he63k")
+
+[node name="hej" type="TileMapLayer" parent="."]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2782, -1131)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAHAA8AAQADAAUAAAAOAA0AAQABAAEAAAAPAAcAAQABAAAAAAAWAAcAAQAAAAAAAAAWAAgAAQAAAAEAAAAPAAgAAQABAAEAAAAbAP//AQABAAEAAAAWAAMAAQAAAAEAAAAYAAIAAQAAAAAAAAAYAAMAAQAAAAEAAAAhABMAAQAEAAYAADAhABIAAQAEAAYAADAhABEAAQAEAAYAADAhABAAAQAEAAYAADAhAA8AAQAEAAYAADAhAA4AAQAEAAYAADAhAA0AAQADAAUAADAgAA0AAQACAAQAADAfAA0AAQACAAQAADAeAA0AAQACAAQAADAdAA0AAQACAAQAADAcAA0AAQACAAQAADAbABAAAQACAAQAAAAdAP7/AQACAAQAADAcAP7/AQACAAQAADAdAAoAAQACAAQAAAAcAAoAAQACAAQAAAARABAAAQACAAQAAAASABAAAQACAAQAAAATABAAAQABAAUAAAATAA8AAQAAAAYAAAATAA4AAQAAAAYAAAAPAA8AAQAEAAYAAAAPAA4AAQAEAAYAAAAPAA0AAQAEAAYAAAAWAAYAAQADAAUAAAAXAAYAAQACAAQAAAAYAAYAAQACAAQAAAAZAAYAAQACAAQAAAANAAcAAQACAAgAAAANAAsAAQACAAQAAAAOAAsAAQACAAQAAAANAA0AAQAAAAEAAAANAA4AAQADAAcAAAAOAA4AAQABAAcAAAAOAA8AAQADAAcAAGAbAAoAAQABAAQAAAATAP//AQAAAAUAADAMAAUAAQAAAAYAAAAMAAYAAQAAAAYAAAAMAAcAAQAAAAYAAAAMAAgAAQAAAAYAAAAOAAcAAQACAAgAAAAbAAsAAQAAAAYAAAAQABAAAQACAAQAAAAUAAYAAQACAAgAAAAPABEAAQAAAAAAAAAPABIAAQAAAAEAAAATABEAAQABAAAAAAATABIAAQABAAEAAAATAAYAAQADAAcAAAAVAAYAAQACAAgAAAATAAcAAQAEAAYAAAAWAAEAAQACAAQAAAAXAAEAAQACAAQAAAAPAAIAAQABAAAAAAAPAAMAAQABAAEAAAAOAAMAAQABAAAAAAAOAAQAAQABAAEAAAANAAQAAQABAAAAAAANAAUAAQABAAEAAAASAAoAAQAEAAUAAAAbAAwAAQAAAAYAAAAXABAAAQAAAAAAAAAXABEAAQAAAAEAAAAcAP3/AQACAAQAAFAaAAYAAQACAAQAAAAbAAYAAQABAAUAAAAbAAUAAQAAAAYAAAAbAAQAAQAAAAYAAAAbAAMAAQAAAAYAAAAbAAIAAQAAAAYAAAAbAAcAAQABAAAAAAAbAAgAAQABAAEAAAAHAAQAAQAEAAYAAAAHAAYAAQAEAAYAAAAHAAUAAQAEAAYAAAAOAAwAAQABAAAAAAANAAwAAQAAAAAAAAAXAAsAAQAAAAAAAAAXAAwAAQAAAAAAAAAWAAIAAQAAAAAAAAAgAAAAAQAAAAAAAAAgAAEAAQAAAAAAAAAgAP//AQACAAQAAAAhAP//AQACAAQAAAAiAP//AQACAAQAAAAiAAAAAQABAAAAAAAiAAEAAQABAAAAAAAgAAUAAQACAAQAAAAhAAUAAQACAAQAAAAiAAUAAQACAAQAAAAjAAkAAQACAAQAAAAkAAkAAQACAAQAAAAlAAkAAQACAAQAAAAmAAkAAQACAAQAAAAnAAkAAQACAAQAAAAoAAkAAQACAAQAAAApAAkAAQACAAQAAAAqAAkAAQACAAQAAAASAAwAAQAEAAYAAAArAAkAAQACAAQAAAA=")
+tile_set = SubResource("TileSet_he63k")
+
+[node name="WALL 3" type="TileMapLayer" parent="."]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2782, -1131)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAgAAEAAQAEAAEAAAAhAAEAAQAEAAEAAAAiAAEAAQAEAAEAAAAgAAAAAQAEAAAAAAAhAAAAAQAEAAAAAAAiAAAAAQAEAAAAAAA=")
+tile_set = SubResource("TileSet_he63k")
+
+[node name="things 2" type="TileMapLayer" parent="."]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2782, -1131)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAATAP7/AQAKAAIAAAAVAP7/AQAKAAIAAAAUAP7/AQALAAIAAAAdAP7/AQANAAAAAAAeAP7/AQAOAAAAAAAcAP7/AQATAAMAAAAcAP//AQAPAAIAAAAXAAIAAQAKAAAAAAAXAAMAAQATAAUAAAAPAAcAAQATAAUAAAAPAAgAAQATAAUAAAAOAAcAAQATAAMAAAANAAcAAQAKAAAAAAAWAAcAAQAKAAAAAAAXAAcAAQASAAAAAAAYAAcAAQATAAAAAAAZAAcAAQAUAAAAAAAXAAgAAQASAAEAAAAYAAgAAQATAAEAAAAZAAgAAQAUAAEAAAAHAAkAAQAKAAMAAAAHAAsAAQAKAAMAAAAHAA0AAQAKAAMAAAAHAAwAAQALAAMAAAAHAAoAAQALAAMAAAAHAAgAAQALAAMAAAAHAAcAAQANAAIAAGAIAAcAAQANAAMAAGAHAA4AAQAOAAIAAGAIAA4AAQAOAAMAAGATAA4AAQASAAUAAGAPAA8AAwAGAAMAAFAPABAAAwAHAAMAAFAcAA0AAQASAAUAADAfAA0AAQAIAAAAAAAgAA0AAQAJAAAAAAAdABIAAQAHAAoAAGAdABMAAQAGAAoAAGAcABIAAQAHAAkAAGAcABMAAQAGAAkAAGARAAMAAwAJAAMAAAATAAcAAQAGAAUAAAATAAgAAQAGAAYAAAAUAAcAAQAHAAUAAAAUAAgAAQAHAAYAAAAVAAcAAQAOAAIAAAAVAAgAAQAOAAMAAAAdABEAAQAHAAUAAFAcABEAAQAHAAYAAFAZAA0AAQALAAIAAAAbAA0AAQALAAIAAAAaAA0AAQAKAAIAAAAlAAEAAwAJAAMAAAAnAAEAAwAJAAMAAAApAAEAAwAJAAMAAAAlAAcAAwAJAAMAAAAnAAcAAwAJAAMAAAApAAcAAwAJAAMAAAAlAAQAAwAJAAMAAAAnAAQAAwAJAAMAAAApAAQAAwAJAAMAAAAnAP7/AwAJAAMAAAApAP7/AwAJAAMAAAA=")
+tile_set = SubResource("TileSet_he63k")
+
+[node name="things 1" type="TileMapLayer" parent="."]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2782, -1131)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAATAP7/AQAKAAIAAAAVAP7/AQAKAAIAAAAUAP7/AQALAAIAAAAdAP7/AQANAAAAAAAeAP7/AQAOAAAAAAAcAP7/AQATAAMAAAAcAP//AQAPAAIAAAAdAP//AQAQAAIAAAAeAP//AQARAAIAAAAXAAIAAQAKAAAAAAAXAAMAAQATAAUAAAAPAAcAAQATAAUAAAAPAAgAAQATAAUAAAAOAAcAAQATAAMAAAANAAcAAQAKAAAAAAAWAAcAAQAKAAAAAAAXAAcAAQASAAAAAAAYAAcAAQATAAAAAAAZAAcAAQAUAAAAAAAXAAgAAQASAAEAAAAYAAgAAQATAAEAAAAZAAgAAQAUAAEAAAAHAAkAAQAKAAMAAAAHAAsAAQAKAAMAAAAHAA0AAQAKAAMAAAAHAAwAAQALAAMAAAAHAAoAAQALAAMAAAAHAAgAAQALAAMAAAAHAAcAAQANAAIAAGAIAAcAAQANAAMAAGAHAA4AAQAOAAIAAGAIAA4AAQAOAAMAAGATAA4AAQASAAUAAGAPAA8AAwAGAAMAAFAPABAAAwAHAAMAAFAcAA0AAQASAAUAADAfAA0AAQAIAAAAAAAgAA0AAQAJAAAAAAAdABIAAQAHAAoAAGAdABMAAQAGAAoAAGAcABIAAQAHAAkAAGAcABMAAQAGAAkAAGARAAMAAwAJAAMAAAATAAcAAQAGAAUAAAATAAgAAQAGAAYAAAAUAAcAAQAHAAUAAAAUAAgAAQAHAAYAAAAVAAcAAQAOAAIAAAAVAAgAAQAOAAMAAAAdABEAAQAHAAUAAFAcABEAAQAHAAYAAFAZAA0AAQALAAIAAAAbAA0AAQALAAIAAAAaAA0AAQAKAAIAAAAHAAQAAQABAAAAAAAHAAUAAQABAAEAAAAIAAMAAQABAAAAAAAIAAQAAQABAAEAAAAJAAIAAQABAAAAAAAJAAMAAQABAAEAAAAKAAEAAQABAAAAAAAKAAIAAQABAAEAAAALAAAAAQABAAAAAAALAAEAAQABAAEAAAAMAP//AQABAAAAAAAMAAAAAQABAAEAAAAUAAMAAwAJAAMAAAA=")
+tile_set = SubResource("TileSet_he63k")
+
+[node name="things2" type="TileMapLayer" parent="."]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2782, -1131)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAQAAMAAQAGAAIAAAARAAQAAQAKAAUAAAAlAAIAAQAKAAUAAAAnAAIAAQAKAAUAAAApAAIAAQAKAAUAAAAlAAgAAQAKAAUAAAAnAAgAAQAKAAUAAAApAAgAAQAKAAUAAAAlAAUAAQAKAAUAAAAnAAUAAQAKAAUAAAApAAUAAQAKAAUAAAAlAP//AQAKAAUAAAAnAP//AQAKAAUAAAApAP//AQAKAAUAAAAUAAQAAQAKAAUAAAASAAMAAQAIAAIAAAAVAAMAAQAIAAMAAAATAAMAAQAGAAMAAAA=")
+tile_set = SubResource("TileSet_he63k")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2782, -1131)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAYAAIAAQASAAUAAFAgAP7/AQACAAQAAFAgAP//AQACAAQAAFA=")
+tile_set = SubResource("TileSet_he63k")
+collision_enabled = false
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Sprite2D8" type="Sprite2D" parent="Node"]
+top_level = true
+position = Vector2(3535, -969)
+scale = Vector2(5, 5)
+texture = ExtResource("28_pfkyt")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node"]
+top_level = true
+position = Vector2(3534, -3.00003)
+scale = Vector2(5, 5)
+texture = ExtResource("28_pfkyt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node"]
+top_level = true
+position = Vector2(3856, -470)
+scale = Vector2(5, 5)
+texture = ExtResource("28_pfkyt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node"]
+top_level = true
+position = Vector2(3852, -1438)
+scale = Vector2(5, 5)
+texture = ExtResource("28_pfkyt")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node"]
+position = Vector2(3531, -467)
+scale = Vector2(5, 5)
+texture = ExtResource("22_v21l5")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node"]
+position = Vector2(3216, -966)
+scale = Vector2(5, 5)
+texture = ExtResource("22_v21l5")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Node"]
+position = Vector2(3539, -1434)
+scale = Vector2(5, 5)
+texture = ExtResource("22_v21l5")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Node"]
+position = Vector2(3217, -1.00003)
+scale = Vector2(5, 5)
+texture = ExtResource("22_v21l5")
+
+[connection signal="health_reached_max" from="CanvasLayer/HealthBar" to="." method="_on_health_bar_health_reached_max"]
 [connection signal="pressed" from="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" to="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_pressed"]
 [connection signal="timeout" from="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/CooldownTimer" to="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_cooldown_timer_timeout"]
 [connection signal="pressed" from="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" to="TaskArea/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" method="_on_pressed"]
 [connection signal="pressed" from="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" to="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/CooldownTimer" to="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_cooldown_timer_timeout"]
 [connection signal="pressed" from="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" to="TaskArea/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" method="_on_pressed"]
 [connection signal="pressed" from="ControlPanel/HackerServer/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/Button" to="ControlPanel" method="_on_button_pressed"]
 [connection signal="pressed" from="ControlPanel/DeveloperPanel/Control/Panel/VBoxContainer/ButtonsMargin/HBoxContainer/Yes" to="ControlPanel/DeveloperPanel/Control" method="_on_yes_pressed"]
 [connection signal="pressed" from="ControlPanel/DeveloperPanel/Control/Panel/VBoxContainer/ButtonsMargin/HBoxContainer/No" to="ControlPanel/DeveloperPanel/Control" method="_on_no_pressed"]
+[connection signal="pressed" from="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" to="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/CooldownTimer" to="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" to="TaskArea2/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" to="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/CooldownTimer" to="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" to="TaskArea2/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" to="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/CooldownTimer" to="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" to="TaskArea3/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" to="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/CooldownTimer" to="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" to="TaskArea3/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" to="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/CooldownTimer" to="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" to="TaskArea4/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" to="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/CooldownTimer" to="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" to="TaskArea4/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" to="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/CooldownTimer" to="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" to="TaskArea5/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" to="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/CooldownTimer" to="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" to="TaskArea5/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" to="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/CooldownTimer" to="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" to="TaskArea6/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" to="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/CooldownTimer" to="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" to="TaskArea6/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" to="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/CooldownTimer" to="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" to="TaskArea7/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" to="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/CooldownTimer" to="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" to="TaskArea7/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" to="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/CooldownTimer" to="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" to="TaskArea8/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" to="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/CooldownTimer" to="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" to="TaskArea8/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" to="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/CooldownTimer" to="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" to="TaskArea9/Developer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Close_Button" method="_on_pressed"]
+[connection signal="pressed" from="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" to="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_pressed"]
+[connection signal="timeout" from="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage/CooldownTimer" to="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Sabotage" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" to="TaskArea9/Hacker/SabotagePanel/VBoxContainer/MarginContainer2/HBoxContainer/Close" method="_on_pressed"]
 
+[editable path="ControlPanel"]
 [editable path="ControlPanel/HackerServer/LobbyBrowsingMenu"]
 [editable path="ControlPanel/HackerServer/LobbyBrowsingMenu/LobbyBrowser/VBoxContainer/ControlPanel"]
+[editable path="TaskArea2"]
+[editable path="TaskArea3"]
+[editable path="TaskArea4"]
+[editable path="TaskArea5"]
+[editable path="TaskArea6"]
+[editable path="TaskArea7"]
+[editable path="TaskArea8"]
+[editable path="TaskArea9"]

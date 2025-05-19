@@ -9,7 +9,7 @@
 size = Vector2(128, 128)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y3mrp"]
-radius = 370.022
+radius = 172.142
 
 [node name="TaskArea" type="StaticBody2D"]
 script = ExtResource("1_xldxr")

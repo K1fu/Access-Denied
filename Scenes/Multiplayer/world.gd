@@ -299,3 +299,6 @@ func execute_phishing_attack(target_id: int) -> void:
 		if node2:
 			node2.queue_free()
 	send_hackables()
+
+func _on_health_bar_health_reached_max() -> void:
+	Developer_Victory()

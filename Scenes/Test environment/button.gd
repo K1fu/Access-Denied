@@ -15,7 +15,7 @@ func _ready() -> void:
 	button.disabled = false
 
 func _on_pressed() -> void:
-	health_bar.repair_health(10)
+	health_bar.repair_health(15)
 	DevScreen.hide()
 	_start_cooldown()
 

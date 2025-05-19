@@ -39,6 +39,6 @@ func type_text(new_text: String) -> void:
 func Sabotage() -> void:
 	type_text(full_text)
 	await show_message()
-	Sabotagee.take_damage(10)
+	Sabotagee.take_damage(20)
 	%SabotagePanelAnim.play("Close_Panel")
 	get_parent().layer = 0

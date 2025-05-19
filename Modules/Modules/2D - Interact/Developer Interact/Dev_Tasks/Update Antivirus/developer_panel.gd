@@ -44,7 +44,6 @@ func _on_yes_pressed() -> void:
 func _on_no_pressed() -> void:
 	# play Close tab animation and wait
 	%TabAnimation.play("Close tab")
-	await %TabAnimation.finished
 
 	visible = false
 	layer = 0
