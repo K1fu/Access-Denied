@@ -41,18 +41,21 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("3_2opek")
+theme_override_font_sizes/font_size = 30
 text = "JOIN MANUAL"
 
 [node name="CreateLobby" type="Button" parent="LobbyBrowser/VBoxContainer/CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("3_2opek")
+theme_override_font_sizes/font_size = 30
 text = "CREATE LOBBY"
 
 [node name="Back" type="Button" parent="LobbyBrowser/VBoxContainer/CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("3_2opek")
+theme_override_font_sizes/font_size = 30
 text = "BACK"
 
 [node name="LobbyCreator" type="PanelContainer" parent="."]

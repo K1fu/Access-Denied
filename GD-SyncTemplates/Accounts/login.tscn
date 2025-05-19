@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6v2t1l5wlcjk"]
+[gd_scene load_steps=12 format=3 uid="uid://b6v2t1l5wlcjk"]
 
 [ext_resource type="Script" path="res://GD-SyncTemplates/Accounts/login.gd" id="1_dw383"]
-[ext_resource type="Texture2D" uid="uid://fmresa1o05kj" path="res://Assets/Misc/6.png" id="2_yqnlx"]
+[ext_resource type="Texture2D" uid="uid://dg86jutl6bwtp" path="res://Assets/Splash Screen/backk.png" id="2_mejb3"]
 [ext_resource type="Texture2D" uid="uid://dir3tdo7w7gyb" path="res://Menus/Main Menu/loginpanel-Photoroom.png" id="3_dnvns"]
 [ext_resource type="Texture2D" uid="uid://ddsyl6jjfrjjs" path="res://Assets/spinner.png" id="3_ecexb"]
 [ext_resource type="Script" path="res://GD-SyncTemplates/Accounts/spinner.gd" id="3_osw85"]
+[ext_resource type="Texture2D" uid="uid://daqdnusmq6h8t" path="res://Assets/Splash Screen/bg.jpg" id="5_08303"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_va44r"]
 
@@ -56,15 +57,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dw383")
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_yqnlx")
-stretch_mode = 6
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -10
+layout_mode = 0
+offset_right = 2400.0
+offset_bottom = 1350.0
+texture = ExtResource("5_08303")
 
 [node name="BackButton" type="TextureButton" parent="."]
 z_index = 2
@@ -73,6 +71,10 @@ offset_left = 39.0
 offset_top = 45.0
 offset_right = 181.0
 offset_bottom = 183.0
+texture_normal = ExtResource("2_mejb3")
+texture_pressed = ExtResource("2_mejb3")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="LoginPanel" type="Panel" parent="."]
 z_index = 1
@@ -107,14 +109,24 @@ texture = ExtResource("3_dnvns")
 metadata/_edit_use_anchors_ = true
 
 [node name="Email" type="LineEdit" parent="LoginPanel"]
-layout_mode = 0
-offset_left = 133.0
-offset_top = 230.0
-offset_right = 760.0
-offset_bottom = 317.0
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -313.5
+offset_top = -66.5
+offset_right = 313.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
 placeholder_text = "Put Your E-mail Here:"
 
 [node name="Password" type="LineEdit" parent="LoginPanel"]
+z_index = 10
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -127,6 +139,7 @@ offset_right = 311.0
 offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 25
 placeholder_text = "Put Your Password Here:"
 secret = true
 

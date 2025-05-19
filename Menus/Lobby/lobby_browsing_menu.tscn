@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxv3um0nt0768"]
+[gd_scene load_steps=7 format=3 uid="uid://dxv3um0nt0768"]
 
 [ext_resource type="PackedScene" uid="uid://8qy4jenu2w1m" path="res://GD-SyncTemplates/LobbyBrowser/lobby_browser.tscn" id="1_dgkn0"]
 [ext_resource type="Script" path="res://Menus/Lobby/lobby_browsing_menu.gd" id="1_q6obi"]
 [ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="3_2opek"]
 [ext_resource type="Script" path="res://Menus/Lobby/lobby_creator.gd" id="4_vxmqb"]
+[ext_resource type="FontFile" uid="uid://dpr88u44817be" path="res://Assets/fonts/Modenine-2OPd.ttf" id="5_nsqw8"]
 [ext_resource type="Script" path="res://Menus/Lobby/lobby_joiner.gd" id="5_org80"]
 
 [node name="LobbyBrowsingMenu" type="Control"]
@@ -41,18 +42,21 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("3_2opek")
+theme_override_font_sizes/font_size = 30
 text = "JOIN MANUAL"
 
 [node name="CreateLobby" type="Button" parent="LobbyBrowser/VBoxContainer/CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("3_2opek")
+theme_override_font_sizes/font_size = 30
 text = "CREATE LOBBY"
 
 [node name="Back" type="Button" parent="LobbyBrowser/VBoxContainer/CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("3_2opek")
+theme_override_font_sizes/font_size = 30
 text = "BACK"
 
 [node name="LobbyCreator" type="PanelContainer" parent="."]
@@ -83,11 +87,15 @@ layout_mode = 2
 
 [node name="LobbyNameTitle" type="Label" parent="LobbyCreator/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_nsqw8")
+theme_override_font_sizes/font_size = 30
 text = "Lobby Name"
 
 [node name="LobbyName" type="LineEdit" parent="LobbyCreator/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_nsqw8")
+theme_override_font_sizes/font_size = 30
 
 [node name="Spacer1" type="Control" parent="LobbyCreator/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -95,12 +103,16 @@ layout_mode = 2
 
 [node name="PasswordTitle" type="Label" parent="LobbyCreator/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_nsqw8")
+theme_override_font_sizes/font_size = 30
 text = "Password
 "
 
 [node name="Password" type="LineEdit" parent="LobbyCreator/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_nsqw8")
+theme_override_font_sizes/font_size = 30
 placeholder_text = "(Optional)"
 
 [node name="Spacer2" type="Control" parent="LobbyCreator/VBoxContainer/VBoxContainer"]
@@ -109,6 +121,8 @@ layout_mode = 2
 
 [node name="PlayerLimitTitle" type="Label" parent="LobbyCreator/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_nsqw8")
+theme_override_font_sizes/font_size = 30
 text = "Player Limit"
 
 [node name="PlayerLimit" type="SpinBox" parent="LobbyCreator/VBoxContainer/VBoxContainer"]
@@ -131,6 +145,8 @@ button_pressed = true
 
 [node name="Label" type="Label" parent="LobbyCreator/VBoxContainer/VBoxContainer/Visibility"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_nsqw8")
+theme_override_font_sizes/font_size = 30
 text = "Publicly Visible"
 
 [node name="CreateMessage" type="Label" parent="LobbyCreator/VBoxContainer/VBoxContainer"]
@@ -148,12 +164,14 @@ alignment = 1
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("3_2opek")
+theme_override_font_sizes/font_size = 25
 text = "CREATE"
 
 [node name="Back" type="Button" parent="LobbyCreator/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("3_2opek")
+theme_override_font_sizes/font_size = 25
 text = "BACK"
 
 [node name="LobbyJoiner" type="PanelContainer" parent="."]

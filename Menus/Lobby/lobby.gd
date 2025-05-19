@@ -1,5 +1,8 @@
 extends Control
 
+# Line 3: load the raw font data
+@onready var font_data: FontFile = preload("res://Assets/fonts/Modenine-2OPd.ttf")
+
 func _init():
 #	Connect all signals for player joining and leaving. Also handle disconnects!
 	GDSync.disconnected.connect(disconnected)
@@ -25,18 +28,19 @@ func host_changed(is_host : bool, _new_host_id : int):
 	%Waiting.visible = !is_host
 
 func client_joined(client_id : int):
-#	If a player joins display their username and color
+#	 # If a player joins display their username and color
 	var label : Label = Label.new()
 	label.name = str(client_id)
+	
+	# Line 33: apply the DynamicFont with the proper override key
+	label.add_theme_font_override("font", font_data)
 	%PlayerList.add_child(label)
 	
-#	Get their username using their Client ID. Give an optinoal fallback for if "Username" does not exist
-	label.text = GDSync.get_player_data(client_id, "Username", "Unkown")
-	
-#	Get their color using their Client ID. Give an optional fallback for if "Color" does not exist
+	# Get their username using their Client ID. Fallback if missing
+	label.text = GDSync.get_player_data(client_id, "Username", "Unknown")
+	# Get their color, fallback white
 	label.modulate = GDSync.get_player_data(client_id, "Color", Color.WHITE)
-	
-#	Update the current player count display
+	# Update the current player count display
 	%PlayerCount.text = str(GDSync.get_lobby_player_count())+"/"+str(GDSync.get_lobby_player_limit())
 
 func client_left(client_id : int):

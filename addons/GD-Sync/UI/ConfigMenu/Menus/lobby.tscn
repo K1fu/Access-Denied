@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://i71j5k153dn8"]
+[gd_scene load_steps=7 format=3 uid="uid://i71j5k153dn8"]
 
 [ext_resource type="Script" path="res://Menus/Lobby/lobby.gd" id="1_8ca5k"]
 [ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="2_s2cyl"]
+[ext_resource type="FontFile" uid="uid://dpr88u44817be" path="res://Assets/fonts/Modenine-2OPd.ttf" id="3_dj36l"]
 [ext_resource type="PackedScene" uid="uid://dgbv7r0yrg4yk" path="res://GD-SyncTemplates/TextChat/text_chat.tscn" id="3_w30kf"]
+[ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="4_67msw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ra5jm"]
 
 [node name="Lobby" type="Control"]
 layout_mode = 3
@@ -41,12 +45,16 @@ alignment = 1
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dj36l")
+theme_override_font_sizes/font_size = 30
 text = "Players"
 horizontal_alignment = 1
 
 [node name="PlayerCount" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dj36l")
+theme_override_font_sizes/font_size = 30
 text = "0/0"
 horizontal_alignment = 1
 
@@ -70,6 +78,8 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dj36l")
+theme_override_font_sizes/font_size = 20
 text = "Waiting for host to start."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -92,6 +102,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("2_s2cyl")
+theme_override_font_sizes/font_size = 30
 text = "START"
 
 [node name="Leave" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
@@ -99,17 +110,23 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = ExtResource("2_s2cyl")
+theme_override_font_sizes/font_size = 30
 text = "LEAVE"
 
 [node name="ChatContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
+offset_top = -438.0
+offset_right = 556.0
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="ChatContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_67msw")
+theme_override_font_sizes/font_size = 25
 text = "Chat"
 horizontal_alignment = 1
 
@@ -119,5 +136,22 @@ layout_mode = 2
 open_action_name = "open_chat"
 cancel_action_name = "pause"
 
+[node name="PanelContainer" parent="ChatContainer/TextChat" index="0"]
+offset_bottom = 105.0
+
+[node name="TemplateMessage" parent="ChatContainer/TextChat/PanelContainer/VBoxContainer/ScrollContainer/MessageContainer" index="0"]
+theme_override_fonts/normal_font = ExtResource("4_67msw")
+theme_override_font_sizes/normal_font_size = 25
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ChatContainer/TextChat"]
+modulate = Color(1, 1, 1, 0)
+top_level = true
+position = Vector2(4, 677)
+scale = Vector2(556, 400)
+texture_normal = SubResource("CanvasTexture_ra5jm")
+action = "ui_accept"
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Leave" to="." method="_on_leave_pressed"]
+
+[editable path="ChatContainer/TextChat"]

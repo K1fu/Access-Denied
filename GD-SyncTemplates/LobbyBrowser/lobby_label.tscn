@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cva15bed5a0cc"]
+[gd_scene load_steps=3 format=3 uid="uid://cva15bed5a0cc"]
 
 [ext_resource type="Script" path="res://GD-SyncTemplates/LobbyBrowser/lobby_label.gd" id="1_13l6x"]
+[ext_resource type="FontFile" uid="uid://dpr88u44817be" path="res://Assets/fonts/Modenine-2OPd.ttf" id="2_g3tpb"]
 
 [node name="LobbyLabel" type="HBoxContainer"]
 anchors_preset = 15
@@ -19,6 +20,8 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_g3tpb")
+theme_override_font_sizes/font_size = 30
 text = "Lobby Name"
 clip_text = true
 
@@ -30,6 +33,8 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_g3tpb")
+theme_override_font_sizes/font_size = 30
 text = "Player Count"
 clip_text = true
 
@@ -41,6 +46,8 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_g3tpb")
+theme_override_font_sizes/font_size = 30
 clip_text = true
 
 [node name="PasswordBox" type="HBoxContainer" parent="."]
@@ -51,6 +58,8 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_g3tpb")
+theme_override_font_sizes/font_size = 30
 text = "Password Protected"
 clip_text = true
 
@@ -62,6 +71,8 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_g3tpb")
+theme_override_font_sizes/font_size = 30
 text = "Open"
 clip_text = true
 
@@ -73,6 +84,8 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_g3tpb")
+theme_override_font_sizes/font_size = 30
 text = "JOIN"
 
 [connection signal="pressed" from="JoinBox/JoinButton" to="." method="_on_join_button_pressed"]

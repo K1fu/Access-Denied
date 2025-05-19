@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dx00vd8c6387g"]
+[gd_scene load_steps=14 format=3 uid="uid://dx00vd8c6387g"]
 
 [ext_resource type="Script" path="res://GD-SyncTemplates/Accounts/create_account.gd" id="1_228vd"]
 [ext_resource type="PackedScene" uid="uid://b6v2t1l5wlcjk" path="res://GD-SyncTemplates/Accounts/login.tscn" id="2_h7mfo"]
-[ext_resource type="Texture2D" uid="uid://cfajvnicjp8va" path="res://Assets/Misc/7.png" id="3_ia451"]
+[ext_resource type="Texture2D" uid="uid://daqdnusmq6h8t" path="res://Assets/Splash Screen/bg.jpg" id="3_camge"]
 [ext_resource type="Texture2D" uid="uid://dceir4plyl5y8" path="res://Menus/Main Menu/createaaccount-Photoroom.png" id="4_4dpnb"]
 [ext_resource type="Script" path="res://GD-SyncTemplates/Accounts/spinner.gd" id="4_v25qs"]
 [ext_resource type="Texture2D" uid="uid://ddsyl6jjfrjjs" path="res://Assets/spinner.png" id="5_d6x7i"]
 [ext_resource type="Texture2D" uid="uid://b5gsonpjq5ist" path="res://addons/GD-Sync/UI/Icons/eye.png" id="5_i3b7o"]
 [ext_resource type="Texture2D" uid="uid://ocflmvijuh75" path="res://addons/GD-Sync/UI/Icons/eyeclose.png" id="6_2dt7n"]
+[ext_resource type="Texture2D" uid="uid://dg86jutl6bwtp" path="res://Assets/Splash Screen/backk.png" id="7_164iv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h6ov5"]
 
@@ -59,10 +60,11 @@ script = ExtResource("1_228vd")
 load_scene = ExtResource("2_h7mfo")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = -10
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("3_ia451")
+offset_right = 2395.0
+offset_bottom = 1347.0
+texture = ExtResource("3_camge")
 
 [node name="Izopanel" type="Panel" parent="."]
 z_index = 1
@@ -110,6 +112,7 @@ offset_bottom = -168.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.47226, 1)
+theme_override_font_sizes/font_size = 25
 placeholder_text = "Put your Email here"
 
 [node name="Username" type="LineEdit" parent="Izopanel"]
@@ -127,6 +130,7 @@ offset_bottom = -53.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.47226, 1)
+theme_override_font_sizes/font_size = 25
 placeholder_text = "Put your desired username here"
 
 [node name="Password" type="LineEdit" parent="Izopanel"]
@@ -144,6 +148,7 @@ offset_bottom = 71.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.47226, 1)
+theme_override_font_sizes/font_size = 25
 placeholder_text = "Write your password"
 
 [node name="ToggleVisibility" type="TextureButton" parent="Izopanel/Password"]
@@ -183,6 +188,7 @@ offset_bottom = 191.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.47226, 1)
+theme_override_font_sizes/font_size = 25
 placeholder_text = "Confirm your password"
 
 [node name="ToggleVisibility" type="TextureButton" parent="Izopanel/Password2"]
@@ -205,8 +211,14 @@ scale = Vector2(9.42439, 3.19845)
 
 [node name="BAKBUTTOn" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 243.0
-offset_bottom = 220.0
+offset_left = 49.0
+offset_top = 37.0
+offset_right = 189.0
+offset_bottom = 177.0
+texture_normal = ExtResource("7_164iv")
+texture_pressed = ExtResource("7_164iv")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Spinner" type="Control" parent="."]
 layout_mode = 1

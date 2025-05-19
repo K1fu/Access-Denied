@@ -155,6 +155,15 @@ size = Vector3(15.5317, 0.35194, 15.9929)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("4_cw7hq")]
 
+[node name="Label" parent="CharacterBody3D/Head/InteractRay" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.0
+offset_top = -318.5
+offset_right = 74.0
+offset_bottom = -105.5
+
 [node name="User Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -194,16 +203,16 @@ expand_mode = 1
 
 [node name="Jump" type="TouchScreenButton" parent="User Control"]
 z_index = 1000
-position = Vector2(1479, 1000)
+position = Vector2(1737, 1003)
 rotation = -1.5708
-scale = Vector2(0.132203, 0.132203)
+scale = Vector2(0.193151, 0.193151)
 texture_normal = ExtResource("7_6dnhy")
 action = "jump"
 
 [node name="interact" type="TouchScreenButton" parent="User Control"]
 z_index = 1000
-position = Vector2(1654, 676)
-scale = Vector2(0.142373, 0.142373)
+position = Vector2(1996, 544)
+scale = Vector2(0.177966, 0.177966)
 texture_normal = ExtResource("8_vruot")
 action = "interact"
 
@@ -392,10 +401,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -286.0
+offset_left = -380.0
 offset_top = 50.0
 offset_right = -72.0
-offset_bottom = 152.0
+offset_bottom = 197.0
 grow_horizontal = 0
 theme = ExtResource("9_ouq30")
 theme_override_colors/font_color = Color(0.145098, 0.588235, 0.745098, 1)
@@ -409,4 +418,6 @@ script = ExtResource("16_a0chk")
 [connection signal="pressed" from="User Control/Menu/Panel/VBoxContainer/Quit Container3/Close Menu" to="User Control/Menu/Panel/VBoxContainer/Quit Container3/Close Menu" method="_on_pressed"]
 [connection signal="pressed" from="User Control/Menu_Button" to="User Control/Menu_Button" method="_on_pressed"]
 
+[editable path="CharacterBody3D"]
+[editable path="CharacterBody3D/Head/InteractRay"]
 [editable path="User Control/Virtual Joystick"]
