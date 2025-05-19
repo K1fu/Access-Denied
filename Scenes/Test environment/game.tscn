@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bfsaw8v2tabgy"]
+[gd_scene load_steps=32 format=3 uid="uid://bfsaw8v2tabgy"]
 
 [ext_resource type="Script" path="res://Scenes/Test environment/computer_2.gd" id="1_1gp8e"]
 [ext_resource type="Texture2D" uid="uid://bxvb1qbj7n2f4" path="res://icon.svg" id="2_vnmpk"]
@@ -8,6 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://b4qpvxsp7y5au" path="res://Assets/UI/Crosshair-PNG-Picture.png" id="6_d2p80"]
 [ext_resource type="Texture2D" uid="uid://d25whgc6y4q21" path="res://Assets/Joystick/sprint.png" id="7_6dnhy"]
 [ext_resource type="Texture2D" uid="uid://ddvvmd1ru763m" path="res://Assets/Joystick/cropped_image (2).png" id="8_vruot"]
+[ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="9_ouq30"]
+[ext_resource type="FontFile" uid="uid://dpr88u44817be" path="res://Assets/fonts/Modenine-2OPd.ttf" id="10_cte5o"]
+[ext_resource type="Script" path="res://Scenes/Test environment/Master_Volume.gd" id="11_1ffkg"]
+[ext_resource type="Script" path="res://Scenes/Test environment/sfx.gd" id="12_stbs4"]
+[ext_resource type="Script" path="res://Scenes/Test environment/bgm.gd" id="13_cycsi"]
+[ext_resource type="Script" path="res://Scenes/Test environment/quit.gd" id="14_72vy5"]
+[ext_resource type="Script" path="res://Scenes/Test environment/close_menu.gd" id="15_4du6a"]
+[ext_resource type="Script" path="res://Scenes/Test environment/menu_button.gd" id="16_a0chk"]
+[ext_resource type="Script" path="res://Scenes/Test environment/Title Screen.gd" id="16_n086l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_egsed"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -32,6 +41,87 @@ size = Vector3(1.00452, 0.997741, 1)
 albedo_texture = ExtResource("2_vnmpk")
 metallic = 1.0
 metallic_specular = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e72i2"]
+bg_color = Color(0, 0, 0, 0.780392)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vov8"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="Theme" id="Theme_pruik"]
+default_font = ExtResource("10_cte5o")
+default_font_size = 20
+/styles/Blue = SubResource("StyleBoxFlat_3vov8")
+
+[sub_resource type="Animation" id="Animation_14ppu"]
+resource_name = "Close_Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_lcuf0"]
+resource_name = "Open_Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ta0kb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3m78f"]
+_data = {
+"Close_Menu": SubResource("Animation_14ppu"),
+"Open_Menu": SubResource("Animation_lcuf0"),
+"RESET": SubResource("Animation_ta0kb")
+}
 
 [node name="World" type="Node3D"]
 
@@ -67,29 +157,27 @@ size = Vector3(15.5317, 0.35194, 15.9929)
 
 [node name="User Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="User Control"]
-layer = 100
-
-[node name="Virtual Joystick" parent="User Control/CanvasLayer" instance=ExtResource("5_dwhki")]
+[node name="Virtual Joystick" parent="User Control" instance=ExtResource("5_dwhki")]
 z_index = 1000
-offset_left = 5.0
-offset_top = -519.0
-offset_right = 556.0
-offset_bottom = 26.0
+layout_mode = 1
+offset_top = -545.0
+offset_right = 551.0
+offset_bottom = 0.0
 
-[node name="TextureRect" type="TextureRect" parent="User Control/CanvasLayer"]
+[node name="Base" parent="User Control/Virtual Joystick" index="0"]
+pivot_offset = Vector2(201, 200)
+
+[node name="Tip" parent="User Control/Virtual Joystick/Base" index="0"]
+pivot_offset = Vector2(186, 206)
+
+[node name="TextureRect" type="TextureRect" parent="User Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -104,19 +192,221 @@ grow_vertical = 2
 texture = ExtResource("6_d2p80")
 expand_mode = 1
 
-[node name="Jump" type="TouchScreenButton" parent="User Control/CanvasLayer"]
+[node name="Jump" type="TouchScreenButton" parent="User Control"]
 z_index = 1000
-position = Vector2(1441, 955)
+position = Vector2(1479, 1000)
 rotation = -1.5708
 scale = Vector2(0.132203, 0.132203)
 texture_normal = ExtResource("7_6dnhy")
-action = "ui_accept"
+action = "jump"
 
-[node name="interact" type="TouchScreenButton" parent="User Control/CanvasLayer"]
+[node name="interact" type="TouchScreenButton" parent="User Control"]
 z_index = 1000
-position = Vector2(1689, 675)
+position = Vector2(1654, 676)
 scale = Vector2(0.142373, 0.142373)
 texture_normal = ExtResource("8_vruot")
 action = "interact"
 
+[node name="Menu" type="Control" parent="User Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="User Control/Menu"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.5
+offset_top = -354.0
+offset_right = 257.5
+offset_bottom = 354.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(943, -177.5)
+theme = ExtResource("9_ouq30")
+theme_override_styles/panel = SubResource("StyleBoxFlat_e72i2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="User Control/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.5
+offset_top = -268.5
+offset_right = 210.5
+offset_bottom = 268.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(210, 531)
+
+[node name="MarginContainer" type="MarginContainer" parent="User Control/Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="User Control/Menu/Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_pruik")
+theme_override_font_sizes/font_size = 70
+text = "- Menu -"
+horizontal_alignment = 1
+
+[node name="LabelContainer" type="MarginContainer" parent="User Control/Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="Label" type="Label" parent="User Control/Menu/Panel/VBoxContainer/LabelContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_cte5o")
+theme_override_font_sizes/font_size = 30
+text = "Master"
+horizontal_alignment = 1
+
+[node name="MasterVolumeContainer" type="MarginContainer" parent="User Control/Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+
+[node name="Master" type="HSlider" parent="User Control/Menu/Panel/VBoxContainer/MasterVolumeContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("11_1ffkg")
+bus_name = "Master"
+
+[node name="LabelContainer2" type="MarginContainer" parent="User Control/Menu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="User Control/Menu/Panel/VBoxContainer/LabelContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_cte5o")
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="SFXContainer" type="MarginContainer" parent="User Control/Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+
+[node name="SFX" type="HSlider" parent="User Control/Menu/Panel/VBoxContainer/SFXContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("12_stbs4")
+bus_name = "SFX"
+
+[node name="LabelContainer3" type="MarginContainer" parent="User Control/Menu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="User Control/Menu/Panel/VBoxContainer/LabelContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_cte5o")
+theme_override_font_sizes/font_size = 30
+text = "Music"
+horizontal_alignment = 1
+
+[node name="MusicContainer" type="MarginContainer" parent="User Control/Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+
+[node name="BGM" type="HSlider" parent="User Control/Menu/Panel/VBoxContainer/MusicContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("13_cycsi")
+bus_name = "BGM"
+
+[node name="LabelContainer4" type="MarginContainer" parent="User Control/Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="Label" type="Label" parent="User Control/Menu/Panel/VBoxContainer/LabelContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_cte5o")
+theme_override_font_sizes/font_size = 30
+text = "--Danger Zone--"
+horizontal_alignment = 1
+
+[node name="Quit Container" type="MarginContainer" parent="User Control/Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Quit" type="Button" parent="User Control/Menu/Panel/VBoxContainer/Quit Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+script = ExtResource("14_72vy5")
+
+[node name="Quit Container2" type="MarginContainer" parent="User Control/Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 29
+
+[node name="Close Menu" type="Button" parent="User Control/Menu/Panel/VBoxContainer/Quit Container2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Close Menu"
+script = ExtResource("15_4du6a")
+
+[node name="Quit Container3" type="MarginContainer" parent="User Control/Menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 29
+
+[node name="Close Menu" type="Button" parent="User Control/Menu/Panel/VBoxContainer/Quit Container3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Back to title screen"
+script = ExtResource("16_n086l")
+
+[node name="MenuAnim" type="AnimationPlayer" parent="User Control/Menu"]
+libraries = {
+"": SubResource("AnimationLibrary_3m78f")
+}
+
+[node name="Menu_Button" type="Button" parent="User Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -286.0
+offset_top = 50.0
+offset_right = -72.0
+offset_bottom = 152.0
+grow_horizontal = 0
+theme = ExtResource("9_ouq30")
+theme_override_colors/font_color = Color(0.145098, 0.588235, 0.745098, 1)
+theme_override_font_sizes/font_size = 30
+text = "Menu"
+script = ExtResource("16_a0chk")
+
 [connection signal="interacted" from="Computer2" to="Computer2" method="_on_interacted"]
+[connection signal="pressed" from="User Control/Menu/Panel/VBoxContainer/Quit Container/Quit" to="User Control/Menu/Panel/VBoxContainer/Quit Container/Quit" method="_on_pressed"]
+[connection signal="pressed" from="User Control/Menu/Panel/VBoxContainer/Quit Container2/Close Menu" to="User Control/Menu/Panel/VBoxContainer/Quit Container2/Close Menu" method="_on_pressed"]
+[connection signal="pressed" from="User Control/Menu/Panel/VBoxContainer/Quit Container3/Close Menu" to="User Control/Menu/Panel/VBoxContainer/Quit Container3/Close Menu" method="_on_pressed"]
+[connection signal="pressed" from="User Control/Menu_Button" to="User Control/Menu_Button" method="_on_pressed"]
+
+[editable path="User Control/Virtual Joystick"]

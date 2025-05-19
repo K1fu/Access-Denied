@@ -28,7 +28,7 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vov8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5uu47"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 4
 border_width_top = 4
@@ -43,7 +43,7 @@ corner_radius_bottom_left = 30
 [sub_resource type="Theme" id="Theme_d21j2"]
 default_font = ExtResource("6_n4gaa")
 default_font_size = 20
-/styles/Blue = SubResource("StyleBoxFlat_3vov8")
+/styles/Blue = SubResource("StyleBoxFlat_5uu47")
 
 [sub_resource type="Animation" id="Animation_14ppu"]
 resource_name = "Close_Menu"
