@@ -4,8 +4,8 @@ extends StaticBody2D
 
 @onready var Dev_interactable: Area2D = $dev_interactable
 @onready var Hack_interactable: Area2D = $hack_interactable
-@onready var CrewScreen: CanvasLayer = $Developer
-@onready var HackScreen: CanvasLayer = $Hacker
+@onready var CrewScreen: CanvasLayer = $"../DeveloperTaskArea"
+@onready var HackScreen: CanvasLayer = $"../HackerSabotage"
 
 func _ready() -> void:
 	_crewmate_interact()

@@ -12,7 +12,7 @@ extends CharacterBody2D
 @onready var _username: Label = $Username
 @onready var _position_synchronizer = $PropertySynchronizer
 @onready var char_skin = $Character/CharacterSkin
-@onready var Footsteps: AudioStreamPlayer2D = $Footsteps
+@onready var FootstepsPlayer: AudioStreamPlayer2D = $Footsteps
 
 var last_direction: String = "down"
 
@@ -23,7 +23,7 @@ func _ready():
 	GDSync.sync_var(self, "client_id")
 	set_multiplayer_data.call_deferred()
 	GDSync.sync_var(self, "role")
-	Footsteps.stop()
+	FootstepsPlayer.stop()
 
 func set_multiplayer_data():
 	var client_id_int = name.to_int()
@@ -67,39 +67,33 @@ func get_input():
 		elif last_direction == "right":
 			direction_vector = Vector2(1, 0)
 
-	# Set animation speed
+	# Set animation parameters
 	if sprinting:
 		char_skin.set_animation_speed(sprint_anim_speed)
-	else:
-		char_skin.set_animation_speed(normal_anim_speed)
-
-	# Set moving flags
-	if input_direction != Vector2.ZERO:
-		char_skin.set_moving(true)
-	else:
-		char_skin.set_moving(false)
-
-	# Set moving speed for walk vs run
-	if sprinting:
 		char_skin.set_moving_speed(1.0)
 	else:
+		char_skin.set_animation_speed(normal_anim_speed)
 		char_skin.set_moving_speed(0.0)
 
-	# Set direction
+	char_skin.set_moving(input_direction != Vector2.ZERO)
 	char_skin.set_direction(direction_vector)
 
-	# Footstep sound logic without ternary
-	if input_direction != Vector2.ZERO:
-		if sprinting:
-			Footsteps.pitch_scale = randf_range(1.1, 1.3)
-		else:
-			Footsteps.pitch_scale = randf_range(0.9, 1.1)
+	# Delegate footstep audio
+	play_footsteps(input_direction, sprinting)
 
-		if not Footsteps.playing:
-			Footsteps.play()
+func play_footsteps(input_dir: Vector2, sprinting: bool) -> void:
+	if input_dir != Vector2.ZERO:
+		# Choose pitch based on sprint state
+		if sprinting:
+			FootstepsPlayer.pitch_scale = randf_range(1.1, 1.3)
+		else:
+			FootstepsPlayer.pitch_scale = randf_range(0.9, 1.1)
+
+		if not FootstepsPlayer.playing:
+			FootstepsPlayer.play()
 	else:
-		if Footsteps.playing:
-			Footsteps.stop()
+		if FootstepsPlayer.playing:
+			FootstepsPlayer.stop()
 
 func _physics_process(_delta):
 	if not GDSync.is_gdsync_owner(self):

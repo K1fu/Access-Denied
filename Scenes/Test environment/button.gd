@@ -2,7 +2,7 @@ extends Button
 
 @export var cooldownTime: float = 2
 
-@onready var health_bar: ProgressBar = $"../../../../../../../CanvasLayer/HealthBar"
+@onready var health_bar: ProgressBar = $"../../../../../../CanvasLayer/HealthBar"
 @onready var button: Button = $"."
 @onready var DevScreen: CanvasLayer = $"../../../../.."
 @onready var cooldown_timer: Timer = $CooldownTimer
@@ -15,7 +15,7 @@ func _ready() -> void:
 	button.disabled = false
 
 func _on_pressed() -> void:
-	health_bar.repair_health(15)
+	health_bar.repair_health(5)
 	DevScreen.hide()
 	_start_cooldown()
 

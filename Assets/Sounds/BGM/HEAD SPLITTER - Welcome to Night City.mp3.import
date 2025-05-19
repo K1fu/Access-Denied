@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1f0pqnk1lw3g"
+path="res://.godot/imported/HEAD SPLITTER - Welcome to Night City.mp3-f7ff554e9adcce7b1dc5fbd766a95068.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/BGM/HEAD SPLITTER - Welcome to Night City.mp3"
+dest_files=["res://.godot/imported/HEAD SPLITTER - Welcome to Night City.mp3-f7ff554e9adcce7b1dc5fbd766a95068.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

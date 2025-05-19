@@ -7,6 +7,7 @@ var role_assignments = {}
 var PLAYER_SCENE: PackedScene = preload("res://Modules/Modules/2D - Player/player.tscn")
 var HACKABLE_SCENE: PackedScene = preload("res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/hackable.tscn")
 
+@onready var BGM: AudioStreamPlayer2D = $BGM
 @onready var UI: CanvasLayer = $TouchControl
 @onready var Role_Assignment: CanvasLayer = $RoleAssigning
 @onready var RoleText: Label = $RoleAssigning/Label
@@ -28,7 +29,7 @@ func _ready() -> void:
 	GDSync.client_joined.connect(client_joined)
 	GDSync.client_left.connect(client_left)
 	GDSync.disconnected.connect(disconnected)
-
+	
 	hacked.visible = false
 	connect("players_received", Callable(self, "_populate_hackable_list"))
 
@@ -44,6 +45,7 @@ func _ready() -> void:
 	GDSync.expose_func(Callable(self, "execute_phishing_attack"))
 	GDSync.expose_func(Callable(self, "Hacker_victory"))
 	GDSync.expose_func(Callable(self, "Developer_victory"))
+	GDSync.expose_func(Callable(self, "footsteps"))
 
 	# Spawn existing clients
 	for id in GDSync.get_all_clients():
@@ -60,7 +62,9 @@ func _ready() -> void:
 		check_timer.autostart = true
 		add_child(check_timer)
 		check_timer.timeout.connect(check_roles)
-
+	
+	BGM.play()
+	
 	if health_bar:
 		health_bar.health_reached_max.connect(_on_health_reached_max)
 
@@ -205,12 +209,14 @@ func _on_health_reached_max() -> void:
 		Developer_Victory()
 
 func Hacker_victory() -> void:
-	print("Hackers victory")
-	add_child(Hacker_victory_scene.instantiate())
+	if GDSync.is_host():
+		print("Hackers victory")
+		add_child(Hacker_victory_scene.instantiate())
 
 func Developer_Victory() -> void:
-	print("Developers victory")
-	add_child(Developer_victory_scene.instantiate())
+	if GDSync.is_host():
+		print("Developers victory")
+		add_child(Developer_victory_scene.instantiate())
 
 # Hacking functions (unchanged) ...
 func attempt_hack(target_id: int) -> void:

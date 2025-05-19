@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bv4vu1yt0c73i"]
+[gd_scene load_steps=24 format=3 uid="uid://bv4vu1yt0c73i"]
 
 [ext_resource type="Texture2D" uid="uid://ddvvmd1ru763m" path="res://Assets/Joystick/cropped_image (2).png" id="1_hg0el"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_p5xjg"]
@@ -7,7 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://d25whgc6y4q21" path="res://Assets/Joystick/sprint.png" id="3_uwd2d"]
 [ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="5_0s0xb"]
 [ext_resource type="FontFile" uid="uid://dpr88u44817be" path="res://Assets/fonts/Modenine-2OPd.ttf" id="6_n4gaa"]
+[ext_resource type="Script" path="res://Scenes/Test environment/Master_Volume.gd" id="7_8h3np"]
 [ext_resource type="Script" path="res://Scenes/Test environment/close_menu.gd" id="8_ewnuw"]
+[ext_resource type="Script" path="res://Scenes/Test environment/sfx.gd" id="8_pnov8"]
+[ext_resource type="Script" path="res://Scenes/Test environment/bgm.gd" id="9_38u36"]
+[ext_resource type="Script" path="res://Scenes/Test environment/chat_button.gd" id="9_f3qo8"]
+[ext_resource type="Texture2D" uid="uid://b2xectx8jppn" path="res://Assets/Misc/Icon.png" id="9_qv46a"]
+[ext_resource type="PackedScene" uid="uid://dgbv7r0yrg4yk" path="res://GD-SyncTemplates/TextChat/text_chat.tscn" id="10_lowi2"]
+[ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="11_aaxrk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0huw8"]
 bg_color = Color(0, 0, 0, 0.780392)
@@ -90,6 +97,8 @@ _data = {
 "RESET": SubResource("Animation_ta0kb")
 }
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_5dc4u"]
+
 [node name="TouchControl" type="CanvasLayer"]
 
 [node name="Menu_Button" type="Button" parent="."]
@@ -120,7 +129,8 @@ texture_normal = ExtResource("3_uwd2d")
 action = "Sprint"
 
 [node name="Virtual Joystick" parent="." instance=ExtResource("1_p5xjg")]
-offset_top = -300.0
+offset_top = -556.0
+offset_right = 556.0
 offset_bottom = 0.0
 
 [node name="Menu" type="Control" parent="."]
@@ -199,8 +209,12 @@ theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
 
-[node name="HSlider" type="HSlider" parent="Menu/Panel/VBoxContainer/MasterVolumeContainer"]
+[node name="Master" type="HSlider" parent="Menu/Panel/VBoxContainer/MasterVolumeContainer"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("7_8h3np")
+bus_name = "Master"
 
 [node name="LabelContainer2" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
 layout_mode = 2
@@ -218,8 +232,12 @@ theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
 
-[node name="HSlider" type="HSlider" parent="Menu/Panel/VBoxContainer/SFXContainer"]
+[node name="SFX" type="HSlider" parent="Menu/Panel/VBoxContainer/SFXContainer"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("8_pnov8")
+bus_name = "SFX"
 
 [node name="LabelContainer3" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
 layout_mode = 2
@@ -237,8 +255,12 @@ theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
 
-[node name="HSlider" type="HSlider" parent="Menu/Panel/VBoxContainer/MusicContainer"]
+[node name="BGM" type="HSlider" parent="Menu/Panel/VBoxContainer/MusicContainer"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("9_38u36")
+bus_name = "BGM"
 
 [node name="LabelContainer4" type="MarginContainer" parent="Menu/Panel/VBoxContainer"]
 layout_mode = 2
@@ -279,6 +301,49 @@ libraries = {
 "": SubResource("AnimationLibrary_3m78f")
 }
 
+[node name="Chat Button" type="Button" parent="."]
+offset_left = 1470.0
+offset_top = 42.0
+offset_right = 1570.0
+offset_bottom = 140.0
+theme = ExtResource("5_0s0xb")
+toggle_mode = true
+action_mode = 0
+script = ExtResource("9_f3qo8")
+
+[node name="TextureRect" type="TextureRect" parent="Chat Button"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 20.0
+offset_right = 82.0
+offset_bottom = 83.0
+texture = ExtResource("9_qv46a")
+expand_mode = 1
+
+[node name="TextChat" parent="." instance=ExtResource("10_lowi2")]
+offset_top = 3.0
+offset_right = -1480.0
+offset_bottom = -597.0
+open_action_name = "ui_accept"
+cancel_action_name = "ui_cancel"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="TextChat"]
+modulate = Color(1, 1, 1, 0)
+top_level = true
+scale = Vector2(439, 412)
+texture_normal = SubResource("CanvasTexture_5dc4u")
+action = "ui_accept"
+
+[node name="PanelContainer" parent="TextChat" index="1"]
+theme = ExtResource("5_0s0xb")
+
+[node name="TemplateMessage" parent="TextChat/PanelContainer/VBoxContainer/ScrollContainer/MessageContainer" index="0"]
+theme_override_fonts/normal_font = ExtResource("11_aaxrk")
+theme_override_font_sizes/normal_font_size = 25
+
 [connection signal="pressed" from="Menu_Button" to="Menu_Button" method="_on_pressed"]
 [connection signal="pressed" from="Menu/Panel/VBoxContainer/Quit Container/Quit" to="Menu/Panel/VBoxContainer/Quit Container/Quit" method="_on_pressed"]
 [connection signal="pressed" from="Menu/Panel/VBoxContainer/Quit Container2/Close Menu" to="Menu/Panel/VBoxContainer/Quit Container2/Close Menu" method="_on_pressed"]
+[connection signal="toggled" from="Chat Button" to="Chat Button" method="_on_toggled"]
+
+[editable path="TextChat"]

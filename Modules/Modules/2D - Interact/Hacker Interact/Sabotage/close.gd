@@ -1,6 +1,6 @@
 extends Button
 
-@onready var parent: CanvasLayer = $"../../../../../../Developer"
+@onready var parent: CanvasLayer = $"../../../../.."
 
 func _on_pressed() -> void:
 	%SabotagePanelAnim.play("Close_Panel")

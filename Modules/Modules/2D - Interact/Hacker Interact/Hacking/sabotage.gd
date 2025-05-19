@@ -4,7 +4,6 @@ extends Button
 
 @onready var Main: PanelContainer = $"../../../.."
 @onready var HackScreen: CanvasLayer = $"../../../../.."
-@onready var health_bar: ProgressBar = $"../../../../../../../CanvasLayer/HealthBar"
 @onready var button: Button = $"."
 
 @onready var cooldowntimer: Timer = $CooldownTimer

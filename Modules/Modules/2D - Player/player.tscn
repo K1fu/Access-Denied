@@ -622,3 +622,5 @@ position = Vector2(-2, -13)
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_tbgnf")
+max_distance = 700.0
+bus = &"SFX"
