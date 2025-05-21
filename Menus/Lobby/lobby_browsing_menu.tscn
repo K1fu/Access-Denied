@@ -128,7 +128,7 @@ text = "Player Limit"
 [node name="PlayerLimit" type="SpinBox" parent="LobbyCreator/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-value = 4.0
+value = 10.0
 suffix = "players"
 
 [node name="Spacer3" type="Control" parent="LobbyCreator/VBoxContainer/VBoxContainer"]

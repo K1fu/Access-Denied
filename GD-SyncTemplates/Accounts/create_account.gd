@@ -14,8 +14,6 @@ signal account_creation_failed(email, username, password, response_code)
 @onready var toggle_password_visibility : TextureButton = $Izopanel/Password/ToggleVisibility
 @onready var toggle_password2_visibility : TextureButton = $Izopanel/Password2/ToggleVisibility
 
-
-
 @export var load_scene : PackedScene
 
 var busy : bool = false
