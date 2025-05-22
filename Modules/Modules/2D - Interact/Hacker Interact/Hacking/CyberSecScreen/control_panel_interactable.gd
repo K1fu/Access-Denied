@@ -19,7 +19,7 @@ func _crewmate_interact():
 func Dev_on_interact():
 	print("Developer Interacted")
 	%TabAnimation.play("Open tab")
-	%Update.download(0)
+	%Update._ready()
 	DeveloperPanel.layer = 128
 	DeveloperPanel.visible = true
 

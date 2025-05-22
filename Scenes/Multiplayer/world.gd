@@ -68,14 +68,6 @@ func _ready() -> void:
 	if health_bar:
 		health_bar.health_reached_max.connect(_on_health_reached_max)
 
-	# Periodic hackables update
-	var t = Timer.new()
-	t.wait_time = 1
-	t.one_shot = false
-	t.autostart = true
-	add_child(t)
-	t.timeout.connect(Callable(self, "send_hackables"))
-
 func disconnected() -> void:
 	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 
@@ -227,6 +219,7 @@ func attempt_hack(target_id: int) -> void:
 		GDSync.sync_var(player, "is_hackable")
 		print(">>" + GDSync.get_player_data(target_id, "Username", "Unknown") + " [" + player.role + "] is now hackable")
 		print("──────────────────────")
+		GDSync.call_func(Callable(self, "send_hackables"))
 
 func revoke_hackable(target_id: int) -> void:
 	print(">>revoke_hackable called!")
@@ -236,6 +229,7 @@ func revoke_hackable(target_id: int) -> void:
 		GDSync.sync_var(player, "is_hackable")
 		print("Player %d %s is not hackable" % [target_id, GDSync.get_player_data(target_id, "Username", "Unknown")])
 		print("──────────────────────")
+		GDSync.call_func(Callable(self, "send_hackables"))
 
 func send_hackables() -> void:
 	var list: Array = []
@@ -300,7 +294,7 @@ func execute_phishing_attack(target_id: int) -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var chance = rng.randi_range(1, 100)
-	if chance <= 20:
+	if chance <= 10:
 		var node2 = get_node_or_null(str(target_id))
 		if node2:
 			node2.queue_free()

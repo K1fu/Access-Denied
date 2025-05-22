@@ -55,6 +55,13 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guib2"]
+bg_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [sub_resource type="LabelSettings" id="LabelSettings_5kdpk"]
 font_size = 41
 
@@ -117,13 +124,6 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.145098, 0.588235, 0.745098, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guib2"]
-bg_color = Color(0.145098, 0.588235, 0.745098, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -859,18 +859,19 @@ cooldownTime = 30.0
 one_shot = true
 
 [node name="cooldown_container" type="PanelContainer" parent="DeveloperTaskArea/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button"]
-visible = false
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guib2")
 
 [node name="Label" type="Label" parent="DeveloperTaskArea/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/Dev_Button/cooldown_container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4gx8b")
 theme_override_font_sizes/font_size = 50
 label_settings = SubResource("LabelSettings_5kdpk")
 horizontal_alignment = 1

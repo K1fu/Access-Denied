@@ -1,4 +1,20 @@
-[gd_scene format=3 uid="uid://dcuhgr8g30qbt"]
+[gd_scene load_steps=8 format=3 uid="uid://dcuhgr8g30qbt"]
+
+[ext_resource type="FontFile" uid="uid://dpr88u44817be" path="res://Assets/fonts/Modenine-2OPd.ttf" id="1_y571k"]
+[ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="2_qatp5"]
+[ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/hack_chance.gd" id="3_bliu6"]
+[ext_resource type="FontFile" uid="uid://cwxdpt2oc7rhw" path="res://Assets/Modenine-2OPd.ttf" id="4_w00cs"]
+[ext_resource type="Script" path="res://Modules/Modules/2D - Interact/Hacker Interact/Hacking/CyberSecScreen/hack_guarantee.gd" id="5_7gink"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcxwj"]
+bg_color = Color(0.145098, 0.588235, 0.745098, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_kcsai"]
+font_size = 41
 
 [node name="Hackables" type="HBoxContainer"]
 offset_top = 489.0
@@ -12,6 +28,7 @@ size_flags_horizontal = 3
 [node name="Username" type="Label" parent="UsernameBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_y571k")
 theme_override_font_sizes/font_size = 20
 text = "Username"
 clip_text = true
@@ -23,7 +40,32 @@ layout_mode = 2
 [node name="HackChance" type="Button" parent="HackChanceBox"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+theme = ExtResource("2_qatp5")
 text = "Phishing"
+script = ExtResource("3_bliu6")
+cooldownTime = 20.0
+
+[node name="CooldownTimer" type="Timer" parent="HackChanceBox/HackChance"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="HackChanceBox/HackChance"]
+visible = false
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pcxwj")
+
+[node name="Label" type="Label" parent="HackChanceBox/HackChance/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_w00cs")
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_kcsai")
+horizontal_alignment = 1
 
 [node name="HackGuaranteeBox" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(200, 0)
@@ -32,4 +74,33 @@ layout_mode = 2
 [node name="HackGuarantee" type="Button" parent="HackGuaranteeBox"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+theme = ExtResource("2_qatp5")
 text = "Ddos Attack"
+script = ExtResource("5_7gink")
+cooldownTime = 40.0
+
+[node name="CooldownTimer" type="Timer" parent="HackGuaranteeBox/HackGuarantee"]
+one_shot = true
+
+[node name="cooldown_container" type="PanelContainer" parent="HackGuaranteeBox/HackGuarantee"]
+self_modulate = Color(0.145098, 0.588235, 0.745098, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pcxwj")
+
+[node name="Label" type="Label" parent="HackGuaranteeBox/HackGuarantee/cooldown_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_w00cs")
+theme_override_font_sizes/font_size = 50
+label_settings = SubResource("LabelSettings_kcsai")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="HackChanceBox/HackChance" to="HackChanceBox/HackChance" method="_on_pressed"]
+[connection signal="timeout" from="HackChanceBox/HackChance/CooldownTimer" to="HackChanceBox/HackChance" method="_on_cooldown_timer_timeout"]
+[connection signal="pressed" from="HackGuaranteeBox/HackGuarantee" to="HackGuaranteeBox/HackGuarantee" method="_on_pressed"]
+[connection signal="timeout" from="HackGuaranteeBox/HackGuarantee/CooldownTimer" to="HackGuaranteeBox/HackGuarantee" method="_on_cooldown_timer_timeout"]
